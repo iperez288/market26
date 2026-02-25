@@ -1,0 +1,23 @@
+------------------------------------------------------------------------------------------------------------------------
+
+[2026-02-25 16:22:16 #1 store] 
+Database 'C:\Users\Gaizka\eclipse-workspace\Market26\src\main\resources\products.temp' is opened by 672@DESKTOP-EFGPFA0
+
+[2026-02-25 16:22:16 #2 type.registry] 
+New type domain.Seller
+
+[2026-02-25 16:22:16 #3 type] 
+Type domain.Seller is not enhanced.
+
+[2026-02-25 16:22:16 #4 type.registry] 
+New type domain.Sale
+
+[2026-02-25 16:22:16 #5 type] 
+Type domain.Sale is not enhanced.
+
+[2026-02-25 16:22:16 #6 type.registry] 
+New type java.util.ArrayList<java.lang.Object>
+
+[2026-02-25 16:22:16 #7 type.registry] 
+New type java.util.ArrayList<domain.Sale>
+
