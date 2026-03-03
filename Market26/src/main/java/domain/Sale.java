@@ -3,6 +3,7 @@ package domain;
 import java.awt.image.BufferedImage;
 import java.io.*;
 import java.util.Date;
+import java.util.List;
 
 import javax.imageio.ImageIO;
 import javax.persistence.*;
@@ -28,6 +29,7 @@ public class Sale implements Serializable {
 	private Date pubDate;
 	private String fileName;
 	
+	private List<ProposedSale> proposedSales;
 	private Seller seller;  
 	
 	public Sale(){

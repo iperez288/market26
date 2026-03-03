@@ -1523,7 +1523,7 @@
 													"top": 239,
 													"width": 106.87255859375,
 													"height": 13,
-													"text": "ProposeSale"
+													"text": "ProposedSale"
 												},
 												{
 													"_type": "LabelView",
@@ -2309,7 +2309,8 @@
 									"_parent": {
 										"$ref": "AAAAAAGcqJsr1VEWsfg="
 									},
-									"name": "saleNumber"
+									"name": "saleNumber",
+									"type": ""
 								},
 								{
 									"_type": "UMLAttribute",
@@ -2317,7 +2318,8 @@
 									"_parent": {
 										"$ref": "AAAAAAGcqJsr1VEWsfg="
 									},
-									"name": "title"
+									"name": "title",
+									"type": ""
 								},
 								{
 									"_type": "UMLAttribute",
@@ -2325,7 +2327,8 @@
 									"_parent": {
 										"$ref": "AAAAAAGcqJsr1VEWsfg="
 									},
-									"name": "description"
+									"name": "description",
+									"type": ""
 								},
 								{
 									"_type": "UMLAttribute",
@@ -2333,7 +2336,8 @@
 									"_parent": {
 										"$ref": "AAAAAAGcqJsr1VEWsfg="
 									},
-									"name": "status"
+									"name": "status",
+									"type": ""
 								},
 								{
 									"_type": "UMLAttribute",
@@ -2350,7 +2354,8 @@
 									"_parent": {
 										"$ref": "AAAAAAGcqJsr1VEWsfg="
 									},
-									"name": "price"
+									"name": "price",
+									"type": ""
 								},
 								{
 									"_type": "UMLAttribute",
@@ -2358,7 +2363,8 @@
 									"_parent": {
 										"$ref": "AAAAAAGcqJsr1VEWsfg="
 									},
-									"name": "pubDate"
+									"name": "pubDate",
+									"type": ""
 								},
 								{
 									"_type": "UMLAttribute",
@@ -2366,7 +2372,8 @@
 									"_parent": {
 										"$ref": "AAAAAAGcqJsr1VEWsfg="
 									},
-									"name": "fileName"
+									"name": "fileName",
+									"type": ""
 								}
 							]
 						},
@@ -2384,7 +2391,8 @@
 									"_parent": {
 										"$ref": "AAAAAAGcqJ2a+lFnHt4="
 									},
-									"name": "name"
+									"name": "name",
+									"type": ""
 								},
 								{
 									"_type": "UMLAttribute",
@@ -2392,7 +2400,8 @@
 									"_parent": {
 										"$ref": "AAAAAAGcqJ2a+lFnHt4="
 									},
-									"name": "password"
+									"name": "password",
+									"type": ""
 								},
 								{
 									"_type": "UMLAttribute",
@@ -2400,7 +2409,8 @@
 									"_parent": {
 										"$ref": "AAAAAAGcqJ2a+lFnHt4="
 									},
-									"name": "email"
+									"name": "email",
+									"type": ""
 								}
 							]
 						},
@@ -2433,7 +2443,8 @@
 									"_parent": {
 										"$ref": "AAAAAAGcqJ5lYFI7114="
 									},
-									"name": "saldo"
+									"name": "saldo",
+									"type": ""
 								}
 							]
 						},
@@ -2510,7 +2521,7 @@
 							"_parent": {
 								"$ref": "AAAAAAGcqJd4gEd928Y="
 							},
-							"name": "ProposeSale",
+							"name": "ProposedSale",
 							"ownedElements": [
 								{
 									"_type": "UMLAssociation",
@@ -2551,7 +2562,8 @@
 									"_parent": {
 										"$ref": "AAAAAAGcqK3BMGQx010="
 									},
-									"name": "cantidadOfrecida"
+									"name": "cantidadOfrecida",
+									"type": ""
 								}
 							]
 						}
@@ -3224,7 +3236,7 @@
 											"parentStyle": true,
 											"left": 275.5,
 											"top": 453,
-											"width": 94.53173828125,
+											"width": 94,
 											"height": 25,
 											"stereotypeLabel": {
 												"$ref": "AAAAAAGclVp/nIUIgfE="
@@ -3434,7 +3446,7 @@
 											"parentStyle": true,
 											"left": 105,
 											"top": 453,
-											"width": 81.5380859375,
+											"width": 81,
 											"height": 25,
 											"stereotypeLabel": {
 												"$ref": "AAAAAAGclVqh+IU2bkY="
@@ -4404,7 +4416,7 @@
 											"parentStyle": true,
 											"left": 381,
 											"top": 197,
-											"width": 100.30810546875,
+											"width": 99,
 											"height": 25,
 											"stereotypeLabel": {
 												"$ref": "AAAAAAGclVu2447UhUc="
@@ -4614,7 +4626,7 @@
 											"parentStyle": true,
 											"left": 175,
 											"top": 197,
-											"width": 72.1435546875,
+											"width": 72,
 											"height": 25,
 											"stereotypeLabel": {
 												"$ref": "AAAAAAGclVvXGo9WCfQ="
@@ -4997,9 +5009,9 @@
 													"font": "Arial;13;1",
 													"parentStyle": true,
 													"left": 579.5,
-													"top": 214.5,
+													"top": 221,
 													"width": 136,
-													"height": 26,
+													"height": 13,
 													"text": "Ver ofertas Aceptadas",
 													"wordWrap": true
 												},
@@ -5036,9 +5048,9 @@
 											"font": "Arial;13;0",
 											"parentStyle": true,
 											"left": 574.5,
-											"top": 207.5,
+											"top": 214,
 											"width": 146,
-											"height": 38,
+											"height": 25,
 											"stereotypeLabel": {
 												"$ref": "AAAAAAGclVxL0ZDp/qc="
 											},
@@ -5248,7 +5260,7 @@
 											"parentStyle": true,
 											"left": 609.5,
 											"top": 461,
-											"width": 83.6962890625,
+											"width": 83,
 											"height": 25,
 											"stereotypeLabel": {
 												"$ref": "AAAAAAGclVyJz5FrjJo="

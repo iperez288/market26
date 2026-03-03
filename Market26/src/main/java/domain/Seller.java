@@ -14,7 +14,7 @@ import javax.xml.bind.annotation.XmlIDREF;
 
 @XmlAccessorType(XmlAccessType.FIELD)
 @Entity
-public class Seller implements Serializable {
+public class Seller extends Buyer implements Serializable {
 	
 	/**
 	 * 

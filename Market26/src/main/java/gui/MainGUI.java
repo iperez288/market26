@@ -19,6 +19,9 @@ import java.util.ResourceBundle;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.GridBagLayout;
+import java.awt.GridBagConstraints;
+import java.awt.Insets;
 
 
 public class MainGUI extends JFrame {
@@ -45,6 +48,11 @@ public class MainGUI extends JFrame {
 	private JRadioButton rdbtnNewRadioButton_2;
 	private JPanel panel;
 	private final ButtonGroup buttonGroup = new ButtonGroup();
+	private JButton btnLogin;
+	private JButton btnRegister;
+	private JPanel user_panel;
+	private JPanel seller_panel;
+	private JButton btnJbuttonviewacceptedsales;
 	
 	/**
 	 * This is the default constructor
@@ -54,11 +62,8 @@ public class MainGUI extends JFrame {
 
 		this.sellerMail=mail;
 		
-		this.setSize(495, 290);
-		jLabelSelectOption = new JLabel(ResourceBundle.getBundle("Etiquetas").getString("MainGUI.SelectOption"));
-		jLabelSelectOption.setFont(new Font("Tahoma", Font.BOLD, 13));
-		jLabelSelectOption.setForeground(Color.BLACK);
-		jLabelSelectOption.setHorizontalAlignment(SwingConstants.CENTER);
+		this.setSize(495, 495
+				);
 		
 		rdbtnNewRadioButton = new JRadioButton("English");
 		rdbtnNewRadioButton.addActionListener(new ActionListener() {
@@ -90,15 +95,6 @@ public class MainGUI extends JFrame {
 		panel.add(rdbtnNewRadioButton_2);
 		panel.add(rdbtnNewRadioButton);
 		
-		jButtonCreateQuery = new JButton();
-		jButtonCreateQuery.setText(ResourceBundle.getBundle("Etiquetas").getString("MainGUI.CreateSale"));
-		jButtonCreateQuery.addActionListener(new java.awt.event.ActionListener() {
-			public void actionPerformed(java.awt.event.ActionEvent e) {
-				JFrame a = new CreateSaleGUI(sellerMail);
-				a.setVisible(true);
-			}
-		});
-		
 		jButtonQueryQueries = new JButton();
 		jButtonQueryQueries.setText(ResourceBundle.getBundle("Etiquetas").getString("MainGUI.QuerySales"));
 		jButtonQueryQueries.addActionListener(new java.awt.event.ActionListener() {
@@ -110,9 +106,45 @@ public class MainGUI extends JFrame {
 		});
 		
 		jContentPane = new JPanel();
-		jContentPane.setLayout(new GridLayout(4, 1, 0, 0));
+		jContentPane.setLayout(new GridLayout(5, 1, 0, 0));
+		
+		user_panel = new JPanel();
+		jContentPane.add(user_panel);
+		user_panel.setLayout(new GridLayout(0, 2, 0, 0));
+		
+		btnRegister = new JButton("Registrarse");
+		user_panel.add(btnRegister);
+		btnRegister.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+			}
+		});
+		
+		btnLogin = new JButton("Iniciar sesión");
+		user_panel.add(btnLogin);
+		
+		jLabelSelectOption = new JLabel(ResourceBundle.getBundle("Etiquetas").getString("MainGUI.SelectOption"));
+		jLabelSelectOption.setFont(new Font("Tahoma", Font.BOLD, 13));
+		jLabelSelectOption.setForeground(Color.BLACK);
+		jLabelSelectOption.setHorizontalAlignment(SwingConstants.CENTER);
 		jContentPane.add(jLabelSelectOption);
-		jContentPane.add(jButtonCreateQuery);
+		
+		seller_panel = new JPanel();
+		jContentPane.add(seller_panel);
+		seller_panel.setLayout(new GridLayout(0, 2, 0, 0));
+		
+		jButtonCreateQuery = new JButton();
+		seller_panel.add(jButtonCreateQuery);
+		jButtonCreateQuery.setText(ResourceBundle.getBundle("Etiquetas").getString("MainGUI.CreateSale"));
+		
+		btnJbuttonviewacceptedsales = new JButton("Ver ofertas aceptadas"); //$NON-NLS-1$ //$NON-NLS-2$
+		seller_panel.add(btnJbuttonviewacceptedsales);
+		
+		jButtonCreateQuery.addActionListener(new java.awt.event.ActionListener() {
+			public void actionPerformed(java.awt.event.ActionEvent e) {
+				JFrame a = new CreateSaleGUI(sellerMail);
+				a.setVisible(true);
+			}
+		});
 		jContentPane.add(jButtonQueryQueries);
 		jContentPane.add(panel);
 		
