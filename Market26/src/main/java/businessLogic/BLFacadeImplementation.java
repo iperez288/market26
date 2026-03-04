@@ -7,7 +7,10 @@ import javax.jws.WebMethod;
 import javax.jws.WebService;
 
 import dataAccess.DataAccess;
+import domain.Buyer;
 import domain.Sale;
+import domain.Seller;
+import domain.User;
 import exceptions.FileNotUploadedException;
 import exceptions.MustBeLaterThanTodayException;
 import exceptions.SaleAlreadyExistException;
@@ -28,14 +31,19 @@ public class BLFacadeImplementation  implements BLFacade {
 		private static final String basePath="src/main/resources/images/";
 	DataAccess dbManager;
 
+	User usuario; //Al iniciar el programa es null, porque no se ha asignado un rol al usuario. Posteriormente, tomará valor de Buyer o Seller.
+	
+	
 	public BLFacadeImplementation()  {		
 		System.out.println("Creating BLFacadeImplementation instance");
-		dbManager=new DataAccess();		
+		dbManager=new DataAccess();	
+		usuario=null;
 	}
 	
     public BLFacadeImplementation(DataAccess da)  {
 		System.out.println("Creating BLFacadeImplementation instance with DataAccess parameter");
-		dbManager=da;		
+		dbManager=da;
+		usuario=null;
 	}
     
 
@@ -105,6 +113,37 @@ public class BLFacadeImplementation  implements BLFacade {
             e.printStackTrace();
         }
         return null;
+    }
+    
+    public boolean createAccount(String email, String name, String pass, boolean seller) {
+    	
+    	
+    	boolean res;
+    	User newUser;
+    	if(seller) 
+    		newUser=new Seller(email,name,pass);
+    	else
+    		newUser=new Buyer(email,name,pass);
+    	dbManager.open();
+    	res = dbManager.addUser(newUser);
+    	dbManager.close();
+    	
+    	return res;
+    }
+    
+    public boolean makeLogin(String email, String password) {
+    	
+    	boolean exito = false;
+    	dbManager.open();
+    	User u = dbManager.browseUser(email);
+    	dbManager.close();
+    	if(u!=null) {
+    		exito = u.checkLogin(password);
+    	}
+    		
+    		
+    	return exito;
+    	
     }
 
     

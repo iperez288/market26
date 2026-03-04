@@ -20,10 +20,10 @@ public class Seller extends Buyer implements Serializable {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	@XmlID
-	@Id 
-	private String email;
-	private String name; 
+	
+	//private String email;
+	//private String name; 
+	
 	@XmlIDREF
 	@OneToMany(fetch=FetchType.EAGER, cascade=CascadeType.PERSIST)
 	private List<Sale> sales=new ArrayList<Sale>();
@@ -32,14 +32,16 @@ public class Seller extends Buyer implements Serializable {
 		super();
 	}
 
-	public Seller(String email, String name) {
-		this.email = email;
-		this.name = name;
+	public Seller(String email, String name, String password) {
+		this.setEmail(email);
+		this.setName(name);
+		this.setPassword(password);
+		this.sales=new ArrayList<Sale>();
 	}
 	
 	
-	public String getEmail() {
-		return email;
+	/*public String getEmail() {
+		return getEmail();
 	}
 
 	public void setEmail(String email) {
@@ -54,11 +56,11 @@ public class Seller extends Buyer implements Serializable {
 		this.name = name;
 	}
 	
-
+*/
 	
 	
 	public String toString(){
-		return email+";"+name+sales;
+		return getEmail()+";"+getName()+sales;
 	}
 	
 	/**
@@ -71,9 +73,6 @@ public class Seller extends Buyer implements Serializable {
 	 * @param publicationDate
 	 * @return Sale
 	 */
-	
-	
-
 
 	public Sale addSale(String title, String description, int status, float price,  Date pubDate, File file)  {
 		
@@ -105,7 +104,7 @@ public class Seller extends Buyer implements Serializable {
 		if (getClass() != obj.getClass())
 			return false;
 		Seller other = (Seller) obj;
-		if (email != other.email)
+		if (getEmail() != other.getEmail())
 			return false;
 		return true;
 	}

@@ -20,6 +20,8 @@ import javax.persistence.TypedQuery;
 import configuration.ConfigXML;
 import configuration.UtilDate;
 import domain.Seller;
+import domain.User;
+import domain.Buyer;
 import domain.Sale;
 import exceptions.FileNotUploadedException;
 import exceptions.MustBeLaterThanTodayException;
@@ -80,31 +82,32 @@ public class DataAccess  {
 		try { 
 	       
 		    //Create sellers 
-			Seller seller1=new Seller("seller1@gmail.com","Aitor Fernandez");
-			Seller seller2=new Seller("seller22@gmail.com","Ane Gaztañaga");
-			Seller seller3=new Seller("seller3@gmail.com","Test Seller");
-
+			Seller user1=new Seller("seller1@gmail.com","Aitor Fernandez","1234");
+			Seller user2=new Seller("seller22@gmail.com","Ane Gaztañaga","2345");
+			Seller user3=new Seller("seller3@gmail.com","Test Seller","0212");
+			
+			User user4= new Buyer("buyer1@gmail.com","Test Seller","0212");
 			
 			//Create products
 			Date today = UtilDate.trim(new Date());
 		
 			
-			seller1.addSale("futbol baloia", "oso polita, gutxi erabilita", 2, 10,  today, null);
-			seller1.addSale("salomon mendiko botak", "44 zenbakia, 3 ateraldi",2, 20,  today, null);
-			seller1.addSale("samsung 42\" telebista", "berria, erabili gabe", 2, 175,  today, null);
+			user1.addSale("futbol baloia", "oso polita, gutxi erabilita", 2, 10,  today, null);
+			user1.addSale("salomon mendiko botak", "44 zenbakia, 3 ateraldi",2, 20,  today, null);
+			user1.addSale("samsung 42\" telebista", "berria, erabili gabe", 2, 175,  today, null);
 
 
-			seller2.addSale("imac 27", "7 urte, dena ondo dabil", 1, 200,today, null);
-			seller2.addSale("iphone 17", "oso gutxi erabilita", 2, 400, today, null);
-			seller2.addSale("orbea mendiko bizikleta", "29\" 10 urte, mantenua behar du", 3,225, today, null);
-			seller2.addSale("polar kilor erlojua", "Vantage M, ondo dago", 3, 30, today, null);
+			user2.addSale("imac 27", "7 urte, dena ondo dabil", 1, 200,today, null);
+			user2.addSale("iphone 17", "oso gutxi erabilita", 2, 400, today, null);
+			user2.addSale("orbea mendiko bizikleta", "29\" 10 urte, mantenua behar du", 3,225, today, null);
+			user2.addSale("polar kilor erlojua", "Vantage M, ondo dago", 3, 30, today, null);
 
-			seller3.addSale("sukaldeko mahaia", "1.8*0.8, 4 aulkiekin. Prezio finkoa", 3,45, today, null);
+			user3.addSale("sukaldeko mahaia", "1.8*0.8, 4 aulkiekin. Prezio finkoa", 3,45, today, null);
 
 			
-			db.persist(seller1);
-			db.persist(seller2);
-			db.persist(seller3);
+			db.persist(user1);
+			db.persist(user2);
+			db.persist(user3);
 
 	
 			db.getTransaction().commit();
@@ -255,5 +258,25 @@ public void open(){
 		db.close();
 		System.out.println("DataAcess closed");
 	}
+	
+	public boolean addUser(User u) {
+		boolean res = false;
+		String email = u.getEmail();
+		
+		if(db.find(User.class, email)==null) {
+			db.getTransaction().begin();
+			db.persist(u);
+			db.getTransaction().commit();
+			res=true;
+		}
+	return res;
+		
+	}
+	
+	public User browseUser(String email) {
+		User u= db.find(User.class,email);
+		return u;
+	}
+	
 	
 }

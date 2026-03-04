@@ -63,7 +63,10 @@ public interface BLFacade  {
 	
 		
 	@WebMethod public Image downloadImage(String imageName);
-	
 
+
+	public boolean createAccount(String email, String name, String pass, boolean seller);
+	
+	 public boolean makeLogin(String email, String password);
 	
 }

@@ -2,19 +2,23 @@ package domain;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlID;
 
 @XmlAccessorType(XmlAccessType.FIELD)
 @Entity
+@Inheritance(strategy = InheritanceType.JOINED)
 public class User{
 
-@XmlID	
+@XmlID
 @Id
-private String name;
 private String email;
+private String name;
 private String password;
+
 public String getName() {
 	return name;
 }
@@ -34,6 +38,12 @@ public void setPassword(String password) {
 	this.password = password;
 }
 
+public String toString(){
+	return email+";"+name;
+}
 
+public boolean checkLogin(String password) {
+	return this.password.equals(password);
+}
 
 }

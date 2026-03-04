@@ -116,10 +116,21 @@ public class MainGUI extends JFrame {
 		user_panel.add(btnRegister);
 		btnRegister.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				JFrame a = new RegisterGUI();
+
+				a.setVisible(true);
+				
 			}
 		});
 		
 		btnLogin = new JButton("Iniciar sesión");
+		btnLogin.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				JFrame a = new LoginGUI();
+
+				a.setVisible(true);
+			}
+		});
 		user_panel.add(btnLogin);
 		
 		jLabelSelectOption = new JLabel(ResourceBundle.getBundle("Etiquetas").getString("MainGUI.SelectOption"));
