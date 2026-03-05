@@ -87,10 +87,12 @@ public class DataAccess  {
 			Seller user3=new Seller("seller3@gmail.com","Test Seller","0212");
 			
 			User user4= new Buyer("buyer1@gmail.com","Test Seller","0212");
+			User user5 =new Buyer("buyer2@gmail.com","Test Seller","2222");
 			
 			//Create products
 			Date today = UtilDate.trim(new Date());
 		
+			
 			
 			user1.addSale("futbol baloia", "oso polita, gutxi erabilita", 2, 10,  today, null);
 			user1.addSale("salomon mendiko botak", "44 zenbakia, 3 ateraldi",2, 20,  today, null);
@@ -103,7 +105,7 @@ public class DataAccess  {
 			user2.addSale("polar kilor erlojua", "Vantage M, ondo dago", 3, 30, today, null);
 
 			user3.addSale("sukaldeko mahaia", "1.8*0.8, 4 aulkiekin. Prezio finkoa", 3,45, today, null);
-
+			
 			
 			db.persist(user1);
 			db.persist(user2);

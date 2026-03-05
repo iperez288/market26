@@ -16,6 +16,7 @@ import javax.swing.JRadioButton;
 import javax.swing.ButtonGroup;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.util.ResourceBundle;
 import java.awt.event.ActionEvent;
 import javax.swing.JTextArea;
 
@@ -36,7 +37,7 @@ public class RegisterGUI extends JFrame {
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
+	/*public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
@@ -47,12 +48,12 @@ public class RegisterGUI extends JFrame {
 				}
 			}
 		});
-	}
+	}*/
 
 	/**
 	 * Create the frame.
 	 */
-	public RegisterGUI() {
+	public RegisterGUI(MainGUI parent) {
 	
 		setBounds(100, 100, 460, 379);
 		contentPane = new JPanel();
@@ -114,13 +115,21 @@ public class RegisterGUI extends JFrame {
 						textArea.setText("Seleccione un tipo de usuario.");
 					}
 					else{
-						boolean anadido;
+						int  anadido;
 						boolean seller = rdbtnVendedor.isSelected();
 						anadido=facade.createAccount(email,name,pass,seller);
-						if(!anadido) {
+						if(anadido==0) {
 							textArea.setText("Email ya registrado.");
+							
+							
 						}else {
+							
+							if(anadido==1)parent.setTipoUsuario("Comprador");
+							else parent.setTipoUsuario("Vendedor");						
+								
 							textArea.setText("Registrado con éxito. \nPuedes cerrar esta ventana.");
+							parent.setTitle(ResourceBundle.getBundle("Etiquetas").getString("MainGUI.MainTitle")+ ": "+ facade.getUsuario().getEmail()+" ("+parent.getTipoUsuario()+")");
+							parent.gestionPermisos();
 						}
 					}
 				}

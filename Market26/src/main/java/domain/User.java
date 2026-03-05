@@ -19,6 +19,14 @@ private String email;
 private String name;
 private String password;
 
+public User(String email) {
+	this.email=email;
+}
+
+public User() {
+	super();
+}
+
 public String getName() {
 	return name;
 }

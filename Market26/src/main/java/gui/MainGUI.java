@@ -8,6 +8,7 @@ package gui;
 import javax.swing.*;
 
 import businessLogic.BLFacade;
+import domain.User;
 
 import java.awt.Color;
 import java.awt.Font;
@@ -26,7 +27,8 @@ import java.awt.Insets;
 
 public class MainGUI extends JFrame {
 	
-    private String sellerMail;
+   // private User usuario; //Al iniciar el programa es null, porque no se ha asignado un rol al usuario. Posteriormente, tomará valor de Buyer o Seller.
+    private String tipoUsuario; 
 	private static final long serialVersionUID = 1L;
 
 	private JPanel jContentPane = null;
@@ -38,7 +40,18 @@ public class MainGUI extends JFrame {
 	public static BLFacade getBusinessLogic(){
 		return appFacadeInterface;
 	}
-	 
+		
+
+	public String getTipoUsuario() {
+		return tipoUsuario;
+	}
+
+
+	public void setTipoUsuario(String tipoUsuario) {
+		this.tipoUsuario = tipoUsuario;
+	}
+
+
 	public static void setBussinessLogic (BLFacade facade){
 		appFacadeInterface=facade;
 	}
@@ -52,7 +65,7 @@ public class MainGUI extends JFrame {
 	private JButton btnRegister;
 	private JPanel user_panel;
 	private JPanel seller_panel;
-	private JButton btnJbuttonviewacceptedsales;
+	private JButton jButtonViewAcceptedSales;
 	
 	/**
 	 * This is the default constructor
@@ -60,7 +73,8 @@ public class MainGUI extends JFrame {
 	public MainGUI( String mail) {
 		super();
 
-		this.sellerMail=mail;
+		this.tipoUsuario="xxxxxx";
+		
 		
 		this.setSize(495, 495
 				);
@@ -96,6 +110,7 @@ public class MainGUI extends JFrame {
 		panel.add(rdbtnNewRadioButton);
 		
 		jButtonQueryQueries = new JButton();
+		jButtonQueryQueries.setEnabled(false);
 		jButtonQueryQueries.setText(ResourceBundle.getBundle("Etiquetas").getString("MainGUI.QuerySales"));
 		jButtonQueryQueries.addActionListener(new java.awt.event.ActionListener() {
 			public void actionPerformed(java.awt.event.ActionEvent e) {
@@ -116,7 +131,7 @@ public class MainGUI extends JFrame {
 		user_panel.add(btnRegister);
 		btnRegister.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				JFrame a = new RegisterGUI();
+				JFrame a = new RegisterGUI(MainGUI.this);
 
 				a.setVisible(true);
 				
@@ -126,7 +141,7 @@ public class MainGUI extends JFrame {
 		btnLogin = new JButton("Iniciar sesión");
 		btnLogin.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				JFrame a = new LoginGUI();
+				JFrame a = new LoginGUI(MainGUI.this);
 
 				a.setVisible(true);
 			}
@@ -144,15 +159,17 @@ public class MainGUI extends JFrame {
 		seller_panel.setLayout(new GridLayout(0, 2, 0, 0));
 		
 		jButtonCreateQuery = new JButton();
+		jButtonCreateQuery.setEnabled(false);
 		seller_panel.add(jButtonCreateQuery);
 		jButtonCreateQuery.setText(ResourceBundle.getBundle("Etiquetas").getString("MainGUI.CreateSale"));
 		
-		btnJbuttonviewacceptedsales = new JButton("Ver ofertas aceptadas"); //$NON-NLS-1$ //$NON-NLS-2$
-		seller_panel.add(btnJbuttonviewacceptedsales);
+		jButtonViewAcceptedSales = new JButton("Ver ofertas aceptadas"); //$NON-NLS-1$ //$NON-NLS-2$
+		jButtonViewAcceptedSales.setEnabled(false);
+		seller_panel.add(jButtonViewAcceptedSales);
 		
 		jButtonCreateQuery.addActionListener(new java.awt.event.ActionListener() {
 			public void actionPerformed(java.awt.event.ActionEvent e) {
-				JFrame a = new CreateSaleGUI(sellerMail);
+				JFrame a = new CreateSaleGUI(appFacadeInterface.getUsuario().getEmail());
 				a.setVisible(true);
 			}
 		});
@@ -161,7 +178,7 @@ public class MainGUI extends JFrame {
 		
 		
 		setContentPane(jContentPane);
-		setTitle(ResourceBundle.getBundle("Etiquetas").getString("MainGUI.MainTitle") +": "+sellerMail);
+		setTitle(ResourceBundle.getBundle("Etiquetas").getString("MainGUI.MainTitle") +": "+tipoUsuario);
 		
 		addWindowListener(new WindowAdapter() {
 			@Override
@@ -175,8 +192,24 @@ public class MainGUI extends JFrame {
 		jLabelSelectOption.setText(ResourceBundle.getBundle("Etiquetas").getString("MainGUI.SelectOption"));
 		jButtonQueryQueries.setText(ResourceBundle.getBundle("Etiquetas").getString("MainGUI.QuerySales"));
 		jButtonCreateQuery.setText(ResourceBundle.getBundle("Etiquetas").getString("MainGUI.CreateSale"));
-		this.setTitle(ResourceBundle.getBundle("Etiquetas").getString("MainGUI.MainTitle")+ ": "+sellerMail);
+
+		this.setTitle(ResourceBundle.getBundle("Etiquetas").getString("MainGUI.MainTitle")+ ": "+appFacadeInterface.getUsuario().getEmail() +" ("+tipoUsuario+")");
 	}
+	
+	public void gestionPermisos() {
+		if (tipoUsuario.equals("Comprador")) {
+			this.jButtonQueryQueries.setEnabled(true);
+			this.jButtonCreateQuery.setEnabled(false);
+			this.jButtonViewAcceptedSales.setEnabled(false);
+
+			
+		}else {
+			this.jButtonQueryQueries.setEnabled(true);
+			this.jButtonCreateQuery.setEnabled(true);
+			this.jButtonViewAcceptedSales.setEnabled(true);
+		}
+	}
+
 	
 } // @jve:decl-index=0:visual-constraint="0,0"
 

@@ -5,6 +5,7 @@ import java.util.Date;
 import java.util.List;
 
 import domain.Sale;
+import domain.User;
 import exceptions.FileNotUploadedException;
 import exceptions.MustBeLaterThanTodayException;
 import exceptions.SaleAlreadyExistException;
@@ -21,6 +22,10 @@ import gui.*;
 @WebService
 public interface BLFacade  {
 	  
+	
+	
+	public User getUsuario();
+
 
 	/**
 	 * This method creates/adds a product to a seller
@@ -65,8 +70,8 @@ public interface BLFacade  {
 	@WebMethod public Image downloadImage(String imageName);
 
 
-	public boolean createAccount(String email, String name, String pass, boolean seller);
+	public int createAccount(String email, String name, String pass, boolean seller);
 	
-	 public boolean makeLogin(String email, String password);
+	 public int makeLogin(String email, String password);
 	
 }

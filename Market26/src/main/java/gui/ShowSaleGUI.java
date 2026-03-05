@@ -44,7 +44,7 @@ public class ShowSaleGUI extends JFrame {
 	private JLabel jLabelError = new JLabel();
 	private JLabel statusField=new JLabel();
 	private JFrame thisFrame;
-	private final JButton btnBuy = new JButton(ResourceBundle.getBundle("Etiquetas").getString("ShowSaleGUI.btnBuy.text")); //$NON-NLS-1$ //$NON-NLS-2$
+	private final JButton btnBuy = new JButton("Comoprar"); //$NON-NLS-1$ //$NON-NLS-2$
 	
 	public ShowSaleGUI(Sale sale) { 
 		thisFrame=this; 

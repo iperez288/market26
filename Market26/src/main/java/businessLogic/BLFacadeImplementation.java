@@ -14,6 +14,7 @@ import domain.User;
 import exceptions.FileNotUploadedException;
 import exceptions.MustBeLaterThanTodayException;
 import exceptions.SaleAlreadyExistException;
+import gui.MainGUI;
 
 import java.awt.image.BufferedImage;
 import java.awt.Image;
@@ -32,18 +33,20 @@ public class BLFacadeImplementation  implements BLFacade {
 	DataAccess dbManager;
 
 	User usuario; //Al iniciar el programa es null, porque no se ha asignado un rol al usuario. Posteriormente, tomará valor de Buyer o Seller.
-	
+	//String tipoUsuario;
 	
 	public BLFacadeImplementation()  {		
 		System.out.println("Creating BLFacadeImplementation instance");
 		dbManager=new DataAccess();	
-		usuario=null;
+		usuario=new User("");
+		
 	}
 	
     public BLFacadeImplementation(DataAccess da)  {
 		System.out.println("Creating BLFacadeImplementation instance with DataAccess parameter");
 		dbManager=da;
-		usuario=null;
+		usuario=new User("");
+		
 	}
     
 
@@ -115,37 +118,62 @@ public class BLFacadeImplementation  implements BLFacade {
         return null;
     }
     
-    public boolean createAccount(String email, String name, String pass, boolean seller) {
+    
+    public int createAccount(String email, String name, String pass, boolean seller) {
     	
-    	
-    	boolean res;
+    	int tipo;
+    	int res=0;
     	User newUser;
-    	if(seller) 
+    	
+    	if(seller) {
     		newUser=new Seller(email,name,pass);
-    	else
+    		tipo=2;
+    	}
+    	else {
     		newUser=new Buyer(email,name,pass);
+    		tipo=1;
+    	}
     	dbManager.open();
-    	res = dbManager.addUser(newUser);
+    	boolean anadido = dbManager.addUser(newUser);
     	dbManager.close();
+    	if(anadido) {
+    		usuario=newUser;
+    		res=tipo;
+    	}
     	
     	return res;
     }
     
-    public boolean makeLogin(String email, String password) {
+    //0: no añadido; 1: buyer ; 2:seller
+    public int makeLogin(String email, String password) {
     	
-    	boolean exito = false;
+    	int tipo = 0;
     	dbManager.open();
     	User u = dbManager.browseUser(email);
     	dbManager.close();
     	if(u!=null) {
-    		exito = u.checkLogin(password);
+    		boolean exito = u.checkLogin(password);
+    		if(exito) {
+    			usuario=u;
+    			if (usuario instanceof Seller) {
+    				tipo = 2;
+    			}else {
+    				tipo = 1;
+    			}
+    			
+    		}
     	}
-    		
-    		
-    	return exito;
-    	
+    	return tipo;
     }
 
-    
+	public User getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(User usuario) {
+		this.usuario = usuario;
+	}
+
+
 }
 

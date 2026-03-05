@@ -29,7 +29,7 @@ public class LoginGUI extends JFrame {
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
+	/*public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
@@ -40,12 +40,14 @@ public class LoginGUI extends JFrame {
 				}
 			}
 		});
-	}
+	}*/
 
+	
 	/**
 	 * Create the frame.
 	 */
-	public LoginGUI() {
+	public LoginGUI(MainGUI parent) {
+		
 		setBounds(100, 100, 365, 332);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -69,9 +71,15 @@ public class LoginGUI extends JFrame {
 					
 					textArea.setText("Rellene todo los campos.");
 				}else {
-					boolean correcto = facade.makeLogin(email, pass);
-					if (correcto) {
+					int  tipo = facade.makeLogin(email, pass);
+					if (tipo!=0) {
 						textArea.setText("Ha iniciado sesión correctamente.\nPuede cerrar la ventana.");
+						
+						if(tipo==1) parent.setTipoUsuario("Usuario");
+						else parent.setTipoUsuario("Vendedor");	
+						
+						parent.setTitle(ResourceBundle.getBundle("Etiquetas").getString("MainGUI.MainTitle")+ ": "+ facade.getUsuario().getEmail()+" ("+parent.getTipoUsuario()+")");
+						parent.gestionPermisos();
 					}else {
 						textArea.setText("Usuario o contraseña incorrectos.");
 					}
