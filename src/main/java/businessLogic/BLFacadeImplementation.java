@@ -7,10 +7,15 @@ import javax.jws.WebMethod;
 import javax.jws.WebService;
 
 import dataAccess.DataAccess;
+import domain.Buyer;
+import domain.ProposedSale;
 import domain.Sale;
+import domain.Seller;
+import domain.User;
 import exceptions.FileNotUploadedException;
 import exceptions.MustBeLaterThanTodayException;
 import exceptions.SaleAlreadyExistException;
+import gui.MainGUI;
 
 import java.awt.image.BufferedImage;
 import java.awt.Image;
@@ -28,14 +33,21 @@ public class BLFacadeImplementation  implements BLFacade {
 		private static final String basePath="src/main/resources/images/";
 	DataAccess dbManager;
 
+	User usuario; //Al iniciar el programa es null, porque no se ha asignado un rol al usuario. Posteriormente, tomará valor de Buyer o Seller.
+	//String tipoUsuario;
+	
 	public BLFacadeImplementation()  {		
 		System.out.println("Creating BLFacadeImplementation instance");
-		dbManager=new DataAccess();		
+		dbManager=new DataAccess();	
+		usuario=new User("");
+		
 	}
 	
     public BLFacadeImplementation(DataAccess da)  {
 		System.out.println("Creating BLFacadeImplementation instance with DataAccess parameter");
-		dbManager=da;		
+		dbManager=da;
+		usuario=new User("");
+		
 	}
     
 
@@ -71,6 +83,15 @@ public class BLFacadeImplementation  implements BLFacade {
 			dbManager.close();
 			return rides;
 		}
+		public List<ProposedSale> getProposedSales() {
+			Seller s = (Seller) usuario;
+			
+			dbManager.open();
+			List<ProposedSale>  rides=dbManager.getProposedSales(s);
+			dbManager.close();
+			return rides;
+		}
+		
 	/**
 	    * {@inheritDoc}
 	    */
@@ -106,7 +127,71 @@ public class BLFacadeImplementation  implements BLFacade {
         }
         return null;
     }
-
     
+    
+    public int createAccount(String email, String name, String pass, boolean seller) {
+    	
+    	int tipo;
+    	int res=0;
+    	User newUser;
+    	
+    	if(seller) {
+    		newUser=new Seller(email,name,pass);
+    		tipo=2;
+    	}
+    	else {
+    		newUser=new Buyer(email,name,pass);
+    		tipo=1;
+    	}
+    	dbManager.open();
+    	boolean anadido = dbManager.addUser(newUser);
+    	dbManager.close();
+    	if(anadido) {
+    		usuario=newUser;
+    		res=tipo;
+    	}
+    	
+    	return res;
+    }
+    
+    //0: no añadido; 1: buyer ; 2:seller
+    public int makeLogin(String email, String password) {
+    	
+    	int tipo = 0;
+    	dbManager.open();
+    	User u = dbManager.browseUser(email);
+    	dbManager.close();
+    	if(u!=null) {
+    		boolean exito = u.checkLogin(password);
+    		if(exito) {
+    			usuario=u;
+    			if (usuario instanceof Seller) {
+    				tipo = 2;
+    			}else {
+    				tipo = 1;
+    			}
+    			
+    		}
+    	}
+    	return tipo;
+    }
+
+	public User getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(User usuario) {
+		this.usuario = usuario;
+	}
+
+	public ProposedSale createProposedSale(Sale s, float p) {
+		
+		Buyer b= (Buyer)usuario;
+		dbManager.open();
+		
+		ProposedSale proposal=dbManager.createProposedSale(s.getSaleNumber(), b,p);		
+		dbManager.close();
+		return proposal;	
+	}
 }
 

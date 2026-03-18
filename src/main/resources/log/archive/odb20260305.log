@@ -1,0 +1,1301 @@
+------------------------------------------------------------------------------------------------------------------------
+
+[2026-03-05 10:04:53 #1 store] 
+Database 'C:\Users\kenne\Documentos\Uni\2o Cuatrimestre\IS\It1\market26\Market26\src\main\resources\products.temp' is opened by 40676@Traspié
+
+[2026-03-05 10:04:53 #2 type.registry] 
+New type domain.User
+
+[2026-03-05 10:04:53 #3 type.registry] 
+New type domain.Buyer
+
+[2026-03-05 10:04:53 #4 type.registry] 
+New type domain.Seller
+
+[2026-03-05 10:04:53 #5 type] 
+Type domain.User is not enhanced.
+
+[2026-03-05 10:04:53 #6 type] 
+Type domain.Buyer is not enhanced.
+
+[2026-03-05 10:04:53 #7 type.registry] 
+New type domain.ProposedSale
+
+[2026-03-05 10:04:53 #8 type] 
+Type domain.Seller is not enhanced.
+
+[2026-03-05 10:04:53 #9 type.registry] 
+New type domain.Sale
+
+[2026-03-05 10:04:53 #10 type] 
+Type domain.ProposedSale is not enhanced.
+
+[2026-03-05 10:04:53 #11 type] 
+Type domain.Sale is not enhanced.
+
+[2026-03-05 10:04:53 #12 type.registry] 
+New type java.util.ArrayList<java.lang.Object>
+
+[2026-03-05 10:04:53 #13 type.registry] 
+New type java.util.ArrayList<domain.Sale>
+
+[2026-03-05 10:05:00 #14 type.registry] 
+New type java.util.ArrayList<domain.ProposedSale>
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2026-03-05 10:12:14 #1 store] 
+Database 'C:\Users\kenne\Documentos\Uni\2o Cuatrimestre\IS\It1\market26\Market26\src\main\resources\products.temp' is opened by 18788@Traspié
+
+[2026-03-05 10:12:14 #2 type.registry] 
+New type domain.User
+
+[2026-03-05 10:12:14 #3 type.registry] 
+New type domain.Buyer
+
+[2026-03-05 10:12:14 #4 type.registry] 
+New type domain.Seller
+
+[2026-03-05 10:12:14 #5 type] 
+Type domain.User is not enhanced.
+
+[2026-03-05 10:12:14 #6 type] 
+Type domain.Buyer is not enhanced.
+
+[2026-03-05 10:12:14 #7 type.registry] 
+New type domain.ProposedSale
+
+[2026-03-05 10:12:14 #8 type] 
+Type domain.Seller is not enhanced.
+
+[2026-03-05 10:12:14 #9 type.registry] 
+New type domain.Sale
+
+[2026-03-05 10:12:14 #10 type] 
+Type domain.ProposedSale is not enhanced.
+
+[2026-03-05 10:12:14 #11 type] 
+Type domain.Sale is not enhanced.
+
+[2026-03-05 10:12:14 #12 type.registry] 
+New type java.util.ArrayList<java.lang.Object>
+
+[2026-03-05 10:12:14 #13 type.registry] 
+New type java.util.ArrayList<domain.Sale>
+
+[2026-03-05 10:12:14 #14 type.registry] 
+New type java.util.ArrayList<domain.ProposedSale>
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2026-03-05 10:14:33 #1 store] 
+Database 'C:\Users\kenne\Documentos\Uni\2o Cuatrimestre\IS\It1\market26\Market26\src\main\resources\products.temp' is opened by 43504@Traspié
+
+[2026-03-05 10:14:34 #2 type.registry] 
+New type domain.User
+
+[2026-03-05 10:14:34 #3 type.registry] 
+New type domain.Buyer
+
+[2026-03-05 10:14:34 #4 type.registry] 
+New type domain.Seller
+
+[2026-03-05 10:14:34 #5 type] 
+Type domain.User is not enhanced.
+
+[2026-03-05 10:14:34 #6 type] 
+Type domain.Buyer is not enhanced.
+
+[2026-03-05 10:14:34 #7 type.registry] 
+New type domain.ProposedSale
+
+[2026-03-05 10:14:34 #8 type] 
+Type domain.Seller is not enhanced.
+
+[2026-03-05 10:14:34 #9 type.registry] 
+New type domain.Sale
+
+[2026-03-05 10:14:34 #10 type] 
+Type domain.ProposedSale is not enhanced.
+
+[2026-03-05 10:14:34 #11 type] 
+Type domain.Sale is not enhanced.
+
+[2026-03-05 10:14:34 #12 type.registry] 
+New type java.util.ArrayList<java.lang.Object>
+
+[2026-03-05 10:14:34 #13 type.registry] 
+New type java.util.ArrayList<domain.Sale>
+
+[2026-03-05 10:14:34 #14 type.registry] 
+New type java.util.ArrayList<domain.ProposedSale>
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2026-03-05 10:19:14 #1 store] 
+Database 'C:\Users\kenne\Documentos\Uni\2o Cuatrimestre\IS\It1\market26\Market26\src\main\resources\products.temp' is opened by 11008@Traspié
+
+[2026-03-05 10:19:14 #2 type.registry] 
+New type domain.User
+
+[2026-03-05 10:19:14 #3 type.registry] 
+New type domain.Buyer
+
+[2026-03-05 10:19:14 #4 type.registry] 
+New type domain.Seller
+
+[2026-03-05 10:19:14 #5 type] 
+Type domain.User is not enhanced.
+
+[2026-03-05 10:19:14 #6 type] 
+Type domain.Buyer is not enhanced.
+
+[2026-03-05 10:19:14 #7 type.registry] 
+New type domain.ProposedSale
+
+[2026-03-05 10:19:14 #8 type] 
+Type domain.Seller is not enhanced.
+
+[2026-03-05 10:19:14 #9 type.registry] 
+New type domain.Sale
+
+[2026-03-05 10:19:14 #10 type] 
+Type domain.ProposedSale is not enhanced.
+
+[2026-03-05 10:19:14 #11 type] 
+Type domain.Sale is not enhanced.
+
+[2026-03-05 10:19:14 #12 type.registry] 
+New type java.util.ArrayList<java.lang.Object>
+
+[2026-03-05 10:19:14 #13 type.registry] 
+New type java.util.ArrayList<domain.Sale>
+
+[2026-03-05 10:19:14 #14 type.registry] 
+New type java.util.ArrayList<domain.ProposedSale>
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2026-03-05 10:21:24 #1 store] 
+Database 'C:\Users\kenne\Documentos\Uni\2o Cuatrimestre\IS\It1\market26\Market26\src\main\resources\products.temp' is opened by 34220@Traspié
+
+[2026-03-05 10:21:24 #2 type.registry] 
+New type domain.User
+
+[2026-03-05 10:21:24 #3 type.registry] 
+New type domain.Buyer
+
+[2026-03-05 10:21:24 #4 type.registry] 
+New type domain.Seller
+
+[2026-03-05 10:21:24 #5 type] 
+Type domain.User is not enhanced.
+
+[2026-03-05 10:21:24 #6 type] 
+Type domain.Buyer is not enhanced.
+
+[2026-03-05 10:21:24 #7 type.registry] 
+New type domain.ProposedSale
+
+[2026-03-05 10:21:24 #8 type] 
+Type domain.Seller is not enhanced.
+
+[2026-03-05 10:21:24 #9 type.registry] 
+New type domain.Sale
+
+[2026-03-05 10:21:24 #10 type] 
+Type domain.ProposedSale is not enhanced.
+
+[2026-03-05 10:21:24 #11 type] 
+Type domain.Sale is not enhanced.
+
+[2026-03-05 10:21:24 #12 type.registry] 
+New type java.util.ArrayList<java.lang.Object>
+
+[2026-03-05 10:21:24 #13 type.registry] 
+New type java.util.ArrayList<domain.Sale>
+
+[2026-03-05 10:21:24 #14 type.registry] 
+New type java.util.ArrayList<domain.ProposedSale>
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2026-03-05 10:34:54 #1 store] 
+Database 'C:\Users\kenne\Documentos\Uni\2o Cuatrimestre\IS\It1\market26\Market26\src\main\resources\products.temp' is opened by 40416@Traspié
+
+[2026-03-05 10:34:55 #2 type.registry] 
+New type domain.User
+
+[2026-03-05 10:34:55 #3 type.registry] 
+New type domain.Buyer
+
+[2026-03-05 10:34:55 #4 type.registry] 
+New type domain.Seller
+
+[2026-03-05 10:34:55 #5 type] 
+Type domain.User is not enhanced.
+
+[2026-03-05 10:34:55 #6 type] 
+Type domain.Buyer is not enhanced.
+
+[2026-03-05 10:34:55 #7 type.registry] 
+New type domain.ProposedSale
+
+[2026-03-05 10:34:55 #8 type] 
+Type domain.Seller is not enhanced.
+
+[2026-03-05 10:34:55 #9 type.registry] 
+New type domain.Sale
+
+[2026-03-05 10:34:55 #10 type] 
+Type domain.ProposedSale is not enhanced.
+
+[2026-03-05 10:34:55 #11 type] 
+Type domain.Sale is not enhanced.
+
+[2026-03-05 10:34:55 #12 type.registry] 
+New type java.util.ArrayList<java.lang.Object>
+
+[2026-03-05 10:34:55 #13 type.registry] 
+New type java.util.ArrayList<domain.Sale>
+
+[2026-03-05 10:34:55 #14 type.registry] 
+New type java.util.ArrayList<domain.ProposedSale>
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2026-03-05 10:35:01 #1 store] 
+Database 'C:\Users\kenne\Documentos\Uni\2o Cuatrimestre\IS\It1\market26\Market26\src\main\resources\products.temp' is opened by 4668@Traspié
+
+[2026-03-05 10:35:01 #2 type.registry] 
+New type domain.User
+
+[2026-03-05 10:35:01 #3 type.registry] 
+New type domain.Buyer
+
+[2026-03-05 10:35:01 #4 type.registry] 
+New type domain.Seller
+
+[2026-03-05 10:35:01 #5 type] 
+Type domain.User is not enhanced.
+
+[2026-03-05 10:35:01 #6 type] 
+Type domain.Buyer is not enhanced.
+
+[2026-03-05 10:35:01 #7 type.registry] 
+New type domain.ProposedSale
+
+[2026-03-05 10:35:01 #8 type] 
+Type domain.Seller is not enhanced.
+
+[2026-03-05 10:35:01 #9 type.registry] 
+New type domain.Sale
+
+[2026-03-05 10:35:01 #10 type] 
+Type domain.ProposedSale is not enhanced.
+
+[2026-03-05 10:35:01 #11 type] 
+Type domain.Sale is not enhanced.
+
+[2026-03-05 10:35:01 #12 type.registry] 
+New type java.util.ArrayList<java.lang.Object>
+
+[2026-03-05 10:35:01 #13 type.registry] 
+New type java.util.ArrayList<domain.Sale>
+
+[2026-03-05 10:35:01 #14 type.registry] 
+New type java.util.ArrayList<domain.ProposedSale>
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2026-03-05 11:18:30 #1 store] 
+Database 'C:\Users\kenne\Documentos\Uni\2o Cuatrimestre\IS\It1\market26\Market26\src\main\resources\products.temp' is opened by 41652@Traspié
+
+[2026-03-05 11:18:30 #2 type.registry] 
+New type domain.User
+
+[2026-03-05 11:18:30 #3 type.registry] 
+New type domain.Buyer
+
+[2026-03-05 11:18:30 #4 type.registry] 
+New type domain.Seller
+
+[2026-03-05 11:18:30 #5 type] 
+Type domain.User is not enhanced.
+
+[2026-03-05 11:18:30 #6 type] 
+Type domain.Buyer is not enhanced.
+
+[2026-03-05 11:18:30 #7 type.registry] 
+New type domain.ProposedSale
+
+[2026-03-05 11:18:30 #8 type] 
+Type domain.Seller is not enhanced.
+
+[2026-03-05 11:18:30 #9 type.registry] 
+New type domain.Sale
+
+[2026-03-05 11:18:30 #10 type] 
+Type domain.ProposedSale is not enhanced.
+
+[2026-03-05 11:18:30 #11 type] 
+Type domain.Sale is not enhanced.
+
+[2026-03-05 11:18:31 #12 type.registry] 
+New type java.util.ArrayList<java.lang.Object>
+
+[2026-03-05 11:18:31 #13 type.registry] 
+New type java.util.ArrayList<domain.Sale>
+
+[2026-03-05 11:18:31 #14 type.registry] 
+New type java.util.ArrayList<domain.ProposedSale>
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2026-03-05 11:20:13 #1 store] 
+Database 'C:\Users\kenne\Documentos\Uni\2o Cuatrimestre\IS\It1\market26\Market26\src\main\resources\products.temp' is opened by 20192@Traspié
+
+[2026-03-05 11:20:14 #2 type.registry] 
+New type domain.User
+
+[2026-03-05 11:20:14 #3 type.registry] 
+New type domain.Buyer
+
+[2026-03-05 11:20:14 #4 type.registry] 
+New type domain.Seller
+
+[2026-03-05 11:20:14 #5 type] 
+Type domain.User is not enhanced.
+
+[2026-03-05 11:20:14 #6 type] 
+Type domain.Buyer is not enhanced.
+
+[2026-03-05 11:20:14 #7 type.registry] 
+New type domain.ProposedSale
+
+[2026-03-05 11:20:14 #8 type] 
+Type domain.Seller is not enhanced.
+
+[2026-03-05 11:20:14 #9 type.registry] 
+New type domain.Sale
+
+[2026-03-05 11:20:14 #10 type] 
+Type domain.ProposedSale is not enhanced.
+
+[2026-03-05 11:20:14 #11 type] 
+Type domain.Sale is not enhanced.
+
+[2026-03-05 11:20:14 #12 type.registry] 
+New type java.util.ArrayList<java.lang.Object>
+
+[2026-03-05 11:20:14 #13 type.registry] 
+New type java.util.ArrayList<domain.Sale>
+
+[2026-03-05 11:20:14 #14 type.registry] 
+New type java.util.ArrayList<domain.ProposedSale>
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2026-03-05 11:23:15 #1 store] 
+Database 'C:\Users\kenne\Documentos\Uni\2o Cuatrimestre\IS\It1\market26\Market26\src\main\resources\products.temp' is opened by 3096@Traspié
+
+[2026-03-05 11:23:16 #2 type.registry] 
+New type domain.User
+
+[2026-03-05 11:23:16 #3 type.registry] 
+New type domain.Buyer
+
+[2026-03-05 11:23:16 #4 type.registry] 
+New type domain.Seller
+
+[2026-03-05 11:23:16 #5 type] 
+Type domain.User is not enhanced.
+
+[2026-03-05 11:23:16 #6 type] 
+Type domain.Buyer is not enhanced.
+
+[2026-03-05 11:23:16 #7 type.registry] 
+New type domain.ProposedSale
+
+[2026-03-05 11:23:16 #8 type] 
+Type domain.Seller is not enhanced.
+
+[2026-03-05 11:23:16 #9 type.registry] 
+New type domain.Sale
+
+[2026-03-05 11:23:16 #10 type] 
+Type domain.ProposedSale is not enhanced.
+
+[2026-03-05 11:23:16 #11 type] 
+Type domain.Sale is not enhanced.
+
+[2026-03-05 11:23:16 #12 type.registry] 
+New type java.util.ArrayList<java.lang.Object>
+
+[2026-03-05 11:23:16 #13 type.registry] 
+New type java.util.ArrayList<domain.Sale>
+
+[2026-03-05 11:23:16 #14 type.registry] 
+New type java.util.ArrayList<domain.ProposedSale>
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2026-03-05 11:24:43 #1 store] 
+Database 'C:\Users\kenne\Documentos\Uni\2o Cuatrimestre\IS\It1\market26\Market26\src\main\resources\products.temp' is opened by 26824@Traspié
+
+[2026-03-05 11:24:43 #2 type.registry] 
+New type domain.User
+
+[2026-03-05 11:24:43 #3 type.registry] 
+New type domain.Buyer
+
+[2026-03-05 11:24:43 #4 type.registry] 
+New type domain.Seller
+
+[2026-03-05 11:24:43 #5 type] 
+Type domain.User is not enhanced.
+
+[2026-03-05 11:24:43 #6 type] 
+Type domain.Buyer is not enhanced.
+
+[2026-03-05 11:24:43 #7 type.registry] 
+New type domain.ProposedSale
+
+[2026-03-05 11:24:43 #8 type] 
+Type domain.Seller is not enhanced.
+
+[2026-03-05 11:24:43 #9 type.registry] 
+New type domain.Sale
+
+[2026-03-05 11:24:43 #10 type] 
+Type domain.ProposedSale is not enhanced.
+
+[2026-03-05 11:24:43 #11 type] 
+Type domain.Sale is not enhanced.
+
+[2026-03-05 11:24:43 #12 type.registry] 
+New type java.util.ArrayList<java.lang.Object>
+
+[2026-03-05 11:24:43 #13 type.registry] 
+New type java.util.ArrayList<domain.Sale>
+
+[2026-03-05 11:24:43 #14 type.registry] 
+New type java.util.ArrayList<domain.ProposedSale>
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2026-03-05 11:58:41 #1 store] 
+Database 'C:\Users\kenne\Documentos\Uni\2o Cuatrimestre\IS\It1\market26\Market26\src\main\resources\products.temp' is opened by 7616@Traspié
+
+[2026-03-05 11:58:41 #2 type.registry] 
+New type domain.User
+
+[2026-03-05 11:58:41 #3 type.registry] 
+New type domain.Buyer
+
+[2026-03-05 11:58:41 #4 type.registry] 
+New type domain.Seller
+
+[2026-03-05 11:58:41 #5 type] 
+Type domain.User is not enhanced.
+
+[2026-03-05 11:58:41 #6 type] 
+Type domain.Buyer is not enhanced.
+
+[2026-03-05 11:58:41 #7 type.registry] 
+New type domain.ProposedSale
+
+[2026-03-05 11:58:41 #8 type] 
+Type domain.Seller is not enhanced.
+
+[2026-03-05 11:58:41 #9 type.registry] 
+New type domain.Sale
+
+[2026-03-05 11:58:41 #10 type] 
+Type domain.ProposedSale is not enhanced.
+
+[2026-03-05 11:58:41 #11 type] 
+Type domain.Sale is not enhanced.
+
+[2026-03-05 11:58:41 #12 type.registry] 
+New type java.util.ArrayList<java.lang.Object>
+
+[2026-03-05 11:58:41 #13 type.registry] 
+New type java.util.ArrayList<domain.ProposedSale>
+
+[2026-03-05 11:58:41 #14 type.registry] 
+New type java.util.ArrayList<domain.Sale>
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2026-03-05 12:02:51 #1 store] 
+Database 'C:\Users\kenne\Documentos\Uni\2o Cuatrimestre\IS\It1\market26\Market26\src\main\resources\products.temp' is opened by 31708@Traspié
+
+[2026-03-05 12:02:51 #2 type.registry] 
+New type domain.User
+
+[2026-03-05 12:02:51 #3 type.registry] 
+New type domain.Buyer
+
+[2026-03-05 12:02:51 #4 type.registry] 
+New type domain.Seller
+
+[2026-03-05 12:02:51 #5 type] 
+Type domain.User is not enhanced.
+
+[2026-03-05 12:02:51 #6 type] 
+Type domain.Buyer is not enhanced.
+
+[2026-03-05 12:02:51 #7 type.registry] 
+New type domain.ProposedSale
+
+[2026-03-05 12:02:51 #8 type] 
+Type domain.Seller is not enhanced.
+
+[2026-03-05 12:02:51 #9 type.registry] 
+New type domain.Sale
+
+[2026-03-05 12:02:51 #10 type] 
+Type domain.ProposedSale is not enhanced.
+
+[2026-03-05 12:02:51 #11 type] 
+Type domain.Sale is not enhanced.
+
+[2026-03-05 12:02:51 #12 type.registry] 
+New type java.util.ArrayList<java.lang.Object>
+
+[2026-03-05 12:02:51 #13 type.registry] 
+New type java.util.ArrayList<domain.ProposedSale>
+
+[2026-03-05 12:02:51 #14 type.registry] 
+New type java.util.ArrayList<domain.Sale>
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2026-03-05 13:19:45 #1 store] 
+Database 'C:\Users\kenne\Documentos\Uni\2o Cuatrimestre\IS\It1\market26\Market26\src\main\resources\products.temp' is opened by 8736@Traspié
+
+[2026-03-05 13:19:45 #2 type.registry] 
+New type domain.User
+
+[2026-03-05 13:19:45 #3 type.registry] 
+New type domain.Buyer
+
+[2026-03-05 13:19:45 #4 type.registry] 
+New type domain.Seller
+
+[2026-03-05 13:19:45 #5 type] 
+Type domain.User is not enhanced.
+
+[2026-03-05 13:19:45 #6 type] 
+Type domain.Buyer is not enhanced.
+
+[2026-03-05 13:19:45 #7 type.registry] 
+New type domain.ProposedSale
+
+[2026-03-05 13:19:45 #8 type] 
+Type domain.Seller is not enhanced.
+
+[2026-03-05 13:19:45 #9 type.registry] 
+New type domain.Sale
+
+[2026-03-05 13:19:45 #10 type] 
+Type domain.ProposedSale is not enhanced.
+
+[2026-03-05 13:19:45 #11 type] 
+Type domain.Sale is not enhanced.
+
+[2026-03-05 13:19:45 #12 type.registry] 
+New type java.util.ArrayList<java.lang.Object>
+
+[2026-03-05 13:19:45 #13 type.registry] 
+New type java.util.ArrayList<domain.ProposedSale>
+
+[2026-03-05 13:19:45 #14 type.registry] 
+New type java.util.ArrayList<domain.Sale>
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2026-03-05 13:21:27 #1 store] 
+Database 'C:\Users\kenne\Documentos\Uni\2o Cuatrimestre\IS\It1\market26\Market26\src\main\resources\products.temp' is opened by 8816@Traspié
+
+[2026-03-05 13:21:27 #2 type.registry] 
+New type domain.User
+
+[2026-03-05 13:21:27 #3 type.registry] 
+New type domain.Buyer
+
+[2026-03-05 13:21:27 #4 type.registry] 
+New type domain.Seller
+
+[2026-03-05 13:21:27 #5 type] 
+Type domain.User is not enhanced.
+
+[2026-03-05 13:21:27 #6 type] 
+Type domain.Buyer is not enhanced.
+
+[2026-03-05 13:21:27 #7 type.registry] 
+New type domain.ProposedSale
+
+[2026-03-05 13:21:27 #8 type] 
+Type domain.Seller is not enhanced.
+
+[2026-03-05 13:21:27 #9 type.registry] 
+New type domain.Sale
+
+[2026-03-05 13:21:27 #10 type] 
+Type domain.ProposedSale is not enhanced.
+
+[2026-03-05 13:21:27 #11 type] 
+Type domain.Sale is not enhanced.
+
+[2026-03-05 13:21:27 #12 type.registry] 
+New type java.util.ArrayList<java.lang.Object>
+
+[2026-03-05 13:21:27 #13 type.registry] 
+New type java.util.ArrayList<domain.ProposedSale>
+
+[2026-03-05 13:21:27 #14 type.registry] 
+New type java.util.ArrayList<domain.Sale>
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2026-03-05 13:22:12 #1 store] 
+Database 'C:\Users\kenne\Documentos\Uni\2o Cuatrimestre\IS\It1\market26\Market26\src\main\resources\products.temp' has been recovered (tr. 1-7)
+
+[2026-03-05 13:22:12 #2 store] 
+Database 'C:\Users\kenne\Documentos\Uni\2o Cuatrimestre\IS\It1\market26\Market26\src\main\resources\products.temp' is opened by 1944@Traspié
+
+[2026-03-05 13:22:12 #3 type] 
+Type domain.User is not enhanced.
+
+[2026-03-05 13:22:12 #4 type] 
+Type domain.Buyer is not enhanced.
+
+[2026-03-05 13:22:12 #5 type] 
+Type domain.Seller is not enhanced.
+
+[2026-03-05 13:22:12 #6 type] 
+Type domain.ProposedSale is not enhanced.
+
+[2026-03-05 13:22:12 #7 type] 
+Type domain.Sale is not enhanced.
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2026-03-05 13:22:41 #1 store] 
+Database 'C:\Users\kenne\Documentos\Uni\2o Cuatrimestre\IS\It1\market26\Market26\src\main\resources\products.temp' has been recovered (tr. 8-8)
+
+[2026-03-05 13:22:41 #2 store] 
+Database 'C:\Users\kenne\Documentos\Uni\2o Cuatrimestre\IS\It1\market26\Market26\src\main\resources\products.temp' is opened by 11432@Traspié
+
+[2026-03-05 13:22:41 #3 type] 
+Type domain.User is not enhanced.
+
+[2026-03-05 13:22:41 #4 type] 
+Type domain.Buyer is not enhanced.
+
+[2026-03-05 13:22:41 #5 type] 
+Type domain.Seller is not enhanced.
+
+[2026-03-05 13:22:41 #6 type] 
+Type domain.ProposedSale is not enhanced.
+
+[2026-03-05 13:22:41 #7 type] 
+Type domain.Sale is not enhanced.
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2026-03-05 13:32:55 #1 store] 
+Database 'C:\Users\kenne\Documentos\Uni\2o Cuatrimestre\IS\It1\market26\Market26\src\main\resources\products.temp' is opened by 16932@Traspié
+
+[2026-03-05 13:32:55 #2 type.registry] 
+New type domain.User
+
+[2026-03-05 13:32:55 #3 type.registry] 
+New type domain.Buyer
+
+[2026-03-05 13:32:55 #4 type.registry] 
+New type domain.Seller
+
+[2026-03-05 13:32:55 #5 type] 
+Type domain.User is not enhanced.
+
+[2026-03-05 13:32:55 #6 type] 
+Type domain.Buyer is not enhanced.
+
+[2026-03-05 13:32:55 #7 type.registry] 
+New type domain.ProposedSale
+
+[2026-03-05 13:32:55 #8 type] 
+Type domain.Seller is not enhanced.
+
+[2026-03-05 13:32:55 #9 type.registry] 
+New type domain.Sale
+
+[2026-03-05 13:32:55 #10 type] 
+Type domain.ProposedSale is not enhanced.
+
+[2026-03-05 13:32:55 #11 type] 
+Type domain.Sale is not enhanced.
+
+[2026-03-05 13:32:55 #12 type.registry] 
+New type java.util.ArrayList<java.lang.Object>
+
+[2026-03-05 13:32:55 #13 type.registry] 
+New type java.util.ArrayList<domain.ProposedSale>
+
+[2026-03-05 13:32:55 #14 type.registry] 
+New type java.util.ArrayList<domain.Sale>
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2026-03-05 13:34:25 #1 store] 
+Database 'C:\Users\kenne\Documentos\Uni\2o Cuatrimestre\IS\It1\market26\Market26\src\main\resources\products.temp' is opened by 16784@Traspié
+
+[2026-03-05 13:34:25 #2 type.registry] 
+New type domain.User
+
+[2026-03-05 13:34:25 #3 type.registry] 
+New type domain.Buyer
+
+[2026-03-05 13:34:25 #4 type.registry] 
+New type domain.Seller
+
+[2026-03-05 13:34:25 #5 type] 
+Type domain.User is not enhanced.
+
+[2026-03-05 13:34:25 #6 type] 
+Type domain.Buyer is not enhanced.
+
+[2026-03-05 13:34:25 #7 type.registry] 
+New type domain.ProposedSale
+
+[2026-03-05 13:34:25 #8 type] 
+Type domain.Seller is not enhanced.
+
+[2026-03-05 13:34:25 #9 type.registry] 
+New type domain.Sale
+
+[2026-03-05 13:34:25 #10 type] 
+Type domain.ProposedSale is not enhanced.
+
+[2026-03-05 13:34:25 #11 type] 
+Type domain.Sale is not enhanced.
+
+[2026-03-05 13:34:25 #12 type.registry] 
+New type java.util.ArrayList<java.lang.Object>
+
+[2026-03-05 13:34:25 #13 type.registry] 
+New type java.util.ArrayList<domain.ProposedSale>
+
+[2026-03-05 13:34:25 #14 type.registry] 
+New type java.util.ArrayList<domain.Sale>
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2026-03-05 13:39:54 #1 store] 
+Database 'C:\Users\kenne\Documentos\Uni\2o Cuatrimestre\IS\It1\market26\Market26\src\main\resources\products.temp' is opened by 12856@Traspié
+
+[2026-03-05 13:39:54 #2 type.registry] 
+New type domain.User
+
+[2026-03-05 13:39:54 #3 type.registry] 
+New type domain.Buyer
+
+[2026-03-05 13:39:54 #4 type.registry] 
+New type domain.Seller
+
+[2026-03-05 13:39:54 #5 type] 
+Type domain.User is not enhanced.
+
+[2026-03-05 13:39:54 #6 type] 
+Type domain.Buyer is not enhanced.
+
+[2026-03-05 13:39:54 #7 type.registry] 
+New type domain.ProposedSale
+
+[2026-03-05 13:39:54 #8 type] 
+Type domain.Seller is not enhanced.
+
+[2026-03-05 13:39:54 #9 type.registry] 
+New type domain.Sale
+
+[2026-03-05 13:39:54 #10 type] 
+Type domain.ProposedSale is not enhanced.
+
+[2026-03-05 13:39:54 #11 type] 
+Type domain.Sale is not enhanced.
+
+[2026-03-05 13:39:54 #12 type.registry] 
+New type java.util.ArrayList<java.lang.Object>
+
+[2026-03-05 13:39:54 #13 type.registry] 
+New type java.util.ArrayList<domain.ProposedSale>
+
+[2026-03-05 13:39:54 #14 type.registry] 
+New type java.util.ArrayList<domain.Sale>
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2026-03-05 13:41:20 #1 store] 
+Database 'C:\Users\kenne\Documentos\Uni\2o Cuatrimestre\IS\It1\market26\Market26\src\main\resources\products.temp' is opened by 8616@Traspié
+
+[2026-03-05 13:41:20 #2 type.registry] 
+New type domain.User
+
+[2026-03-05 13:41:20 #3 type.registry] 
+New type domain.Buyer
+
+[2026-03-05 13:41:20 #4 type.registry] 
+New type domain.Seller
+
+[2026-03-05 13:41:20 #5 type] 
+Type domain.User is not enhanced.
+
+[2026-03-05 13:41:20 #6 type] 
+Type domain.Buyer is not enhanced.
+
+[2026-03-05 13:41:20 #7 type.registry] 
+New type domain.ProposedSale
+
+[2026-03-05 13:41:20 #8 type] 
+Type domain.Seller is not enhanced.
+
+[2026-03-05 13:41:20 #9 type.registry] 
+New type domain.Sale
+
+[2026-03-05 13:41:20 #10 type] 
+Type domain.ProposedSale is not enhanced.
+
+[2026-03-05 13:41:20 #11 type] 
+Type domain.Sale is not enhanced.
+
+[2026-03-05 13:41:20 #12 type.registry] 
+New type java.util.ArrayList<java.lang.Object>
+
+[2026-03-05 13:41:20 #13 type.registry] 
+New type java.util.ArrayList<domain.ProposedSale>
+
+[2026-03-05 13:41:20 #14 type.registry] 
+New type java.util.ArrayList<domain.Sale>
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2026-03-05 14:31:41 #1 store] 
+Database 'C:\Users\kenne\Documentos\Uni\2o Cuatrimestre\IS\It1\market26\Market26\src\main\resources\products.temp' is opened by 4472@Traspié
+
+[2026-03-05 14:31:41 #2 type.registry] 
+New type domain.User
+
+[2026-03-05 14:31:41 #3 type.registry] 
+New type domain.Buyer
+
+[2026-03-05 14:31:41 #4 type.registry] 
+New type domain.Seller
+
+[2026-03-05 14:31:41 #5 type] 
+Type domain.User is not enhanced.
+
+[2026-03-05 14:31:41 #6 type] 
+Type domain.Buyer is not enhanced.
+
+[2026-03-05 14:31:41 #7 type.registry] 
+New type domain.ProposedSale
+
+[2026-03-05 14:31:41 #8 type] 
+Type domain.Seller is not enhanced.
+
+[2026-03-05 14:31:41 #9 type.registry] 
+New type domain.Sale
+
+[2026-03-05 14:31:41 #10 type] 
+Type domain.ProposedSale is not enhanced.
+
+[2026-03-05 14:31:41 #11 type] 
+Type domain.Sale is not enhanced.
+
+[2026-03-05 14:31:41 #12 type.registry] 
+New type java.util.ArrayList<java.lang.Object>
+
+[2026-03-05 14:31:41 #13 type.registry] 
+New type java.util.ArrayList<domain.ProposedSale>
+
+[2026-03-05 14:31:41 #14 type.registry] 
+New type java.util.ArrayList<domain.Sale>
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2026-03-05 14:33:15 #1 store] 
+Database 'C:\Users\kenne\Documentos\Uni\2o Cuatrimestre\IS\It1\market26\Market26\src\main\resources\products.temp' is opened by 19520@Traspié
+
+[2026-03-05 14:33:16 #2 type.registry] 
+New type domain.User
+
+[2026-03-05 14:33:16 #3 type.registry] 
+New type domain.Buyer
+
+[2026-03-05 14:33:16 #4 type.registry] 
+New type domain.Seller
+
+[2026-03-05 14:33:16 #5 type] 
+Type domain.User is not enhanced.
+
+[2026-03-05 14:33:16 #6 type] 
+Type domain.Buyer is not enhanced.
+
+[2026-03-05 14:33:16 #7 type.registry] 
+New type domain.ProposedSale
+
+[2026-03-05 14:33:16 #8 type] 
+Type domain.Seller is not enhanced.
+
+[2026-03-05 14:33:16 #9 type.registry] 
+New type domain.Sale
+
+[2026-03-05 14:33:16 #10 type] 
+Type domain.ProposedSale is not enhanced.
+
+[2026-03-05 14:33:16 #11 type] 
+Type domain.Sale is not enhanced.
+
+[2026-03-05 14:33:16 #12 type.registry] 
+New type java.util.ArrayList<java.lang.Object>
+
+[2026-03-05 14:33:16 #13 type.registry] 
+New type java.util.ArrayList<domain.ProposedSale>
+
+[2026-03-05 14:33:16 #14 type.registry] 
+New type java.util.ArrayList<domain.Sale>
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2026-03-05 14:35:05 #1 store] 
+Database 'C:\Users\kenne\Documentos\Uni\2o Cuatrimestre\IS\It1\market26\Market26\src\main\resources\products.temp' is opened by 16344@Traspié
+
+[2026-03-05 14:35:05 #2 type.registry] 
+New type domain.User
+
+[2026-03-05 14:35:05 #3 type.registry] 
+New type domain.Buyer
+
+[2026-03-05 14:35:05 #4 type.registry] 
+New type domain.Seller
+
+[2026-03-05 14:35:05 #5 type] 
+Type domain.User is not enhanced.
+
+[2026-03-05 14:35:05 #6 type] 
+Type domain.Buyer is not enhanced.
+
+[2026-03-05 14:35:05 #7 type.registry] 
+New type domain.ProposedSale
+
+[2026-03-05 14:35:05 #8 type] 
+Type domain.Seller is not enhanced.
+
+[2026-03-05 14:35:05 #9 type.registry] 
+New type domain.Sale
+
+[2026-03-05 14:35:05 #10 type] 
+Type domain.ProposedSale is not enhanced.
+
+[2026-03-05 14:35:05 #11 type] 
+Type domain.Sale is not enhanced.
+
+[2026-03-05 14:35:05 #12 type.registry] 
+New type java.util.ArrayList<java.lang.Object>
+
+[2026-03-05 14:35:05 #13 type.registry] 
+New type java.util.ArrayList<domain.ProposedSale>
+
+[2026-03-05 14:35:05 #14 type.registry] 
+New type java.util.ArrayList<domain.Sale>
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2026-03-05 14:38:53 #1 store] 
+Database 'C:\Users\kenne\Documentos\Uni\2o Cuatrimestre\IS\It1\market26\Market26\src\main\resources\products.temp' is opened by 11820@Traspié
+
+[2026-03-05 14:38:54 #2 type.registry] 
+New type domain.User
+
+[2026-03-05 14:38:54 #3 type.registry] 
+New type domain.Buyer
+
+[2026-03-05 14:38:54 #4 type.registry] 
+New type domain.Seller
+
+[2026-03-05 14:38:54 #5 type] 
+Type domain.User is not enhanced.
+
+[2026-03-05 14:38:54 #6 type] 
+Type domain.Buyer is not enhanced.
+
+[2026-03-05 14:38:54 #7 type.registry] 
+New type domain.ProposedSale
+
+[2026-03-05 14:38:54 #8 type] 
+Type domain.Seller is not enhanced.
+
+[2026-03-05 14:38:54 #9 type.registry] 
+New type domain.Sale
+
+[2026-03-05 14:38:54 #10 type] 
+Type domain.ProposedSale is not enhanced.
+
+[2026-03-05 14:38:54 #11 type] 
+Type domain.Sale is not enhanced.
+
+[2026-03-05 14:38:54 #12 type.registry] 
+New type java.util.ArrayList<java.lang.Object>
+
+[2026-03-05 14:38:54 #13 type.registry] 
+New type java.util.ArrayList<domain.ProposedSale>
+
+[2026-03-05 14:38:54 #14 type.registry] 
+New type java.util.ArrayList<domain.Sale>
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2026-03-05 14:44:47 #1 store] 
+Database 'C:\Users\kenne\Documentos\Uni\2o Cuatrimestre\IS\It1\market26\Market26\src\main\resources\products.temp' is opened by 17296@Traspié
+
+[2026-03-05 14:44:48 #2 type.registry] 
+New type domain.User
+
+[2026-03-05 14:44:48 #3 type.registry] 
+New type domain.Buyer
+
+[2026-03-05 14:44:48 #4 type.registry] 
+New type domain.Seller
+
+[2026-03-05 14:44:48 #5 type] 
+Type domain.User is not enhanced.
+
+[2026-03-05 14:44:48 #6 type] 
+Type domain.Buyer is not enhanced.
+
+[2026-03-05 14:44:48 #7 type.registry] 
+New type domain.ProposedSale
+
+[2026-03-05 14:44:48 #8 type] 
+Type domain.Seller is not enhanced.
+
+[2026-03-05 14:44:48 #9 type.registry] 
+New type domain.Sale
+
+[2026-03-05 14:44:48 #10 type] 
+Type domain.ProposedSale is not enhanced.
+
+[2026-03-05 14:44:48 #11 type] 
+Type domain.Sale is not enhanced.
+
+[2026-03-05 14:44:48 #12 type.registry] 
+New type java.util.ArrayList<java.lang.Object>
+
+[2026-03-05 14:44:48 #13 type.registry] 
+New type java.util.ArrayList<domain.ProposedSale>
+
+[2026-03-05 14:44:48 #14 type.registry] 
+New type java.util.ArrayList<domain.Sale>
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2026-03-05 14:45:29 #1 store] 
+Database 'C:\Users\kenne\Documentos\Uni\2o Cuatrimestre\IS\It1\market26\Market26\src\main\resources\products.temp' is opened by 17272@Traspié
+
+[2026-03-05 14:45:29 #2 type.registry] 
+New type domain.User
+
+[2026-03-05 14:45:29 #3 type.registry] 
+New type domain.Buyer
+
+[2026-03-05 14:45:29 #4 type.registry] 
+New type domain.Seller
+
+[2026-03-05 14:45:29 #5 type] 
+Type domain.User is not enhanced.
+
+[2026-03-05 14:45:29 #6 type] 
+Type domain.Buyer is not enhanced.
+
+[2026-03-05 14:45:29 #7 type.registry] 
+New type domain.ProposedSale
+
+[2026-03-05 14:45:29 #8 type] 
+Type domain.Seller is not enhanced.
+
+[2026-03-05 14:45:29 #9 type.registry] 
+New type domain.Sale
+
+[2026-03-05 14:45:29 #10 type] 
+Type domain.ProposedSale is not enhanced.
+
+[2026-03-05 14:45:29 #11 type] 
+Type domain.Sale is not enhanced.
+
+[2026-03-05 14:45:29 #12 type.registry] 
+New type java.util.ArrayList<java.lang.Object>
+
+[2026-03-05 14:45:29 #13 type.registry] 
+New type java.util.ArrayList<domain.ProposedSale>
+
+[2026-03-05 14:45:29 #14 type.registry] 
+New type java.util.ArrayList<domain.Sale>
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2026-03-05 14:50:26 #1 store] 
+Database 'C:\Users\kenne\Documentos\Uni\2o Cuatrimestre\IS\It1\market26\Market26\src\main\resources\products.temp' is opened by 3904@Traspié
+
+[2026-03-05 14:50:26 #2 type.registry] 
+New type domain.User
+
+[2026-03-05 14:50:26 #3 type.registry] 
+New type domain.Buyer
+
+[2026-03-05 14:50:26 #4 type.registry] 
+New type domain.Seller
+
+[2026-03-05 14:50:26 #5 type] 
+Type domain.User is not enhanced.
+
+[2026-03-05 14:50:26 #6 type] 
+Type domain.Buyer is not enhanced.
+
+[2026-03-05 14:50:26 #7 type.registry] 
+New type domain.ProposedSale
+
+[2026-03-05 14:50:26 #8 type] 
+Type domain.Seller is not enhanced.
+
+[2026-03-05 14:50:26 #9 type.registry] 
+New type domain.Sale
+
+[2026-03-05 14:50:26 #10 type] 
+Type domain.ProposedSale is not enhanced.
+
+[2026-03-05 14:50:26 #11 type] 
+Type domain.Sale is not enhanced.
+
+[2026-03-05 14:50:26 #12 type.registry] 
+New type java.util.ArrayList<java.lang.Object>
+
+[2026-03-05 14:50:26 #13 type.registry] 
+New type java.util.ArrayList<domain.ProposedSale>
+
+[2026-03-05 14:50:26 #14 type.registry] 
+New type java.util.ArrayList<domain.Sale>
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2026-03-05 14:55:59 #1 store] 
+Database 'C:\Users\kenne\Documentos\Uni\2o Cuatrimestre\IS\It1\market26\Market26\src\main\resources\products.temp' is opened by 18408@Traspié
+
+[2026-03-05 14:56:00 #2 type.registry] 
+New type domain.User
+
+[2026-03-05 14:56:00 #3 type.registry] 
+New type domain.Buyer
+
+[2026-03-05 14:56:00 #4 type.registry] 
+New type domain.Seller
+
+[2026-03-05 14:56:00 #5 type] 
+Type domain.User is not enhanced.
+
+[2026-03-05 14:56:00 #6 type] 
+Type domain.Buyer is not enhanced.
+
+[2026-03-05 14:56:00 #7 type.registry] 
+New type domain.ProposedSale
+
+[2026-03-05 14:56:00 #8 type] 
+Type domain.Seller is not enhanced.
+
+[2026-03-05 14:56:00 #9 type.registry] 
+New type domain.Sale
+
+[2026-03-05 14:56:00 #10 type] 
+Type domain.ProposedSale is not enhanced.
+
+[2026-03-05 14:56:00 #11 type] 
+Type domain.Sale is not enhanced.
+
+[2026-03-05 14:56:00 #12 type.registry] 
+New type java.util.ArrayList<java.lang.Object>
+
+[2026-03-05 14:56:00 #13 type.registry] 
+New type java.util.ArrayList<domain.ProposedSale>
+
+[2026-03-05 14:56:00 #14 type.registry] 
+New type java.util.ArrayList<domain.Sale>
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2026-03-05 16:55:30 #1 store] 
+Database 'C:\Users\kenne\Documentos\Uni\2o Cuatrimestre\IS\It1\market26\Market26\src\main\resources\products.temp' is opened by 4908@Traspié
+
+[2026-03-05 16:55:31 #2 type.registry] 
+New type domain.User
+
+[2026-03-05 16:55:31 #3 type.registry] 
+New type domain.Buyer
+
+[2026-03-05 16:55:31 #4 type.registry] 
+New type domain.Seller
+
+[2026-03-05 16:55:31 #5 type] 
+Type domain.User is not enhanced.
+
+[2026-03-05 16:55:31 #6 type] 
+Type domain.Buyer is not enhanced.
+
+[2026-03-05 16:55:31 #7 type.registry] 
+New type domain.ProposedSale
+
+[2026-03-05 16:55:31 #8 type] 
+Type domain.Seller is not enhanced.
+
+[2026-03-05 16:55:31 #9 type.registry] 
+New type domain.Sale
+
+[2026-03-05 16:55:31 #10 type] 
+Type domain.ProposedSale is not enhanced.
+
+[2026-03-05 16:55:31 #11 type] 
+Type domain.Sale is not enhanced.
+
+[2026-03-05 16:55:31 #12 type.registry] 
+New type java.util.ArrayList<java.lang.Object>
+
+[2026-03-05 16:55:31 #13 type.registry] 
+New type java.util.ArrayList<domain.ProposedSale>
+
+[2026-03-05 16:55:31 #14 type.registry] 
+New type java.util.ArrayList<domain.Sale>
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2026-03-05 16:56:50 #1 store] 
+Database 'C:\Users\kenne\Documentos\Uni\2o Cuatrimestre\IS\It1\market26\Market26\src\main\resources\products.temp' has been recovered (tr. 1-7)
+
+[2026-03-05 16:56:50 #2 store] 
+Database 'C:\Users\kenne\Documentos\Uni\2o Cuatrimestre\IS\It1\market26\Market26\src\main\resources\products.temp' is opened by 6636@Traspié
+
+[2026-03-05 16:56:50 #3 type] 
+Type domain.User is not enhanced.
+
+[2026-03-05 16:56:50 #4 type] 
+Type domain.Buyer is not enhanced.
+
+[2026-03-05 16:56:50 #5 type] 
+Type domain.Seller is not enhanced.
+
+[2026-03-05 16:56:50 #6 type] 
+Type domain.ProposedSale is not enhanced.
+
+[2026-03-05 16:56:50 #7 type] 
+Type domain.Sale is not enhanced.
+

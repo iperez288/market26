@@ -44,6 +44,7 @@ public class ShowSaleGUI extends JFrame {
 	private JLabel jLabelError = new JLabel();
 	private JLabel statusField=new JLabel();
 	private JFrame thisFrame;
+	private final JButton btnBuy = new JButton("Comoprar"); //$NON-NLS-1$ //$NON-NLS-2$
 	
 	public ShowSaleGUI(Sale sale) { 
 		thisFrame=this; 
@@ -130,6 +131,16 @@ public class ShowSaleGUI extends JFrame {
 		statusField = new JLabel(Utils.getStatus(sale.getStatus())); 
 		statusField.setBounds(137, 191, 92, 16);
 		getContentPane().add(statusField);
+		btnBuy.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				JFrame a = new ProposalGUI(sale);
+				a.setVisible(true);;
+				
+			}
+		});
+		btnBuy.setBounds(153, 268, 109, 30);
+		
+		getContentPane().add(btnBuy);
 		setVisible(true);
 	}	 
 	public BufferedImage rescale(BufferedImage originalImage)

@@ -2,7 +2,9 @@ package domain;
 
 import java.awt.image.BufferedImage;
 import java.io.*;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import javax.imageio.ImageIO;
 import javax.persistence.*;
@@ -28,15 +30,21 @@ public class Sale implements Serializable {
 	private Date pubDate;
 	private String fileName;
 	
+	@OneToMany (fetch=FetchType.EAGER, cascade=CascadeType.PERSIST)
+	private List<ProposedSale> proposedSales;
+	
+	@ManyToOne
 	private Seller seller;  
 	
 	public Sale(){
 		super();
+		proposedSales=new ArrayList<ProposedSale>();
 	}
 		
 	public Sale(String title, String description, int status, float price, Date pubDate, File file, Seller seller) {
 		super();
-
+		
+		this.proposedSales=new ArrayList<ProposedSale>();
 		this.title = title;
 		this.description = description;
 		this.status = status;
@@ -218,8 +226,17 @@ public class Sale implements Serializable {
 		return saleNumber+";"+title+";"+price;  
 	}
 
+	
+	public List<ProposedSale> getProposedSales(){
+		return this.proposedSales;
+	}
 
+	public void setProposedSales(List<ProposedSale> proposedSales) {
+		this.proposedSales = proposedSales;
+	}
 
-
+	public void addProposedSale(ProposedSale ps) {
+		this.proposedSales.add(ps);
+	}
 	
 }
