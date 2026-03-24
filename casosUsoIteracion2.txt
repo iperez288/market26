@@ -1,0 +1,6 @@
+Casos de uso:
+De comprador: Agregar Saldo, Valorar Compra, Ver Comparas
+De vendedor: Aceptar propuesta
+
+Nuevas clases del dominio:
+OfertaAceptada y Valoración
