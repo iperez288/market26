@@ -3,4 +3,14 @@ De comprador: Agregar Saldo, Valorar Compra, Ver Compras
 De vendedor: Aceptar propuesta
 
 Nuevas clases del dominio:
-OfertaAceptada y Valoración
+Trasacciones y Valoración
+
+En ProposedSale podriamos añadir atributos como:
+Estado:{Aceptada, Rechazada, Pendiente}
+FechaDeCompra
+Valoracion
+
+Atributos de Trasacciones:
+Cantidad
+Fecha
+Tipo: {Ingreso, Extraccion, Compra, Venta}
