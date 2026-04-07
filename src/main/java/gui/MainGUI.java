@@ -23,8 +23,8 @@ public class MainGUI extends JFrame {
 	private JPanel jContentPane = null;
 	private JButton jButtonCreateQuery = null;
 	private JButton jButtonQueryQueries = null;
-	private JButton jButtonAddMoney = null; // Nuevo botón
-	private JLabel jLabelSaldo; // Nueva etiqueta de saldo
+	private JButton jButtonAddMoney = null;
+	private JLabel jLabelSaldo;
 
     private static BLFacade appFacadeInterface;
 	
@@ -54,7 +54,7 @@ public class MainGUI extends JFrame {
 	private JButton btnRegister;
 	private JPanel user_panel;
 	private JPanel seller_panel;
-	private JPanel buyer_panel; // Nuevo panel para agrupar botones de comprador
+	private JPanel buyer_panel;
 	private JButton jButtonViewAcceptedSales;
 	
 	public MainGUI(String mail) {
@@ -78,9 +78,8 @@ public class MainGUI extends JFrame {
 		panel.add(rdbtnNewRadioButton_2);
 		panel.add(rdbtnNewRadioButton);
 		
-		// --- PANEL SUPERIOR (Login, Registro y Saldo) ---
 		user_panel = new JPanel();
-		user_panel.setLayout(new GridLayout(0, 3, 0, 0)); // 3 columnas para incluir el saldo
+		user_panel.setLayout(new GridLayout(0, 3, 0, 0));
 		
 		btnRegister = new JButton("Registrarse");
 		btnRegister.addActionListener(arg0 -> {
@@ -96,18 +95,15 @@ public class MainGUI extends JFrame {
 		});
 		user_panel.add(btnLogin);
 
-		// ETIQUETA DE SALDO (Arriba a la derecha)
 		jLabelSaldo = new JLabel("Saldo: 0.00€");
 		jLabelSaldo.setHorizontalAlignment(SwingConstants.RIGHT);
 		jLabelSaldo.setFont(new Font("Tahoma", Font.BOLD, 12));
 		user_panel.add(jLabelSaldo);
 		
-		// --- SECCIÓN CENTRAL ---
 		jLabelSelectOption = new JLabel(ResourceBundle.getBundle("Etiquetas").getString("MainGUI.SelectOption"));
 		jLabelSelectOption.setFont(new Font("Tahoma", Font.BOLD, 13));
 		jLabelSelectOption.setHorizontalAlignment(SwingConstants.CENTER);
 		
-		// --- PANEL DE VENDEDOR ---
 		seller_panel = new JPanel();
 		seller_panel.setLayout(new GridLayout(0, 2, 0, 0));
 		
@@ -127,10 +123,8 @@ public class MainGUI extends JFrame {
 		});
 		seller_panel.add(jButtonViewAcceptedSales);
 
-		// --- PANEL DE COMPRADOR (Consultar y Agregar Saldo) ---
 		buyer_panel = new JPanel();
-		buyer_panel.setLayout(new GridLayout(0, 2, 0, 0)); // Dos botones a la par
-
+		buyer_panel.setLayout(new GridLayout(0, 2, 0, 0));
 		jButtonQueryQueries = new JButton(ResourceBundle.getBundle("Etiquetas").getString("MainGUI.QuerySales"));
 		jButtonQueryQueries.setEnabled(false);
 		jButtonQueryQueries.addActionListener(e -> {
@@ -142,20 +136,18 @@ public class MainGUI extends JFrame {
 		jButtonAddMoney = new JButton("Agregar Saldo");
 		jButtonAddMoney.setEnabled(false);
 		jButtonAddMoney.addActionListener(e -> {
-			// Aquí iría la lógica o el JFrame para añadir saldo
 			System.out.println("Abriendo ventana de añadir saldo...");
 			JFrame a = new AddSaldoGUI(MainGUI.this);
 			a.setVisible(true);
 		});
 		buyer_panel.add(jButtonAddMoney);
 		
-		// --- CONFIGURACIÓN DEL CONTENIDO PRINCIPAL ---
 		jContentPane = new JPanel();
 		jContentPane.setLayout(new GridLayout(5, 1, 0, 0));
 		jContentPane.add(user_panel);
 		jContentPane.add(jLabelSelectOption);
 		jContentPane.add(seller_panel);
-		jContentPane.add(buyer_panel); // Añadimos el panel de los botones de oferta/saldo
+		jContentPane.add(buyer_panel);
 		jContentPane.add(panel);
 		
 		setContentPane(jContentPane);
@@ -177,7 +169,6 @@ public class MainGUI extends JFrame {
 		actualizarSaldo();
 	}
 
-	// Método para actualizar visualmente el saldo desde la lógica de negocio
 	public void actualizarSaldo() {
 		if (appFacadeInterface.getUsuario() != null) {
 			User u = appFacadeInterface.getUsuario();

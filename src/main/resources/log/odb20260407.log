@@ -333,3 +333,46 @@ Type domain.ProposedSale is not enhanced.
 [2026-04-07 12:15:04 #6 type] 
 Type domain.Sale is not enhanced.
 
+------------------------------------------------------------------------------------------------------------------------
+
+[2026-04-07 12:18:50 #1 store] 
+Database 'C:\Users\IKER\Desktop\market26\src\main\resources\products.temp' is opened by 17344@LAPTOP-SBTTNCFP
+
+[2026-04-07 12:18:50 #2 type] 
+Type domain.User is not enhanced.
+
+[2026-04-07 12:18:51 #3 type] 
+Type domain.Buyer is not enhanced.
+
+[2026-04-07 12:18:51 #4 type] 
+Type domain.Seller is not enhanced.
+
+[2026-04-07 12:18:51 #5 type] 
+Type domain.ProposedSale is not enhanced.
+
+[2026-04-07 12:18:51 #6 type] 
+Type domain.Sale is not enhanced.
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2026-04-07 12:21:40 #1 store] 
+Database 'C:\Users\IKER\Desktop\market26\src\main\resources\products.temp' has been recovered (tr. 16-16)
+
+[2026-04-07 12:21:40 #2 store] 
+Database 'C:\Users\IKER\Desktop\market26\src\main\resources\products.temp' is opened by 8012@LAPTOP-SBTTNCFP
+
+[2026-04-07 12:21:40 #3 type] 
+Type domain.User is not enhanced.
+
+[2026-04-07 12:21:40 #4 type] 
+Type domain.Buyer is not enhanced.
+
+[2026-04-07 12:21:40 #5 type] 
+Type domain.Seller is not enhanced.
+
+[2026-04-07 12:21:40 #6 type] 
+Type domain.ProposedSale is not enhanced.
+
+[2026-04-07 12:21:40 #7 type] 
+Type domain.Sale is not enhanced.
+

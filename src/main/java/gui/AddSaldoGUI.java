@@ -49,14 +49,11 @@ public class AddSaldoGUI extends JFrame {
 					float importe = Float.parseFloat(textFieldImporte.getText());
 					if (importe <= 0) throw new NumberFormatException();
 
-					// Llamada a la lógica de negocio (debes tener este método en tu Facade)
 					BLFacade facade = MainGUI.getBusinessLogic();
 					String email = facade.getUsuario().getEmail();
 					
-					// Asumiendo que añades este método a tu BLFacade
 					facade.añadirSaldo(email, importe); 
 					
-					// Actualizar la interfaz principal y cerrar
 					mainFrame.actualizarSaldo();
 					dispose();
 					
