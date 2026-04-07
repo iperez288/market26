@@ -133,7 +133,7 @@ public class ShowSaleGUI extends JFrame {
 		getContentPane().add(statusField);
 		btnBuy.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				JFrame a = new ProposalGUI(sale);
+				JFrame a = new ProposalGUI(sale.getSaleNumber());
 				a.setVisible(true);;
 				
 			}

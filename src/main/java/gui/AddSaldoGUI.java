@@ -52,7 +52,7 @@ public class AddSaldoGUI extends JFrame {
 					BLFacade facade = MainGUI.getBusinessLogic();
 					String email = facade.getUsuario().getEmail();
 					
-					facade.añadirSaldo(email, importe); 
+					facade.annadirSaldo(email, importe); 
 					
 					mainFrame.actualizarSaldo();
 					dispose();

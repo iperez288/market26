@@ -87,5 +87,10 @@ public class Buyer extends User implements Serializable {
 	public void setSaldo(float saldo) {
 		this.saldo = saldo;
 	}
+	
+	public boolean addProposedSale(ProposedSale ps) {
+
+		return this.proposedSales.add(ps);
+	}
 
 }

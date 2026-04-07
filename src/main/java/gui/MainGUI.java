@@ -95,7 +95,7 @@ public class MainGUI extends JFrame {
 		});
 		user_panel.add(btnLogin);
 
-		jLabelSaldo = new JLabel("Saldo: 0.00â‚¬");
+		jLabelSaldo = new JLabel("Saldo: 0.00 €");
 		jLabelSaldo.setHorizontalAlignment(SwingConstants.RIGHT);
 		jLabelSaldo.setFont(new Font("Tahoma", Font.BOLD, 12));
 		user_panel.add(jLabelSaldo);

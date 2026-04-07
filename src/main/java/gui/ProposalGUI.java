@@ -27,7 +27,7 @@ public class ProposalGUI extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public ProposalGUI( Sale sale) {
+	public ProposalGUI( int sn) {
 		setTitle("Propuesta");
 		setBounds(100, 100, 354, 194);
 		contentPane = new JPanel();
@@ -46,7 +46,7 @@ public class ProposalGUI extends JFrame {
 			public void actionPerformed(ActionEvent arg0) {
 				float price = Float.parseFloat(priceField.getText());
 				BLFacade facade = MainGUI.getBusinessLogic();
-				facade.createProposedSale(sale, price);
+				facade.createProposedSale(sn, price);
 				thisFrame.setVisible(false);
 			}
 		});

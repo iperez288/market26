@@ -180,22 +180,24 @@ public class BLFacadeImplementation  implements BLFacade {
 		this.usuario = usuario;
 	}
 
-	public ProposedSale createProposedSale(Sale s, float p) {
+	public ProposedSale createProposedSale(int sn, float p) {
 		
 		Buyer b= (Buyer)usuario;
 		dbManager.open();
 		
-		ProposedSale proposal=dbManager.createProposedSale(s.getSaleNumber(), b,p);		
+		String email = usuario.getEmail();
+		
+		ProposedSale proposal=dbManager.createProposedSale(sn, email, p);		
 		dbManager.close();
 		return proposal;	
 	}
 	
-	public void añadirSaldo(String email, float importe) {
+	public void annadirSaldo(String email, float importe) {
 		
 		Transaction transaction = new Transaction();
 		
 		dbManager.open();
-		float nuevoSaldo = dbManager.añadirSaldo(email, importe);
+		float nuevoSaldo = dbManager.annadirSaldo(email, importe);
 		
 		((Buyer) usuario).setSaldo(nuevoSaldo);
 		

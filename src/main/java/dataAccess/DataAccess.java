@@ -300,7 +300,7 @@ public void open(){
 		return u;
 	}
 
-	public ProposedSale createProposedSale(int sID, Buyer b, float p) {
+	public ProposedSale createProposedSale(int sID, String email, float p) {
 		
 		
 		
@@ -310,11 +310,11 @@ public void open(){
 			db.getTransaction().begin();
 			
 			Sale sale = db.find(Sale.class, sID);
-			Buyer buyer = db.find(Buyer.class, b.getEmail());
+			Buyer buyer = db.find(Buyer.class, email);
 			ProposedSale proposal= new ProposedSale(sale,buyer,p);
 			
-			sale.getProposedSales().add(proposal);
-			buyer.getProposedSales().add(proposal);
+			sale.addProposedSale(proposal);
+			buyer.addProposedSale(proposal);
 			
 			db.persist(proposal); 
 			db.getTransaction().commit();
@@ -332,7 +332,7 @@ public void open(){
 	}
 	
 	
-	public float añadirSaldo(String email, float importe) {
+	public float annadirSaldo(String email, float importe) {
 		User u = db.find(User.class, email);
 		
 		db.getTransaction().begin();

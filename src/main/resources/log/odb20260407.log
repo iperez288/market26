@@ -376,3 +376,46 @@ Type domain.ProposedSale is not enhanced.
 [2026-04-07 12:21:40 #7 type] 
 Type domain.Sale is not enhanced.
 
+------------------------------------------------------------------------------------------------------------------------
+
+[2026-04-07 15:57:14 #1 store] 
+Database 'C:\Users\kenne\git\market26\src\main\resources\products.temp' has been recovered (tr. 17-19)
+
+[2026-04-07 15:57:14 #2 store] 
+Database 'C:\Users\kenne\git\market26\src\main\resources\products.temp' is opened by 6908@Traspié
+
+[2026-04-07 15:57:14 #3 type] 
+Type domain.User is not enhanced.
+
+[2026-04-07 15:57:14 #4 type] 
+Type domain.Buyer is not enhanced.
+
+[2026-04-07 15:57:14 #5 type] 
+Type domain.Seller is not enhanced.
+
+[2026-04-07 15:57:14 #6 type] 
+Type domain.ProposedSale is not enhanced.
+
+[2026-04-07 15:57:14 #7 type] 
+Type domain.Sale is not enhanced.
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2026-04-07 15:58:57 #1 store] 
+Database 'C:\Users\kenne\git\market26\src\main\resources\products.temp' is opened by 32020@Traspié
+
+[2026-04-07 15:58:57 #2 type] 
+Type domain.User is not enhanced.
+
+[2026-04-07 15:58:57 #3 type] 
+Type domain.Buyer is not enhanced.
+
+[2026-04-07 15:58:57 #4 type] 
+Type domain.Seller is not enhanced.
+
+[2026-04-07 15:58:57 #5 type] 
+Type domain.ProposedSale is not enhanced.
+
+[2026-04-07 15:58:57 #6 type] 
+Type domain.Sale is not enhanced.
+
