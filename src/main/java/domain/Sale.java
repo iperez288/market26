@@ -29,6 +29,7 @@ public class Sale implements Serializable {
 	private float price;
 	private Date pubDate;
 	private String fileName;
+	private boolean purchased;
 	
 	@OneToMany (fetch=FetchType.EAGER, cascade=CascadeType.PERSIST)
 	private List<ProposedSale> proposedSales;
@@ -39,6 +40,7 @@ public class Sale implements Serializable {
 	public Sale(){
 		super();
 		proposedSales=new ArrayList<ProposedSale>();
+		this.purchased=false;
 	}
 		
 	public Sale(String title, String description, int status, float price, Date pubDate, File file, Seller seller) {
@@ -67,6 +69,7 @@ public class Sale implements Serializable {
 		}
 
 		this.seller = seller;
+		this.purchased=false;
 		
 	}
 	
@@ -238,6 +241,16 @@ public class Sale implements Serializable {
 
 	public void addProposedSale(ProposedSale ps) {
 		this.proposedSales.add(ps);
+	}
+	
+	/**
+	 * 
+	 * true <-> the sale has not been purchased
+	 * 
+	 * @return
+	 */
+	public boolean isActive() {
+		return this.purchased;
 	}
 	
 }

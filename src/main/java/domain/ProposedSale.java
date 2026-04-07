@@ -9,6 +9,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.IdClass;
 import javax.persistence.ManyToOne;
+import java.util.Date;
 
 @Entity @IdClass(ProposedSale.class)
 public class ProposedSale implements Serializable {
@@ -24,6 +25,7 @@ public class ProposedSale implements Serializable {
 	Buyer buyer;
 	
 	float price;
+	private Date fechaCompra;
 	
 	public ProposedSale(Sale s, Buyer b, float p) {
 		sale=s;
@@ -59,6 +61,24 @@ public class ProposedSale implements Serializable {
 		this.price = price;
 	}
 
+	
+	/**
+	 * Gets the title of sale.
+	 * 
+	 * @return
+	 */
+	public String getTitle() {
+		
+		return sale.getTitle();
+	}
+
+	public void setFechaCompra(Date fecha) {
+		this.fechaCompra=fecha;
+	}
+	
+	public Date getFechaCompra(){
+		return this.fechaCompra;
+	}
 	
 
 }
