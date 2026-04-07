@@ -191,6 +191,9 @@ public class BLFacadeImplementation  implements BLFacade {
 	}
 	
 	public void añadirSaldo(String email, float importe) {
+		
+		Transaction transaction = new Transaction();
+		
 		dbManager.open();
 		float nuevoSaldo = dbManager.añadirSaldo(email, importe);
 		
