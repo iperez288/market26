@@ -14,19 +14,10 @@ import javax.persistence.OneToMany;
 @Entity
 public class Buyer extends User implements Serializable {
 
-	//private float saldo;
-	
-	@OneToMany (fetch=FetchType.EAGER, cascade=CascadeType.PERSIST)
-	private List<ProposedSale> proposedSales;
-	
-	
-	/*public float getSaldo() {
-		return saldo;
-	}*/
+	private float saldo;
 
-	/*public void setSaldo(float saldo) {
-		this.saldo = saldo;
-	}*/
+	@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
+	private List<ProposedSale> proposedSales;
 
 	public List<ProposedSale> getProposedSales() {
 		return proposedSales;
@@ -38,43 +29,40 @@ public class Buyer extends User implements Serializable {
 
 	public Buyer() {
 		super();
-		this.proposedSales=new ArrayList<ProposedSale>();
+		this.proposedSales = new ArrayList<ProposedSale>();
 	}
-	
+
 	public Buyer(String email, String name, String password) {
 		this.setEmail(email);
 		this.setName(name);
 		this.setPassword(password);
-		//this.saldo=0.0f;
-		this.proposedSales=new ArrayList<ProposedSale>();
+		// this.saldo=0.0f;
+		this.proposedSales = new ArrayList<ProposedSale>();
 	}
-	
-	
+
 	/**
 	 * This method adds a propose sale to a seller
 	 * 
-	 * @param title of the sale
-	 * @param description of the sale
-	 * @param status 
-	 * @param selling price
+	 * @param title           of the sale
+	 * @param description     of the sale
+	 * @param status
+	 * @param selling         price
 	 * @param publicationDate
 	 * @return Sale
 	 */
-	
-	public ProposedSale addProposedSale(Sale sale, float price)  {
-		
-	
-		ProposedSale proposedSale= new ProposedSale(sale, this, price);
-        proposedSales.add(proposedSale);
-        sale.addProposedSale(proposedSale);
-        return proposedSale;
+
+	public ProposedSale addProposedSale(Sale sale, float price) {
+
+		ProposedSale proposedSale = new ProposedSale(sale, this, price);
+		proposedSales.add(proposedSale);
+		sale.addProposedSale(proposedSale);
+		return proposedSale;
 	}
-	
-	
-	public boolean doesSaleExist(String title)  {	
-		for (ProposedSale s:proposedSales)
-			if ( s.getSale().getTitle().compareTo(title)==0 )
-			 return true;
+
+	public boolean doesSaleExist(String title) {
+		for (ProposedSale s : proposedSales)
+			if (s.getSale().getTitle().compareTo(title) == 0)
+				return true;
 		return false;
 	}
 
@@ -91,6 +79,13 @@ public class Buyer extends User implements Serializable {
 			return false;
 		return true;
 	}
-	
-	
+
+	public float getSaldo() {
+		return saldo;
+	}
+
+	public void setSaldo(float saldo) {
+		this.saldo = saldo;
+	}
+
 }

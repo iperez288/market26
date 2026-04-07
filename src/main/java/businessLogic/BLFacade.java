@@ -79,4 +79,6 @@ public interface BLFacade  {
 	 public List<ProposedSale> getProposedSales();
 	
 	 public ProposedSale createProposedSale(Sale s, float p);
+	 
+	 public void añadirSaldo(String email, float importe);
 }

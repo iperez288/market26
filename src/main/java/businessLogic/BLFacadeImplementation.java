@@ -7,11 +7,7 @@ import javax.jws.WebMethod;
 import javax.jws.WebService;
 
 import dataAccess.DataAccess;
-import domain.Buyer;
-import domain.ProposedSale;
-import domain.Sale;
-import domain.Seller;
-import domain.User;
+import domain.*;
 import exceptions.FileNotUploadedException;
 import exceptions.MustBeLaterThanTodayException;
 import exceptions.SaleAlreadyExistException;
@@ -193,5 +189,15 @@ public class BLFacadeImplementation  implements BLFacade {
 		dbManager.close();
 		return proposal;	
 	}
+	
+	public void añadirSaldo(String email, float importe) {
+		dbManager.open();
+		float nuevoSaldo = dbManager.añadirSaldo(email, importe);
+		
+		((Buyer) usuario).setSaldo(nuevoSaldo);
+		
+		dbManager.close();
+	}
+	
 }
 

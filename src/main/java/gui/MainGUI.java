@@ -1,15 +1,9 @@
 package gui;
 
-/**
- * @author Software Engineering teachers
- */
-
-
 import javax.swing.*;
-
 import businessLogic.BLFacade;
+import domain.Buyer;
 import domain.User;
-
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.GridLayout;
@@ -17,23 +11,20 @@ import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.util.Locale;
 import java.util.ResourceBundle;
-
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
-import java.awt.GridBagLayout;
-import java.awt.GridBagConstraints;
-import java.awt.Insets;
-
+import java.awt.FlowLayout;
 
 public class MainGUI extends JFrame {
 	
-   // private User usuario; //Al iniciar el programa es null, porque no se ha asignado un rol al usuario. Posteriormente, tomará valor de Buyer o Seller.
     private String tipoUsuario; 
 	private static final long serialVersionUID = 1L;
 
 	private JPanel jContentPane = null;
 	private JButton jButtonCreateQuery = null;
 	private JButton jButtonQueryQueries = null;
+	private JButton jButtonAddMoney = null; // Nuevo botón
+	private JLabel jLabelSaldo; // Nueva etiqueta de saldo
 
     private static BLFacade appFacadeInterface;
 	
@@ -41,20 +32,18 @@ public class MainGUI extends JFrame {
 		return appFacadeInterface;
 	}
 		
-
 	public String getTipoUsuario() {
 		return tipoUsuario;
 	}
-
 
 	public void setTipoUsuario(String tipoUsuario) {
 		this.tipoUsuario = tipoUsuario;
 	}
 
-
 	public static void setBussinessLogic (BLFacade facade){
 		appFacadeInterface=facade;
 	}
+	
 	protected JLabel jLabelSelectOption;
 	private JRadioButton rdbtnNewRadioButton;
 	private JRadioButton rdbtnNewRadioButton_1;
@@ -65,123 +54,109 @@ public class MainGUI extends JFrame {
 	private JButton btnRegister;
 	private JPanel user_panel;
 	private JPanel seller_panel;
+	private JPanel buyer_panel; // Nuevo panel para agrupar botones de comprador
 	private JButton jButtonViewAcceptedSales;
 	
-	/**
-	 * This is the default constructor
-	 */
-	public MainGUI( String mail) {
+	public MainGUI(String mail) {
 		super();
 
 		this.tipoUsuario="xxxxxx";
+		this.setSize(495, 495);
 		
-		
-		this.setSize(495, 495
-				);
-		
+		// --- CONFIGURACIÓN DE IDIOMAS ---
 		rdbtnNewRadioButton = new JRadioButton("English");
-		rdbtnNewRadioButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				Locale.setDefault(new Locale("en"));
-				paintAgain();				}
-		});
-		buttonGroup.add(rdbtnNewRadioButton);
+		rdbtnNewRadioButton.addActionListener(e -> { Locale.setDefault(new Locale("en")); paintAgain(); });
 		
 		rdbtnNewRadioButton_1 = new JRadioButton("Euskara");
-		rdbtnNewRadioButton_1.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				Locale.setDefault(new Locale("eus"));
-				paintAgain();				}
-		});
-		buttonGroup.add(rdbtnNewRadioButton_1);
+		rdbtnNewRadioButton_1.addActionListener(e -> { Locale.setDefault(new Locale("eus")); paintAgain(); });
 		
 		rdbtnNewRadioButton_2 = new JRadioButton("Castellano");
-		rdbtnNewRadioButton_2.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				Locale.setDefault(new Locale("es"));
-				paintAgain();
-			}
-		});
-		buttonGroup.add(rdbtnNewRadioButton_2);
+		rdbtnNewRadioButton_2.addActionListener(e -> { Locale.setDefault(new Locale("es")); paintAgain(); });
 	
 		panel = new JPanel();
 		panel.add(rdbtnNewRadioButton_1);
 		panel.add(rdbtnNewRadioButton_2);
 		panel.add(rdbtnNewRadioButton);
 		
-		jButtonQueryQueries = new JButton();
-		jButtonQueryQueries.setEnabled(false);
-		jButtonQueryQueries.setText(ResourceBundle.getBundle("Etiquetas").getString("MainGUI.QuerySales"));
-		jButtonQueryQueries.addActionListener(new java.awt.event.ActionListener() {
-			public void actionPerformed(java.awt.event.ActionEvent e) {
-				JFrame a = new QuerySalesGUI();
-
-				a.setVisible(true);
-			}
-		});
-		
-		jContentPane = new JPanel();
-		jContentPane.setLayout(new GridLayout(5, 1, 0, 0));
-		
+		// --- PANEL SUPERIOR (Login, Registro y Saldo) ---
 		user_panel = new JPanel();
-		jContentPane.add(user_panel);
-		user_panel.setLayout(new GridLayout(0, 2, 0, 0));
+		user_panel.setLayout(new GridLayout(0, 3, 0, 0)); // 3 columnas para incluir el saldo
 		
 		btnRegister = new JButton("Registrarse");
-		user_panel.add(btnRegister);
-		btnRegister.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				JFrame a = new RegisterGUI(MainGUI.this);
-
-				a.setVisible(true);
-				
-			}
+		btnRegister.addActionListener(arg0 -> {
+			JFrame a = new RegisterGUI(MainGUI.this);
+			a.setVisible(true);
 		});
+		user_panel.add(btnRegister);
 		
 		btnLogin = new JButton("Iniciar sesión");
-		btnLogin.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				JFrame a = new LoginGUI(MainGUI.this);
-
-				a.setVisible(true);
-			}
+		btnLogin.addActionListener(e -> {
+			JFrame a = new LoginGUI(MainGUI.this);
+			a.setVisible(true);
 		});
 		user_panel.add(btnLogin);
+
+		// ETIQUETA DE SALDO (Arriba a la derecha)
+		jLabelSaldo = new JLabel("Saldo: 0.00€");
+		jLabelSaldo.setHorizontalAlignment(SwingConstants.RIGHT);
+		jLabelSaldo.setFont(new Font("Tahoma", Font.BOLD, 12));
+		user_panel.add(jLabelSaldo);
 		
+		// --- SECCIÓN CENTRAL ---
 		jLabelSelectOption = new JLabel(ResourceBundle.getBundle("Etiquetas").getString("MainGUI.SelectOption"));
 		jLabelSelectOption.setFont(new Font("Tahoma", Font.BOLD, 13));
-		jLabelSelectOption.setForeground(Color.BLACK);
 		jLabelSelectOption.setHorizontalAlignment(SwingConstants.CENTER);
-		jContentPane.add(jLabelSelectOption);
 		
+		// --- PANEL DE VENDEDOR ---
 		seller_panel = new JPanel();
-		jContentPane.add(seller_panel);
 		seller_panel.setLayout(new GridLayout(0, 2, 0, 0));
 		
-		jButtonCreateQuery = new JButton();
+		jButtonCreateQuery = new JButton(ResourceBundle.getBundle("Etiquetas").getString("MainGUI.CreateSale"));
 		jButtonCreateQuery.setEnabled(false);
+		jButtonCreateQuery.addActionListener(e -> {
+			JFrame a = new CreateSaleGUI(appFacadeInterface.getUsuario().getEmail());
+			a.setVisible(true);
+		});
 		seller_panel.add(jButtonCreateQuery);
-		jButtonCreateQuery.setText(ResourceBundle.getBundle("Etiquetas").getString("MainGUI.CreateSale"));
 		
-		jButtonViewAcceptedSales = new JButton("Ver ofertas aceptadas"); //$NON-NLS-1$ //$NON-NLS-2$
-		jButtonViewAcceptedSales.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				JFrame a = new QueryProposedSalesGUI();
-				a.setVisible(true);;
-			}
-		});
+		jButtonViewAcceptedSales = new JButton("Ver ofertas aceptadas");
 		jButtonViewAcceptedSales.setEnabled(false);
-		seller_panel.add(jButtonViewAcceptedSales);
-		
-		jButtonCreateQuery.addActionListener(new java.awt.event.ActionListener() {
-			public void actionPerformed(java.awt.event.ActionEvent e) {
-				JFrame a = new CreateSaleGUI(appFacadeInterface.getUsuario().getEmail());
-				a.setVisible(true);
-			}
+		jButtonViewAcceptedSales.addActionListener(e -> {
+			JFrame a = new QueryProposedSalesGUI();
+			a.setVisible(true);
 		});
-		jContentPane.add(jButtonQueryQueries);
-		jContentPane.add(panel);
+		seller_panel.add(jButtonViewAcceptedSales);
+
+		// --- PANEL DE COMPRADOR (Consultar y Agregar Saldo) ---
+		buyer_panel = new JPanel();
+		buyer_panel.setLayout(new GridLayout(0, 2, 0, 0)); // Dos botones a la par
+
+		jButtonQueryQueries = new JButton(ResourceBundle.getBundle("Etiquetas").getString("MainGUI.QuerySales"));
+		jButtonQueryQueries.setEnabled(false);
+		jButtonQueryQueries.addActionListener(e -> {
+			JFrame a = new QuerySalesGUI();
+			a.setVisible(true);
+		});
+		buyer_panel.add(jButtonQueryQueries);
+
+		jButtonAddMoney = new JButton("Agregar Saldo");
+		jButtonAddMoney.setEnabled(false);
+		jButtonAddMoney.addActionListener(e -> {
+			// Aquí iría la lógica o el JFrame para añadir saldo
+			System.out.println("Abriendo ventana de añadir saldo...");
+			JFrame a = new AddSaldoGUI(MainGUI.this);
+			a.setVisible(true);
+		});
+		buyer_panel.add(jButtonAddMoney);
 		
+		// --- CONFIGURACIÓN DEL CONTENIDO PRINCIPAL ---
+		jContentPane = new JPanel();
+		jContentPane.setLayout(new GridLayout(5, 1, 0, 0));
+		jContentPane.add(user_panel);
+		jContentPane.add(jLabelSelectOption);
+		jContentPane.add(seller_panel);
+		jContentPane.add(buyer_panel); // Añadimos el panel de los botones de oferta/saldo
+		jContentPane.add(panel);
 		
 		setContentPane(jContentPane);
 		setTitle(ResourceBundle.getBundle("Etiquetas").getString("MainGUI.MainTitle") +": "+tipoUsuario);
@@ -198,24 +173,31 @@ public class MainGUI extends JFrame {
 		jLabelSelectOption.setText(ResourceBundle.getBundle("Etiquetas").getString("MainGUI.SelectOption"));
 		jButtonQueryQueries.setText(ResourceBundle.getBundle("Etiquetas").getString("MainGUI.QuerySales"));
 		jButtonCreateQuery.setText(ResourceBundle.getBundle("Etiquetas").getString("MainGUI.CreateSale"));
-
 		this.setTitle(ResourceBundle.getBundle("Etiquetas").getString("MainGUI.MainTitle")+ ": "+appFacadeInterface.getUsuario().getEmail() +" ("+tipoUsuario+")");
+		actualizarSaldo();
+	}
+
+	// Método para actualizar visualmente el saldo desde la lógica de negocio
+	public void actualizarSaldo() {
+		if (appFacadeInterface.getUsuario() != null) {
+			User u = appFacadeInterface.getUsuario();
+			float saldo = ((Buyer) u).getSaldo();
+			jLabelSaldo.setText("Saldo: " + String.format("%.2f", saldo) + "€");
+		}
 	}
 	
 	public void gestionPermisos() {
-		if (tipoUsuario.equals("Comprador")) {
-			this.jButtonQueryQueries.setEnabled(true);
+		boolean esComprador = tipoUsuario.equals("Comprador");
+		this.jButtonQueryQueries.setEnabled(true);
+		this.jButtonAddMoney.setEnabled(esComprador || tipoUsuario.equals("Vendedor")); 
+		
+		if (esComprador) {
 			this.jButtonCreateQuery.setEnabled(false);
 			this.jButtonViewAcceptedSales.setEnabled(false);
-
-			
-		}else {
-			this.jButtonQueryQueries.setEnabled(true);
+		} else {
 			this.jButtonCreateQuery.setEnabled(true);
 			this.jButtonViewAcceptedSales.setEnabled(true);
 		}
+		actualizarSaldo();
 	}
-
-	
-} // @jve:decl-index=0:visual-constraint="0,0"
-
+}

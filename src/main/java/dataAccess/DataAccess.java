@@ -332,6 +332,22 @@ public void open(){
 	}
 	
 	
+	public float añadirSaldo(String email, float importe) {
+		User u = db.find(User.class, email);
+		
+		db.getTransaction().begin();
+		
+		Buyer b = (Buyer) u;
+		float saldoActual = b.getSaldo();
+		float nuevoSaldo = saldoActual + importe;
+		b.setSaldo(nuevoSaldo);
+		
+		db.getTransaction().commit();
+		
+		return nuevoSaldo;
+	}
+	
+	
 
 	
 	
