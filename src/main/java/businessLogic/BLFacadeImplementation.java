@@ -195,13 +195,27 @@ public class BLFacadeImplementation  implements BLFacade {
 	public void annadirSaldo(String email, float importe) {
 				
 		dbManager.open();
-		float nuevoSaldo = dbManager.annadirSaldo(email, importe);
+		
+		dbManager.annadirSaldo(email, importe);
 		
 		User u = dbManager.browseUser(email);
 		
 		this.usuario = u;
 			
 		dbManager.close();	
+	}
+	
+	public void retirarSaldo(String email, float importe) {
+		dbManager.open();
+		
+		dbManager.retirarSaldo(email, importe);
+		
+		User u = dbManager.browseUser(email);
+		
+		this.usuario = u;
+		
+		dbManager.close();
+		
 	}
 	
 }

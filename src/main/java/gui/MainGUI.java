@@ -11,9 +11,6 @@ import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.util.Locale;
 import java.util.ResourceBundle;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
-import java.awt.FlowLayout;
 
 public class MainGUI extends JFrame {
 
@@ -24,6 +21,7 @@ public class MainGUI extends JFrame {
 	private JButton jButtonCreateQuery = null;
 	private JButton jButtonQueryQueries = null;
 	private JButton jButtonAddMoney = null;
+	private JButton jButtonWithdrawMoney = null; // Nuevo botón
 	private JButton jButtonTransactionHistory = null;
 	private JLabel jLabelSaldo;
 
@@ -49,20 +47,23 @@ public class MainGUI extends JFrame {
 	private JRadioButton rdbtnNewRadioButton;
 	private JRadioButton rdbtnNewRadioButton_1;
 	private JRadioButton rdbtnNewRadioButton_2;
-	private JPanel panel;
-	private final ButtonGroup buttonGroup = new ButtonGroup();
+	private JPanel panel_idiomas;
 	private JButton btnLogin;
 	private JButton btnRegister;
 	private JPanel user_panel;
-	private JPanel seller_panel;
-	private JPanel buyer_panel;
+
+	// Paneles organizadores por filas
+	private JPanel panel_ventas;
+	private JPanel panel_consultas;
+	private JPanel panel_dinero;
+
 	private JButton jButtonViewAcceptedSales;
 
 	public MainGUI(String mail) {
 		super();
 
 		this.tipoUsuario = "xxxxxx";
-		this.setSize(495, 495);
+		this.setSize(550, 550); // Aumentado ligeramente para acomodar la nueva fila
 
 		// --- CONFIGURACIÓN DE IDIOMAS ---
 		rdbtnNewRadioButton = new JRadioButton("English");
@@ -70,106 +71,112 @@ public class MainGUI extends JFrame {
 			Locale.setDefault(new Locale("en"));
 			paintAgain();
 		});
-
 		rdbtnNewRadioButton_1 = new JRadioButton("Euskara");
 		rdbtnNewRadioButton_1.addActionListener(e -> {
 			Locale.setDefault(new Locale("eus"));
 			paintAgain();
 		});
-
 		rdbtnNewRadioButton_2 = new JRadioButton("Castellano");
 		rdbtnNewRadioButton_2.addActionListener(e -> {
 			Locale.setDefault(new Locale("es"));
 			paintAgain();
 		});
 
-		panel = new JPanel();
-		panel.add(rdbtnNewRadioButton_1);
-		panel.add(rdbtnNewRadioButton_2);
-		panel.add(rdbtnNewRadioButton);
+		panel_idiomas = new JPanel();
+		panel_idiomas.add(rdbtnNewRadioButton_1);
+		panel_idiomas.add(rdbtnNewRadioButton_2);
+		panel_idiomas.add(rdbtnNewRadioButton);
 
+		// FILA 1: Login, Registro y Saldo
 		user_panel = new JPanel();
 		user_panel.setLayout(new GridLayout(0, 3, 0, 0));
-
 		btnRegister = new JButton("Registrarse");
 		btnRegister.addActionListener(arg0 -> {
 			JFrame a = new RegisterGUI(MainGUI.this);
 			a.setVisible(true);
 		});
 		user_panel.add(btnRegister);
-
 		btnLogin = new JButton("Iniciar sesión");
 		btnLogin.addActionListener(e -> {
 			JFrame a = new LoginGUI(MainGUI.this);
 			a.setVisible(true);
 		});
 		user_panel.add(btnLogin);
-
 		jLabelSaldo = new JLabel("Saldo: 0.00 €");
 		jLabelSaldo.setHorizontalAlignment(SwingConstants.RIGHT);
 		jLabelSaldo.setFont(new Font("Tahoma", Font.BOLD, 12));
 		user_panel.add(jLabelSaldo);
 
+		// FILA 2: Etiqueta de selección
 		jLabelSelectOption = new JLabel(ResourceBundle.getBundle("Etiquetas").getString("MainGUI.SelectOption"));
 		jLabelSelectOption.setFont(new Font("Tahoma", Font.BOLD, 13));
 		jLabelSelectOption.setHorizontalAlignment(SwingConstants.CENTER);
 
-		seller_panel = new JPanel();
-		seller_panel.setLayout(new GridLayout(0, 2, 0, 0));
-
+		// FILA 3: Crear Oferta y Ver Ofertas Aceptadas
+		panel_ventas = new JPanel();
+		panel_ventas.setLayout(new GridLayout(0, 2, 0, 0));
 		jButtonCreateQuery = new JButton(ResourceBundle.getBundle("Etiquetas").getString("MainGUI.CreateSale"));
 		jButtonCreateQuery.setEnabled(false);
 		jButtonCreateQuery.addActionListener(e -> {
 			JFrame a = new CreateSaleGUI(appFacadeInterface.getUsuario().getEmail());
 			a.setVisible(true);
 		});
-		seller_panel.add(jButtonCreateQuery);
-
+		panel_ventas.add(jButtonCreateQuery);
 		jButtonViewAcceptedSales = new JButton("Ver ofertas aceptadas");
 		jButtonViewAcceptedSales.setEnabled(false);
 		jButtonViewAcceptedSales.addActionListener(e -> {
 			JFrame a = new QueryProposedSalesGUI();
 			a.setVisible(true);
 		});
-		seller_panel.add(jButtonViewAcceptedSales);
+		panel_ventas.add(jButtonViewAcceptedSales);
 
-		buyer_panel = new JPanel();
-		// Cambiado a 3 columnas para que quepan los 3 botones de comprador
-		// proporcionalmente
-		buyer_panel.setLayout(new GridLayout(0, 3, 0, 0));
-
+		// FILA 4: Consultar Ofertas e Historial de Transacciones
+		panel_consultas = new JPanel();
+		panel_consultas.setLayout(new GridLayout(0, 2, 0, 0));
 		jButtonQueryQueries = new JButton(ResourceBundle.getBundle("Etiquetas").getString("MainGUI.QuerySales"));
 		jButtonQueryQueries.setEnabled(false);
 		jButtonQueryQueries.addActionListener(e -> {
 			JFrame a = new QuerySalesGUI();
 			a.setVisible(true);
 		});
-		buyer_panel.add(jButtonQueryQueries);
-
-		jButtonAddMoney = new JButton("Agregar Saldo");
-		jButtonAddMoney.setEnabled(false);
-		jButtonAddMoney.addActionListener(e -> {
-			JFrame a = new AddSaldoGUI(MainGUI.this);
-			a.setVisible(true);
-		});
-		buyer_panel.add(jButtonAddMoney);
-
-		// --- NUEVO BOTÓN: HISTORIAL DE TRANSACCIONES ---
+		panel_consultas.add(jButtonQueryQueries);
 		jButtonTransactionHistory = new JButton("Historial Transacciones");
 		jButtonTransactionHistory.setEnabled(false);
 		jButtonTransactionHistory.addActionListener(e -> {
 			JFrame a = new TransactionHistoryGUI();
 			a.setVisible(true);
 		});
-		buyer_panel.add(jButtonTransactionHistory);
+		panel_consultas.add(jButtonTransactionHistory);
 
+		panel_dinero = new JPanel();
+		panel_dinero.setLayout(new GridLayout(0, 2, 0, 0));
+		jButtonAddMoney = new JButton("Agregar Saldo");
+		jButtonAddMoney.setEnabled(false);
+		jButtonAddMoney.addActionListener(e -> {
+			JFrame a = new AddSaldoGUI(MainGUI.this);
+			a.setVisible(true);
+		});
+		panel_dinero.add(jButtonAddMoney);
+
+		jButtonWithdrawMoney = new JButton("Retirar Saldo");
+		jButtonWithdrawMoney.setEnabled(false);
+		jButtonWithdrawMoney.addActionListener(e -> {
+			// Suponiendo que crearás una clase WithdrawSaldoGUI o similar
+			JFrame a = new RetirarSaldoGUI(MainGUI.this);
+			a.setVisible(true);
+		});
+		panel_dinero.add(jButtonWithdrawMoney);
+
+		// CONTENEDOR PRINCIPAL: 6 filas (User, Label, Ventas, Consultas, Dinero,
+		// Idiomas)
 		jContentPane = new JPanel();
-		jContentPane.setLayout(new GridLayout(5, 1, 0, 0));
+		jContentPane.setLayout(new GridLayout(6, 1, 0, 0));
 		jContentPane.add(user_panel);
 		jContentPane.add(jLabelSelectOption);
-		jContentPane.add(seller_panel);
-		jContentPane.add(buyer_panel);
-		jContentPane.add(panel);
+		jContentPane.add(panel_ventas);
+		jContentPane.add(panel_consultas);
+		jContentPane.add(panel_dinero);
+		jContentPane.add(panel_idiomas);
 
 		setContentPane(jContentPane);
 		setTitle(ResourceBundle.getBundle("Etiquetas").getString("MainGUI.MainTitle") + ": " + tipoUsuario);
@@ -186,8 +193,6 @@ public class MainGUI extends JFrame {
 		jLabelSelectOption.setText(ResourceBundle.getBundle("Etiquetas").getString("MainGUI.SelectOption"));
 		jButtonQueryQueries.setText(ResourceBundle.getBundle("Etiquetas").getString("MainGUI.QuerySales"));
 		jButtonCreateQuery.setText(ResourceBundle.getBundle("Etiquetas").getString("MainGUI.CreateSale"));
-		// Si tienes traducción en el ResourceBundle, podrías añadirla aquí:
-		// jButtonTransactionHistory.setText(ResourceBundle.getBundle("Etiquetas").getString("MainGUI.TransactionHistory"));
 		this.setTitle(ResourceBundle.getBundle("Etiquetas").getString("MainGUI.MainTitle") + ": "
 				+ appFacadeInterface.getUsuario().getEmail() + " (" + tipoUsuario + ")");
 		actualizarSaldo();
@@ -204,8 +209,8 @@ public class MainGUI extends JFrame {
 	public void gestionPermisos() {
 		boolean esComprador = tipoUsuario.equals("Comprador");
 		this.jButtonQueryQueries.setEnabled(true);
-		this.jButtonAddMoney.setEnabled(esComprador || tipoUsuario.equals("Vendedor"));
-
+		this.jButtonAddMoney.setEnabled(true);
+		this.jButtonWithdrawMoney.setEnabled(true); // Habilitar nuevo botón
 		this.jButtonTransactionHistory.setEnabled(true);
 
 		if (esComprador) {
