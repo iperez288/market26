@@ -15,6 +15,9 @@ import javax.persistence.OneToMany;
 public class Buyer extends User implements Serializable {
 
 	private float saldo;
+	
+	@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL, mappedBy="usuario")
+	private List<Transaction> monedero;
 
 	@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
 	private List<ProposedSale> proposedSales;
@@ -30,6 +33,7 @@ public class Buyer extends User implements Serializable {
 	public Buyer() {
 		super();
 		this.proposedSales = new ArrayList<ProposedSale>();
+		this.monedero = new ArrayList<Transaction>();
 	}
 
 	public Buyer(String email, String name, String password) {
@@ -38,6 +42,7 @@ public class Buyer extends User implements Serializable {
 		this.setPassword(password);
 		// this.saldo=0.0f;
 		this.proposedSales = new ArrayList<ProposedSale>();
+		this.monedero = new ArrayList<Transaction>();
 	}
 
 	/**
@@ -91,6 +96,14 @@ public class Buyer extends User implements Serializable {
 	public boolean addProposedSale(ProposedSale ps) {
 
 		return this.proposedSales.add(ps);
+	}
+	
+	public List<Transaction> getTransactions(){
+		return this.monedero;
+	}
+	
+	public void addTransaction(Transaction transaction) {
+		this.monedero.add(transaction);
 	}
 
 }

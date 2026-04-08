@@ -1,28 +1,42 @@
 package domain;
 
+import java.io.Serializable;
 import java.util.Date;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
-public class Transaction {
+@Entity
+public class Transaction implements Serializable {
+
+	private static final long serialVersionUID = 1L;
 
 	public enum TransactionType {
 		extraction, income, sale, bought
 	}
 	
-	private User usuario;
+	@ManyToOne
+	private Buyer usuario;
 
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
-	private Double amount;
+	
+	private Float amount;
 	private Date date;
 	private TransactionType type;
 
 	public Transaction() {
+		super();
 	}
 
-	public Transaction(Integer id, Double amount, Date date, TransactionType type) {
-		this.id = id;
+	public Transaction(Float amount, Date date, TransactionType type, Buyer usuario) {
 		this.amount = amount;
 		this.date = date;
 		this.type = type;
+		this.usuario = usuario;
 	}
 
 	public Integer getId() {
@@ -33,11 +47,11 @@ public class Transaction {
 		this.id = id;
 	}
 
-	public Double getAmount() {
+	public Float getAmount() {
 		return amount;
 	}
 
-	public void setAmount(Double amount) {
+	public void setAmount(Float amount) {
 		this.amount = amount;
 	}
 
@@ -55,5 +69,13 @@ public class Transaction {
 
 	public void setType(TransactionType type) {
 		this.type = type;
+	}
+
+	public User getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(Buyer usuario) {
+		this.usuario = usuario;
 	}
 }

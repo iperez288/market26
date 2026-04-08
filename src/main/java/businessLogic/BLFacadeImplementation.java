@@ -193,15 +193,15 @@ public class BLFacadeImplementation  implements BLFacade {
 	}
 	
 	public void annadirSaldo(String email, float importe) {
-		
-		Transaction transaction = new Transaction();
-		
+				
 		dbManager.open();
 		float nuevoSaldo = dbManager.annadirSaldo(email, importe);
 		
-		((Buyer) usuario).setSaldo(nuevoSaldo);
+		User u = dbManager.browseUser(email);
 		
-		dbManager.close();
+		this.usuario = u;
+			
+		dbManager.close();	
 	}
 	
 }

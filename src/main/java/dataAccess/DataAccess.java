@@ -20,6 +20,7 @@ import javax.persistence.TypedQuery;
 import configuration.ConfigXML;
 import configuration.UtilDate;
 import domain.Seller;
+import domain.Transaction;
 import domain.User;
 import domain.Buyer;
 import domain.ProposedSale;
@@ -341,6 +342,17 @@ public void open(){
 		float saldoActual = b.getSaldo();
 		float nuevoSaldo = saldoActual + importe;
 		b.setSaldo(nuevoSaldo);
+				
+		Transaction t = new Transaction(
+			importe,
+			new Date(),
+			Transaction.TransactionType.income,
+			b
+		);
+		
+		b.addTransaction(t);
+		
+		db.persist(t);
 		
 		db.getTransaction().commit();
 		

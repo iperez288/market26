@@ -16,22 +16,23 @@ import java.awt.event.ActionEvent;
 import java.awt.FlowLayout;
 
 public class MainGUI extends JFrame {
-	
-    private String tipoUsuario; 
+
+	private String tipoUsuario;
 	private static final long serialVersionUID = 1L;
 
 	private JPanel jContentPane = null;
 	private JButton jButtonCreateQuery = null;
 	private JButton jButtonQueryQueries = null;
 	private JButton jButtonAddMoney = null;
+	private JButton jButtonTransactionHistory = null;
 	private JLabel jLabelSaldo;
 
-    private static BLFacade appFacadeInterface;
-	
-	public static BLFacade getBusinessLogic(){
+	private static BLFacade appFacadeInterface;
+
+	public static BLFacade getBusinessLogic() {
 		return appFacadeInterface;
 	}
-		
+
 	public String getTipoUsuario() {
 		return tipoUsuario;
 	}
@@ -40,10 +41,10 @@ public class MainGUI extends JFrame {
 		this.tipoUsuario = tipoUsuario;
 	}
 
-	public static void setBussinessLogic (BLFacade facade){
-		appFacadeInterface=facade;
+	public static void setBussinessLogic(BLFacade facade) {
+		appFacadeInterface = facade;
 	}
-	
+
 	protected JLabel jLabelSelectOption;
 	private JRadioButton rdbtnNewRadioButton;
 	private JRadioButton rdbtnNewRadioButton_1;
@@ -56,38 +57,47 @@ public class MainGUI extends JFrame {
 	private JPanel seller_panel;
 	private JPanel buyer_panel;
 	private JButton jButtonViewAcceptedSales;
-	
+
 	public MainGUI(String mail) {
 		super();
 
-		this.tipoUsuario="xxxxxx";
+		this.tipoUsuario = "xxxxxx";
 		this.setSize(495, 495);
-		
+
 		// --- CONFIGURACIÓN DE IDIOMAS ---
 		rdbtnNewRadioButton = new JRadioButton("English");
-		rdbtnNewRadioButton.addActionListener(e -> { Locale.setDefault(new Locale("en")); paintAgain(); });
-		
+		rdbtnNewRadioButton.addActionListener(e -> {
+			Locale.setDefault(new Locale("en"));
+			paintAgain();
+		});
+
 		rdbtnNewRadioButton_1 = new JRadioButton("Euskara");
-		rdbtnNewRadioButton_1.addActionListener(e -> { Locale.setDefault(new Locale("eus")); paintAgain(); });
-		
+		rdbtnNewRadioButton_1.addActionListener(e -> {
+			Locale.setDefault(new Locale("eus"));
+			paintAgain();
+		});
+
 		rdbtnNewRadioButton_2 = new JRadioButton("Castellano");
-		rdbtnNewRadioButton_2.addActionListener(e -> { Locale.setDefault(new Locale("es")); paintAgain(); });
-	
+		rdbtnNewRadioButton_2.addActionListener(e -> {
+			Locale.setDefault(new Locale("es"));
+			paintAgain();
+		});
+
 		panel = new JPanel();
 		panel.add(rdbtnNewRadioButton_1);
 		panel.add(rdbtnNewRadioButton_2);
 		panel.add(rdbtnNewRadioButton);
-		
+
 		user_panel = new JPanel();
 		user_panel.setLayout(new GridLayout(0, 3, 0, 0));
-		
+
 		btnRegister = new JButton("Registrarse");
 		btnRegister.addActionListener(arg0 -> {
 			JFrame a = new RegisterGUI(MainGUI.this);
 			a.setVisible(true);
 		});
 		user_panel.add(btnRegister);
-		
+
 		btnLogin = new JButton("Iniciar sesión");
 		btnLogin.addActionListener(e -> {
 			JFrame a = new LoginGUI(MainGUI.this);
@@ -95,18 +105,18 @@ public class MainGUI extends JFrame {
 		});
 		user_panel.add(btnLogin);
 
-		jLabelSaldo = new JLabel("Saldo: 0.00 �");
+		jLabelSaldo = new JLabel("Saldo: 0.00 €");
 		jLabelSaldo.setHorizontalAlignment(SwingConstants.RIGHT);
 		jLabelSaldo.setFont(new Font("Tahoma", Font.BOLD, 12));
 		user_panel.add(jLabelSaldo);
-		
+
 		jLabelSelectOption = new JLabel(ResourceBundle.getBundle("Etiquetas").getString("MainGUI.SelectOption"));
 		jLabelSelectOption.setFont(new Font("Tahoma", Font.BOLD, 13));
 		jLabelSelectOption.setHorizontalAlignment(SwingConstants.CENTER);
-		
+
 		seller_panel = new JPanel();
 		seller_panel.setLayout(new GridLayout(0, 2, 0, 0));
-		
+
 		jButtonCreateQuery = new JButton(ResourceBundle.getBundle("Etiquetas").getString("MainGUI.CreateSale"));
 		jButtonCreateQuery.setEnabled(false);
 		jButtonCreateQuery.addActionListener(e -> {
@@ -114,7 +124,7 @@ public class MainGUI extends JFrame {
 			a.setVisible(true);
 		});
 		seller_panel.add(jButtonCreateQuery);
-		
+
 		jButtonViewAcceptedSales = new JButton("Ver ofertas aceptadas");
 		jButtonViewAcceptedSales.setEnabled(false);
 		jButtonViewAcceptedSales.addActionListener(e -> {
@@ -124,7 +134,10 @@ public class MainGUI extends JFrame {
 		seller_panel.add(jButtonViewAcceptedSales);
 
 		buyer_panel = new JPanel();
-		buyer_panel.setLayout(new GridLayout(0, 2, 0, 0));
+		// Cambiado a 3 columnas para que quepan los 3 botones de comprador
+		// proporcionalmente
+		buyer_panel.setLayout(new GridLayout(0, 3, 0, 0));
+
 		jButtonQueryQueries = new JButton(ResourceBundle.getBundle("Etiquetas").getString("MainGUI.QuerySales"));
 		jButtonQueryQueries.setEnabled(false);
 		jButtonQueryQueries.addActionListener(e -> {
@@ -136,12 +149,20 @@ public class MainGUI extends JFrame {
 		jButtonAddMoney = new JButton("Agregar Saldo");
 		jButtonAddMoney.setEnabled(false);
 		jButtonAddMoney.addActionListener(e -> {
-			System.out.println("Abriendo ventana de añadir saldo...");
 			JFrame a = new AddSaldoGUI(MainGUI.this);
 			a.setVisible(true);
 		});
 		buyer_panel.add(jButtonAddMoney);
-		
+
+		// --- NUEVO BOTÓN: HISTORIAL DE TRANSACCIONES ---
+		jButtonTransactionHistory = new JButton("Historial Transacciones");
+		jButtonTransactionHistory.setEnabled(false);
+		jButtonTransactionHistory.addActionListener(e -> {
+			JFrame a = new TransactionHistoryGUI();
+			a.setVisible(true);
+		});
+		buyer_panel.add(jButtonTransactionHistory);
+
 		jContentPane = new JPanel();
 		jContentPane.setLayout(new GridLayout(5, 1, 0, 0));
 		jContentPane.add(user_panel);
@@ -149,10 +170,10 @@ public class MainGUI extends JFrame {
 		jContentPane.add(seller_panel);
 		jContentPane.add(buyer_panel);
 		jContentPane.add(panel);
-		
+
 		setContentPane(jContentPane);
-		setTitle(ResourceBundle.getBundle("Etiquetas").getString("MainGUI.MainTitle") +": "+tipoUsuario);
-		
+		setTitle(ResourceBundle.getBundle("Etiquetas").getString("MainGUI.MainTitle") + ": " + tipoUsuario);
+
 		addWindowListener(new WindowAdapter() {
 			@Override
 			public void windowClosing(WindowEvent e) {
@@ -160,12 +181,15 @@ public class MainGUI extends JFrame {
 			}
 		});
 	}
-	
+
 	private void paintAgain() {
 		jLabelSelectOption.setText(ResourceBundle.getBundle("Etiquetas").getString("MainGUI.SelectOption"));
 		jButtonQueryQueries.setText(ResourceBundle.getBundle("Etiquetas").getString("MainGUI.QuerySales"));
 		jButtonCreateQuery.setText(ResourceBundle.getBundle("Etiquetas").getString("MainGUI.CreateSale"));
-		this.setTitle(ResourceBundle.getBundle("Etiquetas").getString("MainGUI.MainTitle")+ ": "+appFacadeInterface.getUsuario().getEmail() +" ("+tipoUsuario+")");
+		// Si tienes traducción en el ResourceBundle, podrías añadirla aquí:
+		// jButtonTransactionHistory.setText(ResourceBundle.getBundle("Etiquetas").getString("MainGUI.TransactionHistory"));
+		this.setTitle(ResourceBundle.getBundle("Etiquetas").getString("MainGUI.MainTitle") + ": "
+				+ appFacadeInterface.getUsuario().getEmail() + " (" + tipoUsuario + ")");
 		actualizarSaldo();
 	}
 
@@ -176,12 +200,14 @@ public class MainGUI extends JFrame {
 			jLabelSaldo.setText("Saldo: " + String.format("%.2f", saldo) + "€");
 		}
 	}
-	
+
 	public void gestionPermisos() {
 		boolean esComprador = tipoUsuario.equals("Comprador");
 		this.jButtonQueryQueries.setEnabled(true);
-		this.jButtonAddMoney.setEnabled(esComprador || tipoUsuario.equals("Vendedor")); 
-		
+		this.jButtonAddMoney.setEnabled(esComprador || tipoUsuario.equals("Vendedor"));
+
+		this.jButtonTransactionHistory.setEnabled(true);
+
 		if (esComprador) {
 			this.jButtonCreateQuery.setEnabled(false);
 			this.jButtonViewAcceptedSales.setEnabled(false);
