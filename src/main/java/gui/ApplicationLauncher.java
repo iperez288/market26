@@ -35,14 +35,13 @@ public class ApplicationLauncher {
 				DataAccess da= new DataAccess();
 				appFacadeInterface=new BLFacadeImplementation(da);
 			}
-			else { //If remote
+			else {
 				
 				 String serviceName= "http://"+c.getBusinessLogicNode() +":"+ c.getBusinessLogicPort()+"/ws/"+c.getBusinessLogicName()+"?wsdl";	 
 				 URL url = new URL(serviceName);
 
 		 
-		        //1st argument refers to wsdl document above
-				//2nd argument is service name, refer to wsdl document above
+
 		        QName qname = new QName("http://businessLogic/", "BLFacadeImplementationService");
 		 
 		        Service service = Service.create(url, qname);
@@ -51,8 +50,7 @@ public class ApplicationLauncher {
 			} 
 			
 			MainGUI.setBussinessLogic(appFacadeInterface);
-			//ErreklamatuGUI g=new ErreklamatuGUI();
-			//g.setVisible(true);
+
 			
 		}catch (Exception e) {
 			a.jLabelSelectOption.setText("Error: "+e.toString());

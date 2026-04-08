@@ -1,9 +1,7 @@
 package domain;
 
-import java.io.File;
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -13,6 +11,11 @@ import javax.persistence.OneToMany;
 
 @Entity
 public class Buyer extends User implements Serializable {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 
 	private float saldo;
 	

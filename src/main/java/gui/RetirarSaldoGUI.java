@@ -68,14 +68,11 @@ public class RetirarSaldoGUI extends JFrame {
 					} else if (importeARetirar > b.getSaldo()) {
 						lblError.setText("Saldo insuficiente (Saldo: " + b.getSaldo() + "€)");
 					} else {
-						// Llamamos a la lógica de negocio con el importe negativo para restar
-						// O puedes crear un método específico en la fachada llamado retirarSaldo
+
 						facade.retirarSaldo(b.getEmail(), importeARetirar);
 
-						// Actualizamos la GUI principal
 						main.actualizarSaldo();
 
-						// Cerramos esta ventana
 						dispose();
 					}
 				} catch (NumberFormatException ex) {

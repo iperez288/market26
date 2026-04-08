@@ -32,38 +32,32 @@ public class TransactionHistoryGUI extends JFrame {
 		setTitle("Historial de Transacciones");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setSize(new Dimension(450, 400));
-		setLocationRelativeTo(null); // Centrar en pantalla
+		setLocationRelativeTo(null);
 
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(10, 10, 10, 10));
 		contentPane.setLayout(new BorderLayout(0, 10));
 		setContentPane(contentPane);
 
-		// Título de la ventana
 		JLabel lblTitle = new JLabel("Mis Transacciones");
 		lblTitle.setHorizontalAlignment(SwingConstants.CENTER);
 		lblTitle.setFont(new Font("Tahoma", Font.BOLD, 15));
 		contentPane.add(lblTitle, BorderLayout.NORTH);
 
-		// Configuración de la tabla
 		tableModel = new DefaultTableModel(null, columnNames);
 		table = new JTable(tableModel);
 
-		// Impedir la edición de las celdas
 		table.setDefaultEditor(Object.class, null);
 
 		JScrollPane scrollPane = new JScrollPane(table);
 		contentPane.add(scrollPane, BorderLayout.CENTER);
 
-		// Cargar los datos desde la lógica de negocio
 		cargarDatos();
 	}
 
 	private void cargarDatos() {
 		try {
 			BLFacade facade = MainGUI.getBusinessLogic();
-			// Asumiendo que tienes un método en la fachada que devuelve las transacciones
-			// del usuario actual
 			
 			User usuarios = facade.getUsuario();
 			
@@ -71,19 +65,16 @@ public class TransactionHistoryGUI extends JFrame {
 			List<Transaction> transactions = ((Buyer) usuarios).getTransactions();
 			
 			
-			tableModel.setDataVector(null, columnNames); // Limpiar tabla
+			tableModel.setDataVector(null, columnNames);
 
 			for (Transaction t : transactions) {
 				Object[] row = new Object[3];
-				row[0] = t.getDate(); // Tipo Date
-				row[1] = t.getType(); // Tipo String o Enum (Extraction, Income, etc.)
+				row[0] = t.getDate();
+				row[1] = t.getType();
 				row[2] = String.format("%.2f €", t.getAmount());
-				tableModel.addRow(row);
-				
-				System.out.print(t.getDate());
+				tableModel.addRow(row);				
 			}
 
-			// Ajustar anchos de columna básicos
 			table.getColumnModel().getColumn(0).setPreferredWidth(150);
 			table.getColumnModel().getColumn(1).setPreferredWidth(100);
 			table.getColumnModel().getColumn(2).setPreferredWidth(80);
