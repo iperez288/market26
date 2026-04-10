@@ -21,7 +21,7 @@ public class MainGUI extends JFrame {
 	private JButton jButtonCreateQuery = null;
 	private JButton jButtonQueryQueries = null;
 	private JButton jButtonAddMoney = null;
-	private JButton jButtonWithdrawMoney = null; // Nuevo botón
+	private JButton jButtonWithdrawMoney = null;
 	private JButton jButtonTransactionHistory = null;
 	private JLabel jLabelSaldo;
 
@@ -52,7 +52,6 @@ public class MainGUI extends JFrame {
 	private JButton btnRegister;
 	private JPanel user_panel;
 
-	// Paneles organizadores por filas
 	private JPanel panel_ventas;
 	private JPanel panel_consultas;
 	private JPanel panel_dinero;
@@ -63,9 +62,8 @@ public class MainGUI extends JFrame {
 		super();
 
 		this.tipoUsuario = "xxxxxx";
-		this.setSize(550, 550); // Aumentado ligeramente para acomodar la nueva fila
+		this.setSize(550, 550);
 
-		// --- CONFIGURACIÓN DE IDIOMAS ---
 		rdbtnNewRadioButton = new JRadioButton("English");
 		rdbtnNewRadioButton.addActionListener(e -> {
 			Locale.setDefault(new Locale("en"));
@@ -87,7 +85,6 @@ public class MainGUI extends JFrame {
 		panel_idiomas.add(rdbtnNewRadioButton_2);
 		panel_idiomas.add(rdbtnNewRadioButton);
 
-		// FILA 1: Login, Registro y Saldo
 		user_panel = new JPanel();
 		user_panel.setLayout(new GridLayout(0, 3, 0, 0));
 		btnRegister = new JButton("Registrarse");
@@ -107,12 +104,10 @@ public class MainGUI extends JFrame {
 		jLabelSaldo.setFont(new Font("Tahoma", Font.BOLD, 12));
 		user_panel.add(jLabelSaldo);
 
-		// FILA 2: Etiqueta de selección
 		jLabelSelectOption = new JLabel(ResourceBundle.getBundle("Etiquetas").getString("MainGUI.SelectOption"));
 		jLabelSelectOption.setFont(new Font("Tahoma", Font.BOLD, 13));
 		jLabelSelectOption.setHorizontalAlignment(SwingConstants.CENTER);
 
-		// FILA 3: Crear Oferta y Ver Ofertas Aceptadas
 		panel_ventas = new JPanel();
 		panel_ventas.setLayout(new GridLayout(0, 2, 0, 0));
 		jButtonCreateQuery = new JButton(ResourceBundle.getBundle("Etiquetas").getString("MainGUI.CreateSale"));
@@ -130,7 +125,6 @@ public class MainGUI extends JFrame {
 		});
 		panel_ventas.add(jButtonViewAcceptedSales);
 
-		// FILA 4: Consultar Ofertas e Historial de Transacciones
 		panel_consultas = new JPanel();
 		panel_consultas.setLayout(new GridLayout(0, 2, 0, 0));
 		jButtonQueryQueries = new JButton(ResourceBundle.getBundle("Etiquetas").getString("MainGUI.QuerySales"));
@@ -161,14 +155,11 @@ public class MainGUI extends JFrame {
 		jButtonWithdrawMoney = new JButton("Retirar Saldo");
 		jButtonWithdrawMoney.setEnabled(false);
 		jButtonWithdrawMoney.addActionListener(e -> {
-			// Suponiendo que crearás una clase WithdrawSaldoGUI o similar
 			JFrame a = new RetirarSaldoGUI(MainGUI.this);
 			a.setVisible(true);
 		});
 		panel_dinero.add(jButtonWithdrawMoney);
 
-		// CONTENEDOR PRINCIPAL: 6 filas (User, Label, Ventas, Consultas, Dinero,
-		// Idiomas)
 		jContentPane = new JPanel();
 		jContentPane.setLayout(new GridLayout(6, 1, 0, 0));
 		jContentPane.add(user_panel);
@@ -210,7 +201,7 @@ public class MainGUI extends JFrame {
 		boolean esComprador = tipoUsuario.equals("Comprador");
 		this.jButtonQueryQueries.setEnabled(true);
 		this.jButtonAddMoney.setEnabled(true);
-		this.jButtonWithdrawMoney.setEnabled(true); // Habilitar nuevo botón
+		this.jButtonWithdrawMoney.setEnabled(true);
 		this.jButtonTransactionHistory.setEnabled(true);
 
 		if (esComprador) {
