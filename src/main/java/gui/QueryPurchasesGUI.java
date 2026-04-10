@@ -15,7 +15,7 @@ import java.util.List;
 import javax.swing.table.DefaultTableModel;
 
 
-public class QueryPurchasedGUI extends JFrame {
+public class QueryPurchasesGUI extends JFrame {
 	
 	private String email;
 	
@@ -42,7 +42,7 @@ public class QueryPurchasedGUI extends JFrame {
 	private JTextField jTextFieldSearch;
 	
 
-	public QueryPurchasedGUI(String email) {
+	public QueryPurchasesGUI(String email) {
 		this.email=email;
 		
 		tableProducts.setEnabled(false);
@@ -60,11 +60,13 @@ public class QueryPurchasedGUI extends JFrame {
 			public void actionPerformed(ActionEvent e)
 			{
 				thisFrame.setVisible(false);
+				tableProducts.setEnabled(false);
 
 			}
 		});		
 		
 		this.getContentPane().add(jButtonClose, null);
+		scrollPanelProducts.setEnabled(false);
 
 		scrollPanelProducts.setBounds(new Rectangle(52, 137, 459, 150));
 
@@ -101,7 +103,7 @@ public class QueryPurchasedGUI extends JFrame {
 
 					BLFacade facade = MainGUI.getBusinessLogic();
 					
-
+					tableProducts.setEnabled(true);
 					List<domain.ProposedSale> sales=facade.getPurchasedSales(jTextFieldSearch.getText(),email);
 
 					if (sales.isEmpty() ) jLabelProducts.setText(ResourceBundle.getBundle("Etiquetas").getString("QuerySalesGUI.NoProducts"));

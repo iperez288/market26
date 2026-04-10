@@ -26,29 +26,16 @@ public class MakeReviewGUI extends JFrame {
 	private JTextPane textReview;
 	private JButton btnPublicar;
 	private JButton btnCancelar;
+	private JTextPane infoPane;
 
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					MakeReviewGUI frame = new MakeReviewGUI(null,null);
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
+	
 	/**
 	 * Create the frame.
 	 */
 	public MakeReviewGUI(ProposedSale sale, String email) {
 		this.setVisible(true);
-		setBounds(100, 100, 447, 300);
+		JFrame thisFrame = this;
+		setBounds(100, 100, 263, 248);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -66,28 +53,40 @@ public class MakeReviewGUI extends JFrame {
 				String text = textReview.getText();
 				
 				facade.hacerValoracion(sale.getID(),rate,text);
-				
+				infoPane.setText("Valoración realizada correctamente.\n Puede cerrar esta ventana.");
+				btnPublicar.setEnabled(false);
+
 			}
 		});
-		btnPublicar.setBounds(106, 144, 85, 21);
+		btnPublicar.setBounds(10, 118, 85, 21);
 		contentPane.add(btnPublicar);
 		
-		btnCancelar = new JButton("Cancelar");
-		btnCancelar.setBounds(239, 144, 84, 20);
+		btnCancelar = new JButton("Cerrar");
+		btnCancelar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				thisFrame.setVisible(false);
+			}
+		});
+		btnCancelar.setBounds(148, 118, 84, 20);
 		contentPane.add(btnCancelar);
 		
 		textReview = new JTextPane();
-		textReview.setBounds(127, 56, 196, 66);
+		textReview.setBounds(10, 32, 222, 66);
 		contentPane.add(textReview);
 		
 		spinnerRate = new JSpinner();
 		spinnerRate.setModel(new SpinnerNumberModel(1, 1, 10, 1));
-		spinnerRate.setBounds(251, 26, 29, 20);
+		spinnerRate.setBounds(177, 2, 29, 20);
 		contentPane.add(spinnerRate);
 		
 		JLabel lblRate = new JLabel("Puntuaci\u00F3n");
-		lblRate.setBounds(148, 29, 69, 12);
+		lblRate.setBounds(26, 10, 69, 12);
 		contentPane.add(lblRate);
+		
+		infoPane = new JTextPane();
+		infoPane.setEditable(false);
+		infoPane.setBounds(10, 149, 221, 38);
+		contentPane.add(infoPane);
 
 	}
 }

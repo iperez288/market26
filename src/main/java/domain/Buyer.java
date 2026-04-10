@@ -43,7 +43,7 @@ public class Buyer extends User implements Serializable {
 		this.setEmail(email);
 		this.setName(name);
 		this.setPassword(password);
-		// this.saldo=0.0f;
+		this.saldo=0.0f;
 		this.proposedSales = new ArrayList<ProposedSale>();
 		this.monedero = new ArrayList<Transaction>();
 	}

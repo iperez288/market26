@@ -11,6 +11,8 @@ import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.util.Locale;
 import java.util.ResourceBundle;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class MainGUI extends JFrame {
 
@@ -22,7 +24,7 @@ public class MainGUI extends JFrame {
 	private JButton jButtonQueryQueries = null;
 	private JButton jButtonAddMoney = null;
 	private JButton jButtonWithdrawMoney = null;
-	private JButton jButtonTransactionHistory = null;
+	//private JButton jButtonTransactionHistory = null;
 	private JLabel jLabelSaldo;
 
 	private static BLFacade appFacadeInterface;
@@ -57,6 +59,9 @@ public class MainGUI extends JFrame {
 	private JPanel panel_dinero;
 
 	private JButton jButtonViewAcceptedSales;
+	private JPanel panel_consultas_1;
+	private JButton jButtonTransactionHistory=null;
+	private JButton jButtonQueryPurchases;
 
 	public MainGUI(String mail) {
 		super();
@@ -99,7 +104,7 @@ public class MainGUI extends JFrame {
 			a.setVisible(true);
 		});
 		user_panel.add(btnLogin);
-		jLabelSaldo = new JLabel("Saldo: 0.00 â‚¬");
+		jLabelSaldo = new JLabel("Saldo: 0,00 €"); 
 		jLabelSaldo.setHorizontalAlignment(SwingConstants.RIGHT);
 		jLabelSaldo.setFont(new Font("Tahoma", Font.BOLD, 12));
 		user_panel.add(jLabelSaldo);
@@ -134,13 +139,6 @@ public class MainGUI extends JFrame {
 			a.setVisible(true);
 		});
 		panel_consultas.add(jButtonQueryQueries);
-		jButtonTransactionHistory = new JButton("Historial Transacciones");
-		jButtonTransactionHistory.setEnabled(false);
-		jButtonTransactionHistory.addActionListener(e -> {
-			JFrame a = new TransactionHistoryGUI();
-			a.setVisible(true);
-		});
-		panel_consultas.add(jButtonTransactionHistory);
 
 		panel_dinero = new JPanel();
 		panel_dinero.setLayout(new GridLayout(0, 2, 0, 0));
@@ -166,6 +164,24 @@ public class MainGUI extends JFrame {
 		jContentPane.add(jLabelSelectOption);
 		jContentPane.add(panel_ventas);
 		jContentPane.add(panel_consultas);
+		
+		panel_consultas_1 = new JPanel();
+		panel_consultas.add(panel_consultas_1);
+		panel_consultas_1.setLayout(new GridLayout(2, 1, 0, 0));
+		
+		jButtonTransactionHistory = new JButton("Historial Transacciones");
+		jButtonTransactionHistory.setEnabled(false);
+		panel_consultas_1.add(jButtonTransactionHistory);
+		
+		jButtonQueryPurchases = new JButton("Ver compras");
+		jButtonQueryPurchases.setEnabled(false);
+		jButtonQueryPurchases.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				JFrame compras = new QueryPurchasesGUI(mail);
+				compras.setVisible(true);
+			}
+		});
+		panel_consultas_1.add(jButtonQueryPurchases);
 		jContentPane.add(panel_dinero);
 		jContentPane.add(panel_idiomas);
 
@@ -203,6 +219,7 @@ public class MainGUI extends JFrame {
 		this.jButtonAddMoney.setEnabled(true);
 		this.jButtonWithdrawMoney.setEnabled(true);
 		this.jButtonTransactionHistory.setEnabled(true);
+		this.jButtonQueryPurchases.setEnabled(true);
 
 		if (esComprador) {
 			this.jButtonCreateQuery.setEnabled(false);
