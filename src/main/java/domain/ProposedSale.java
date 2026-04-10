@@ -93,5 +93,6 @@ public class ProposedSale implements Serializable {
 		return this.pSaleID;
 	}
 	
+	
 
 }

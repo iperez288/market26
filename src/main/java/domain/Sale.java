@@ -253,4 +253,8 @@ public class Sale implements Serializable {
 		return this.purchased;
 	}
 	
+	public void doPurchase() {
+		this.purchased=true;
+	}
+	
 }

@@ -228,12 +228,15 @@ public class BLFacadeImplementation  implements BLFacade {
 		
 	}
 
-	@Override
-	public List<ProposedSale> getPurchasedSales(String text, String email) {
-		// TODO Auto-generated method stub
-		return null;
+	public List<ProposedSale> getPurchasedSales(String desc, String mail){
+		
+		dbManager.open();
+		String email = this.usuario.getEmail();
+		List<ProposedSale>  purchases=dbManager.getPurchasedSales(desc,email);
+		dbManager.close();
+		return purchases;	
+		
 	}
-	
 	
 }
 
