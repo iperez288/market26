@@ -109,4 +109,9 @@ public class Buyer extends User implements Serializable {
 		this.monedero.add(transaction);
 	}
 
+	public void addValoracion(Valoracion val) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

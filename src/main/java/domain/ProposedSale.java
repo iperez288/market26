@@ -24,6 +24,8 @@ public class ProposedSale implements Serializable {
 	@ManyToOne(fetch=FetchType.EAGER, cascade=CascadeType.PERSIST)
 	Buyer buyer;
 	
+	Valoracion valoracion;
+	
 	float price;
 	private Date fechaCompra;
 	
@@ -31,6 +33,7 @@ public class ProposedSale implements Serializable {
 		sale=s;
 		buyer=b;
 		price=p;
+		valoracion=null;
 	}
 	
 	public ProposedSale() {
@@ -78,6 +81,11 @@ public class ProposedSale implements Serializable {
 	
 	public Date getFechaCompra(){
 		return this.fechaCompra;
+	}
+
+	public void setValoracion(Valoracion val) {
+		this.valoracion=val;
+		
 	}
 	
 

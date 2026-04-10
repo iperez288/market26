@@ -27,7 +27,9 @@ public class Seller extends Buyer implements Serializable {
 	@XmlIDREF
 	@OneToMany(fetch=FetchType.EAGER, cascade=CascadeType.PERSIST)
 	private List<Sale> sales=new ArrayList<Sale>();
-
+	
+	private float rating;
+	
 	public Seller() {
 		super();
 	}
@@ -37,6 +39,7 @@ public class Seller extends Buyer implements Serializable {
 		this.setName(name);
 		this.setPassword(password);
 		this.sales=new ArrayList<Sale>();
+		this.rating=0.0f;
 	}
 	
 	
@@ -108,6 +111,15 @@ public class Seller extends Buyer implements Serializable {
 		if (getEmail() != other.getEmail())
 			return false;
 		return true;
+	}
+
+	public void setRate(float f) {
+		
+		this.rating = f;
+	}
+
+	public float getRate() {
+		return this.rating;
 	}
 
 	

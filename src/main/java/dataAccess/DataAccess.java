@@ -22,6 +22,7 @@ import configuration.UtilDate;
 import domain.Seller;
 import domain.Transaction;
 import domain.User;
+import domain.Valoracion;
 import domain.Buyer;
 import domain.ProposedSale;
 import domain.Sale;
@@ -366,5 +367,62 @@ public class DataAccess {
 		db.getTransaction().commit();
 
 	}
+	
+public void hacerValoracion(int pID, String email, int rate, String text) {
+		
+		Valoracion val;
+		Buyer u;
+		ProposedSale ps;
+		int snum; //Número de la venta a la que hace referencia el ProposedSale.
+		long numV; //Número de valoraciones que tiene el vendedor.
+		float sum; //Suma de valoraciones del vendedor
+		
+		//Traer de vuelta la Sale y el email
+		
+		//Se da por sentado que ya se ha comprobado antes que es comprador.
+		u = (Buyer) getUser(email);
+		ps = getProposedSale(pID);
+		val = new Valoracion(ps,u,rate,text);
+		
+		db.getTransaction().begin();
+		ps.setValoracion(val);
+		u.addValoracion(val);
+		db.persist(val);
+		
+		snum = ps.getSale().getSaleNumber();
+		
+		Seller s;
+		TypedQuery<Seller> q1= db.createQuery("SELECT sl FROM Sale s JOIN s.seller sl WHERE  s.saleNumber = ?1", Seller.class);
+		q1.setParameter(1, snum);
+		
+		List<Seller> sl = q1.getResultList();
+		if(sl.size()>1) {
+			System.out.println("Más de un vendedor encontrado");
+		}
+		s = sl.get(0);
+		
+		TypedQuery<Long> q2= db.createQuery("SELECT count(ps) FROM Seller sl JOIN sl.sales s JOIN s.proposedSales ps WHERE s.purchased = TRUE AND ps.valoracion IS NOT NULL" , Long.class);
+		
+		numV = q2.getResultList().get(0);
+		
+		sum = s.getRate()*numV;
+		sum = sum + rate;
+		numV++;
+		
+		s.setRate((float) (sum/numV));
+		
+		db.getTransaction().commit();
+		
+	}
+
+private ProposedSale getProposedSale(int pID) {
+	
+	return db.find(ProposedSale.class, pID);
+}
+
+private User getUser(String email) {
+	
+	return db.find(User.class, email);
+}
 
 }
