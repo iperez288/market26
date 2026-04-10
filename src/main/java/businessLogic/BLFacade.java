@@ -84,4 +84,10 @@ public interface BLFacade  {
 
 
 	 public void retirarSaldo(String email, float importeARetirar);
+
+
+	 void hacerValoracion(int saleID, int rate, String text);
+
+
+	 public List<ProposedSale> getPurchasedSales(String text, String email);
 }

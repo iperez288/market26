@@ -7,11 +7,11 @@ import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.IdClass;
+
 import javax.persistence.ManyToOne;
 import java.util.Date;
 
-@Entity @IdClass(ProposedSale.class)
+@Entity 
 public class ProposedSale implements Serializable {
 	
 	@Id
@@ -86,6 +86,11 @@ public class ProposedSale implements Serializable {
 	public void setValoracion(Valoracion val) {
 		this.valoracion=val;
 		
+	}
+
+	public int getID() {
+		
+		return this.pSaleID;
 	}
 	
 

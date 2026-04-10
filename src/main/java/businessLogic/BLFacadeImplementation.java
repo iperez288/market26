@@ -218,5 +218,22 @@ public class BLFacadeImplementation  implements BLFacade {
 		
 	}
 	
+	@Override
+	public void hacerValoracion(int saleID, int rate, String text) {
+		//Nota: si la compra ya tenía una valoración no debería de haber llegado hasta aquí(controlar en show purchase)
+		String email = usuario.getEmail();
+		dbManager.open();
+		dbManager.hacerValoracion(saleID, email, rate, text);
+		dbManager.close();
+		
+	}
+
+	@Override
+	public List<ProposedSale> getPurchasedSales(String text, String email) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
+	
 }
 
