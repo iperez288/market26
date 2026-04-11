@@ -21,6 +21,7 @@ import configuration.ConfigXML;
 import configuration.UtilDate;
 import domain.Seller;
 import domain.Transaction;
+import domain.Transaction.TransactionType;
 import domain.User;
 import domain.Valoracion;
 import domain.Buyer;
@@ -102,9 +103,12 @@ public class DataAccess {
 			
 			user1.addSale("samsung 42\" telebista", "berria, erabili gabe", 2, 175,  today, null);
 			
+			user4.setSaldo(100.0f);
+			
+			
 			user4.addProposedSale(s1, 1.2f);   
-			user4.getProposedSales().get(0).setFechaCompra(today);
-			s1.doPurchase();
+			//user4.getProposedSales().get(0).setFechaCompra(today);
+			//s1.doPurchase();
 			
 
 			user2.addSale("imac 27", "7 urte, dena ondo dabil", 1, 200,today, null);
@@ -340,9 +344,6 @@ public class DataAccess {
 		db.getTransaction().begin();
 
 		Buyer b = (Buyer) u;
-		float saldoActual = b.getSaldo();
-		float nuevoSaldo = saldoActual + importe;
-		b.setSaldo(nuevoSaldo);
 
 		Transaction t = new Transaction(importe, new Date(), Transaction.TransactionType.income, b);
 
@@ -361,9 +362,6 @@ public class DataAccess {
 		db.getTransaction().begin();
 
 		Buyer b = (Buyer) u;
-		float saldoActual = b.getSaldo();
-		float nuevoSaldo = saldoActual - importe;
-		b.setSaldo(nuevoSaldo);
 
 		Transaction t = new Transaction(importe, new Date(), Transaction.TransactionType.extraction, b);
 
@@ -386,12 +384,12 @@ public class DataAccess {
 			
 			//Traer de vuelta la Sale y el email
 			
+			db.getTransaction().begin();
+			
 			//Se da por sentado que ya se ha comprobado antes que es comprador.
 			u = (Buyer) getUser(email);
 			ps = getProposedSale(pID);
 			val = new Valoracion(ps,u,rate,text);
-			
-			db.getTransaction().begin();
 			ps.setValoracion(val);
 			u.addValoracion(val);
 			db.persist(val);
@@ -422,15 +420,6 @@ public class DataAccess {
 			
 		}
 	
-	private ProposedSale getProposedSale(int pID) {
-		
-		return db.find(ProposedSale.class, pID);
-	}
-	
-	private User getUser(String email) {
-		
-		return db.find(User.class, email);
-	}
 	
 	public List<ProposedSale> getPurchasedSales(String desc, String mail) {
 		System.out.println(">> DataAccess: getProducts=> from= "+desc);
@@ -447,5 +436,76 @@ public class DataAccess {
 	 	return res;
 	}
 
+	public boolean doPurchase(String email, ProposedSale ps) {
+		Buyer comprador;
+		Seller vendedor;
+		ProposedSale venta;
+		Sale s;
+		float precio;
+		
+		Transaction cobroComprador;
+		Transaction pagoVendedor;
+		
+		TransactionType tipo;
+		
+		Date today = UtilDate.trim(new Date());
+		
+		venta=ps;
+		precio=venta.getPrice();
+		
+		db.getTransaction().begin();
+		
+		//Voy a modificar ProposedSale, Sale, Vendedor y Comprador.
+	
+		//1º Quitarle el dinero al comprador
+		String bmail = ps.getBuyer().getEmail();
+		comprador = (Buyer) getUser(bmail);
+		
+		//Creo la transacción
+		cobroComprador = new Transaction(precio,today,TransactionType.purchase,comprador);
+		
+		//al comprador, llamo un método para que añade la transacción y modifique el saldo según toque
+		comprador.addTransaction(cobroComprador);
+		
+		db.persist(cobroComprador);
+	
+	// 2º Marcar la compra como vendida
+		
+		venta = getProposedSale(ps.getID());
+		venta.setFechaCompra(today);
+		
+		int sID = venta.getSale().getSaleNumber();
+		s= db.find(Sale.class, sID);
+		s.doPurchase();
+		
+		
+	// 3º Darle el dinero al vendedor
+		vendedor = (Seller) getUser(email);
+		pagoVendedor = new Transaction(precio,today,TransactionType.sale,vendedor);
+		vendedor.addTransaction(pagoVendedor);
+		
+		db.getTransaction().commit();
+		
+		return true;
+		
+	}
+	
+	public float getSaldoUsuario(String email) {
+		float saldo = ((Buyer) getUser(email)).getSaldo();
+		return saldo;
+	}
+
+	private ProposedSale getProposedSale(int pID) {
+		
+		return db.find(ProposedSale.class, pID);
+	}
+	
+	private User getUser(String email) {
+		
+		return db.find(User.class, email);
+	}
+	
+
+	
 }
 

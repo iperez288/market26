@@ -143,9 +143,9 @@ public class QueryPurchasesGUI extends JFrame {
 		            	Point point = mouseEvent.getPoint();
 				        int row = table.rowAtPoint(point);
 		            	domain.ProposedSale ps=(domain.ProposedSale) tableModelProducts.getValueAt(row, 3);
-		            	System.out.println("Click");
+		            	
 			            new MakeReviewGUI(ps, email);
-			            System.out.println("Clack");
+			            
 			            
 		            }
 		        }

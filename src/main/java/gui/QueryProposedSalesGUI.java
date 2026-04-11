@@ -39,7 +39,7 @@ public class QueryProposedSalesGUI extends JFrame {
 	private JTextField jTextFieldSearch;
 	
 
-	public QueryProposedSalesGUI() {
+	public QueryProposedSalesGUI(String email, MainGUI main) {
 		tableProducts.setEnabled(false);
 		thisFrame=this;
 		this.getContentPane().setLayout(null);
@@ -123,7 +123,7 @@ public class QueryProposedSalesGUI extends JFrame {
 		getContentPane().add(jButtonSearch);
 		
 	    
-		/*tableProducts.addMouseListener(new MouseAdapter() {
+		tableProducts.addMouseListener(new MouseAdapter() {
 		        @Override
 		        public void mousePressed(MouseEvent mouseEvent) {
 		            
@@ -132,10 +132,12 @@ public class QueryProposedSalesGUI extends JFrame {
 				        JTable table =(JTable) mouseEvent.getSource();
 		            	Point point = mouseEvent.getPoint();
 				        int row = table.rowAtPoint(point);
-		            	Sale s=(Sale) tableModelProducts.getValueAt(row, 3);
-			            new ShowSaleGUI(s);
+		            	ProposedSale s=(ProposedSale) tableModelProducts.getValueAt(row, 3);
+			            JFrame aceptar = new AcceptProposalGUI(email,s);
+			            aceptar.setVisible(true);
+			            main.actualizarSaldo();
 		            }
 		        }
-		 });*/
+		 });
 	}
 }

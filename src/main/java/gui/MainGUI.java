@@ -17,6 +17,10 @@ import java.awt.event.ActionEvent;
 public class MainGUI extends JFrame {
 
 	private String tipoUsuario;
+	private String email;
+	private static float saldo;
+	
+	
 	private static final long serialVersionUID = 1L;
 
 	private JPanel jContentPane = null;
@@ -125,7 +129,7 @@ public class MainGUI extends JFrame {
 		jButtonViewAcceptedSales = new JButton("Ver ofertas aceptadas");
 		jButtonViewAcceptedSales.setEnabled(false);
 		jButtonViewAcceptedSales.addActionListener(e -> {
-			JFrame a = new QueryProposedSalesGUI();
+			JFrame a = new QueryProposedSalesGUI(mail,this);
 			a.setVisible(true);
 		});
 		panel_ventas.add(jButtonViewAcceptedSales);
@@ -170,6 +174,12 @@ public class MainGUI extends JFrame {
 		panel_consultas_1.setLayout(new GridLayout(2, 1, 0, 0));
 		
 		jButtonTransactionHistory = new JButton("Historial Transacciones");
+		jButtonTransactionHistory.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				JFrame transactions = new TransactionHistoryGUI();
+				transactions.setVisible(true);
+			}
+		});
 		jButtonTransactionHistory.setEnabled(false);
 		panel_consultas_1.add(jButtonTransactionHistory);
 		
@@ -229,5 +239,9 @@ public class MainGUI extends JFrame {
 			this.jButtonViewAcceptedSales.setEnabled(true);
 		}
 		actualizarSaldo();
+	}
+	
+	public static void setSaldo(float s) {
+		saldo=s;
 	}
 }

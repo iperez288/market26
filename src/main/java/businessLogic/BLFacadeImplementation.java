@@ -227,6 +227,40 @@ public class BLFacadeImplementation  implements BLFacade {
 		dbManager.close();
 		
 	}
+	
+	@Override
+	public boolean doPurchase(String mail, ProposedSale ps) {
+		
+		
+		String email = this.usuario.getEmail();
+		boolean accepted=false;
+		
+		float saldo; //saldo del comprador
+		
+		float precio; //Precio de la compra
+		
+		precio=ps.getPrice();
+		
+		dbManager.open();
+		
+		//Primero, voy a comprobar que el  comprador tenga dinero.
+		
+		String bmail = ps.getBuyer().getEmail();
+		saldo = dbManager.getSaldoUsuario(bmail);
+		if(saldo<precio) {
+			accepted = false; //El comprador no tiene dinero
+		}
+		else {
+			accepted = dbManager.doPurchase(email,ps);
+		}
+	
+		dbManager.close();
+		
+		//Voy a modificar ProposedSale, Sale, Vendedor y Comprador.
+		//Primero, voy a comprobar que el  comprador tenga dinero.
+		
+		return accepted;
+	}
 
 	public List<ProposedSale> getPurchasedSales(String desc, String mail){
 		

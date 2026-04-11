@@ -9,6 +9,8 @@ import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.OneToMany;
 
+import domain.Transaction.TransactionType;
+
 @Entity
 public class Buyer extends User implements Serializable {
 
@@ -107,6 +109,14 @@ public class Buyer extends User implements Serializable {
 	
 	public void addTransaction(Transaction transaction) {
 		this.monedero.add(transaction);
+		
+		if(transaction.getType()==TransactionType.purchase || transaction.getType()==TransactionType.extraction) {
+			saldo-=transaction.getAmount();
+		}
+		else {
+			saldo += transaction.getAmount();
+		}
+		
 	}
 
 	public void addValoracion(Valoracion val) {

@@ -87,7 +87,10 @@ public interface BLFacade  {
 
 
 	 void hacerValoracion(int saleID, int rate, String text);
-
+	 
+	 public boolean doPurchase(String email, ProposedSale ps);
 
 	 public List<ProposedSale> getPurchasedSales(String text, String email);
+	 
+	
 }

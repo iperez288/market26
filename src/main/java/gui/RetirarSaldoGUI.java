@@ -66,7 +66,7 @@ public class RetirarSaldoGUI extends JFrame {
 					if (importeARetirar <= 0) {
 						lblError.setText("Introduce un importe positivo.");
 					} else if (importeARetirar > b.getSaldo()) {
-						lblError.setText("Saldo insuficiente (Saldo: " + b.getSaldo() + "€)");
+						lblError.setText("Saldo insuficiente (Saldo: " + b.getSaldo() + "�)");
 					} else {
 
 						facade.retirarSaldo(b.getEmail(), importeARetirar);
@@ -76,7 +76,7 @@ public class RetirarSaldoGUI extends JFrame {
 						dispose();
 					}
 				} catch (NumberFormatException ex) {
-					lblError.setText("Por favor, introduce un número válido.");
+					lblError.setText("Por favor, introduce un numero valido.");
 				}
 			}
 		});

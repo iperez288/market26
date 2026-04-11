@@ -14,7 +14,7 @@ public class Transaction implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	public enum TransactionType {
-		extraction, income, sale, bought
+		extraction, income, sale, purchase
 	}
 	
 	@ManyToOne
