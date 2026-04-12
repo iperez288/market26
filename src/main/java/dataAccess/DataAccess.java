@@ -123,6 +123,7 @@ public class DataAccess {
 			db.persist(user2);
 			db.persist(user3);
 			db.persist(user4);
+			db.persist(user5);
 
 	
 			db.getTransaction().commit();
@@ -228,22 +229,6 @@ public class DataAccess {
 		return res;
 	}
 
-	public List<ProposedSale> getProposedSales(Seller sel) {
-
-		System.out.println(">> DataAccess: getProducts=> from= ");
-
-		List<ProposedSale> res = new ArrayList<ProposedSale>();
-
-		TypedQuery<Sale> query1 = db.createQuery("SELECT s FROM Sale s WHERE s.seller.email LIKE ?1 AND s.purchased = false", Sale.class);
-		query1.setParameter(1, "%" + sel.getEmail() + "%");
-		List<Sale> sales = query1.getResultList();
-
-		for (Sale s : sales) {
-			res.addAll(s.getProposedSales());
-		}
-
-		return res;
-	}
 
 	public void open() {
 
@@ -336,6 +321,23 @@ public class DataAccess {
 			return null;
 		}
 
+	}
+	
+	public List<ProposedSale> getProposedSales(String email) {
+
+		System.out.println(">> DataAccess: getProducts=> from= ");
+
+		List<ProposedSale> res = new ArrayList<ProposedSale>();
+
+		TypedQuery<Sale> query1 = db.createQuery("SELECT s FROM Sale s WHERE s.seller.email LIKE ?1 AND s.purchased = false", Sale.class);
+		query1.setParameter(1, email);
+		List<Sale> sales = query1.getResultList();
+
+		for (Sale s : sales) {
+			res.addAll(s.getProposedSales());
+		}
+
+		return res;
 	}
 
 	public void annadirSaldo(String email, float importe) {
@@ -492,7 +494,12 @@ public class DataAccess {
 	}
 	
 	public float getSaldoUsuario(String email) {
-		float saldo = ((Buyer) getUser(email)).getSaldo();
+		
+		float saldo = 0.0f;
+		Buyer b = (Buyer) browseUser(email);
+		
+		if(b!=null)
+			saldo = b.getSaldo();
 		return saldo;
 	}
 
@@ -505,8 +512,16 @@ public class DataAccess {
 		
 		return db.find(User.class, email);
 	}
+
+	public List<Transaction> getTransactions(String email) {
+		TypedQuery<Transaction> query = db.createQuery("SELECT t FROM Transaction t WHERE t.usuario.email = ?1", Transaction.class);
+		query.setParameter(1, email);
+		
+		return query.getResultList();
+	}
 	
 
+	
 	
 }
 

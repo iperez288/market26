@@ -44,7 +44,7 @@ public class AcceptProposalGUI extends JFrame {
 				BLFacade facade = MainGUI.getBusinessLogic();
 				facade.doPurchase(email, ps);
 				main.actualizarSaldo(); 
-				((QueryProposedSalesGUI) parent).actualizarLista();
+				((QueryProposedSalesGUI) parent).actualizarLista(email);
 				thisFrame.dispose();
 			}
 		});

@@ -128,7 +128,7 @@ public class RegisterGUI extends JFrame {
 							else parent.setTipoUsuario("Vendedor");						
 								
 							textArea.setText("Registrado con exito. \nPuedes cerrar esta ventana.");
-							parent.setTitle(ResourceBundle.getBundle("Etiquetas").getString("MainGUI.MainTitle")+ ": "+ facade.getUsuario().getEmail()+" ("+parent.getTipoUsuario()+")");
+							//parent.setTitle(ResourceBundle.getBundle("Etiquetas").getString("MainGUI.MainTitle")+ ": "+ email+" ("+parent.getTipoUsuario()+")");
 							parent.setEmail(email);
 							parent.gestionPermisos();
 						}

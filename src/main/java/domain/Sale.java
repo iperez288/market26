@@ -250,7 +250,7 @@ public class Sale implements Serializable {
 	 * @return
 	 */
 	public boolean isActive() {
-		return this.purchased;
+		return !this.purchased;
 	}
 	
 	public void doPurchase() {

@@ -65,7 +65,7 @@ public class LoginGUI extends JFrame {
 						if(tipo==1) parent.setTipoUsuario("Comprador");
 						else parent.setTipoUsuario("Vendedor");	
 						
-						parent.setTitle(ResourceBundle.getBundle("Etiquetas").getString("MainGUI.MainTitle")+ ": "+ facade.getUsuario().getEmail()+" ("+parent.getTipoUsuario()+")");
+						//parent.setTitle(ResourceBundle.getBundle("Etiquetas").getString("MainGUI.MainTitle")+ ": "+ email+" ("+parent.getTipoUsuario()+")");
 						parent.gestionPermisos();
 					}else {
 						textArea.setText("Usuario o contraseña incorrectos.");

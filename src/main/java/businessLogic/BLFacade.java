@@ -7,6 +7,7 @@ import java.util.List;
 import domain.Buyer;
 import domain.ProposedSale;
 import domain.Sale;
+import domain.Transaction;
 import domain.User;
 import exceptions.FileNotUploadedException;
 import exceptions.MustBeLaterThanTodayException;
@@ -23,10 +24,6 @@ import gui.*;
  */
 @WebService
 public interface BLFacade  {
-	  
-	
-	
-	public User getUsuario();
 
 
 	/**
@@ -76,7 +73,7 @@ public interface BLFacade  {
 	
 	 public int makeLogin(String email, String password);
 	 
-	 public List<ProposedSale> getProposedSales();
+	 public List<ProposedSale> getProposedSales(String email);
 	
 	 public ProposedSale createProposedSale(String email, int sn, float p);
 	 
@@ -93,5 +90,8 @@ public interface BLFacade  {
 	 public List<ProposedSale> getPurchasedSales(String text, String email);
 	 
 	 public float getSaldo(String email);
+
+
+	 public List<Transaction> getTransactions(String email);
 	
 }

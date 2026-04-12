@@ -29,20 +29,18 @@ public class BLFacadeImplementation  implements BLFacade {
 		private static final String basePath="src/main/resources/images/";
 	DataAccess dbManager;
 
-	User usuario; //Al iniciar el programa es null, porque no se ha asignado un rol al usuario. Posteriormente, tomará valor de Buyer o Seller.
+	//User usuario; //Al iniciar el programa es null, porque no se ha asignado un rol al usuario. Posteriormente, tomará valor de Buyer o Seller.
 	//String tipoUsuario;
 	
 	public BLFacadeImplementation()  {		
 		System.out.println("Creating BLFacadeImplementation instance");
 		dbManager=new DataAccess();	
-		usuario=new User("");
 		
 	}
 	
     public BLFacadeImplementation(DataAccess da)  {
 		System.out.println("Creating BLFacadeImplementation instance with DataAccess parameter");
 		dbManager=da;
-		usuario=new User("");
 		
 	}
     
@@ -79,14 +77,8 @@ public class BLFacadeImplementation  implements BLFacade {
 			dbManager.close();
 			return rides;
 		}
-		public List<ProposedSale> getProposedSales() {
-			Seller s = (Seller) usuario;
-			
-			dbManager.open();
-			List<ProposedSale>  rides=dbManager.getProposedSales(s);
-			dbManager.close();
-			return rides;
-		}
+		
+
 		
 	/**
 	    * {@inheritDoc}
@@ -143,7 +135,6 @@ public class BLFacadeImplementation  implements BLFacade {
     	boolean anadido = dbManager.addUser(newUser);
     	dbManager.close();
     	if(anadido) {
-    		usuario=newUser;
     		res=tipo;
     	}
     	
@@ -160,8 +151,7 @@ public class BLFacadeImplementation  implements BLFacade {
     	if(u!=null) {
     		boolean exito = u.checkLogin(password);
     		if(exito) {
-    			usuario=u;
-    			if (usuario instanceof Seller) {
+    			if (u instanceof Seller) {
     				tipo = 2;
     			}else {
     				tipo = 1;
@@ -172,17 +162,9 @@ public class BLFacadeImplementation  implements BLFacade {
     	return tipo;
     }
 
-	public User getUsuario() {
-		return usuario;
-	}
-
-	public void setUsuario(User usuario) {
-		this.usuario = usuario;
-	}
 
 	public ProposedSale createProposedSale(String email, int sn, float p) {
 		
-		Buyer b= (Buyer)usuario;
 		dbManager.open();
 			
 		ProposedSale proposal=dbManager.createProposedSale(sn, email, p);		
@@ -195,10 +177,6 @@ public class BLFacadeImplementation  implements BLFacade {
 		dbManager.open();
 		
 		dbManager.annadirSaldo(email, importe);
-		
-		User u = dbManager.browseUser(email);
-		
-		this.usuario = u;
 			
 		dbManager.close();	
 	}
@@ -207,10 +185,6 @@ public class BLFacadeImplementation  implements BLFacade {
 		dbManager.open();
 		
 		dbManager.retirarSaldo(email, importe);
-		
-		User u = dbManager.browseUser(email);
-		
-		this.usuario = u;
 		
 		dbManager.close();
 		
@@ -227,10 +201,8 @@ public class BLFacadeImplementation  implements BLFacade {
 	}
 	
 	@Override
-	public boolean doPurchase(String mail, ProposedSale ps) {
+	public boolean doPurchase(String email, ProposedSale ps) {
 		
-		
-		String email = this.usuario.getEmail();
 		boolean accepted=false;
 		
 		float saldo; //saldo del comprador
@@ -273,13 +245,31 @@ public class BLFacadeImplementation  implements BLFacade {
 	public float getSaldo(String email) {
 		float s = 0.0f;
 		
-		if(this.usuario!=null) {
 			dbManager.open();
-			s= dbManager.getSaldoUsuario(this.usuario.getEmail());
+			s= dbManager.getSaldoUsuario(email);
 			dbManager.close();
-		}
+			
 		return s;
 	}
+	
+	 public List<Transaction> getTransactions(String email){
+		 
+		 dbManager.open();
+		 List<Transaction> t = dbManager.getTransactions(email);
+		 dbManager.close();
+		 
+		 return t;
+	 }
+	 
+		public List<ProposedSale> getProposedSales(String email) {
+	
+			
+			dbManager.open();
+			List<ProposedSale>  rides=dbManager.getProposedSales(email);
+			dbManager.close();
+			return rides;
+		}
+
 	
 }
 

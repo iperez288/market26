@@ -140,8 +140,8 @@ public class QueryPurchasesGUI extends JFrame {
 			tableProducts.setEnabled(true);
 			List<domain.ProposedSale> sales=facade.getPurchasedSales(jTextFieldSearch.getText(),email);
 
-			if (sales.isEmpty() ) jLabelProducts.setText(ResourceBundle.getBundle("Etiquetas").getString("QuerySalesGUI.NoProducts"));
-			else jLabelProducts.setText(ResourceBundle.getBundle("Etiquetas").getString("QuerySalesGUI.Products"));
+			if (sales.isEmpty() ) jLabelProducts.setText("No se han realizado compras.");
+			else jLabelProducts.setText("Estas son las compras realizadas:");
 			for (domain.ProposedSale sale:sales){
 				Vector<Object> row = new Vector<Object>();
 				row.add(sale.getTitle());

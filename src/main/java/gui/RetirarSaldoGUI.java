@@ -20,7 +20,7 @@ public class RetirarSaldoGUI extends JFrame {
 	private JTextField textFieldImporte;
 	private MainGUI main;
 
-	public RetirarSaldoGUI(MainGUI main) {
+	public RetirarSaldoGUI(MainGUI main, String email) {
 		this.main = main;
 		setTitle("Retirar Saldo");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -61,15 +61,15 @@ public class RetirarSaldoGUI extends JFrame {
 				try {
 					float importeARetirar = Float.parseFloat(textFieldImporte.getText());
 					BLFacade facade = MainGUI.getBusinessLogic();
-					Buyer b = (Buyer) facade.getUsuario();
+					float saldo = facade.getSaldo(email);
 
 					if (importeARetirar <= 0) {
 						lblError.setText("Introduce un importe positivo.");
-					} else if (importeARetirar > b.getSaldo()) {
-						lblError.setText("Saldo insuficiente (Saldo: " + b.getSaldo() + "€)");
+					} else if (importeARetirar > saldo) {
+						lblError.setText("Saldo insuficiente (Saldo: " + saldo + "€)");
 					} else {
 
-						facade.retirarSaldo(b.getEmail(), importeARetirar);
+						facade.retirarSaldo(email, importeARetirar);
 
 						main.actualizarSaldo();
 

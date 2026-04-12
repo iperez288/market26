@@ -22,13 +22,17 @@ import domain.User;
 
 public class TransactionHistoryGUI extends JFrame {
 
+	private String email;
+	
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	private JTable table;
 	private DefaultTableModel tableModel;
 	private String[] columnNames = new String[] { "Fecha", "Tipo", "Cantidad" };
 
-	public TransactionHistoryGUI() {
+	public TransactionHistoryGUI(String email) {
+		this.email = email;
+		
 		setTitle("Historial de Transacciones");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setSize(new Dimension(450, 400));
@@ -59,11 +63,8 @@ public class TransactionHistoryGUI extends JFrame {
 		try {
 			BLFacade facade = MainGUI.getBusinessLogic();
 			
-			User usuarios = facade.getUsuario();
-			
-			
-			List<Transaction> transactions = ((Buyer) usuarios).getTransactions();
-			
+			List<Transaction> transactions = facade.getTransactions(email);
+					
 			
 			tableModel.setDataVector(null, columnNames);
 

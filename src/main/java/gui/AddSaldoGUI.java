@@ -21,7 +21,7 @@ public class AddSaldoGUI extends JFrame {
 	private JLabel lblMensaje;
 	private MainGUI mainFrame;
 
-	public AddSaldoGUI(MainGUI main) {
+	public AddSaldoGUI(MainGUI main, String email) {
 		this.mainFrame = main;
 		setTitle("Añadir Saldo");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -49,7 +49,6 @@ public class AddSaldoGUI extends JFrame {
 					if (importe <= 0) throw new NumberFormatException();
 
 					BLFacade facade = MainGUI.getBusinessLogic();
-					String email = facade.getUsuario().getEmail();
 					
 					facade.annadirSaldo(email, importe); 
 					

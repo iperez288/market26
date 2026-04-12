@@ -129,7 +129,7 @@ public class MainGUI extends JFrame {
 		jButtonViewAcceptedSales = new JButton("Ver ofertas aceptadas");
 		jButtonViewAcceptedSales.setEnabled(false);
 		jButtonViewAcceptedSales.addActionListener(e -> {
-			JFrame a = new QueryProposedSalesGUI(mail,this);
+			JFrame a = new QueryProposedSalesGUI(email,this);
 			a.setVisible(true);
 		});
 		panel_ventas.add(jButtonViewAcceptedSales);
@@ -149,7 +149,7 @@ public class MainGUI extends JFrame {
 		jButtonAddMoney = new JButton("Agregar Saldo");
 		jButtonAddMoney.setEnabled(false);
 		jButtonAddMoney.addActionListener(e -> {
-			JFrame a = new AddSaldoGUI(MainGUI.this);
+			JFrame a = new AddSaldoGUI(MainGUI.this, email);
 			a.setVisible(true);
 		});
 		panel_dinero.add(jButtonAddMoney);
@@ -157,7 +157,7 @@ public class MainGUI extends JFrame {
 		jButtonWithdrawMoney = new JButton("Retirar Saldo");
 		jButtonWithdrawMoney.setEnabled(false);
 		jButtonWithdrawMoney.addActionListener(e -> {
-			JFrame a = new RetirarSaldoGUI(MainGUI.this);
+			JFrame a = new RetirarSaldoGUI(MainGUI.this,email);
 			a.setVisible(true);
 		});
 		panel_dinero.add(jButtonWithdrawMoney);
@@ -176,7 +176,7 @@ public class MainGUI extends JFrame {
 		jButtonTransactionHistory = new JButton("Historial Transacciones");
 		jButtonTransactionHistory.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				JFrame transactions = new TransactionHistoryGUI();
+				JFrame transactions = new TransactionHistoryGUI(email);
 				transactions.setVisible(true);
 			}
 		});

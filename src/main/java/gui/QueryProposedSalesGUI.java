@@ -90,23 +90,28 @@ public class QueryProposedSalesGUI extends JFrame {
 		 jButtonSearch.addActionListener(new ActionListener() {
 		 	public void actionPerformed(ActionEvent e) {
 		 		try {
+		 			
+		 			System.out.println(email);
+		 			
 					tableModelProducts.setDataVector(null, columnNamesProducts);
 					tableModelProducts.setColumnCount(4); // another column added to allocate product object
 
 					BLFacade facade = MainGUI.getBusinessLogic();
-					Date today = UtilDate.trim(new Date());
 
-					List<domain.ProposedSale> proposedSales=facade.getProposedSales();
+					List<domain.ProposedSale> proposedSales=facade.getProposedSales(email);
 
 					if (proposedSales.isEmpty() ) jLabelProducts.setText(ResourceBundle.getBundle("Etiquetas").getString("QuerySalesGUI.NoProducts"));
 					else jLabelProducts.setText(ResourceBundle.getBundle("Etiquetas").getString("QuerySalesGUI.Products"));
-					for (domain.ProposedSale sale:proposedSales){
-						Vector<Object> row = new Vector<Object>();
-						row.add(sale.getSale().getTitle());
-						row.add(sale.getPrice());
-						row.add(new SimpleDateFormat("dd-MM-yyyy").format(sale.getSale().getPublicationDate()));
-						row.add(sale); // product object added in order to obtain it with tableModelProducts.getValueAt(i,2)
-						tableModelProducts.addRow(row);		
+					for (ProposedSale sale:proposedSales){
+						if(sale.getSale().isActive()) {
+							Vector<Object> row = new Vector<Object>();
+							row.add(sale.getSale().getTitle());
+							row.add(sale.getPrice());
+							row.add(new SimpleDateFormat("dd-MM-yyyy").format(sale.getSale().getPublicationDate()));
+							row.add(sale); // product object added in order to obtain it with tableModelProducts.getValueAt(i,2)
+							tableModelProducts.addRow(row);	
+						}
+							
 					}
 				} catch (Exception e1) {
 
@@ -142,26 +147,27 @@ public class QueryProposedSalesGUI extends JFrame {
 		 });
 	}
 	
-	public void actualizarLista() {
+	public void actualizarLista(String email) {
 		try {
 			tableModelProducts.setDataVector(null, columnNamesProducts);
 			tableModelProducts.setColumnCount(4); // another column added to allocate product object
 
 			BLFacade facade = MainGUI.getBusinessLogic();
-			Date today = UtilDate.trim(new Date());
 
-			List<domain.ProposedSale> proposedSales=facade.getProposedSales();
+			List<domain.ProposedSale> proposedSales=facade.getProposedSales(email);
 
 			if (proposedSales.isEmpty() ) jLabelProducts.setText(ResourceBundle.getBundle("Etiquetas").getString("QuerySalesGUI.NoProducts"));
 			else jLabelProducts.setText(ResourceBundle.getBundle("Etiquetas").getString("QuerySalesGUI.Products"));
 			for (domain.ProposedSale sale:proposedSales){
-				
-				Vector<Object> row = new Vector<Object>();
-				row.add(sale.getSale().getTitle());
-				row.add(sale.getPrice());
-				row.add(new SimpleDateFormat("dd-MM-yyyy").format(sale.getSale().getPublicationDate()));
-				row.add(sale); // product object added in order to obtain it with tableModelProducts.getValueAt(i,2)
-				tableModelProducts.addRow(row);		
+
+				if(sale.getSale().isActive()) {
+					Vector<Object> row = new Vector<Object>();
+					row.add(sale.getSale().getTitle());
+					row.add(sale.getPrice());
+					row.add(new SimpleDateFormat("dd-MM-yyyy").format(sale.getSale().getPublicationDate()));
+					row.add(sale); // product object added in order to obtain it with tableModelProducts.getValueAt(i,2)
+					tableModelProducts.addRow(row);	
+				}	
 			}
 		} catch (Exception e1) {
 
