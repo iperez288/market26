@@ -217,7 +217,7 @@ public class DataAccess {
 		System.out.println(">> DataAccess: getProducts=> from= " + desc);
 
 		List<Sale> res = new ArrayList<Sale>();
-		TypedQuery<Sale> query = db.createQuery("SELECT s FROM Sale s WHERE s.title LIKE ?1 AND s.pubDate <=?2",
+		TypedQuery<Sale> query = db.createQuery("SELECT s FROM Sale s WHERE s.title LIKE ?1 AND s.pubDate <=?2 AND s.purchased = false",
 				Sale.class);
 		query.setParameter(1, "%" + desc + "%");
 		query.setParameter(2, pubDate);
