@@ -3195,3 +3195,169 @@ Type domain.Sale is not enhanced.
 [2026-04-12 21:14:41 #9 type] 
 Type domain.Valoracion is not enhanced.
 
+------------------------------------------------------------------------------------------------------------------------
+
+[2026-04-12 21:50:56 #1 store] 
+Database 'C:\Users\kenne\git\market26\src\main\resources\products.temp' is opened by 23276@Traspié
+
+[2026-04-12 21:50:56 #2 type] 
+Type domain.User is not enhanced.
+
+[2026-04-12 21:50:56 #3 type] 
+Type domain.Buyer is not enhanced.
+
+[2026-04-12 21:50:56 #4 type] 
+Type domain.Seller is not enhanced.
+
+[2026-04-12 21:50:56 #5 type] 
+Type domain.ProposedSale is not enhanced.
+
+[2026-04-12 21:50:56 #6 type] 
+Type domain.Transaction is not enhanced.
+
+[2026-04-12 21:50:56 #7 type] 
+Type domain.Sale is not enhanced.
+
+[2026-04-12 21:50:56 #8 type] 
+Type domain.Valoracion is not enhanced.
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2026-04-12 22:32:23 #1 store] 
+Database 'C:\Users\kenne\git\market26\src\main\resources\products.temp' is opened by 19956@Traspié
+
+[2026-04-12 22:32:23 #2 type] 
+Type domain.User is not enhanced.
+
+[2026-04-12 22:32:23 #3 type] 
+Type domain.Buyer is not enhanced.
+
+[2026-04-12 22:32:23 #4 type] 
+Type domain.Seller is not enhanced.
+
+[2026-04-12 22:32:23 #5 type] 
+Type domain.ProposedSale is not enhanced.
+
+[2026-04-12 22:32:23 #6 type] 
+Type domain.Transaction is not enhanced.
+
+[2026-04-12 22:32:23 #7 type] 
+Type domain.Sale is not enhanced.
+
+[2026-04-12 22:32:23 #8 type] 
+Type domain.Valoracion is not enhanced.
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2026-04-12 22:33:05 #1 store] 
+Database 'C:\Users\kenne\git\market26\src\main\resources\products.temp' is opened by 26404@Traspié
+
+[2026-04-12 22:33:05 #2 type] 
+Type domain.User is not enhanced.
+
+[2026-04-12 22:33:05 #3 type] 
+Type domain.Buyer is not enhanced.
+
+[2026-04-12 22:33:05 #4 type] 
+Type domain.Seller is not enhanced.
+
+[2026-04-12 22:33:05 #5 type] 
+Type domain.ProposedSale is not enhanced.
+
+[2026-04-12 22:33:05 #6 type] 
+Type domain.Transaction is not enhanced.
+
+[2026-04-12 22:33:05 #7 type] 
+Type domain.Sale is not enhanced.
+
+[2026-04-12 22:33:05 #8 type] 
+Type domain.Valoracion is not enhanced.
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2026-04-12 22:34:59 #1 store] 
+Database 'C:\Users\kenne\git\market26\src\main\resources\products.temp' is opened by 30588@Traspié
+
+[2026-04-12 22:34:59 #2 type] 
+Type domain.User is not enhanced.
+
+[2026-04-12 22:34:59 #3 type] 
+Type domain.Buyer is not enhanced.
+
+[2026-04-12 22:34:59 #4 type] 
+Type domain.Seller is not enhanced.
+
+[2026-04-12 22:34:59 #5 type] 
+Type domain.ProposedSale is not enhanced.
+
+[2026-04-12 22:34:59 #6 type] 
+Type domain.Transaction is not enhanced.
+
+[2026-04-12 22:34:59 #7 type] 
+Type domain.Sale is not enhanced.
+
+[2026-04-12 22:34:59 #8 type] 
+Type domain.Valoracion is not enhanced.
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2026-04-12 23:09:56 #1 store] 
+Database 'C:\Users\kenne\git\market26\src\main\resources\products.temp' is opened by 20304@Traspié
+
+[2026-04-12 23:09:56 #2 type.registry] 
+New type domain.User
+
+[2026-04-12 23:09:56 #3 type.registry] 
+New type domain.Buyer
+
+[2026-04-12 23:09:56 #4 type.registry] 
+New type domain.Seller
+
+[2026-04-12 23:09:56 #5 type] 
+Type domain.User is not enhanced.
+
+[2026-04-12 23:09:56 #6 type] 
+Type domain.Buyer is not enhanced.
+
+[2026-04-12 23:09:56 #7 type.registry] 
+New type domain.ProposedSale
+
+[2026-04-12 23:09:56 #8 type.registry] 
+New type domain.Transaction
+
+[2026-04-12 23:09:56 #9 type] 
+Type domain.Seller is not enhanced.
+
+[2026-04-12 23:09:56 #10 type.registry] 
+New type domain.Sale
+
+[2026-04-12 23:09:56 #11 type] 
+Type domain.ProposedSale is not enhanced.
+
+[2026-04-12 23:09:56 #12 type.registry] 
+New type domain.Valoracion
+
+[2026-04-12 23:09:56 #13 type] 
+Type domain.Transaction is not enhanced.
+
+[2026-04-12 23:09:56 #14 type.registry] 
+New type domain.Transaction$TransactionType
+
+[2026-04-12 23:09:56 #15 type] 
+Type domain.Sale is not enhanced.
+
+[2026-04-12 23:09:56 #16 type] 
+Type domain.Valoracion is not enhanced.
+
+[2026-04-12 23:09:56 #17 type.registry] 
+New type java.util.ArrayList<java.lang.Object>
+
+[2026-04-12 23:09:56 #18 type.registry] 
+New type java.util.ArrayList<domain.ProposedSale>
+
+[2026-04-12 23:09:56 #19 type.registry] 
+New type java.util.ArrayList<domain.Sale>
+
+[2026-04-12 23:09:56 #20 type.registry] 
+New type java.util.ArrayList<domain.Transaction>
+

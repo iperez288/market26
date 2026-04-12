@@ -16,7 +16,8 @@ import org.w3c.dom.NodeList;
 public class ConfigXML {
 	
 	private String configFile = "src/main/resources/config.xml";
-
+	
+	
 	private String businessLogicNode;
 
 	private String businessLogicPort;
