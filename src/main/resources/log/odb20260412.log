@@ -3166,3 +3166,32 @@ New type com.objectdb.o.VAL
 [2026-04-12 19:47:23 #23 type.registry] 
 New type com.objectdb.o.RFV
 
+------------------------------------------------------------------------------------------------------------------------
+
+[2026-04-12 21:14:40 #1 store] 
+Database 'C:\Users\kenne\git\market26\src\main\resources\products.temp' has been recovered (tr. 1-10)
+
+[2026-04-12 21:14:40 #2 store] 
+Database 'C:\Users\kenne\git\market26\src\main\resources\products.temp' is opened by 20300@Traspié
+
+[2026-04-12 21:14:40 #3 type] 
+Type domain.User is not enhanced.
+
+[2026-04-12 21:14:41 #4 type] 
+Type domain.Buyer is not enhanced.
+
+[2026-04-12 21:14:41 #5 type] 
+Type domain.Seller is not enhanced.
+
+[2026-04-12 21:14:41 #6 type] 
+Type domain.ProposedSale is not enhanced.
+
+[2026-04-12 21:14:41 #7 type] 
+Type domain.Transaction is not enhanced.
+
+[2026-04-12 21:14:41 #8 type] 
+Type domain.Sale is not enhanced.
+
+[2026-04-12 21:14:41 #9 type] 
+Type domain.Valoracion is not enhanced.
+

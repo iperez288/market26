@@ -1,7 +1,6 @@
 package gui;
 
 import businessLogic.BLFacade;
-import configuration.UtilDate;
 import domain.ProposedSale;
 import domain.Sale;
 

@@ -453,7 +453,6 @@ public class DataAccess {
 		Transaction cobroComprador;
 		Transaction pagoVendedor;
 		
-		TransactionType tipo;
 		
 		Date today = UtilDate.trim(new Date());
 		
