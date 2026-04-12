@@ -234,7 +234,7 @@ public class DataAccess {
 
 		List<ProposedSale> res = new ArrayList<ProposedSale>();
 
-		TypedQuery<Sale> query1 = db.createQuery("SELECT s FROM Sale s WHERE s.seller.email LIKE ?1", Sale.class);
+		TypedQuery<Sale> query1 = db.createQuery("SELECT s FROM Sale s WHERE s.seller.email LIKE ?1 AND s.purchased = false", Sale.class);
 		query1.setParameter(1, "%" + sel.getEmail() + "%");
 		List<Sale> sales = query1.getResultList();
 
@@ -483,6 +483,7 @@ public class DataAccess {
 		vendedor = (Seller) getUser(email);
 		pagoVendedor = new Transaction(precio,today,TransactionType.sale,vendedor);
 		vendedor.addTransaction(pagoVendedor);
+		db.persist(pagoVendedor);
 		
 		db.getTransaction().commit();
 		

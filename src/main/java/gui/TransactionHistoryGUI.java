@@ -30,7 +30,7 @@ public class TransactionHistoryGUI extends JFrame {
 
 	public TransactionHistoryGUI() {
 		setTitle("Historial de Transacciones");
-		//setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setSize(new Dimension(450, 400));
 		setLocationRelativeTo(null);
 

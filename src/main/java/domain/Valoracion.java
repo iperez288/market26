@@ -55,4 +55,6 @@ public class Valoracion implements Serializable {
 		return this.comentario;
 	}
 
+
+
 }

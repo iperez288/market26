@@ -32,8 +32,9 @@ public class MakeReviewGUI extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public MakeReviewGUI(ProposedSale sale, String email) {
+	public MakeReviewGUI(QueryPurchasesGUI parent, ProposedSale sale, String email) {
 		this.setVisible(true);
+		this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		JFrame thisFrame = this;
 		setBounds(100, 100, 263, 248);
 		contentPane = new JPanel();
@@ -52,9 +53,10 @@ public class MakeReviewGUI extends JFrame {
 				int rate = (int) spinnerRate.getValue();
 				String text = textReview.getText();
 				
-				facade.hacerValoracion(sale.getID(),rate,text);
+				facade.hacerValoracion(email,sale.getID(),rate,text);
 				infoPane.setText("Valoración realizada correctamente.\n Puede cerrar esta ventana.");
 				btnPublicar.setEnabled(false);
+				parent.actualizarLista();
 
 			}
 		});
@@ -64,7 +66,7 @@ public class MakeReviewGUI extends JFrame {
 		btnCancelar = new JButton("Cerrar");
 		btnCancelar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				thisFrame.setVisible(false);
+				thisFrame.dispose();
 			}
 		});
 		btnCancelar.setBounds(148, 118, 84, 20);
@@ -79,7 +81,7 @@ public class MakeReviewGUI extends JFrame {
 		spinnerRate.setBounds(177, 2, 29, 20);
 		contentPane.add(spinnerRate);
 		
-		JLabel lblRate = new JLabel("Puntuaci\u00F3n");
+		JLabel lblRate = new JLabel("Puntuación");
 		lblRate.setBounds(26, 10, 69, 12);
 		contentPane.add(lblRate);
 		

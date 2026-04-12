@@ -26,34 +26,19 @@ public class LoginGUI extends JFrame {
 	private JTextArea textArea;
 	private JButton btnLogin;
 
-	/**
-	 * Launch the application.
-	 */
-	/*public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					LoginGUI frame = new LoginGUI();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}*/
-
 	
 	/**
 	 * Create the frame.
 	 */
 	public LoginGUI(MainGUI parent) {
 		
+		this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 365, 332);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
-		this.setTitle("Iniciar sesión");
+		this.setTitle("Iniciar sesion");
 		
 		emailField = new JTextField();
 		emailField.setBounds(182, 29, 116, 25);
@@ -72,16 +57,18 @@ public class LoginGUI extends JFrame {
 					textArea.setText("Rellene todo los campos.");
 				}else {
 					int  tipo = facade.makeLogin(email, pass);
+					
+					
 					if (tipo!=0) {
 						textArea.setText("Ha iniciado sesión correctamente.\nPuede cerrar la ventana.");
-						
+						parent.setEmail(email);
 						if(tipo==1) parent.setTipoUsuario("Comprador");
 						else parent.setTipoUsuario("Vendedor");	
 						
 						parent.setTitle(ResourceBundle.getBundle("Etiquetas").getString("MainGUI.MainTitle")+ ": "+ facade.getUsuario().getEmail()+" ("+parent.getTipoUsuario()+")");
 						parent.gestionPermisos();
 					}else {
-						textArea.setText("Usuario o contraseña incorrectos.");
+						textArea.setText("Usuario o contrase�a incorrectos.");
 					}
 				}
 				

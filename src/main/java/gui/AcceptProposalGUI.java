@@ -21,10 +21,12 @@ public class AcceptProposalGUI extends JFrame {
 	private JPanel contentPane;
 
 	
-	public AcceptProposalGUI(String email, ProposedSale ps) {
+	public AcceptProposalGUI(JFrame parent, String email, ProposedSale ps, MainGUI main) {
 		
+		this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		JFrame thisFrame = this;
 		String format = "Aceptar propuesta por %.2f";
+		float precio = ps.getPrice();
 		
 		setBounds(100, 100, 213, 145);
 		contentPane = new JPanel();
@@ -32,16 +34,18 @@ public class AcceptProposalGUI extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JLabel lblNewLabel = new JLabel(String.format(format, ps.getPrice()));
-		lblNewLabel.setBounds(29, 20, 122, 12);
+		JLabel lblNewLabel = new JLabel(String.format(format, precio));
+		lblNewLabel.setBounds(10, 20, 159, 12);
 		contentPane.add(lblNewLabel);
 		
 		JButton jButtonAccept = new JButton("Aceptar");
 		jButtonAccept.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
 				BLFacade facade = MainGUI.getBusinessLogic();
 				facade.doPurchase(email, ps);
+				main.actualizarSaldo(); 
+				((QueryProposedSalesGUI) parent).actualizarLista();
+				thisFrame.dispose();
 			}
 		});
 		jButtonAccept.setBounds(10, 52, 84, 20);
@@ -50,11 +54,12 @@ public class AcceptProposalGUI extends JFrame {
 		JButton jButtonCancel = new JButton("Cancelar");
 		jButtonCancel.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				thisFrame.setVisible(false);
+				thisFrame.dispose();
 			}
 		});
 		jButtonCancel.setBounds(104, 52, 84, 20);
 		contentPane.add(jButtonCancel);
+		
 		
 	}
 }

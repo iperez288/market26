@@ -46,7 +46,7 @@ public class ShowSaleGUI extends JFrame {
 	private JFrame thisFrame;
 	private final JButton btnBuy = new JButton("Comprar"); //$NON-NLS-1$ //$NON-NLS-2$
 	
-	public ShowSaleGUI(Sale sale) { 
+	public ShowSaleGUI(String email, Sale sale) { 
 		thisFrame=this; 
 		this.setVisible(true);
 		this.getContentPane().setLayout(null);
@@ -133,7 +133,7 @@ public class ShowSaleGUI extends JFrame {
 		getContentPane().add(statusField);
 		btnBuy.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				JFrame a = new ProposalGUI(sale.getSaleNumber());
+				JFrame a = new ProposalGUI(email,sale.getSaleNumber());
 				a.setVisible(true);;
 				
 			}

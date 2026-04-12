@@ -18,8 +18,7 @@ public class MainGUI extends JFrame {
 
 	private String tipoUsuario;
 	private String email;
-	private static float saldo;
-	
+	private float saldo;
 	
 	private static final long serialVersionUID = 1L;
 
@@ -70,6 +69,7 @@ public class MainGUI extends JFrame {
 	public MainGUI(String mail) {
 		super();
 
+		this.saldo=0.0f;
 		this.tipoUsuario = "xxxxxx";
 		this.setSize(550, 550);
 
@@ -122,7 +122,7 @@ public class MainGUI extends JFrame {
 		jButtonCreateQuery = new JButton(ResourceBundle.getBundle("Etiquetas").getString("MainGUI.CreateSale"));
 		jButtonCreateQuery.setEnabled(false);
 		jButtonCreateQuery.addActionListener(e -> {
-			JFrame a = new CreateSaleGUI(appFacadeInterface.getUsuario().getEmail());
+			JFrame a = new CreateSaleGUI(email);
 			a.setVisible(true);
 		});
 		panel_ventas.add(jButtonCreateQuery);
@@ -139,7 +139,7 @@ public class MainGUI extends JFrame {
 		jButtonQueryQueries = new JButton(ResourceBundle.getBundle("Etiquetas").getString("MainGUI.QuerySales"));
 		jButtonQueryQueries.setEnabled(false);
 		jButtonQueryQueries.addActionListener(e -> {
-			JFrame a = new QuerySalesGUI();
+			JFrame a = new QuerySalesGUI(email);
 			a.setVisible(true);
 		});
 		panel_consultas.add(jButtonQueryQueries);
@@ -187,7 +187,7 @@ public class MainGUI extends JFrame {
 		jButtonQueryPurchases.setEnabled(false);
 		jButtonQueryPurchases.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				JFrame compras = new QueryPurchasesGUI(mail);
+				JFrame compras = new QueryPurchasesGUI(email);
 				compras.setVisible(true);
 			}
 		});
@@ -211,16 +211,14 @@ public class MainGUI extends JFrame {
 		jButtonQueryQueries.setText(ResourceBundle.getBundle("Etiquetas").getString("MainGUI.QuerySales"));
 		jButtonCreateQuery.setText(ResourceBundle.getBundle("Etiquetas").getString("MainGUI.CreateSale"));
 		this.setTitle(ResourceBundle.getBundle("Etiquetas").getString("MainGUI.MainTitle") + ": "
-				+ appFacadeInterface.getUsuario().getEmail() + " (" + tipoUsuario + ")");
-		actualizarSaldo();
+				+ this.email + " (" + tipoUsuario + ")");
+		jLabelSaldo.setText("Saldo: " + String.format("%.2f", saldo) + "€");
+		
 	}
 
 	public void actualizarSaldo() {
-		if (appFacadeInterface.getUsuario() != null) {
-			User u = appFacadeInterface.getUsuario();
-			float saldo = ((Buyer) u).getSaldo();
-			jLabelSaldo.setText("Saldo: " + String.format("%.2f", saldo) + "â‚¬");
-		}
+		this.saldo = appFacadeInterface.getSaldo(email);
+		paintAgain();
 	}
 
 	public void gestionPermisos() {
@@ -239,9 +237,15 @@ public class MainGUI extends JFrame {
 			this.jButtonViewAcceptedSales.setEnabled(true);
 		}
 		actualizarSaldo();
+		paintAgain();
 	}
 	
-	public static void setSaldo(float s) {
+	/*public static void setSaldo(float s) {
 		saldo=s;
+	}
+*/
+	public void setEmail(String email) {
+		this.email=email;
+		
 	}
 }

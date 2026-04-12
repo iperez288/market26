@@ -41,6 +41,7 @@ public class QueryProposedSalesGUI extends JFrame {
 
 	public QueryProposedSalesGUI(String email, MainGUI main) {
 		tableProducts.setEnabled(false);
+		this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		thisFrame=this;
 		this.getContentPane().setLayout(null);
 		this.setSize(new Dimension(700, 500));
@@ -133,11 +134,44 @@ public class QueryProposedSalesGUI extends JFrame {
 		            	Point point = mouseEvent.getPoint();
 				        int row = table.rowAtPoint(point);
 		            	ProposedSale s=(ProposedSale) tableModelProducts.getValueAt(row, 3);
-			            JFrame aceptar = new AcceptProposalGUI(email,s);
+			            JFrame aceptar = new AcceptProposalGUI(thisFrame, email,s,main);
 			            aceptar.setVisible(true);
-			            main.actualizarSaldo();
+			           
 		            }
 		        }
 		 });
 	}
+	
+	public void actualizarLista() {
+		try {
+			tableModelProducts.setDataVector(null, columnNamesProducts);
+			tableModelProducts.setColumnCount(4); // another column added to allocate product object
+
+			BLFacade facade = MainGUI.getBusinessLogic();
+			Date today = UtilDate.trim(new Date());
+
+			List<domain.ProposedSale> proposedSales=facade.getProposedSales();
+
+			if (proposedSales.isEmpty() ) jLabelProducts.setText(ResourceBundle.getBundle("Etiquetas").getString("QuerySalesGUI.NoProducts"));
+			else jLabelProducts.setText(ResourceBundle.getBundle("Etiquetas").getString("QuerySalesGUI.Products"));
+			for (domain.ProposedSale sale:proposedSales){
+				
+				Vector<Object> row = new Vector<Object>();
+				row.add(sale.getSale().getTitle());
+				row.add(sale.getPrice());
+				row.add(new SimpleDateFormat("dd-MM-yyyy").format(sale.getSale().getPublicationDate()));
+				row.add(sale); // product object added in order to obtain it with tableModelProducts.getValueAt(i,2)
+				tableModelProducts.addRow(row);		
+			}
+		} catch (Exception e1) {
+
+			e1.printStackTrace();
+		}
+		tableProducts.getColumnModel().getColumn(0).setPreferredWidth(200);
+		tableProducts.getColumnModel().getColumn(1).setPreferredWidth(10);
+		tableProducts.getColumnModel().getColumn(1).setPreferredWidth(70);
+
+		tableProducts.getColumnModel().removeColumn(tableProducts.getColumnModel().getColumn(3)); // not shown in JTable
+	}
+	
 }

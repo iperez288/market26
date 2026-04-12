@@ -78,7 +78,7 @@ public interface BLFacade  {
 	 
 	 public List<ProposedSale> getProposedSales();
 	
-	 public ProposedSale createProposedSale(int sn, float p);
+	 public ProposedSale createProposedSale(String email, int sn, float p);
 	 
 	 public void annadirSaldo(String email, float importe);
 
@@ -86,11 +86,12 @@ public interface BLFacade  {
 	 public void retirarSaldo(String email, float importeARetirar);
 
 
-	 void hacerValoracion(int saleID, int rate, String text);
+	 void hacerValoracion(String email, int saleID, int rate, String text);
 	 
 	 public boolean doPurchase(String email, ProposedSale ps);
 
 	 public List<ProposedSale> getPurchasedSales(String text, String email);
 	 
+	 public float getSaldo(String email);
 	
 }

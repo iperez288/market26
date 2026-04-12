@@ -180,13 +180,11 @@ public class BLFacadeImplementation  implements BLFacade {
 		this.usuario = usuario;
 	}
 
-	public ProposedSale createProposedSale(int sn, float p) {
+	public ProposedSale createProposedSale(String email, int sn, float p) {
 		
 		Buyer b= (Buyer)usuario;
 		dbManager.open();
-		
-		String email = usuario.getEmail();
-		
+			
 		ProposedSale proposal=dbManager.createProposedSale(sn, email, p);		
 		dbManager.close();
 		return proposal;	
@@ -219,9 +217,9 @@ public class BLFacadeImplementation  implements BLFacade {
 	}
 	
 	@Override
-	public void hacerValoracion(int saleID, int rate, String text) {
+	public void hacerValoracion(String email, int saleID, int rate, String text) {
 		//Nota: si la compra ya tenía una valoración no debería de haber llegado hasta aquí(controlar en show purchase)
-		String email = usuario.getEmail();
+		//String email = usuario.getEmail();
 		dbManager.open();
 		dbManager.hacerValoracion(saleID, email, rate, text);
 		dbManager.close();
@@ -265,11 +263,22 @@ public class BLFacadeImplementation  implements BLFacade {
 	public List<ProposedSale> getPurchasedSales(String desc, String mail){
 		
 		dbManager.open();
-		String email = this.usuario.getEmail();
+		String email = mail;
 		List<ProposedSale>  purchases=dbManager.getPurchasedSales(desc,email);
 		dbManager.close();
 		return purchases;	
 		
+	}
+	
+	public float getSaldo(String email) {
+		float s = 0.0f;
+		
+		if(this.usuario!=null) {
+			dbManager.open();
+			s= dbManager.getSaldoUsuario(this.usuario.getEmail());
+			dbManager.close();
+		}
+		return s;
 	}
 	
 }

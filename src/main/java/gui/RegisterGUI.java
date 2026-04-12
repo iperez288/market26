@@ -54,7 +54,7 @@ public class RegisterGUI extends JFrame {
 	 * Create the frame.
 	 */
 	public RegisterGUI(MainGUI parent) {
-	
+		this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 460, 379);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -127,8 +127,9 @@ public class RegisterGUI extends JFrame {
 							if(anadido==1)parent.setTipoUsuario("Comprador");
 							else parent.setTipoUsuario("Vendedor");						
 								
-							textArea.setText("Registrado con éxito. \nPuedes cerrar esta ventana.");
+							textArea.setText("Registrado con exito. \nPuedes cerrar esta ventana.");
 							parent.setTitle(ResourceBundle.getBundle("Etiquetas").getString("MainGUI.MainTitle")+ ": "+ facade.getUsuario().getEmail()+" ("+parent.getTipoUsuario()+")");
+							parent.setEmail(email);
 							parent.gestionPermisos();
 						}
 					}

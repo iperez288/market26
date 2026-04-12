@@ -9,6 +9,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
+
 import java.util.Date;
 
 @Entity 
@@ -24,6 +26,7 @@ public class ProposedSale implements Serializable {
 	@ManyToOne(fetch=FetchType.EAGER, cascade=CascadeType.PERSIST)
 	Buyer buyer;
 	
+	@OneToOne(fetch=FetchType.EAGER, cascade=CascadeType.PERSIST)
 	Valoracion valoracion;
 	
 	float price;
@@ -91,6 +94,14 @@ public class ProposedSale implements Serializable {
 	public int getID() {
 		
 		return this.pSaleID;
+	}
+	
+	public boolean hasReview() {
+		return this.valoracion!=null;
+	}
+
+	public Valoracion getReview() {
+		return this.valoracion;
 	}
 	
 	

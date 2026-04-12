@@ -36,6 +36,7 @@ public class QueryPurchasesGUI extends JFrame {
 			ResourceBundle.getBundle("Etiquetas").getString("CreateSaleGUI.Title"), 
 			ResourceBundle.getBundle("Etiquetas").getString("CreateSaleGUI.Price"),
 			"Fecha compra",
+			"Valoración",
 			//"Fecha de Compra",
 
 	};
@@ -45,6 +46,7 @@ public class QueryPurchasesGUI extends JFrame {
 	public QueryPurchasesGUI(String email) {
 		this.email=email;
 		
+		this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		tableProducts.setEnabled(false);
 		thisFrame=this;
 		this.getContentPane().setLayout(null);
@@ -76,14 +78,15 @@ public class QueryPurchasesGUI extends JFrame {
 		tableProducts.setModel(tableModelProducts);
 
 		tableModelProducts.setDataVector(null, columnNamesProducts);
-		tableModelProducts.setColumnCount(4); // another column added to allocate ride objects
+		tableModelProducts.setColumnCount(5); // another column added to allocate ride objects
 
 		tableProducts.getColumnModel().getColumn(0).setPreferredWidth(200);
 		tableProducts.getColumnModel().getColumn(1).setPreferredWidth(10);
-		tableProducts.getColumnModel().getColumn(1).setPreferredWidth(70);
+		tableProducts.getColumnModel().getColumn(2).setPreferredWidth(70);
+		tableProducts.getColumnModel().getColumn(3).setPreferredWidth(10);
 
 
-		tableProducts.getColumnModel().removeColumn(tableProducts.getColumnModel().getColumn(3)); // not shown in JTable
+		tableProducts.getColumnModel().removeColumn(tableProducts.getColumnModel().getColumn(4)); // not shown in JTable
 
 		this.getContentPane().add(scrollPanelProducts, null);
 		
@@ -97,35 +100,7 @@ public class QueryPurchasesGUI extends JFrame {
 		
 		 jButtonSearch.addActionListener(new ActionListener() {
 		 	public void actionPerformed(ActionEvent e) {
-		 		try {
-					tableModelProducts.setDataVector(null, columnNamesProducts);
-					tableModelProducts.setColumnCount(4); // another column added to allocate product object
-
-					BLFacade facade = MainGUI.getBusinessLogic();
-					
-					tableProducts.setEnabled(true);
-					List<domain.ProposedSale> sales=facade.getPurchasedSales(jTextFieldSearch.getText(),email);
-
-					if (sales.isEmpty() ) jLabelProducts.setText(ResourceBundle.getBundle("Etiquetas").getString("QuerySalesGUI.NoProducts"));
-					else jLabelProducts.setText(ResourceBundle.getBundle("Etiquetas").getString("QuerySalesGUI.Products"));
-					for (domain.ProposedSale sale:sales){
-						Vector<Object> row = new Vector<Object>();
-						row.add(sale.getTitle());
-						row.add(sale.getPrice());
-						row.add(new SimpleDateFormat("dd-MM-yyyy").format(sale.getFechaCompra()));
-						row.add(sale);
-						
-						tableModelProducts.addRow(row);		
-					}
-				} catch (Exception e1) {
-
-					e1.printStackTrace();
-				}
-				tableProducts.getColumnModel().getColumn(0).setPreferredWidth(200);
-				tableProducts.getColumnModel().getColumn(1).setPreferredWidth(10);
-				tableProducts.getColumnModel().getColumn(1).setPreferredWidth(70);
-
-				tableProducts.getColumnModel().removeColumn(tableProducts.getColumnModel().getColumn(3)); // not shown in JTable
+		 		actualizarLista();
 		 		
 		 	}
 		 });
@@ -142,13 +117,57 @@ public class QueryPurchasesGUI extends JFrame {
 				        JTable table =(JTable) mouseEvent.getSource();
 		            	Point point = mouseEvent.getPoint();
 				        int row = table.rowAtPoint(point);
-		            	domain.ProposedSale ps=(domain.ProposedSale) tableModelProducts.getValueAt(row, 3);
-		            	
-			            new MakeReviewGUI(ps, email);
+		            	domain.ProposedSale ps=(domain.ProposedSale) tableModelProducts.getValueAt(row, 4);
+		            	if(!ps.hasReview())
+		            		new MakeReviewGUI((QueryPurchasesGUI) thisFrame,ps, email);
 			            
 			            
 		            }
 		        }
 		 });
+	
+	
+	
 	}
-}
+	
+	public void actualizarLista() {
+		try {
+			tableModelProducts.setDataVector(null, columnNamesProducts);
+			tableModelProducts.setColumnCount(5); // another column added to allocate product object
+
+			BLFacade facade = MainGUI.getBusinessLogic();
+			
+			tableProducts.setEnabled(true);
+			List<domain.ProposedSale> sales=facade.getPurchasedSales(jTextFieldSearch.getText(),email);
+
+			if (sales.isEmpty() ) jLabelProducts.setText(ResourceBundle.getBundle("Etiquetas").getString("QuerySalesGUI.NoProducts"));
+			else jLabelProducts.setText(ResourceBundle.getBundle("Etiquetas").getString("QuerySalesGUI.Products"));
+			for (domain.ProposedSale sale:sales){
+				Vector<Object> row = new Vector<Object>();
+				row.add(sale.getTitle());
+				row.add(sale.getPrice());
+				row.add(new SimpleDateFormat("dd-MM-yyyy").format(sale.getFechaCompra()));
+				if(sale.hasReview()) {
+					row.add(sale.getReview().getPuntuacion());
+				}else {
+					row.add("-");
+				}
+				row.add(sale);
+				
+				tableModelProducts.addRow(row);		
+			}
+		} catch (Exception e1) {
+
+			e1.printStackTrace();
+		}
+		tableProducts.getColumnModel().getColumn(0).setPreferredWidth(200);
+		tableProducts.getColumnModel().getColumn(1).setPreferredWidth(10);
+		tableProducts.getColumnModel().getColumn(2).setPreferredWidth(70);
+		tableProducts.getColumnModel().getColumn(3).setPreferredWidth(10);
+		
+		tableProducts.getColumnModel().removeColumn(tableProducts.getColumnModel().getColumn(4)); // not shown in JTable
+	}
+	
+}	
+
+
