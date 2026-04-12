@@ -25,7 +25,7 @@ public class AcceptProposalGUI extends JFrame {
 		
 		this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		JFrame thisFrame = this;
-		String format = "Aceptar propuesta por %.2f";
+		String format = "Aceptar propuesta por %.4f";
 		float precio = ps.getPrice();
 		
 		setBounds(100, 100, 213, 145);
