@@ -1,0 +1,11 @@
+Casos de uso: 
+Vendedor: Ver historial de ventas, Ver Valoraciones
+Comprador: Iniciar conversación, Ver Conversaciones
+
+Nota: La conversación se inicia sobre una Sale que no ha sido comprada para preguntar aspectos sobre ella. 
+En ver conversaciones se pueden ver las conversaciones ya iniciadas.
+
+Modelo del dominio:
+Mensaje, Conversación
+
+Notas: La conversación tiene un tema, y los mensajes la fecha en la que se han publicado
