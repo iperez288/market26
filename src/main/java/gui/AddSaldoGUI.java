@@ -8,6 +8,7 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
@@ -52,12 +53,16 @@ public class AddSaldoGUI extends JFrame {
 					
 					facade.annadirSaldo(email, importe); 
 					
+					JOptionPane.showMessageDialog(null, "Has añadido " + importe + "€ a tu saldo");
+
+					
 					mainFrame.actualizarSaldo();
 					dispose();
 					
 				} catch (NumberFormatException ex) {
-					lblMensaje.setText("Importe no válido");
-					lblMensaje.setForeground(Color.RED);
+					
+					JOptionPane.showMessageDialog(null, "Importe no válido");
+
 				}
 			}
 		});

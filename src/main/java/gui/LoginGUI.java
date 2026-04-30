@@ -12,19 +12,19 @@ import businessLogic.BLFacade;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import javax.swing.JPasswordField;
-import javax.swing.JTextArea;
 import javax.swing.JLabel;
 import java.awt.event.ActionListener;
 import java.util.ResourceBundle;
 import java.awt.event.ActionEvent;
+import javax.swing.JOptionPane;
 
 public class LoginGUI extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField emailField;
 	private JPasswordField passwordField;
-	private JTextArea textArea;
 	private JButton btnLogin;
+	private JFrame thisFrame;
 
 	
 	/**
@@ -45,6 +45,9 @@ public class LoginGUI extends JFrame {
 		contentPane.add(emailField);
 		emailField.setColumns(10);
 		
+		thisFrame = this;
+		
+		
 		btnLogin = new JButton("Iniciar Sesión");
 		btnLogin.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -54,13 +57,17 @@ public class LoginGUI extends JFrame {
 				String pass = new String(passwordField.getPassword());
 				if(email.equals("") || pass.equals("")) {
 					
-					textArea.setText("Rellene todo los campos.");
+					JOptionPane.showMessageDialog(null, "Rellene todo los campos.");
+					
 				}else {
 					int  tipo = facade.makeLogin(email, pass);
 					
 					
 					if (tipo!=0) {
-						textArea.setText("Ha iniciado sesión correctamente.\nPuede cerrar la ventana.");
+						JOptionPane.showMessageDialog(null, "Ha iniciado sesión correctamente.");
+						
+						thisFrame.setVisible(false);
+						
 						parent.setEmail(email);
 						if(tipo==1) parent.setTipoUsuario("Comprador");
 						else parent.setTipoUsuario("Vendedor");	
@@ -68,7 +75,7 @@ public class LoginGUI extends JFrame {
 						//parent.setTitle(ResourceBundle.getBundle("Etiquetas").getString("MainGUI.MainTitle")+ ": "+ email+" ("+parent.getTipoUsuario()+")");
 						parent.gestionPermisos();
 					}else {
-						textArea.setText("Usuario o contrase�a incorrectos.");
+						JOptionPane.showMessageDialog(null,"Usuario o contrasena incorrectos.");
 					}
 				}
 				
@@ -81,9 +88,6 @@ public class LoginGUI extends JFrame {
 		passwordField.setBounds(182, 70, 116, 25);
 		contentPane.add(passwordField);
 		
-		textArea = new JTextArea();
-		textArea.setBounds(104, 194, 161, 54);
-		contentPane.add(textArea);
 		
 		JLabel lblEmail = new JLabel("Email:");
 		lblEmail.setBounds(79, 33, 56, 16);

@@ -16,9 +16,9 @@ import javax.swing.JRadioButton;
 import javax.swing.ButtonGroup;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
-import java.util.ResourceBundle;
 import java.awt.event.ActionEvent;
-import javax.swing.JTextArea;
+import javax.swing.JOptionPane;
+
 
 public class RegisterGUI extends JFrame {
 
@@ -30,7 +30,8 @@ public class RegisterGUI extends JFrame {
 	private JRadioButton rdbtnVendedor;
 	private JRadioButton rdbtnComprador;
 	private JButton btnRegister;
-	private JTextArea textArea;
+	private JFrame thisFrame;
+
 
 	
 	
@@ -54,6 +55,9 @@ public class RegisterGUI extends JFrame {
 	 * Create the frame.
 	 */
 	public RegisterGUI(MainGUI parent) {
+		
+		thisFrame = this;
+		
 		this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 460, 379);
 		contentPane = new JPanel();
@@ -109,17 +113,17 @@ public class RegisterGUI extends JFrame {
 				String pass = new String(pwdPassword.getPassword());
 				if(email.equals("") || name.equals("") || pass.equals("")) {
 					
-					textArea.setText("Rellene todo los campos.");
+					JOptionPane.showMessageDialog(null, "Rellene todo los campos.");
 				}else {
 					if(!rdbtnVendedor.isSelected()&&!rdbtnComprador.isSelected()) {
-						textArea.setText("Seleccione un tipo de usuario.");
+						JOptionPane.showMessageDialog(null, "Seleccione un tipo de usuario.");
 					}
 					else{
 						int  anadido;
 						boolean seller = rdbtnVendedor.isSelected();
 						anadido=facade.createAccount(email,name,pass,seller);
 						if(anadido==0) {
-							textArea.setText("Email ya registrado.");
+							JOptionPane.showMessageDialog(null, "Email ya registrado.");
 							
 							
 						}else {
@@ -127,7 +131,9 @@ public class RegisterGUI extends JFrame {
 							if(anadido==1)parent.setTipoUsuario("Comprador");
 							else parent.setTipoUsuario("Vendedor");						
 								
-							textArea.setText("Registrado con exito. \nPuedes cerrar esta ventana.");
+							JOptionPane.showMessageDialog(null, "Registrado con exito.");
+							
+							thisFrame.setVisible(false);
 							//parent.setTitle(ResourceBundle.getBundle("Etiquetas").getString("MainGUI.MainTitle")+ ": "+ email+" ("+parent.getTipoUsuario()+")");
 							parent.setEmail(email);
 							parent.gestionPermisos();
@@ -140,9 +146,5 @@ public class RegisterGUI extends JFrame {
 		});
 		btnRegister.setBounds(127, 208, 166, 44);
 		contentPane.add(btnRegister);
-		
-		textArea = new JTextArea();
-		textArea.setBounds(100, 267, 236, 52);
-		contentPane.add(textArea);
 	}
 }

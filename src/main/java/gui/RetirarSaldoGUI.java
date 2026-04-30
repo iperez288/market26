@@ -6,6 +6,7 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
@@ -47,36 +48,31 @@ public class RetirarSaldoGUI extends JFrame {
 		contentPane.add(textFieldImporte);
 		textFieldImporte.setColumns(10);
 
-		JLabel lblError = new JLabel("");
-		lblError.setHorizontalAlignment(SwingConstants.CENTER);
-		lblError.setFont(new Font("Tahoma", Font.PLAIN, 11));
-		lblError.setForeground(java.awt.Color.RED);
-		lblError.setBounds(10, 100, 314, 20);
-		contentPane.add(lblError);
 
 		JButton btnRetirar = new JButton("Confirmar Retiro");
 		btnRetirar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				lblError.setText("");
 				try {
 					float importeARetirar = Float.parseFloat(textFieldImporte.getText());
 					BLFacade facade = MainGUI.getBusinessLogic();
 					float saldo = facade.getSaldo(email);
 
 					if (importeARetirar <= 0) {
-						lblError.setText("Introduce un importe positivo.");
+						JOptionPane.showMessageDialog(null, "Introduce un importe positivo.");
 					} else if (importeARetirar > saldo) {
-						lblError.setText("Saldo insuficiente (Saldo: " + saldo + "�)");
+						JOptionPane.showMessageDialog(null, "Saldo insuficiente (Saldo: " + saldo + "€)");
 					} else {
 
 						facade.retirarSaldo(email, importeARetirar);
 
 						main.actualizarSaldo();
+						
+						JOptionPane.showMessageDialog(null, "Has sacado " + importeARetirar + "€ de tu saldo");
 
 						dispose();
 					}
 				} catch (NumberFormatException ex) {
-					lblError.setText("Por favor, introduce un numero valido.");
+					JOptionPane.showMessageDialog(null, "Por favor, introduce un numero valido");
 				}
 			}
 		});
