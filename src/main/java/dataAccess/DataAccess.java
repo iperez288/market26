@@ -91,7 +91,7 @@ public class DataAccess {
 
 			 //Create sellers 
 			Seller user1=new Seller("seller1@gmail.com","Aitor Fernandez","1234");
-			Seller user2=new Seller("seller22@gmail.com","Ane Gaztañaga","2345");
+			Seller user2=new Seller("seller2@gmail.com","Ane Gaztañaga","1234");
 			Seller user3=new Seller("seller3@gmail.com","Test Seller","0212");
 			
 			Buyer user4= new Buyer("buyer1@gmail.com","Test Seller","1234");
@@ -106,10 +106,10 @@ public class DataAccess {
 			
 			user1.addSale("samsung 42\" telebista", "berria, erabili gabe", 2, 175,  today, null);
 			
-			user4.setSaldo(100.0f);
+			//user4.setSaldo(100.0f);
 			
 			
-			user4.addProposedSale(s1, 1.2f);   
+			//user4.addProposedSale(s1, 1.2f);   
 			//user4.getProposedSales().get(0).setFechaCompra(today);
 			//s1.doPurchase();
 			
