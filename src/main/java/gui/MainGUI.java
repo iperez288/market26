@@ -1,12 +1,14 @@
 package gui;
 
 import javax.swing.*;
+import javax.swing.border.EmptyBorder;
+import javax.swing.border.TitledBorder;
 import businessLogic.BLFacade;
-import domain.Buyer;
-import domain.User;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.GridLayout;
+import java.awt.BorderLayout;
+import java.awt.FlowLayout;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.util.Locale;
@@ -27,7 +29,6 @@ public class MainGUI extends JFrame {
 	private JButton jButtonQueryQueries = null;
 	private JButton jButtonAddMoney = null;
 	private JButton jButtonWithdrawMoney = null;
-	//private JButton jButtonTransactionHistory = null;
 	private JLabel jLabelSaldo;
 
 	private static BLFacade appFacadeInterface;
@@ -69,9 +70,15 @@ public class MainGUI extends JFrame {
 	public MainGUI(String mail) {
 		super();
 
+		try {
+			UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+		} catch (Exception e) {
+		}
+
 		this.saldo=0.0f;
 		this.tipoUsuario = "xxxxxx";
-		this.setSize(550, 550);
+		this.setSize(600, 650);
+		this.setLocationRelativeTo(null);
 
 		rdbtnNewRadioButton = new JRadioButton("English");
 		rdbtnNewRadioButton.addActionListener(e -> {
@@ -89,36 +96,50 @@ public class MainGUI extends JFrame {
 			paintAgain();
 		});
 
+		ButtonGroup group = new ButtonGroup();
+		group.add(rdbtnNewRadioButton);
+		group.add(rdbtnNewRadioButton_1);
+		group.add(rdbtnNewRadioButton_2);
+
 		panel_idiomas = new JPanel();
+		panel_idiomas.setLayout(new FlowLayout(FlowLayout.CENTER));
 		panel_idiomas.add(rdbtnNewRadioButton_1);
 		panel_idiomas.add(rdbtnNewRadioButton_2);
 		panel_idiomas.add(rdbtnNewRadioButton);
 
 		user_panel = new JPanel();
-		user_panel.setLayout(new GridLayout(0, 3, 0, 0));
+		user_panel.setLayout(new GridLayout(1, 3, 10, 0));
+		user_panel.setBorder(new EmptyBorder(10, 0, 10, 0));
+		
 		btnRegister = new JButton("Registrarse");
 		btnRegister.addActionListener(arg0 -> {
 			JFrame a = new RegisterGUI(MainGUI.this);
 			a.setVisible(true);
 		});
 		user_panel.add(btnRegister);
+		
 		btnLogin = new JButton("Iniciar sesiÃ³n");
 		btnLogin.addActionListener(e -> {
 			JFrame a = new LoginGUI(MainGUI.this);
 			a.setVisible(true);
 		});
 		user_panel.add(btnLogin);
-		jLabelSaldo = new JLabel("Saldo: 0,00 €"); 
+		
+		jLabelSaldo = new JLabel("Saldo: 0,00 â‚¬"); 
 		jLabelSaldo.setHorizontalAlignment(SwingConstants.RIGHT);
-		jLabelSaldo.setFont(new Font("Tahoma", Font.BOLD, 12));
+		jLabelSaldo.setFont(new Font("Tahoma", Font.BOLD, 13));
+		jLabelSaldo.setForeground(new Color(0, 102, 0));
 		user_panel.add(jLabelSaldo);
 
 		jLabelSelectOption = new JLabel(ResourceBundle.getBundle("Etiquetas").getString("MainGUI.SelectOption"));
-		jLabelSelectOption.setFont(new Font("Tahoma", Font.BOLD, 13));
+		jLabelSelectOption.setFont(new Font("Tahoma", Font.BOLD, 15));
 		jLabelSelectOption.setHorizontalAlignment(SwingConstants.CENTER);
+		jLabelSelectOption.setBorder(new EmptyBorder(15, 0, 15, 0));
 
 		panel_ventas = new JPanel();
-		panel_ventas.setLayout(new GridLayout(0, 2, 0, 0));
+		panel_ventas.setLayout(new GridLayout(1, 2, 10, 10));
+		panel_ventas.setBorder(new TitledBorder(null, "Operaciones de Venta", TitledBorder.LEADING, TitledBorder.TOP, null, null));
+		
 		jButtonCreateQuery = new JButton(ResourceBundle.getBundle("Etiquetas").getString("MainGUI.CreateSale"));
 		jButtonCreateQuery.setEnabled(false);
 		jButtonCreateQuery.addActionListener(e -> {
@@ -126,6 +147,7 @@ public class MainGUI extends JFrame {
 			a.setVisible(true);
 		});
 		panel_ventas.add(jButtonCreateQuery);
+		
 		jButtonViewAcceptedSales = new JButton("Ver ofertas aceptadas");
 		jButtonViewAcceptedSales.setEnabled(false);
 		jButtonViewAcceptedSales.addActionListener(e -> {
@@ -135,7 +157,9 @@ public class MainGUI extends JFrame {
 		panel_ventas.add(jButtonViewAcceptedSales);
 
 		panel_consultas = new JPanel();
-		panel_consultas.setLayout(new GridLayout(0, 2, 0, 0));
+		panel_consultas.setLayout(new GridLayout(1, 2, 10, 10));
+		panel_consultas.setBorder(new TitledBorder(null, "Consultas", TitledBorder.LEADING, TitledBorder.TOP, null, null));
+		
 		jButtonQueryQueries = new JButton(ResourceBundle.getBundle("Etiquetas").getString("MainGUI.QuerySales"));
 		jButtonQueryQueries.setEnabled(false);
 		jButtonQueryQueries.addActionListener(e -> {
@@ -145,7 +169,9 @@ public class MainGUI extends JFrame {
 		panel_consultas.add(jButtonQueryQueries);
 
 		panel_dinero = new JPanel();
-		panel_dinero.setLayout(new GridLayout(0, 2, 0, 0));
+		panel_dinero.setLayout(new GridLayout(1, 2, 10, 10));
+		panel_dinero.setBorder(new TitledBorder(null, "Cartera", TitledBorder.LEADING, TitledBorder.TOP, null, null));
+		
 		jButtonAddMoney = new JButton("Agregar Saldo");
 		jButtonAddMoney.setEnabled(false);
 		jButtonAddMoney.addActionListener(e -> {
@@ -163,15 +189,18 @@ public class MainGUI extends JFrame {
 		panel_dinero.add(jButtonWithdrawMoney);
 
 		jContentPane = new JPanel();
-		jContentPane.setLayout(new GridLayout(6, 1, 0, 0));
+		jContentPane.setLayout(new BoxLayout(jContentPane, BoxLayout.Y_AXIS));
+		jContentPane.setBorder(new EmptyBorder(20, 20, 20, 20));
+		
 		jContentPane.add(user_panel);
 		jContentPane.add(jLabelSelectOption);
 		jContentPane.add(panel_ventas);
+		jContentPane.add(Box.createVerticalStrut(10));
 		jContentPane.add(panel_consultas);
 		
 		panel_consultas_1 = new JPanel();
 		panel_consultas.add(panel_consultas_1);
-		panel_consultas_1.setLayout(new GridLayout(2, 1, 0, 0));
+		panel_consultas_1.setLayout(new GridLayout(2, 1, 5, 5));
 		
 		jButtonTransactionHistory = new JButton("Historial Transacciones");
 		jButtonTransactionHistory.addActionListener(new ActionListener() {
@@ -192,7 +221,10 @@ public class MainGUI extends JFrame {
 			}
 		});
 		panel_consultas_1.add(jButtonQueryPurchases);
+		
+		jContentPane.add(Box.createVerticalStrut(10));
 		jContentPane.add(panel_dinero);
+		jContentPane.add(Box.createVerticalGlue());
 		jContentPane.add(panel_idiomas);
 
 		setContentPane(jContentPane);
@@ -212,7 +244,7 @@ public class MainGUI extends JFrame {
 		jButtonCreateQuery.setText(ResourceBundle.getBundle("Etiquetas").getString("MainGUI.CreateSale"));
 		this.setTitle(ResourceBundle.getBundle("Etiquetas").getString("MainGUI.MainTitle") + ": "
 				+ this.email + " (" + tipoUsuario + ")");
-		jLabelSaldo.setText("Saldo: " + String.format("%.2f", saldo) + "€");
+		jLabelSaldo.setText("Saldo: " + String.format("%.2f", saldo) + "â‚¬");
 		
 	}
 
@@ -240,12 +272,7 @@ public class MainGUI extends JFrame {
 		paintAgain();
 	}
 	
-	/*public static void setSaldo(float s) {
-		saldo=s;
-	}
-*/
 	public void setEmail(String email) {
 		this.email=email;
-		
 	}
 }
