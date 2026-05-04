@@ -37,9 +37,13 @@ public class Sale implements Serializable {
 	@ManyToOne
 	private Seller seller;  
 	
+	private List<Conversacion> conversaciones;
+	
+	
 	public Sale(){
 		super();
 		proposedSales=new ArrayList<ProposedSale>();
+		conversaciones = new ArrayList<Conversacion>();
 		this.purchased=false;
 	}
 		
@@ -70,7 +74,7 @@ public class Sale implements Serializable {
 
 		this.seller = seller;
 		this.purchased=false;
-		
+		this.conversaciones = new ArrayList<Conversacion>();
 	}
 	
 	/**
