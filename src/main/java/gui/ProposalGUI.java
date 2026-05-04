@@ -17,6 +17,7 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.JOptionPane;
 
 public class ProposalGUI extends JFrame {
 
@@ -42,6 +43,7 @@ public class ProposalGUI extends JFrame {
 		priceField.setBounds(134, 25, 136, 27);
 		contentPane.add(priceField);
 		priceField.setColumns(10);
+		
 
 		jButtonProposal = new JButton("Hacer propuesta");
 		jButtonProposal.addActionListener(new ActionListener() {
@@ -50,18 +52,16 @@ public class ProposalGUI extends JFrame {
 					float price = Float.parseFloat(priceField.getText());
 					BLFacade facade = MainGUI.getBusinessLogic();
 					if (facade.createProposedSale(email, sn, price) == null) {
-						System.out.print("saldo insuficiente");
-						lblMensaje.setText("Saldo insuficiente");
-						lblMensaje.setForeground(Color.RED);
+			            JOptionPane.showMessageDialog(null, "Saldo insuficiente");
 					} else {
+						JOptionPane.showMessageDialog(null, "Operacion realizada con éxito");
 						thisFrame.setVisible(false);
 					}
 				} catch (NumberFormatException e) {
-					lblMensaje.setText("Importe no valido");
-					lblMensaje.setForeground(Color.RED);
+		            JOptionPane.showMessageDialog(null, "Importe no valido");
+
 				} catch (Exception e) {
-					lblMensaje.setText("Error inesperado");
-		            lblMensaje.setForeground(Color.RED);
+		            JOptionPane.showMessageDialog(null, "Error inesperado");
 		            e.printStackTrace();
 				}
 

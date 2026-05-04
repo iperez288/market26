@@ -1,0 +1,1207 @@
+------------------------------------------------------------------------------------------------------------------------
+
+[2026-04-30 16:40:41 #1 store] 
+Database 'C:\Users\ehu\Desktop\market26\src\main\resources\products.temp' is opened by 11680@U025323
+
+[2026-04-30 16:40:41 #2 type.registry] 
+New type domain.User
+
+[2026-04-30 16:40:41 #3 type.registry] 
+New type domain.Buyer
+
+[2026-04-30 16:40:41 #4 type.registry] 
+New type domain.Seller
+
+[2026-04-30 16:40:41 #5 type] 
+Type domain.User is not enhanced.
+
+[2026-04-30 16:40:41 #6 type] 
+Type domain.Buyer is not enhanced.
+
+[2026-04-30 16:40:41 #7 type.registry] 
+New type domain.ProposedSale
+
+[2026-04-30 16:40:41 #8 type.registry] 
+New type domain.Transaction
+
+[2026-04-30 16:40:41 #9 type] 
+Type domain.Seller is not enhanced.
+
+[2026-04-30 16:40:41 #10 type.registry] 
+New type domain.Sale
+
+[2026-04-30 16:40:41 #11 type] 
+Type domain.ProposedSale is not enhanced.
+
+[2026-04-30 16:40:41 #12 type.registry] 
+New type domain.Valoracion
+
+[2026-04-30 16:40:41 #13 type] 
+Type domain.Transaction is not enhanced.
+
+[2026-04-30 16:40:41 #14 type.registry] 
+New type domain.Transaction$TransactionType
+
+[2026-04-30 16:40:41 #15 type] 
+Type domain.Sale is not enhanced.
+
+[2026-04-30 16:40:41 #16 type] 
+Type domain.Valoracion is not enhanced.
+
+[2026-04-30 16:40:41 #17 type.registry] 
+New type java.util.ArrayList<java.lang.Object>
+
+[2026-04-30 16:40:41 #18 type.registry] 
+New type java.util.ArrayList<domain.ProposedSale>
+
+[2026-04-30 16:40:41 #19 type.registry] 
+New type java.util.ArrayList<domain.Sale>
+
+[2026-04-30 16:40:41 #20 type.registry] 
+New type java.util.ArrayList<domain.Transaction>
+
+[2026-04-30 16:40:56 #21 type.registry] 
+New type com.objectdb.o.LMT
+
+[2026-04-30 16:40:56 #22 type.registry] 
+New type com.objectdb.o.VAL
+
+[2026-04-30 16:40:56 #23 type.registry] 
+New type com.objectdb.o.RFV
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2026-04-30 16:46:53 #1 store] 
+Database 'C:\Users\ehu\Desktop\market26\src\main\resources\products.temp' is opened by 13724@U025323
+
+[2026-04-30 16:46:54 #2 type.registry] 
+New type domain.User
+
+[2026-04-30 16:46:54 #3 type.registry] 
+New type domain.Buyer
+
+[2026-04-30 16:46:54 #4 type.registry] 
+New type domain.Seller
+
+[2026-04-30 16:46:54 #5 type] 
+Type domain.User is not enhanced.
+
+[2026-04-30 16:46:54 #6 type] 
+Type domain.Buyer is not enhanced.
+
+[2026-04-30 16:46:54 #7 type.registry] 
+New type domain.ProposedSale
+
+[2026-04-30 16:46:54 #8 type.registry] 
+New type domain.Transaction
+
+[2026-04-30 16:46:54 #9 type] 
+Type domain.Seller is not enhanced.
+
+[2026-04-30 16:46:54 #10 type.registry] 
+New type domain.Sale
+
+[2026-04-30 16:46:54 #11 type] 
+Type domain.ProposedSale is not enhanced.
+
+[2026-04-30 16:46:54 #12 type.registry] 
+New type domain.Valoracion
+
+[2026-04-30 16:46:54 #13 type] 
+Type domain.Transaction is not enhanced.
+
+[2026-04-30 16:46:54 #14 type.registry] 
+New type domain.Transaction$TransactionType
+
+[2026-04-30 16:46:54 #15 type] 
+Type domain.Sale is not enhanced.
+
+[2026-04-30 16:46:54 #16 type] 
+Type domain.Valoracion is not enhanced.
+
+[2026-04-30 16:46:54 #17 type.registry] 
+New type java.util.ArrayList<java.lang.Object>
+
+[2026-04-30 16:46:54 #18 type.registry] 
+New type java.util.ArrayList<domain.ProposedSale>
+
+[2026-04-30 16:46:54 #19 type.registry] 
+New type java.util.ArrayList<domain.Sale>
+
+[2026-04-30 16:46:54 #20 type.registry] 
+New type java.util.ArrayList<domain.Transaction>
+
+[2026-04-30 16:47:03 #21 type.registry] 
+New type com.objectdb.o.LMT
+
+[2026-04-30 16:47:03 #22 type.registry] 
+New type com.objectdb.o.VAL
+
+[2026-04-30 16:47:03 #23 type.registry] 
+New type com.objectdb.o.RFV
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2026-04-30 16:50:17 #1 store] 
+Database 'C:\Users\ehu\Desktop\market26\src\main\resources\products.temp' is opened by 14548@U025323
+
+[2026-04-30 16:50:17 #2 type.registry] 
+New type domain.User
+
+[2026-04-30 16:50:17 #3 type.registry] 
+New type domain.Buyer
+
+[2026-04-30 16:50:17 #4 type.registry] 
+New type domain.Seller
+
+[2026-04-30 16:50:17 #5 type] 
+Type domain.User is not enhanced.
+
+[2026-04-30 16:50:17 #6 type] 
+Type domain.Buyer is not enhanced.
+
+[2026-04-30 16:50:17 #7 type.registry] 
+New type domain.ProposedSale
+
+[2026-04-30 16:50:17 #8 type.registry] 
+New type domain.Transaction
+
+[2026-04-30 16:50:17 #9 type] 
+Type domain.Seller is not enhanced.
+
+[2026-04-30 16:50:17 #10 type.registry] 
+New type domain.Sale
+
+[2026-04-30 16:50:17 #11 type] 
+Type domain.ProposedSale is not enhanced.
+
+[2026-04-30 16:50:17 #12 type.registry] 
+New type domain.Valoracion
+
+[2026-04-30 16:50:17 #13 type] 
+Type domain.Transaction is not enhanced.
+
+[2026-04-30 16:50:17 #14 type.registry] 
+New type domain.Transaction$TransactionType
+
+[2026-04-30 16:50:17 #15 type] 
+Type domain.Sale is not enhanced.
+
+[2026-04-30 16:50:17 #16 type] 
+Type domain.Valoracion is not enhanced.
+
+[2026-04-30 16:50:17 #17 type.registry] 
+New type java.util.ArrayList<java.lang.Object>
+
+[2026-04-30 16:50:17 #18 type.registry] 
+New type java.util.ArrayList<domain.ProposedSale>
+
+[2026-04-30 16:50:17 #19 type.registry] 
+New type java.util.ArrayList<domain.Sale>
+
+[2026-04-30 16:50:17 #20 type.registry] 
+New type java.util.ArrayList<domain.Transaction>
+
+[2026-04-30 16:50:32 #21 type.registry] 
+New type com.objectdb.o.LMT
+
+[2026-04-30 16:50:32 #22 type.registry] 
+New type com.objectdb.o.VAL
+
+[2026-04-30 16:50:32 #23 type.registry] 
+New type com.objectdb.o.RFV
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2026-04-30 16:51:37 #1 store] 
+Database 'C:\Users\ehu\Desktop\market26\src\main\resources\products.temp' is opened by 16080@U025323
+
+[2026-04-30 16:51:37 #2 type.registry] 
+New type domain.User
+
+[2026-04-30 16:51:37 #3 type.registry] 
+New type domain.Buyer
+
+[2026-04-30 16:51:37 #4 type.registry] 
+New type domain.Seller
+
+[2026-04-30 16:51:37 #5 type] 
+Type domain.User is not enhanced.
+
+[2026-04-30 16:51:37 #6 type] 
+Type domain.Buyer is not enhanced.
+
+[2026-04-30 16:51:37 #7 type.registry] 
+New type domain.ProposedSale
+
+[2026-04-30 16:51:37 #8 type.registry] 
+New type domain.Transaction
+
+[2026-04-30 16:51:37 #9 type] 
+Type domain.Seller is not enhanced.
+
+[2026-04-30 16:51:37 #10 type.registry] 
+New type domain.Sale
+
+[2026-04-30 16:51:37 #11 type] 
+Type domain.ProposedSale is not enhanced.
+
+[2026-04-30 16:51:37 #12 type.registry] 
+New type domain.Valoracion
+
+[2026-04-30 16:51:37 #13 type] 
+Type domain.Transaction is not enhanced.
+
+[2026-04-30 16:51:37 #14 type.registry] 
+New type domain.Transaction$TransactionType
+
+[2026-04-30 16:51:37 #15 type] 
+Type domain.Sale is not enhanced.
+
+[2026-04-30 16:51:37 #16 type] 
+Type domain.Valoracion is not enhanced.
+
+[2026-04-30 16:51:37 #17 type.registry] 
+New type java.util.ArrayList<java.lang.Object>
+
+[2026-04-30 16:51:37 #18 type.registry] 
+New type java.util.ArrayList<domain.ProposedSale>
+
+[2026-04-30 16:51:37 #19 type.registry] 
+New type java.util.ArrayList<domain.Sale>
+
+[2026-04-30 16:51:37 #20 type.registry] 
+New type java.util.ArrayList<domain.Transaction>
+
+[2026-04-30 16:51:46 #21 type.registry] 
+New type com.objectdb.o.LMT
+
+[2026-04-30 16:51:46 #22 type.registry] 
+New type com.objectdb.o.VAL
+
+[2026-04-30 16:51:46 #23 type.registry] 
+New type com.objectdb.o.RFV
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2026-04-30 16:57:08 #1 store] 
+Database 'C:\Users\ehu\Desktop\market26\src\main\resources\products.temp' is opened by 11828@U025323
+
+[2026-04-30 16:57:08 #2 type.registry] 
+New type domain.User
+
+[2026-04-30 16:57:08 #3 type.registry] 
+New type domain.Buyer
+
+[2026-04-30 16:57:08 #4 type.registry] 
+New type domain.Seller
+
+[2026-04-30 16:57:08 #5 type] 
+Type domain.User is not enhanced.
+
+[2026-04-30 16:57:08 #6 type] 
+Type domain.Buyer is not enhanced.
+
+[2026-04-30 16:57:08 #7 type.registry] 
+New type domain.ProposedSale
+
+[2026-04-30 16:57:08 #8 type.registry] 
+New type domain.Transaction
+
+[2026-04-30 16:57:08 #9 type] 
+Type domain.Seller is not enhanced.
+
+[2026-04-30 16:57:08 #10 type.registry] 
+New type domain.Sale
+
+[2026-04-30 16:57:08 #11 type] 
+Type domain.ProposedSale is not enhanced.
+
+[2026-04-30 16:57:08 #12 type.registry] 
+New type domain.Valoracion
+
+[2026-04-30 16:57:08 #13 type] 
+Type domain.Transaction is not enhanced.
+
+[2026-04-30 16:57:08 #14 type.registry] 
+New type domain.Transaction$TransactionType
+
+[2026-04-30 16:57:08 #15 type] 
+Type domain.Sale is not enhanced.
+
+[2026-04-30 16:57:08 #16 type] 
+Type domain.Valoracion is not enhanced.
+
+[2026-04-30 16:57:08 #17 type.registry] 
+New type java.util.ArrayList<java.lang.Object>
+
+[2026-04-30 16:57:08 #18 type.registry] 
+New type java.util.ArrayList<domain.ProposedSale>
+
+[2026-04-30 16:57:08 #19 type.registry] 
+New type java.util.ArrayList<domain.Sale>
+
+[2026-04-30 16:57:08 #20 type.registry] 
+New type java.util.ArrayList<domain.Transaction>
+
+[2026-04-30 16:57:18 #21 type.registry] 
+New type com.objectdb.o.LMT
+
+[2026-04-30 16:57:18 #22 type.registry] 
+New type com.objectdb.o.VAL
+
+[2026-04-30 16:57:18 #23 type.registry] 
+New type com.objectdb.o.RFV
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2026-04-30 17:01:40 #1 store] 
+Database 'C:\Users\ehu\Desktop\market26\src\main\resources\products.temp' is opened by 4844@U025323
+
+[2026-04-30 17:01:40 #2 type.registry] 
+New type domain.User
+
+[2026-04-30 17:01:40 #3 type.registry] 
+New type domain.Buyer
+
+[2026-04-30 17:01:40 #4 type.registry] 
+New type domain.Seller
+
+[2026-04-30 17:01:40 #5 type] 
+Type domain.User is not enhanced.
+
+[2026-04-30 17:01:40 #6 type] 
+Type domain.Buyer is not enhanced.
+
+[2026-04-30 17:01:40 #7 type.registry] 
+New type domain.ProposedSale
+
+[2026-04-30 17:01:40 #8 type.registry] 
+New type domain.Transaction
+
+[2026-04-30 17:01:40 #9 type] 
+Type domain.Seller is not enhanced.
+
+[2026-04-30 17:01:40 #10 type.registry] 
+New type domain.Sale
+
+[2026-04-30 17:01:40 #11 type] 
+Type domain.ProposedSale is not enhanced.
+
+[2026-04-30 17:01:40 #12 type.registry] 
+New type domain.Valoracion
+
+[2026-04-30 17:01:40 #13 type] 
+Type domain.Transaction is not enhanced.
+
+[2026-04-30 17:01:40 #14 type.registry] 
+New type domain.Transaction$TransactionType
+
+[2026-04-30 17:01:40 #15 type] 
+Type domain.Sale is not enhanced.
+
+[2026-04-30 17:01:40 #16 type] 
+Type domain.Valoracion is not enhanced.
+
+[2026-04-30 17:01:40 #17 type.registry] 
+New type java.util.ArrayList<java.lang.Object>
+
+[2026-04-30 17:01:40 #18 type.registry] 
+New type java.util.ArrayList<domain.ProposedSale>
+
+[2026-04-30 17:01:40 #19 type.registry] 
+New type java.util.ArrayList<domain.Sale>
+
+[2026-04-30 17:01:40 #20 type.registry] 
+New type java.util.ArrayList<domain.Transaction>
+
+[2026-04-30 17:01:54 #21 type.registry] 
+New type com.objectdb.o.LMT
+
+[2026-04-30 17:01:54 #22 type.registry] 
+New type com.objectdb.o.VAL
+
+[2026-04-30 17:01:54 #23 type.registry] 
+New type com.objectdb.o.RFV
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2026-04-30 17:07:12 #1 store] 
+Database 'C:\Users\ehu\Desktop\market26\src\main\resources\products.temp' is opened by 16308@U025323
+
+[2026-04-30 17:07:12 #2 type.registry] 
+New type domain.User
+
+[2026-04-30 17:07:12 #3 type.registry] 
+New type domain.Buyer
+
+[2026-04-30 17:07:12 #4 type.registry] 
+New type domain.Seller
+
+[2026-04-30 17:07:12 #5 type] 
+Type domain.User is not enhanced.
+
+[2026-04-30 17:07:12 #6 type] 
+Type domain.Buyer is not enhanced.
+
+[2026-04-30 17:07:12 #7 type.registry] 
+New type domain.ProposedSale
+
+[2026-04-30 17:07:12 #8 type.registry] 
+New type domain.Transaction
+
+[2026-04-30 17:07:12 #9 type] 
+Type domain.Seller is not enhanced.
+
+[2026-04-30 17:07:12 #10 type.registry] 
+New type domain.Sale
+
+[2026-04-30 17:07:12 #11 type] 
+Type domain.ProposedSale is not enhanced.
+
+[2026-04-30 17:07:12 #12 type.registry] 
+New type domain.Valoracion
+
+[2026-04-30 17:07:12 #13 type] 
+Type domain.Transaction is not enhanced.
+
+[2026-04-30 17:07:12 #14 type.registry] 
+New type domain.Transaction$TransactionType
+
+[2026-04-30 17:07:12 #15 type] 
+Type domain.Sale is not enhanced.
+
+[2026-04-30 17:07:12 #16 type] 
+Type domain.Valoracion is not enhanced.
+
+[2026-04-30 17:07:12 #17 type.registry] 
+New type java.util.ArrayList<java.lang.Object>
+
+[2026-04-30 17:07:12 #18 type.registry] 
+New type java.util.ArrayList<domain.ProposedSale>
+
+[2026-04-30 17:07:12 #19 type.registry] 
+New type java.util.ArrayList<domain.Sale>
+
+[2026-04-30 17:07:12 #20 type.registry] 
+New type java.util.ArrayList<domain.Transaction>
+
+[2026-04-30 17:07:27 #21 type.registry] 
+New type com.objectdb.o.LMT
+
+[2026-04-30 17:07:27 #22 type.registry] 
+New type com.objectdb.o.VAL
+
+[2026-04-30 17:07:27 #23 type.registry] 
+New type com.objectdb.o.RFV
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2026-04-30 17:08:25 #1 store] 
+Database 'C:\Users\ehu\Desktop\market26\src\main\resources\products.temp' is opened by 4864@U025323
+
+[2026-04-30 17:08:25 #2 type.registry] 
+New type domain.User
+
+[2026-04-30 17:08:25 #3 type.registry] 
+New type domain.Buyer
+
+[2026-04-30 17:08:25 #4 type.registry] 
+New type domain.Seller
+
+[2026-04-30 17:08:25 #5 type] 
+Type domain.User is not enhanced.
+
+[2026-04-30 17:08:25 #6 type] 
+Type domain.Buyer is not enhanced.
+
+[2026-04-30 17:08:25 #7 type.registry] 
+New type domain.ProposedSale
+
+[2026-04-30 17:08:25 #8 type.registry] 
+New type domain.Transaction
+
+[2026-04-30 17:08:25 #9 type] 
+Type domain.Seller is not enhanced.
+
+[2026-04-30 17:08:25 #10 type.registry] 
+New type domain.Sale
+
+[2026-04-30 17:08:25 #11 type] 
+Type domain.ProposedSale is not enhanced.
+
+[2026-04-30 17:08:25 #12 type.registry] 
+New type domain.Valoracion
+
+[2026-04-30 17:08:25 #13 type] 
+Type domain.Transaction is not enhanced.
+
+[2026-04-30 17:08:25 #14 type.registry] 
+New type domain.Transaction$TransactionType
+
+[2026-04-30 17:08:25 #15 type] 
+Type domain.Sale is not enhanced.
+
+[2026-04-30 17:08:25 #16 type] 
+Type domain.Valoracion is not enhanced.
+
+[2026-04-30 17:08:25 #17 type.registry] 
+New type java.util.ArrayList<java.lang.Object>
+
+[2026-04-30 17:08:25 #18 type.registry] 
+New type java.util.ArrayList<domain.ProposedSale>
+
+[2026-04-30 17:08:25 #19 type.registry] 
+New type java.util.ArrayList<domain.Sale>
+
+[2026-04-30 17:08:25 #20 type.registry] 
+New type java.util.ArrayList<domain.Transaction>
+
+[2026-04-30 17:08:35 #21 type.registry] 
+New type com.objectdb.o.LMT
+
+[2026-04-30 17:08:35 #22 type.registry] 
+New type com.objectdb.o.VAL
+
+[2026-04-30 17:08:35 #23 type.registry] 
+New type com.objectdb.o.RFV
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2026-04-30 17:10:50 #1 store] 
+Database 'C:\Users\ehu\Desktop\market26\src\main\resources\products.temp' is opened by 6240@U025323
+
+[2026-04-30 17:10:50 #2 type.registry] 
+New type domain.User
+
+[2026-04-30 17:10:50 #3 type.registry] 
+New type domain.Buyer
+
+[2026-04-30 17:10:50 #4 type.registry] 
+New type domain.Seller
+
+[2026-04-30 17:10:50 #5 type] 
+Type domain.User is not enhanced.
+
+[2026-04-30 17:10:50 #6 type] 
+Type domain.Buyer is not enhanced.
+
+[2026-04-30 17:10:50 #7 type.registry] 
+New type domain.ProposedSale
+
+[2026-04-30 17:10:50 #8 type.registry] 
+New type domain.Transaction
+
+[2026-04-30 17:10:50 #9 type] 
+Type domain.Seller is not enhanced.
+
+[2026-04-30 17:10:50 #10 type.registry] 
+New type domain.Sale
+
+[2026-04-30 17:10:50 #11 type] 
+Type domain.ProposedSale is not enhanced.
+
+[2026-04-30 17:10:50 #12 type.registry] 
+New type domain.Valoracion
+
+[2026-04-30 17:10:50 #13 type] 
+Type domain.Transaction is not enhanced.
+
+[2026-04-30 17:10:50 #14 type.registry] 
+New type domain.Transaction$TransactionType
+
+[2026-04-30 17:10:50 #15 type] 
+Type domain.Sale is not enhanced.
+
+[2026-04-30 17:10:50 #16 type] 
+Type domain.Valoracion is not enhanced.
+
+[2026-04-30 17:10:50 #17 type.registry] 
+New type java.util.ArrayList<java.lang.Object>
+
+[2026-04-30 17:10:50 #18 type.registry] 
+New type java.util.ArrayList<domain.ProposedSale>
+
+[2026-04-30 17:10:50 #19 type.registry] 
+New type java.util.ArrayList<domain.Sale>
+
+[2026-04-30 17:10:50 #20 type.registry] 
+New type java.util.ArrayList<domain.Transaction>
+
+[2026-04-30 17:11:01 #21 type.registry] 
+New type com.objectdb.o.LMT
+
+[2026-04-30 17:11:01 #22 type.registry] 
+New type com.objectdb.o.VAL
+
+[2026-04-30 17:11:01 #23 type.registry] 
+New type com.objectdb.o.RFV
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2026-04-30 17:12:05 #1 store] 
+Database 'C:\Users\ehu\Desktop\market26\src\main\resources\products.temp' is opened by 13716@U025323
+
+[2026-04-30 17:12:05 #2 type.registry] 
+New type domain.User
+
+[2026-04-30 17:12:05 #3 type.registry] 
+New type domain.Buyer
+
+[2026-04-30 17:12:05 #4 type.registry] 
+New type domain.Seller
+
+[2026-04-30 17:12:05 #5 type] 
+Type domain.User is not enhanced.
+
+[2026-04-30 17:12:05 #6 type] 
+Type domain.Buyer is not enhanced.
+
+[2026-04-30 17:12:05 #7 type.registry] 
+New type domain.ProposedSale
+
+[2026-04-30 17:12:05 #8 type.registry] 
+New type domain.Transaction
+
+[2026-04-30 17:12:05 #9 type] 
+Type domain.Seller is not enhanced.
+
+[2026-04-30 17:12:05 #10 type.registry] 
+New type domain.Sale
+
+[2026-04-30 17:12:05 #11 type] 
+Type domain.ProposedSale is not enhanced.
+
+[2026-04-30 17:12:05 #12 type.registry] 
+New type domain.Valoracion
+
+[2026-04-30 17:12:05 #13 type] 
+Type domain.Transaction is not enhanced.
+
+[2026-04-30 17:12:05 #14 type.registry] 
+New type domain.Transaction$TransactionType
+
+[2026-04-30 17:12:05 #15 type] 
+Type domain.Sale is not enhanced.
+
+[2026-04-30 17:12:05 #16 type] 
+Type domain.Valoracion is not enhanced.
+
+[2026-04-30 17:12:05 #17 type.registry] 
+New type java.util.ArrayList<java.lang.Object>
+
+[2026-04-30 17:12:05 #18 type.registry] 
+New type java.util.ArrayList<domain.ProposedSale>
+
+[2026-04-30 17:12:05 #19 type.registry] 
+New type java.util.ArrayList<domain.Sale>
+
+[2026-04-30 17:12:05 #20 type.registry] 
+New type java.util.ArrayList<domain.Transaction>
+
+[2026-04-30 17:12:12 #21 type.registry] 
+New type com.objectdb.o.LMT
+
+[2026-04-30 17:12:12 #22 type.registry] 
+New type com.objectdb.o.VAL
+
+[2026-04-30 17:12:12 #23 type.registry] 
+New type com.objectdb.o.RFV
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2026-04-30 17:15:14 #1 store] 
+Database 'C:\Users\ehu\Desktop\market26\src\main\resources\products.temp' is opened by 1812@U025323
+
+[2026-04-30 17:15:14 #2 type.registry] 
+New type domain.User
+
+[2026-04-30 17:15:14 #3 type.registry] 
+New type domain.Buyer
+
+[2026-04-30 17:15:14 #4 type.registry] 
+New type domain.Seller
+
+[2026-04-30 17:15:14 #5 type] 
+Type domain.User is not enhanced.
+
+[2026-04-30 17:15:14 #6 type] 
+Type domain.Buyer is not enhanced.
+
+[2026-04-30 17:15:14 #7 type.registry] 
+New type domain.ProposedSale
+
+[2026-04-30 17:15:14 #8 type.registry] 
+New type domain.Transaction
+
+[2026-04-30 17:15:14 #9 type] 
+Type domain.Seller is not enhanced.
+
+[2026-04-30 17:15:14 #10 type.registry] 
+New type domain.Sale
+
+[2026-04-30 17:15:14 #11 type] 
+Type domain.ProposedSale is not enhanced.
+
+[2026-04-30 17:15:14 #12 type.registry] 
+New type domain.Valoracion
+
+[2026-04-30 17:15:14 #13 type] 
+Type domain.Transaction is not enhanced.
+
+[2026-04-30 17:15:14 #14 type.registry] 
+New type domain.Transaction$TransactionType
+
+[2026-04-30 17:15:14 #15 type] 
+Type domain.Sale is not enhanced.
+
+[2026-04-30 17:15:14 #16 type] 
+Type domain.Valoracion is not enhanced.
+
+[2026-04-30 17:15:14 #17 type.registry] 
+New type java.util.ArrayList<java.lang.Object>
+
+[2026-04-30 17:15:14 #18 type.registry] 
+New type java.util.ArrayList<domain.ProposedSale>
+
+[2026-04-30 17:15:14 #19 type.registry] 
+New type java.util.ArrayList<domain.Sale>
+
+[2026-04-30 17:15:14 #20 type.registry] 
+New type java.util.ArrayList<domain.Transaction>
+
+[2026-04-30 17:15:26 #21 type.registry] 
+New type com.objectdb.o.LMT
+
+[2026-04-30 17:15:26 #22 type.registry] 
+New type com.objectdb.o.VAL
+
+[2026-04-30 17:15:26 #23 type.registry] 
+New type com.objectdb.o.RFV
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2026-04-30 17:17:12 #1 store] 
+Database 'C:\Users\ehu\Desktop\market26\src\main\resources\products.temp' is opened by 9408@U025323
+
+[2026-04-30 17:17:13 #2 type.registry] 
+New type domain.User
+
+[2026-04-30 17:17:13 #3 type.registry] 
+New type domain.Buyer
+
+[2026-04-30 17:17:13 #4 type.registry] 
+New type domain.Seller
+
+[2026-04-30 17:17:13 #5 type] 
+Type domain.User is not enhanced.
+
+[2026-04-30 17:17:13 #6 type] 
+Type domain.Buyer is not enhanced.
+
+[2026-04-30 17:17:13 #7 type.registry] 
+New type domain.ProposedSale
+
+[2026-04-30 17:17:13 #8 type.registry] 
+New type domain.Transaction
+
+[2026-04-30 17:17:13 #9 type] 
+Type domain.Seller is not enhanced.
+
+[2026-04-30 17:17:13 #10 type.registry] 
+New type domain.Sale
+
+[2026-04-30 17:17:13 #11 type] 
+Type domain.ProposedSale is not enhanced.
+
+[2026-04-30 17:17:13 #12 type.registry] 
+New type domain.Valoracion
+
+[2026-04-30 17:17:13 #13 type] 
+Type domain.Transaction is not enhanced.
+
+[2026-04-30 17:17:13 #14 type.registry] 
+New type domain.Transaction$TransactionType
+
+[2026-04-30 17:17:13 #15 type] 
+Type domain.Sale is not enhanced.
+
+[2026-04-30 17:17:13 #16 type] 
+Type domain.Valoracion is not enhanced.
+
+[2026-04-30 17:17:13 #17 type.registry] 
+New type java.util.ArrayList<java.lang.Object>
+
+[2026-04-30 17:17:13 #18 type.registry] 
+New type java.util.ArrayList<domain.ProposedSale>
+
+[2026-04-30 17:17:13 #19 type.registry] 
+New type java.util.ArrayList<domain.Sale>
+
+[2026-04-30 17:17:13 #20 type.registry] 
+New type java.util.ArrayList<domain.Transaction>
+
+[2026-04-30 17:17:21 #21 type.registry] 
+New type com.objectdb.o.LMT
+
+[2026-04-30 17:17:21 #22 type.registry] 
+New type com.objectdb.o.VAL
+
+[2026-04-30 17:17:21 #23 type.registry] 
+New type com.objectdb.o.RFV
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2026-04-30 17:18:18 #1 store] 
+Database 'C:\Users\ehu\Desktop\market26\src\main\resources\products.temp' is opened by 3184@U025323
+
+[2026-04-30 17:18:19 #2 type.registry] 
+New type domain.User
+
+[2026-04-30 17:18:19 #3 type.registry] 
+New type domain.Buyer
+
+[2026-04-30 17:18:19 #4 type.registry] 
+New type domain.Seller
+
+[2026-04-30 17:18:19 #5 type] 
+Type domain.User is not enhanced.
+
+[2026-04-30 17:18:19 #6 type] 
+Type domain.Buyer is not enhanced.
+
+[2026-04-30 17:18:19 #7 type.registry] 
+New type domain.ProposedSale
+
+[2026-04-30 17:18:19 #8 type.registry] 
+New type domain.Transaction
+
+[2026-04-30 17:18:19 #9 type] 
+Type domain.Seller is not enhanced.
+
+[2026-04-30 17:18:19 #10 type.registry] 
+New type domain.Sale
+
+[2026-04-30 17:18:19 #11 type] 
+Type domain.ProposedSale is not enhanced.
+
+[2026-04-30 17:18:19 #12 type.registry] 
+New type domain.Valoracion
+
+[2026-04-30 17:18:19 #13 type] 
+Type domain.Transaction is not enhanced.
+
+[2026-04-30 17:18:19 #14 type.registry] 
+New type domain.Transaction$TransactionType
+
+[2026-04-30 17:18:19 #15 type] 
+Type domain.Sale is not enhanced.
+
+[2026-04-30 17:18:19 #16 type] 
+Type domain.Valoracion is not enhanced.
+
+[2026-04-30 17:18:19 #17 type.registry] 
+New type java.util.ArrayList<java.lang.Object>
+
+[2026-04-30 17:18:19 #18 type.registry] 
+New type java.util.ArrayList<domain.ProposedSale>
+
+[2026-04-30 17:18:19 #19 type.registry] 
+New type java.util.ArrayList<domain.Sale>
+
+[2026-04-30 17:18:19 #20 type.registry] 
+New type java.util.ArrayList<domain.Transaction>
+
+[2026-04-30 17:18:26 #21 type.registry] 
+New type com.objectdb.o.LMT
+
+[2026-04-30 17:18:26 #22 type.registry] 
+New type com.objectdb.o.VAL
+
+[2026-04-30 17:18:26 #23 type.registry] 
+New type com.objectdb.o.RFV
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2026-04-30 17:19:21 #1 store] 
+Database 'C:\Users\ehu\Desktop\market26\src\main\resources\products.temp' is opened by 8904@U025323
+
+[2026-04-30 17:19:21 #2 type.registry] 
+New type domain.User
+
+[2026-04-30 17:19:21 #3 type.registry] 
+New type domain.Buyer
+
+[2026-04-30 17:19:21 #4 type.registry] 
+New type domain.Seller
+
+[2026-04-30 17:19:21 #5 type] 
+Type domain.User is not enhanced.
+
+[2026-04-30 17:19:21 #6 type] 
+Type domain.Buyer is not enhanced.
+
+[2026-04-30 17:19:21 #7 type.registry] 
+New type domain.ProposedSale
+
+[2026-04-30 17:19:21 #8 type.registry] 
+New type domain.Transaction
+
+[2026-04-30 17:19:21 #9 type] 
+Type domain.Seller is not enhanced.
+
+[2026-04-30 17:19:21 #10 type.registry] 
+New type domain.Sale
+
+[2026-04-30 17:19:21 #11 type] 
+Type domain.ProposedSale is not enhanced.
+
+[2026-04-30 17:19:21 #12 type.registry] 
+New type domain.Valoracion
+
+[2026-04-30 17:19:21 #13 type] 
+Type domain.Transaction is not enhanced.
+
+[2026-04-30 17:19:21 #14 type.registry] 
+New type domain.Transaction$TransactionType
+
+[2026-04-30 17:19:21 #15 type] 
+Type domain.Sale is not enhanced.
+
+[2026-04-30 17:19:21 #16 type] 
+Type domain.Valoracion is not enhanced.
+
+[2026-04-30 17:19:21 #17 type.registry] 
+New type java.util.ArrayList<java.lang.Object>
+
+[2026-04-30 17:19:21 #18 type.registry] 
+New type java.util.ArrayList<domain.ProposedSale>
+
+[2026-04-30 17:19:21 #19 type.registry] 
+New type java.util.ArrayList<domain.Sale>
+
+[2026-04-30 17:19:21 #20 type.registry] 
+New type java.util.ArrayList<domain.Transaction>
+
+[2026-04-30 17:19:31 #21 type.registry] 
+New type com.objectdb.o.LMT
+
+[2026-04-30 17:19:31 #22 type.registry] 
+New type com.objectdb.o.VAL
+
+[2026-04-30 17:19:31 #23 type.registry] 
+New type com.objectdb.o.RFV
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2026-04-30 17:25:10 #1 store] 
+Database 'C:\Users\ehu\Desktop\market26\src\main\resources\products.temp' is opened by 2384@U025323
+
+[2026-04-30 17:25:10 #2 type.registry] 
+New type domain.User
+
+[2026-04-30 17:25:10 #3 type.registry] 
+New type domain.Buyer
+
+[2026-04-30 17:25:10 #4 type.registry] 
+New type domain.Seller
+
+[2026-04-30 17:25:10 #5 type] 
+Type domain.User is not enhanced.
+
+[2026-04-30 17:25:10 #6 type] 
+Type domain.Buyer is not enhanced.
+
+[2026-04-30 17:25:10 #7 type.registry] 
+New type domain.ProposedSale
+
+[2026-04-30 17:25:10 #8 type.registry] 
+New type domain.Transaction
+
+[2026-04-30 17:25:10 #9 type] 
+Type domain.Seller is not enhanced.
+
+[2026-04-30 17:25:10 #10 type.registry] 
+New type domain.Sale
+
+[2026-04-30 17:25:10 #11 type] 
+Type domain.ProposedSale is not enhanced.
+
+[2026-04-30 17:25:10 #12 type.registry] 
+New type domain.Valoracion
+
+[2026-04-30 17:25:10 #13 type] 
+Type domain.Transaction is not enhanced.
+
+[2026-04-30 17:25:10 #14 type.registry] 
+New type domain.Transaction$TransactionType
+
+[2026-04-30 17:25:10 #15 type] 
+Type domain.Sale is not enhanced.
+
+[2026-04-30 17:25:10 #16 type] 
+Type domain.Valoracion is not enhanced.
+
+[2026-04-30 17:25:10 #17 type.registry] 
+New type java.util.ArrayList<java.lang.Object>
+
+[2026-04-30 17:25:10 #18 type.registry] 
+New type java.util.ArrayList<domain.ProposedSale>
+
+[2026-04-30 17:25:10 #19 type.registry] 
+New type java.util.ArrayList<domain.Sale>
+
+[2026-04-30 17:25:10 #20 type.registry] 
+New type java.util.ArrayList<domain.Transaction>
+
+[2026-04-30 17:25:19 #21 type.registry] 
+New type com.objectdb.o.LMT
+
+[2026-04-30 17:25:19 #22 type.registry] 
+New type com.objectdb.o.VAL
+
+[2026-04-30 17:25:19 #23 type.registry] 
+New type com.objectdb.o.RFV
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2026-04-30 17:26:29 #1 store] 
+Database 'C:\Users\ehu\Desktop\market26\src\main\resources\products.temp' is opened by 14640@U025323
+
+[2026-04-30 17:26:29 #2 type.registry] 
+New type domain.User
+
+[2026-04-30 17:26:29 #3 type.registry] 
+New type domain.Buyer
+
+[2026-04-30 17:26:29 #4 type.registry] 
+New type domain.Seller
+
+[2026-04-30 17:26:29 #5 type] 
+Type domain.User is not enhanced.
+
+[2026-04-30 17:26:29 #6 type] 
+Type domain.Buyer is not enhanced.
+
+[2026-04-30 17:26:29 #7 type.registry] 
+New type domain.ProposedSale
+
+[2026-04-30 17:26:29 #8 type.registry] 
+New type domain.Transaction
+
+[2026-04-30 17:26:29 #9 type] 
+Type domain.Seller is not enhanced.
+
+[2026-04-30 17:26:29 #10 type.registry] 
+New type domain.Sale
+
+[2026-04-30 17:26:29 #11 type] 
+Type domain.ProposedSale is not enhanced.
+
+[2026-04-30 17:26:29 #12 type.registry] 
+New type domain.Valoracion
+
+[2026-04-30 17:26:29 #13 type] 
+Type domain.Transaction is not enhanced.
+
+[2026-04-30 17:26:29 #14 type.registry] 
+New type domain.Transaction$TransactionType
+
+[2026-04-30 17:26:29 #15 type] 
+Type domain.Sale is not enhanced.
+
+[2026-04-30 17:26:29 #16 type] 
+Type domain.Valoracion is not enhanced.
+
+[2026-04-30 17:26:29 #17 type.registry] 
+New type java.util.ArrayList<java.lang.Object>
+
+[2026-04-30 17:26:29 #18 type.registry] 
+New type java.util.ArrayList<domain.ProposedSale>
+
+[2026-04-30 17:26:29 #19 type.registry] 
+New type java.util.ArrayList<domain.Sale>
+
+[2026-04-30 17:26:29 #20 type.registry] 
+New type java.util.ArrayList<domain.Transaction>
+
+[2026-04-30 17:26:39 #21 type.registry] 
+New type com.objectdb.o.LMT
+
+[2026-04-30 17:26:39 #22 type.registry] 
+New type com.objectdb.o.VAL
+
+[2026-04-30 17:26:39 #23 type.registry] 
+New type com.objectdb.o.RFV
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2026-04-30 17:27:01 #1 store] 
+Database 'C:\Users\ehu\Desktop\market26\src\main\resources\products.temp' is opened by 4608@U025323
+
+[2026-04-30 17:27:01 #2 type.registry] 
+New type domain.User
+
+[2026-04-30 17:27:01 #3 type.registry] 
+New type domain.Buyer
+
+[2026-04-30 17:27:01 #4 type.registry] 
+New type domain.Seller
+
+[2026-04-30 17:27:01 #5 type] 
+Type domain.User is not enhanced.
+
+[2026-04-30 17:27:01 #6 type] 
+Type domain.Buyer is not enhanced.
+
+[2026-04-30 17:27:01 #7 type.registry] 
+New type domain.ProposedSale
+
+[2026-04-30 17:27:01 #8 type.registry] 
+New type domain.Transaction
+
+[2026-04-30 17:27:01 #9 type] 
+Type domain.Seller is not enhanced.
+
+[2026-04-30 17:27:01 #10 type.registry] 
+New type domain.Sale
+
+[2026-04-30 17:27:01 #11 type] 
+Type domain.ProposedSale is not enhanced.
+
+[2026-04-30 17:27:01 #12 type.registry] 
+New type domain.Valoracion
+
+[2026-04-30 17:27:01 #13 type] 
+Type domain.Transaction is not enhanced.
+
+[2026-04-30 17:27:01 #14 type.registry] 
+New type domain.Transaction$TransactionType
+
+[2026-04-30 17:27:01 #15 type] 
+Type domain.Sale is not enhanced.
+
+[2026-04-30 17:27:01 #16 type] 
+Type domain.Valoracion is not enhanced.
+
+[2026-04-30 17:27:01 #17 type.registry] 
+New type java.util.ArrayList<java.lang.Object>
+
+[2026-04-30 17:27:01 #18 type.registry] 
+New type java.util.ArrayList<domain.ProposedSale>
+
+[2026-04-30 17:27:01 #19 type.registry] 
+New type java.util.ArrayList<domain.Sale>
+
+[2026-04-30 17:27:01 #20 type.registry] 
+New type java.util.ArrayList<domain.Transaction>
+
+[2026-04-30 17:27:10 #21 type.registry] 
+New type com.objectdb.o.LMT
+
+[2026-04-30 17:27:10 #22 type.registry] 
+New type com.objectdb.o.VAL
+
+[2026-04-30 17:27:10 #23 type.registry] 
+New type com.objectdb.o.RFV
+
