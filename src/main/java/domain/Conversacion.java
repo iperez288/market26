@@ -19,7 +19,24 @@ public class Conversacion   {
 	
 	private String tema;
 	
-	public enum EstadoConversacion{LEIDO, NOLEIDO}
+	/**
+	 * EstadoConversacion representa el estado de una conversación.
+	 */
+	public enum EstadoConversacion{
+		/**
+		 * El último en escribir ha sido un Buyer, y el seller del producto todavía no 
+		 * lo ha leído
+		 */
+		PREGUNTADA, 
+		/**
+		 * El último en escribir ha sido un Seller, y el buyer todavía no 
+		 * lo ha leído
+		 */
+		RESPONDIDA, 
+		/**
+		 *Ambos implicados (buyer y seller) lo han leído, y se está esperando una respuesta o una nueva pregunta
+		 */
+		ESPERA}
 	
 	private EstadoConversacion estado;
 	
