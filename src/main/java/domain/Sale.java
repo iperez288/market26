@@ -261,4 +261,8 @@ public class Sale implements Serializable {
 		this.purchased=true;
 	}
 	
+	public void addConversacion(Conversacion c) {
+		this.conversaciones.add(c);
+	}
+	
 }

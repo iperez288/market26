@@ -5,6 +5,7 @@ import java.util.Date;
 import java.util.List;
 
 import domain.Buyer;
+import domain.Conversacion;
 import domain.ProposedSale;
 import domain.Sale;
 import domain.Transaction;
@@ -91,7 +92,10 @@ public interface BLFacade  {
 	 
 	 public float getSaldo(String email);
 
-
 	 public List<Transaction> getTransactions(String email);
+	 
+	 public boolean enviarMensaje(String mensaje, Conversacion c, String email);
+	 
+	 public boolean iniciarConversacion(String tema, Sale s, String email, String mensaje);
 	
 }

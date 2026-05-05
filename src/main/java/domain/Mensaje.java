@@ -35,6 +35,9 @@ public class Mensaje {
 		this.fechaEnvio = fecha;
 		this.mensaje = texto;
 		
+		c.addMensaje(this);
+		emisor.addMensaje(this);
+		
 	}
 	
 

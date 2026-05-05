@@ -27,6 +27,9 @@ public class Buyer extends User implements Serializable {
 	@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
 	private List<ProposedSale> proposedSales;
 
+	@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
+	private List<Valoracion> valoraciones;
+	
 	
 	@OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
 	private List<Mensaje> mensajes;
@@ -132,8 +135,16 @@ public class Buyer extends User implements Serializable {
 	}
 
 	public void addValoracion(Valoracion val) {
-		// TODO Auto-generated method stub
+		this.valoraciones.add(val);
 		
+	}
+	
+	public void addConversacion(Conversacion c) {
+		this.conversaciones.add(c);
+	}
+	
+	public void addMensaje(Mensaje msg) {
+		this.mensajes.add(msg);
 	}
 
 }

@@ -59,7 +59,71 @@ public class Conversacion   {
 		this.tema=tema;
 		this.producto = producto;
 		this.iniciador=iniciador;
+		this.estado= EstadoConversacion.ESPERA;
 		
+		this.iniciador.addConversacion(this);
+		this.producto.addConversacion(this);
+	}
+
+	public long getCodigo() {
+		return codigo;
+	}
+
+	public void setCodigo(long codigo) {
+		this.codigo = codigo;
+	}
+
+	public String getTema() {
+		return tema;
+	}
+
+	public void setTema(String tema) {
+		this.tema = tema;
+	}
+
+	public EstadoConversacion getEstado() {
+		return estado;
+	}
+
+	public void setEstado(EstadoConversacion estado) {
+		this.estado = estado;
+	}
+
+	public List<Mensaje> getMensajes() {
+		return mensajes;
+	}
+
+	public void setMensajes(List<Mensaje> mensajes) {
+		this.mensajes = mensajes;
+	}
+
+	public Sale getProducto() {
+		return producto;
+	}
+
+	public void setProducto(Sale producto) {
+		this.producto = producto;
+	}
+
+	public Buyer getIniciador() {
+		return iniciador;
+	}
+
+	public void setIniciador(Buyer iniciador) {
+		this.iniciador = iniciador;
+	}
+
+	public int getCantidadMensajes() {
+		return nMensajes;
+	}
+
+	public void setnMensajes(int nMensajes) {
+		this.nMensajes = nMensajes;
+	}
+	
+	public void addMensaje(Mensaje msg) {
+		this.mensajes.add(msg);
+		this.nMensajes++;
 	}
 	
 	

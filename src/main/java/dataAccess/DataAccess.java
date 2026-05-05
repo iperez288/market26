@@ -4,6 +4,7 @@ import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
@@ -25,6 +26,8 @@ import domain.Transaction.TransactionType;
 import domain.User;
 import domain.Valoracion;
 import domain.Buyer;
+import domain.Conversacion;
+import domain.Mensaje;
 import domain.ProposedSale;
 import domain.Sale;
 import exceptions.FileNotUploadedException;
@@ -527,7 +530,54 @@ public class DataAccess {
 		return query.getResultList();
 	}
 	
-
+	public Conversacion crearConversacion(String tema, Sale s, String email) {
+		
+		
+		
+		Conversacion c;
+		
+		try {
+			db.getTransaction().begin();
+			
+			Buyer b = (Buyer) browseUser(email);
+			
+			c = new Conversacion(tema,s,b);
+			
+			db.persist(c);
+			
+		}catch (Exception e) {
+			return null;
+		}
+		finally {
+			db.getTransaction().commit();
+		}
+		
+		return c;
+		
+	}
+	
+	public boolean crearMensaje(String texto, Conversacion c, String emailEmisor) {
+		
+		Mensaje msg;
+		db.getTransaction().begin();
+		
+		Buyer emisor = (Buyer) browseUser(emailEmisor);
+		
+		Conversacion conver = db.find(Conversacion.class, c.getCodigo());
+		
+		int mNumber = conver.getCantidadMensajes();
+		
+		LocalDateTime now = LocalDateTime.now();
+		
+		msg = new Mensaje(conver,mNumber, emisor, now ,texto);
+		
+		db.persist(msg);
+		
+		db.getTransaction().commit();
+		
+		
+		return true;
+	}
 	
 	
 }

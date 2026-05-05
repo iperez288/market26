@@ -261,15 +261,34 @@ public class BLFacadeImplementation  implements BLFacade {
 		 return t;
 	 }
 	 
-		public List<ProposedSale> getProposedSales(String email) {
+	public List<ProposedSale> getProposedSales(String email) {
 	
 			
-			dbManager.open();
-			List<ProposedSale>  rides=dbManager.getProposedSales(email);
-			dbManager.close();
-			return rides;
-		}
+		dbManager.open();
+		List<ProposedSale>  rides=dbManager.getProposedSales(email);
+		dbManager.close();
+		return rides;
+	}
 
 	
+	public boolean enviarMensaje(String mensaje, Conversacion c, String email) {
+			
+		dbManager.open();			
+		dbManager.crearMensaje(mensaje, c, email);
+		dbManager.close();
+		
+		return true;
+			
+	}
+		
+	public boolean iniciarConversacion(String tema, Sale s, String email, String mensaje) {
+				
+		dbManager.open();
+		Conversacion c = dbManager.crearConversacion(tema, s, email);	
+		dbManager.crearMensaje(mensaje, c, email);
+		dbManager.close();
+			
+		return true;	
+	}
 }
 
