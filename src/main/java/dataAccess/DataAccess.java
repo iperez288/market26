@@ -557,7 +557,7 @@ public class DataAccess {
 		
 	}
 	
-	public boolean crearMensaje(String texto, Conversacion c, String emailEmisor) {
+	public Mensaje crearMensaje(String texto, Conversacion c, String emailEmisor) {
 		
 		Mensaje msg;
 		db.getTransaction().begin();
@@ -578,7 +578,7 @@ public class DataAccess {
 		
 		
 		
-		return true;
+		return msg;
 	}
 	
 	/**

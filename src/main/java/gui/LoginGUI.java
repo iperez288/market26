@@ -64,7 +64,7 @@ public class LoginGUI extends JFrame {
 					
 					
 					if (tipo!=0) {
-						JOptionPane.showMessageDialog(null, "Ha iniciado sesión correctamente.");
+						JOptionPane.showMessageDialog(null, "Ha iniciado sesion correctamente.");
 						
 						thisFrame.setVisible(false);
 						

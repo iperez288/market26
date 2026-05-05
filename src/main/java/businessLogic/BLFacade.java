@@ -6,6 +6,7 @@ import java.util.List;
 
 import domain.Buyer;
 import domain.Conversacion;
+import domain.Mensaje;
 import domain.ProposedSale;
 import domain.Sale;
 import domain.Transaction;
@@ -94,10 +95,12 @@ public interface BLFacade  {
 
 	 public List<Transaction> getTransactions(String email);
 	 
-	 public boolean enviarMensaje(String mensaje, Conversacion c, String email);
+	 public Mensaje enviarMensaje(String mensaje, Conversacion c, String email);
 	 
 	 public boolean iniciarConversacion(String tema, Sale s, String email, String mensaje);
 	 
 	 public List<Conversacion> getConversaciones(String email);
+	 
+	 public List<Mensaje> getMensajes(Conversacion c, String email);
 	
 }

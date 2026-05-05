@@ -273,12 +273,12 @@ public class BLFacadeImplementation  implements BLFacade {
 	}
 
 	
-	public boolean enviarMensaje(String mensaje, Conversacion c, String email) {
+	public Mensaje enviarMensaje(String mensaje, Conversacion c, String email) {
 			
 		dbManager.open();			
 		
 		
-		dbManager.crearMensaje(mensaje, c, email);
+		Mensaje m = dbManager.crearMensaje(mensaje, c, email);
 		
 		//Actualizar estado de la conversacion
 		
@@ -289,7 +289,7 @@ public class BLFacadeImplementation  implements BLFacade {
 		
 		dbManager.close();
 		
-		return true;
+		return m;
 			
 	}
 		

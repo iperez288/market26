@@ -39,8 +39,47 @@ public class Mensaje {
 		emisor.addMensaje(this);
 		
 	}
-	
 
+	public Conversacion getConversacion() {
+		return conversacion;
+	}
+
+	public void setConversacion(Conversacion conversacion) {
+		this.conversacion = conversacion;
+	}
+
+	public int getMessageNumber() {
+		return messageNumber;
+	}
+
+	public void setMessageNumber(int messageNumber) {
+		this.messageNumber = messageNumber;
+	}
+
+	public LocalDateTime getFechaEnvio() {
+		return fechaEnvio;
+	}
+
+	public void setFechaEnvio(LocalDateTime fechaEnvio) {
+		this.fechaEnvio = fechaEnvio;
+	}
+
+	public String getMensaje() {
+		return mensaje;
+	}
+
+	public void setMensaje(String mensaje) {
+		this.mensaje = mensaje;
+	}
+
+	public Buyer getEmisor() {
+		return emisor;
+	}
+
+	public void setEmisor(Buyer emisor) {
+		this.emisor = emisor;
+	}
+	
 
 	
 }
