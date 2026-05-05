@@ -31,7 +31,8 @@ public class Buyer extends User implements Serializable {
 	private List<Valoracion> valoraciones;
 	
 	
-	@OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
+	//@OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
+	@OneToMany (fetch=FetchType.EAGER, cascade=CascadeType.PERSIST)
 	private List<Mensaje> mensajes;
 	
 	@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
@@ -52,6 +53,7 @@ public class Buyer extends User implements Serializable {
 		this.monedero = new ArrayList<Transaction>();
 		this.mensajes = new ArrayList<Mensaje>();
 		this.conversaciones = new ArrayList<Conversacion>();
+		this.valoraciones=new ArrayList<Valoracion>();
 	}
 
 	public Buyer(String email, String name, String password) {
@@ -63,6 +65,7 @@ public class Buyer extends User implements Serializable {
 		this.monedero = new ArrayList<Transaction>();
 		this.mensajes = new ArrayList<Mensaje>();
 		this.conversaciones = new ArrayList<Conversacion>();
+		this.valoraciones=new ArrayList<Valoracion>();
 	}
 
 	/**

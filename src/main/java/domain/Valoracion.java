@@ -36,6 +36,7 @@ public class Valoracion implements Serializable {
 		this.sale=ps;
 		this.puntuacion=rate;
 		this.comentario=comentario;	
+		valorador.addValoracion(this);
 	}
 	
 

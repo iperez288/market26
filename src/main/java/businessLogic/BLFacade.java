@@ -97,5 +97,7 @@ public interface BLFacade  {
 	 public boolean enviarMensaje(String mensaje, Conversacion c, String email);
 	 
 	 public boolean iniciarConversacion(String tema, Sale s, String email, String mensaje);
+	 
+	 public List<Conversacion> getConversaciones(String email);
 	
 }

@@ -27,6 +27,7 @@ import domain.User;
 import domain.Valoracion;
 import domain.Buyer;
 import domain.Conversacion;
+import domain.Conversacion.EstadoConversacion;
 import domain.Mensaje;
 import domain.ProposedSale;
 import domain.Sale;
@@ -481,7 +482,7 @@ public class DataAccess {
 		
 		db.persist(cobroComprador);
 	
-	// 2ï¿½ Marcar la compra como vendida
+	// 2 Marcar la compra como vendida
 		
 		venta = getProposedSale(ps.getID());
 		venta.setFechaCompra(today);
@@ -491,7 +492,7 @@ public class DataAccess {
 		s.doPurchase();
 		
 		
-	// 3ï¿½ Darle el dinero al vendedor
+	// 3 Darle el dinero al vendedor
 		vendedor = (Seller) getUser(email);
 		pagoVendedor = new Transaction(precio,today,TransactionType.sale,vendedor);
 		vendedor.addTransaction(pagoVendedor);
@@ -576,9 +577,64 @@ public class DataAccess {
 		db.getTransaction().commit();
 		
 		
+		
 		return true;
 	}
 	
+	/**
+	 * 
+	 * @param email
+	 * @return Conversaciones que tienen los productos del vendedor
+	 */
+	public List<Conversacion> getConversacionesDeProductos(String email){
+		
+		User u = this.browseUser(email);
+		
+		if(!(u instanceof Seller)) {
+			return new ArrayList<Conversacion>();
+		}
+		
+		TypedQuery<Conversacion> query = 
+				db.createQuery("SELECT c FROM Conversacion c WHERE c.producto.seller.email = ?1 AND c.estado <> ?2", Conversacion.class);
+		query.setParameter(1, email);
+		query.setParameter(2, EstadoConversacion.FINALIZADA);
+		
+		return query.getResultList();
+		
+	}
 	
+	/**
+	 * 
+	 * @param email
+	 * @return Conversaciones iniciadas por el usuario con correo electrónico email.
+	 */
+	public List<Conversacion> getConversacionesIniciadas(String email){
+		
+		TypedQuery<Conversacion> query = 
+				db.createQuery("SELECT c FROM Conversacion c WHERE c.iniciador.email = ?1 AND c.estado<>?2", Conversacion.class);
+		query.setParameter(1, email);
+		query.setParameter(2, EstadoConversacion.FINALIZADA);
+		
+		return query.getResultList();	
+	}
+	
+	public List<Mensaje> getMensajes(long cid){
+		
+		TypedQuery<Mensaje> query = 
+				db.createQuery("SELECT m FROM Conversacion c JOIN c.mensajes m WHERE c.codigo = ?1 ORDER BY m.messageNumber ASC", Mensaje.class);
+		query.setParameter(1, cid);
+		
+		return query.getResultList();
+	}
+	
+	public void actualizarEstadoConversacion(long cid, EstadoConversacion nuevoEstado) {
+		db.getTransaction().begin();
+		
+		Conversacion conv = db.find(Conversacion.class, cid);
+	
+		conv.setEstado(nuevoEstado);
+
+		db.getTransaction().commit();
+	}
 }
 

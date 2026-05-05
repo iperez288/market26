@@ -13,6 +13,8 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlID;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
+import domain.Conversacion.EstadoConversacion;
+
 
 @SuppressWarnings("serial")
 @XmlAccessorType(XmlAccessType.FIELD)
@@ -37,6 +39,7 @@ public class Sale implements Serializable {
 	@ManyToOne
 	private Seller seller;  
 	
+	@OneToMany (fetch=FetchType.EAGER, cascade=CascadeType.PERSIST)
 	private List<Conversacion> conversaciones;
 	
 	
@@ -259,6 +262,9 @@ public class Sale implements Serializable {
 	
 	public void doPurchase() {
 		this.purchased=true;
+		for(int i=0;i<this.conversaciones.size();i++) {
+			this.conversaciones.get(i).setEstado(EstadoConversacion.FINALIZADA);
+		}
 	}
 	
 	public void addConversacion(Conversacion c) {

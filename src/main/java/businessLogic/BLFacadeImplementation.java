@@ -1,5 +1,6 @@
 package businessLogic;
 import java.io.File;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -8,6 +9,7 @@ import javax.jws.WebService;
 
 import dataAccess.DataAccess;
 import domain.*;
+import domain.Conversacion.EstadoConversacion;
 import exceptions.FileNotUploadedException;
 import exceptions.MustBeLaterThanTodayException;
 import exceptions.SaleAlreadyExistException;
@@ -274,7 +276,17 @@ public class BLFacadeImplementation  implements BLFacade {
 	public boolean enviarMensaje(String mensaje, Conversacion c, String email) {
 			
 		dbManager.open();			
+		
+		
 		dbManager.crearMensaje(mensaje, c, email);
+		
+		//Actualizar estado de la conversacion
+		
+		long cid = c.getCodigo();
+		
+		if(c.getIniciador().getEmail().equals(email)) dbManager.actualizarEstadoConversacion(cid, EstadoConversacion.PREGUNTADA);
+		else dbManager.actualizarEstadoConversacion(cid, EstadoConversacion.RESPONDIDA);
+		
 		dbManager.close();
 		
 		return true;
@@ -290,5 +302,37 @@ public class BLFacadeImplementation  implements BLFacade {
 			
 		return true;	
 	}
+	
+	public List<Conversacion> getConversaciones(String email){
+		
+		List<Conversacion> conversaciones = new ArrayList<Conversacion>();
+		
+		dbManager.open();
+		
+		conversaciones.addAll(dbManager.getConversacionesIniciadas(email));
+		
+		conversaciones.addAll(dbManager.getConversacionesDeProductos(email));
+		
+		dbManager.close();
+		
+		return conversaciones;	
+	}
+	
+	public List<Mensaje> getMensajes(Conversacion c, String email){
+		
+		long cid = c.getCodigo();
+		
+		dbManager.open();
+		List<Mensaje> mensajes = dbManager.getMensajes(cid); //Cargo los mensajes
+		
+		//Marvo a la conversación como corresponda, leída, no leída etc.
+		
+		dbManager.actualizarEstadoConversacion(cid, EstadoConversacion.ESPERA);
+		
+		dbManager.close();
+		
+		return mensajes;
+	}
+	
 }
 

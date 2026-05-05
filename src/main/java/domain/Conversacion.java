@@ -36,7 +36,13 @@ public class Conversacion   {
 		/**
 		 *Ambos implicados (buyer y seller) lo han leído, y se está esperando una respuesta o una nueva pregunta
 		 */
-		ESPERA}
+		ESPERA,
+
+		/**
+		 * La venta del producto ya se ha realizado
+		 */
+		FINALIZADA
+	}
 	
 	private EstadoConversacion estado;
 	
