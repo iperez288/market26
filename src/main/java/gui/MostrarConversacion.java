@@ -21,8 +21,12 @@ import javax.swing.JTextPane;
 import javax.swing.SwingUtilities;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.chrono.ChronoLocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.Date;
 import java.util.List;
 import java.awt.event.ActionEvent;
 
@@ -39,7 +43,7 @@ public class MostrarConversacion extends JFrame {
 
 	/**
 	 * Launch the application.
-	 */
+	 *
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -123,9 +127,12 @@ public class MostrarConversacion extends JFrame {
 
 	        String email = m.getEmisor().getEmail();
 	        
-	        LocalDateTime fEnvio = m.getFechaEnvio();
+	        Date fEnvio = m.getFechaEnvio();
 	        
-	        String fecha = fEnvio.format(DateTimeFormatter.ofPattern("(dd-MM-yyyy) hh:mm"));
+	        
+	        SimpleDateFormat formato = new SimpleDateFormat("(dd-MM-yyyy) hh:mm");
+	        
+	        String fecha = formato.format(fEnvio);
 	        
 	        // INFO (EMAIL + FECHA)
 	        JLabel lblInfo = new JLabel(email + "  |  " + fecha);

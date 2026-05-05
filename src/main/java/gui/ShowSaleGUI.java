@@ -45,12 +45,13 @@ public class ShowSaleGUI extends JFrame {
 	private JLabel statusField=new JLabel();
 	private JFrame thisFrame;
 	private final JButton btnBuy = new JButton("Comprar"); //$NON-NLS-1$ //$NON-NLS-2$
+	private final JButton btnNewButton = new JButton("Iniciar Conversacion");
 	
 	public ShowSaleGUI(String email, Sale sale) { 
 		thisFrame=this; 
 		this.setVisible(true);
 		this.getContentPane().setLayout(null);
-		this.setSize(new Dimension(604, 370));
+		this.setSize(new Dimension(604, 388));
 		//this.setTitle(ResourceBundle.getBundle("Etiquetas").getString("CreateProductGUI.CreateProduct"));
 
 		fieldTitle.setText(sale.getTitle());
@@ -134,13 +135,24 @@ public class ShowSaleGUI extends JFrame {
 		btnBuy.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				JFrame a = new ProposalGUI(email,sale.getSaleNumber());
-				a.setVisible(true);;
+				a.setVisible(true);
 				
 			}
 		});
 		btnBuy.setBounds(153, 268, 109, 30);
 		
 		getContentPane().add(btnBuy);
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				JFrame a = new CrearConversacionGUI(email,sale);
+				a.setVisible(true);
+				
+			}
+		});
+		btnNewButton.setBounds(17, 308, 245, 30);
+		
+		getContentPane().add(btnNewButton);
 		setVisible(true);
 	}	 
 	public BufferedImage rescale(BufferedImage originalImage)

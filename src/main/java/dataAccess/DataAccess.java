@@ -110,10 +110,10 @@ public class DataAccess {
 			
 			user1.addSale("samsung 42\" telebista", "berria, erabili gabe", 2, 175,  today, null);
 			
-			//user4.setSaldo(100.0f);
+			user4.setSaldo(100.0f);
 			
 			
-			//user4.addProposedSale(s1, 1.2f);   
+			user4.addProposedSale(s1, 1.2f);   
 			//user4.getProposedSales().get(0).setFechaCompra(today);
 			//s1.doPurchase();
 			
@@ -542,7 +542,9 @@ public class DataAccess {
 			
 			Buyer b = (Buyer) browseUser(email);
 			
-			c = new Conversacion(tema,s,b);
+			Sale sale = db.find(Sale.class, s.getSaleNumber());
+			
+			c = new Conversacion(tema,sale,b);
 			
 			db.persist(c);
 			
@@ -568,7 +570,7 @@ public class DataAccess {
 		
 		int mNumber = conver.getCantidadMensajes();
 		
-		LocalDateTime now = LocalDateTime.now();
+		Date now = new Date();
 		
 		msg = new Mensaje(conver,mNumber, emisor, now ,texto);
 		

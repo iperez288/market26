@@ -65,7 +65,7 @@ public class Conversacion   {
 		this.tema=tema;
 		this.producto = producto;
 		this.iniciador=iniciador;
-		this.estado= EstadoConversacion.ESPERA;
+		this.estado= EstadoConversacion.PREGUNTADA;
 		
 		this.iniciador.addConversacion(this);
 		this.producto.addConversacion(this);

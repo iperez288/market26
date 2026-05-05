@@ -1227,3 +1227,291 @@ New type java.util.ArrayList<domain.Sale>
 [2026-05-05 21:56:34 #29 type.registry] 
 New type java.util.ArrayList<domain.Transaction>
 
+------------------------------------------------------------------------------------------------------------------------
+
+[2026-05-05 22:59:04 #1 store] 
+Database 'C:\Users\kenne\git\market26\src\main\resources\products.temp' is opened by 15792@Traspié
+
+[2026-05-05 22:59:04 #2 type.registry] 
+New type domain.User
+
+[2026-05-05 22:59:04 #3 type.registry] 
+New type domain.Buyer
+
+[2026-05-05 22:59:04 #4 type.registry] 
+New type domain.Seller
+
+[2026-05-05 22:59:04 #5 type] 
+Type domain.User is not enhanced.
+
+[2026-05-05 22:59:04 #6 type] 
+Type domain.Buyer is not enhanced.
+
+[2026-05-05 22:59:04 #7 type.registry] 
+New type domain.Conversacion
+
+[2026-05-05 22:59:04 #8 type.registry] 
+New type domain.Mensaje
+
+[2026-05-05 22:59:04 #9 type.registry] 
+New type domain.Valoracion
+
+[2026-05-05 22:59:04 #10 type.registry] 
+New type domain.ProposedSale
+
+[2026-05-05 22:59:04 #11 type.registry] 
+New type domain.Transaction
+
+[2026-05-05 22:59:04 #12 type] 
+Type domain.Seller is not enhanced.
+
+[2026-05-05 22:59:04 #13 type.registry] 
+New type domain.Sale
+
+[2026-05-05 22:59:04 #14 type] 
+Type domain.Conversacion is not enhanced.
+
+[2026-05-05 22:59:04 #15 type.registry] 
+New type domain.Conversacion$EstadoConversacion
+
+[2026-05-05 22:59:04 #16 type] 
+Type domain.Mensaje is not enhanced.
+
+[2026-05-05 22:59:04 #17 type.registry] 
+New type java.time.LocalDateTime
+
+[2026-05-05 22:59:04 #18 type] 
+Type domain.Valoracion is not enhanced.
+
+[2026-05-05 22:59:04 #19 type] 
+Type domain.ProposedSale is not enhanced.
+
+[2026-05-05 22:59:04 #20 type] 
+Type domain.Transaction is not enhanced.
+
+[2026-05-05 22:59:04 #21 type.registry] 
+New type domain.Transaction$TransactionType
+
+[2026-05-05 22:59:04 #22 type] 
+Type domain.Sale is not enhanced.
+
+[2026-05-05 22:59:04 #23 type.registry] 
+New type java.util.ArrayList<java.lang.Object>
+
+[2026-05-05 22:59:04 #24 type.registry] 
+New type java.util.ArrayList<domain.ProposedSale>
+
+[2026-05-05 22:59:04 #25 type.registry] 
+New type java.util.ArrayList<domain.Valoracion>
+
+[2026-05-05 22:59:04 #26 type.registry] 
+New type java.util.ArrayList<domain.Mensaje>
+
+[2026-05-05 22:59:04 #27 type.registry] 
+New type java.util.ArrayList<domain.Conversacion>
+
+[2026-05-05 22:59:04 #28 type.registry] 
+New type java.util.ArrayList<domain.Sale>
+
+[2026-05-05 22:59:04 #29 type.registry] 
+New type java.util.ArrayList<domain.Transaction>
+
+[2026-05-05 22:59:15 #30 type.registry] 
+New type com.objectdb.o.LMT
+
+[2026-05-05 22:59:15 #31 type.registry] 
+New type com.objectdb.o.VAL
+
+[2026-05-05 22:59:15 #32 type.registry] 
+New type com.objectdb.o.RFV
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2026-05-05 23:09:50 #1 store] 
+Database 'C:\Users\kenne\git\market26\src\main\resources\products.temp' is opened by 19592@Traspié
+
+[2026-05-05 23:09:50 #2 type.registry] 
+New type domain.User
+
+[2026-05-05 23:09:50 #3 type.registry] 
+New type domain.Buyer
+
+[2026-05-05 23:09:50 #4 type.registry] 
+New type domain.Seller
+
+[2026-05-05 23:09:50 #5 type] 
+Type domain.User is not enhanced.
+
+[2026-05-05 23:09:50 #6 type] 
+Type domain.Buyer is not enhanced.
+
+[2026-05-05 23:09:50 #7 type.registry] 
+New type domain.Conversacion
+
+[2026-05-05 23:09:50 #8 type.registry] 
+New type domain.Mensaje
+
+[2026-05-05 23:09:50 #9 type.registry] 
+New type domain.Valoracion
+
+[2026-05-05 23:09:50 #10 type.registry] 
+New type domain.ProposedSale
+
+[2026-05-05 23:09:50 #11 type.registry] 
+New type domain.Transaction
+
+[2026-05-05 23:09:50 #12 type] 
+Type domain.Seller is not enhanced.
+
+[2026-05-05 23:09:50 #13 type.registry] 
+New type domain.Sale
+
+[2026-05-05 23:09:50 #14 type] 
+Type domain.Conversacion is not enhanced.
+
+[2026-05-05 23:09:50 #15 type.registry] 
+New type domain.Conversacion$EstadoConversacion
+
+[2026-05-05 23:09:50 #16 type] 
+Type domain.Mensaje is not enhanced.
+
+[2026-05-05 23:09:50 #17 type] 
+Type domain.Valoracion is not enhanced.
+
+[2026-05-05 23:09:50 #18 type] 
+Type domain.ProposedSale is not enhanced.
+
+[2026-05-05 23:09:50 #19 type] 
+Type domain.Transaction is not enhanced.
+
+[2026-05-05 23:09:50 #20 type.registry] 
+New type domain.Transaction$TransactionType
+
+[2026-05-05 23:09:50 #21 type] 
+Type domain.Sale is not enhanced.
+
+[2026-05-05 23:09:50 #22 type.registry] 
+New type java.util.ArrayList<java.lang.Object>
+
+[2026-05-05 23:09:50 #23 type.registry] 
+New type java.util.ArrayList<domain.ProposedSale>
+
+[2026-05-05 23:09:50 #24 type.registry] 
+New type java.util.ArrayList<domain.Valoracion>
+
+[2026-05-05 23:09:50 #25 type.registry] 
+New type java.util.ArrayList<domain.Mensaje>
+
+[2026-05-05 23:09:50 #26 type.registry] 
+New type java.util.ArrayList<domain.Conversacion>
+
+[2026-05-05 23:09:50 #27 type.registry] 
+New type java.util.ArrayList<domain.Sale>
+
+[2026-05-05 23:09:50 #28 type.registry] 
+New type java.util.ArrayList<domain.Transaction>
+
+[2026-05-05 23:10:00 #29 type.registry] 
+New type com.objectdb.o.LMT
+
+[2026-05-05 23:10:00 #30 type.registry] 
+New type com.objectdb.o.VAL
+
+[2026-05-05 23:10:00 #31 type.registry] 
+New type com.objectdb.o.RFV
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2026-05-05 23:15:06 #1 store] 
+Database 'C:\Users\kenne\git\market26\src\main\resources\products.temp' is opened by 10360@Traspié
+
+[2026-05-05 23:15:07 #2 type.registry] 
+New type domain.User
+
+[2026-05-05 23:15:07 #3 type.registry] 
+New type domain.Buyer
+
+[2026-05-05 23:15:07 #4 type.registry] 
+New type domain.Seller
+
+[2026-05-05 23:15:07 #5 type] 
+Type domain.User is not enhanced.
+
+[2026-05-05 23:15:07 #6 type] 
+Type domain.Buyer is not enhanced.
+
+[2026-05-05 23:15:07 #7 type.registry] 
+New type domain.Conversacion
+
+[2026-05-05 23:15:07 #8 type.registry] 
+New type domain.Mensaje
+
+[2026-05-05 23:15:07 #9 type.registry] 
+New type domain.Valoracion
+
+[2026-05-05 23:15:07 #10 type.registry] 
+New type domain.ProposedSale
+
+[2026-05-05 23:15:07 #11 type.registry] 
+New type domain.Transaction
+
+[2026-05-05 23:15:07 #12 type] 
+Type domain.Seller is not enhanced.
+
+[2026-05-05 23:15:07 #13 type.registry] 
+New type domain.Sale
+
+[2026-05-05 23:15:07 #14 type] 
+Type domain.Conversacion is not enhanced.
+
+[2026-05-05 23:15:07 #15 type.registry] 
+New type domain.Conversacion$EstadoConversacion
+
+[2026-05-05 23:15:07 #16 type] 
+Type domain.Mensaje is not enhanced.
+
+[2026-05-05 23:15:07 #17 type] 
+Type domain.Valoracion is not enhanced.
+
+[2026-05-05 23:15:07 #18 type] 
+Type domain.ProposedSale is not enhanced.
+
+[2026-05-05 23:15:07 #19 type] 
+Type domain.Transaction is not enhanced.
+
+[2026-05-05 23:15:07 #20 type.registry] 
+New type domain.Transaction$TransactionType
+
+[2026-05-05 23:15:07 #21 type] 
+Type domain.Sale is not enhanced.
+
+[2026-05-05 23:15:07 #22 type.registry] 
+New type java.util.ArrayList<java.lang.Object>
+
+[2026-05-05 23:15:07 #23 type.registry] 
+New type java.util.ArrayList<domain.ProposedSale>
+
+[2026-05-05 23:15:07 #24 type.registry] 
+New type java.util.ArrayList<domain.Valoracion>
+
+[2026-05-05 23:15:07 #25 type.registry] 
+New type java.util.ArrayList<domain.Mensaje>
+
+[2026-05-05 23:15:07 #26 type.registry] 
+New type java.util.ArrayList<domain.Conversacion>
+
+[2026-05-05 23:15:07 #27 type.registry] 
+New type java.util.ArrayList<domain.Sale>
+
+[2026-05-05 23:15:07 #28 type.registry] 
+New type java.util.ArrayList<domain.Transaction>
+
+[2026-05-05 23:15:16 #29 type.registry] 
+New type com.objectdb.o.LMT
+
+[2026-05-05 23:15:16 #30 type.registry] 
+New type com.objectdb.o.VAL
+
+[2026-05-05 23:15:16 #31 type.registry] 
+New type com.objectdb.o.RFV
+

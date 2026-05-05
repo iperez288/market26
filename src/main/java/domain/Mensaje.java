@@ -1,6 +1,6 @@
 package domain;
 
-import java.time.LocalDateTime;
+import java.util.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -18,7 +18,7 @@ public class Mensaje {
 	@Id
 	private int messageNumber;
 	
-	private LocalDateTime fechaEnvio;
+	private Date fechaEnvio;
 	
 	private String mensaje;
 	
@@ -27,7 +27,7 @@ public class Mensaje {
 	
 	public Mensaje(){	}
 	
-	public Mensaje(Conversacion c, int messageNumber, Buyer emisor, LocalDateTime fecha, String texto) {
+	public Mensaje(Conversacion c, int messageNumber, Buyer emisor, Date fecha, String texto) {
 		
 		this.messageNumber = messageNumber;
 		this.conversacion = c;
@@ -56,11 +56,11 @@ public class Mensaje {
 		this.messageNumber = messageNumber;
 	}
 
-	public LocalDateTime getFechaEnvio() {
+	public Date getFechaEnvio() {
 		return fechaEnvio;
 	}
 
-	public void setFechaEnvio(LocalDateTime fechaEnvio) {
+	public void setFechaEnvio(Date fechaEnvio) {
 		this.fechaEnvio = fechaEnvio;
 	}
 
