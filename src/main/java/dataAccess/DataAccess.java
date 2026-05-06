@@ -594,6 +594,9 @@ public class DataAccess {
 			
 			msg = new Mensaje(conver,mNumber, emisor, now ,texto);
 			
+			conver.addMensaje(msg);
+			emisor.addMensaje(msg);
+			
 			db.persist(msg);
 			
 			db.getTransaction().commit();

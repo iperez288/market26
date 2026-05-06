@@ -3,19 +3,23 @@ package domain;
 import java.util.Date;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.IdClass;
 
 
 
 @Entity
-@IdClass(IdMensaje.class)
 public class Mensaje {
 	
+	
 	@Id
+	@GeneratedValue
+	private long codigo;
+	
 	private Conversacion conversacion;
 
-	@Id
+	
 	private int messageNumber;
 	
 	private Date fechaEnvio;
@@ -35,8 +39,6 @@ public class Mensaje {
 		this.fechaEnvio = fecha;
 		this.mensaje = texto;
 		
-		c.addMensaje(this);
-		emisor.addMensaje(this);
 		
 	}
 
@@ -79,6 +81,15 @@ public class Mensaje {
 	public void setEmisor(Buyer emisor) {
 		this.emisor = emisor;
 	}
+
+	public long getCodigo() {
+		return codigo;
+	}
+
+	public void setCodigo(long codigo) {
+		this.codigo = codigo;
+	}
+	
 	
 
 	

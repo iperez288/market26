@@ -37,9 +37,9 @@ public class MostrarConversacion extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
-	private JTextPane messagePane;
+	private JTextPane inputPane;
 	private JScrollPane scroll;
-	private JPanel panel;
+	private JPanel panelMensajes;
 
 	/**
 	 * Launch the application.
@@ -70,9 +70,9 @@ public class MostrarConversacion extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		messagePane = new JTextPane();
-		messagePane.setBounds(35, 235, 392, 107);
-		contentPane.add(messagePane);
+		inputPane = new JTextPane();
+		inputPane.setBounds(35, 235, 392, 107);
+		contentPane.add(inputPane);
 		
 		JButton btnCancelar = new JButton("Salir");
 		btnCancelar.addActionListener(new ActionListener() {
@@ -87,7 +87,7 @@ public class MostrarConversacion extends JFrame {
 		btnEnviar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
-				String mensaje = messagePane.getText();
+				String mensaje = inputPane.getText();
 				
 				if( mensaje.equals("")) {
 					JOptionPane.showMessageDialog(null, "El mensaje está vacío.");
@@ -99,20 +99,22 @@ public class MostrarConversacion extends JFrame {
 					
 					((MostrarConversacion) thisFrame).agregarMensaje(m);
 					
-					messagePane.setText("");
+					inputPane.setText("");
 				}
 			}
 		});
 		btnEnviar.setBounds(298, 352, 118, 20);
 		contentPane.add(btnEnviar);
 		
-		panel = new JPanel();
-		panel.setBounds(35, 10, 392, 221);
-		contentPane.add(panel);
-		panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
+		panelMensajes = new JPanel();
+		panelMensajes.setBounds(35, 10, 392, 221);
+		contentPane.add(panelMensajes);
+		panelMensajes.setLayout(new BoxLayout(panelMensajes, BoxLayout.Y_AXIS));
 		
-		scroll = new JScrollPane();
-		panel.add(scroll);
+		scroll = new JScrollPane(panelMensajes);
+		scroll.setBounds(35, 10, 392, 221);
+		contentPane.add(scroll);
+		
 		
 		cargarMensajes(c,email);
 
@@ -152,11 +154,11 @@ public class MostrarConversacion extends JFrame {
 	 
 	 private void agregarMensaje(Mensaje m) {
 	        JPanel panel = crearPanelMensaje(m);
-	        this.messagePane.add(panel);
-	        this.messagePane.add(Box.createVerticalStrut(5)); // espacio entre mensajes
+	        this.panelMensajes.add(panel);
+	        this.panelMensajes.add(Box.createVerticalStrut(5)); // espacio entre mensajes
 
-	        this.messagePane.revalidate();
-	        this.messagePane.repaint();
+	        this.panelMensajes.revalidate();
+	        this.panelMensajes.repaint();
 
 	        SwingUtilities.invokeLater(() -> {
 	            JScrollBar vertical = scroll.getVerticalScrollBar();

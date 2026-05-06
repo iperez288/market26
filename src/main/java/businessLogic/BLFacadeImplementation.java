@@ -304,10 +304,10 @@ public class BLFacadeImplementation  implements BLFacade {
 		if(c!=null) {
 			
 			
-			//if(dbManager.crearMensaje(mensaje, c, email)!=null)
+			if(dbManager.crearMensaje(mensaje, c, email)!=null)
 			res = true;
-			//else
-				//System.out.printf("Mensaje vacío\n");
+			else
+				System.out.printf("Mensaje vacío\n");
 		}
 		
 		dbManager.close();
