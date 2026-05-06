@@ -30,7 +30,7 @@ public class VerValoracionGUI extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public VerValoracionGUI(Valoracion v) {
+	public VerValoracionGUI(VerVentasGUI parent,Valoracion v) {
 		this.setVisible(true);
 		this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		JFrame thisFrame = this;

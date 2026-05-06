@@ -119,7 +119,7 @@ public class VerValoracionesGUI extends JFrame {
 				        int row = table.rowAtPoint(point);
 		            	domain.ProposedSale ps=(domain.ProposedSale) tableModelProducts.getValueAt(row, 4);
 		            	if(!ps.hasReview());
-		            		new VerValoracionGUI(ps.getReview());
+		            		new VerValoracionGUI((VerVentasGUI) thisFrame, ps.getReview());
 			              
 		            }
 		        }

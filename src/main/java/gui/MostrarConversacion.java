@@ -60,7 +60,7 @@ public class MostrarConversacion extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public MostrarConversacion(Conversacion c, String email) {
+	public MostrarConversacion(ConsultarConversacionesGUI parent, Conversacion c, String email) {
 		
 		JFrame thisFrame = this;
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -98,7 +98,7 @@ public class MostrarConversacion extends JFrame {
 					Mensaje m = facade.enviarMensaje(mensaje, c, email);
 					
 					((MostrarConversacion) thisFrame).agregarMensaje(m);
-					
+					parent.actualizarLista();
 					inputPane.setText("");
 				}
 			}
