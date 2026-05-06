@@ -140,7 +140,7 @@ public class DataAccess {
 //Conversaciones
 			
 			Conversacion c1 = this.crearConversacion("Esferidad", s1, "buyer1@gmail.com");
-			this.crearMensaje("¿Es redondo?", c1, "buyer1@gmail.com");
+			this.crearMensaje("ï¿½Es redondo?", c1, "buyer1@gmail.com");
 			
 			
 			
@@ -562,7 +562,7 @@ public class DataAccess {
 			
 			if(b==null)
 			{
-				System.out.printf("No se encontró usuario con email %s\n",email);
+				System.out.printf("No se encontrï¿½ usuario con email %s\n",email);
 				return null;
 				
 			}else {			
@@ -654,7 +654,7 @@ public class DataAccess {
 	/**
 	 * 
 	 * @param email
-	 * @return Conversaciones iniciadas por el usuario con correo electrónico email.
+	 * @return Conversaciones iniciadas por el usuario con correo electrï¿½nico email.
 	 */
 	public List<Conversacion> getConversacionesIniciadas(String email){
 		
@@ -683,6 +683,16 @@ public class DataAccess {
 		conv.setEstado(nuevoEstado);
 
 		db.getTransaction().commit();
+	}
+	
+	public List<ProposedSale> getVentasUsuario(String text, String email) {
+	    TypedQuery<ProposedSale> query = db.createQuery(
+	        "SELECT ps FROM ProposedSale ps WHERE ps.sale.seller.email = :email AND ps.sale.title LIKE :text", 
+	        ProposedSale.class
+	    );
+	    query.setParameter("email", email);
+	    query.setParameter("text", "%" + text + "%");
+	    return query.getResultList();
 	}
 }
 

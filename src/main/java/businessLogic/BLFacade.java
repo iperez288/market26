@@ -102,5 +102,7 @@ public interface BLFacade  {
 	 public List<Conversacion> getConversaciones(String email);
 	 
 	 public List<Mensaje> getMensajes(Conversacion c, String email);
+	 
+	 public List<ProposedSale> getVentasUsuario(String text, String email);
 	
 }

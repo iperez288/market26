@@ -67,6 +67,9 @@ public class MainGUI extends JFrame {
 	private JButton jButtonTransactionHistory=null;
 	private JButton jButtonQueryPurchases;
 	private JButton jButtonConversaciones;
+	
+	private JButton jButtonVerVentas;
+	private JButton jButtonVerValoraciones;
 
 	public MainGUI(String mail) {
 		super();
@@ -78,7 +81,7 @@ public class MainGUI extends JFrame {
 
 		this.saldo=0.0f;
 		this.tipoUsuario = "xxxxxx";
-		this.setSize(600, 650);
+		this.setSize(600, 700);
 		this.setLocationRelativeTo(null);
 
 		rdbtnNewRadioButton = new JRadioButton("English");
@@ -210,7 +213,33 @@ public class MainGUI extends JFrame {
 		
 		panel_consultas_1 = new JPanel();
 		panel_consultas.add(panel_consultas_1);
-		panel_consultas_1.setLayout(new GridLayout(2, 1, 5, 5));
+		panel_consultas_1.setLayout(new GridLayout(4, 1, 5, 5));
+		
+		jButtonVerVentas = new JButton("Ver Ventas");
+		jButtonVerVentas.setEnabled(false);
+		jButtonVerVentas.addActionListener(e -> {
+			JFrame a = new VerVentasGUI(email);
+			a.setVisible(true);
+		});
+		panel_consultas_1.add(jButtonVerVentas);
+
+		jButtonQueryPurchases = new JButton("Ver compras");
+		jButtonQueryPurchases.setEnabled(false);
+		jButtonQueryPurchases.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				JFrame compras = new QueryPurchasesGUI(email);
+				compras.setVisible(true);
+			}
+		});
+		panel_consultas_1.add(jButtonQueryPurchases);
+
+		jButtonVerValoraciones = new JButton("Ver Valoraciones");
+		jButtonVerValoraciones.setEnabled(false);
+		jButtonVerValoraciones.addActionListener(e -> {
+			JFrame a = new VerValoracionesGUI(email);
+			a.setVisible(true);
+		});
+		panel_consultas_1.add(jButtonVerValoraciones);
 		
 		jButtonTransactionHistory = new JButton("Historial Transacciones");
 		jButtonTransactionHistory.addActionListener(new ActionListener() {
@@ -221,16 +250,6 @@ public class MainGUI extends JFrame {
 		});
 		jButtonTransactionHistory.setEnabled(false);
 		panel_consultas_1.add(jButtonTransactionHistory);
-		
-		jButtonQueryPurchases = new JButton("Ver compras");
-		jButtonQueryPurchases.setEnabled(false);
-		jButtonQueryPurchases.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				JFrame compras = new QueryPurchasesGUI(email);
-				compras.setVisible(true);
-			}
-		});
-		panel_consultas_1.add(jButtonQueryPurchases);
 		
 		jContentPane.add(Box.createVerticalStrut(10));
 		jContentPane.add(panel_dinero);
@@ -270,6 +289,8 @@ public class MainGUI extends JFrame {
 		this.jButtonWithdrawMoney.setEnabled(true);
 		this.jButtonTransactionHistory.setEnabled(true);
 		this.jButtonQueryPurchases.setEnabled(true);
+		this.jButtonVerVentas.setEnabled(true);
+		this.jButtonVerValoraciones.setEnabled(true);
 
 		if (esComprador) {
 			this.jButtonCreateQuery.setEnabled(false);

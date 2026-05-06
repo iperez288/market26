@@ -194,7 +194,7 @@ public class BLFacadeImplementation  implements BLFacade {
 	
 	@Override
 	public void hacerValoracion(String email, int saleID, int rate, String text) {
-		//Nota: si la compra ya tenía una valoración no debería de haber llegado hasta aquí(controlar en show purchase)
+		//Nota: si la compra ya tenï¿½a una valoraciï¿½n no deberï¿½a de haber llegado hasta aquï¿½(controlar en show purchase)
 		//String email = usuario.getEmail();
 		dbManager.open();
 		dbManager.hacerValoracion(saleID, email, rate, text);
@@ -307,7 +307,7 @@ public class BLFacadeImplementation  implements BLFacade {
 			if(dbManager.crearMensaje(mensaje, c, email)!=null)
 			res = true;
 			else
-				System.out.printf("Mensaje vacío\n");
+				System.out.printf("Mensaje vacï¿½o\n");
 		}
 		
 		dbManager.close();
@@ -337,13 +337,20 @@ public class BLFacadeImplementation  implements BLFacade {
 		dbManager.open();
 		List<Mensaje> mensajes = dbManager.getMensajes(cid); //Cargo los mensajes
 		
-		//Marvo a la conversación como corresponda, leída, no leída etc.
+		//Marvo a la conversaciï¿½n como corresponda, leï¿½da, no leï¿½da etc.
 		
 		dbManager.actualizarEstadoConversacion(cid, EstadoConversacion.ESPERA);
 		
 		dbManager.close();
 		
 		return mensajes;
+	}
+
+	public List<ProposedSale> getVentasUsuario(String text, String email) {
+	    dbManager.open();
+	    List<ProposedSale> sales = dbManager.getVentasUsuario(text, email);
+	    dbManager.close();
+	    return sales;
 	}
 	
 }
