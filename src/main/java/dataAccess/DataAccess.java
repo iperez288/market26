@@ -15,6 +15,7 @@ import java.util.ResourceBundle;
 import javax.imageio.ImageIO;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
+import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 import javax.persistence.TypedQuery;
 
@@ -239,19 +240,25 @@ public class DataAccess {
 
 	public void open() {
 
-		String fileName = c.getDbFilename();
-		if (c.isDatabaseLocal()) {
-			emf = Persistence.createEntityManagerFactory("objectdb:" + fileName);
-			db = emf.createEntityManager();
-		} else {
-			Map<String, String> properties = new HashMap<String, String>();
-			properties.put("javax.persistence.jdbc.user", c.getUser());
-			properties.put("javax.persistence.jdbc.password", c.getPassword());
+		//if (emf == null) {
+			String fileName = c.getDbFilename();
+			if (c.isDatabaseLocal()) {
+				emf = Persistence.createEntityManagerFactory("objectdb:" + fileName);
+				
+			} else {
+				Map<String, String> properties = new HashMap<String, String>();
+				properties.put("javax.persistence.jdbc.user", c.getUser());
+				properties.put("javax.persistence.jdbc.password", c.getPassword());
 
-			emf = Persistence.createEntityManagerFactory(
-					"objectdb://" + c.getDatabaseNode() + ":" + c.getDatabasePort() + "/" + fileName, properties);
-			db = emf.createEntityManager();
-		}
+				emf = Persistence.createEntityManagerFactory(
+						"objectdb://" + c.getDatabaseNode() + ":" + c.getDatabasePort() + "/" + fileName, properties);
+				
+			}
+			
+			
+		//}
+		
+		db = emf.createEntityManager();
 		System.out.println("DataAccess opened => isDatabaseLocal: " + c.isDatabaseLocal());
 
 	}
@@ -535,25 +542,30 @@ public class DataAccess {
 		
 		
 		
-		Conversacion c;
 		
-		try {
+		
+		
 			db.getTransaction().begin();
 			
-			Buyer b = (Buyer) browseUser(email);
+			Conversacion c = new Conversacion();
 			
+			Buyer b = db.find(Buyer.class, email);;
+			
+			if(b==null)
+			{
+				System.out.printf("No se encontró usuario con email %s\n",email);
+				return null;
+				
+			}else {			
 			Sale sale = db.find(Sale.class, s.getSaleNumber());
 			
 			c = new Conversacion(tema,sale,b);
-			
 			db.persist(c);
+			}
 			
-		}catch (Exception e) {
-			return null;
-		}
-		finally {
 			db.getTransaction().commit();
-		}
+		
+		
 		
 		return c;
 		
@@ -561,26 +573,45 @@ public class DataAccess {
 	
 	public Mensaje crearMensaje(String texto, Conversacion c, String emailEmisor) {
 		
-		Mensaje msg;
-		db.getTransaction().begin();
+		try {
+			db.getTransaction().begin();
+			
+			Mensaje msg = new Mensaje();
+			
+			Buyer emisor = db.find(Buyer.class, emailEmisor);
+			
+			Conversacion conver = db.find(Conversacion.class, c.getCodigo());
+			
+			if(emisor == null || conver == null) {
+				
+				db.getTransaction().rollback();
+				return null;
+			}
+			
+			int mNumber = conver.getCantidadMensajes();
+			
+			Date now = new Date();
+			
+			msg = new Mensaje(conver,mNumber, emisor, now ,texto);
+			
+			db.persist(msg);
+			
+			db.getTransaction().commit();
+			
+			
+			
+			return msg;
+			
+
+			
+		} catch (NullPointerException e) {
+			e.printStackTrace();
+			// TODO Auto-generated catch block
+			db.getTransaction().commit();
+			return null;
+		}
 		
-		Buyer emisor = (Buyer) browseUser(emailEmisor);
-		
-		Conversacion conver = db.find(Conversacion.class, c.getCodigo());
-		
-		int mNumber = conver.getCantidadMensajes();
-		
-		Date now = new Date();
-		
-		msg = new Mensaje(conver,mNumber, emisor, now ,texto);
-		
-		db.persist(msg);
-		
-		db.getTransaction().commit();
-		
-		
-		
-		return msg;
+	
 	}
 	
 	/**

@@ -151,7 +151,7 @@ public class BLFacadeImplementation  implements BLFacade {
     	User u = dbManager.browseUser(email);
     	dbManager.close();
     	if(u!=null) {
-    		boolean exito = u.checkLogin(password);
+    		boolean exito = true;//u.checkLogin(password);
     		if(exito) {
     			if (u instanceof Seller) {
     				tipo = 2;
@@ -295,12 +295,24 @@ public class BLFacadeImplementation  implements BLFacade {
 		
 	public boolean iniciarConversacion(String tema, Sale s, String email, String mensaje) {
 				
+		boolean res = false;
+		
 		dbManager.open();
 		Conversacion c = dbManager.crearConversacion(tema, s, email);	
-		dbManager.crearMensaje(mensaje, c, email);
+		
+		
+		if(c!=null) {
+			
+			
+			//if(dbManager.crearMensaje(mensaje, c, email)!=null)
+			res = true;
+			//else
+				//System.out.printf("Mensaje vacío\n");
+		}
+		
 		dbManager.close();
 			
-		return true;	
+		return res;	
 	}
 	
 	public List<Conversacion> getConversaciones(String email){

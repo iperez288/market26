@@ -66,6 +66,7 @@ public class MainGUI extends JFrame {
 	private JPanel panel_consultas_1;
 	private JButton jButtonTransactionHistory=null;
 	private JButton jButtonQueryPurchases;
+	private JButton jButtonConversaciones;
 
 	public MainGUI(String mail) {
 		super();
@@ -197,6 +198,15 @@ public class MainGUI extends JFrame {
 		jContentPane.add(panel_ventas);
 		jContentPane.add(Box.createVerticalStrut(10));
 		jContentPane.add(panel_consultas);
+		
+		jButtonConversaciones = new JButton("Ver Conversaciones"); 
+		jButtonConversaciones.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				JFrame transactions = new ConsultarConversacionesGUI(email);
+				transactions.setVisible(true);
+			}
+		});
+		panel_consultas.add(jButtonConversaciones);
 		
 		panel_consultas_1 = new JPanel();
 		panel_consultas.add(panel_consultas_1);

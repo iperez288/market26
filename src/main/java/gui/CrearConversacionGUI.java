@@ -90,8 +90,11 @@ public class CrearConversacionGUI extends JFrame {
 					
 					BLFacade facade = MainGUI.getBusinessLogic();
 					
-					facade.iniciarConversacion(tema, s, email, mensaje);
+					boolean b = facade.iniciarConversacion(tema, s, email, mensaje);
+					if(b)
 					JOptionPane.showMessageDialog(null, "Conversación creada con exito.");
+					else
+						JOptionPane.showMessageDialog(null, "Error al crear conversacion.");
 					thisFrame.dispose();
 				}
 				
