@@ -69,7 +69,6 @@ public class MainGUI extends JFrame {
 	private JButton jButtonConversaciones;
 	
 	private JButton jButtonVerVentas;
-	private JButton jButtonVerValoraciones;
 
 	public MainGUI(String mail) {
 		super();
@@ -202,7 +201,8 @@ public class MainGUI extends JFrame {
 		jContentPane.add(Box.createVerticalStrut(10));
 		jContentPane.add(panel_consultas);
 		
-		jButtonConversaciones = new JButton("Ver Conversaciones"); 
+		jButtonConversaciones = new JButton("Ver Conversaciones");
+		jButtonConversaciones.setEnabled(false);
 		jButtonConversaciones.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				JFrame transactions = new ConsultarConversacionesGUI(email);
@@ -213,7 +213,7 @@ public class MainGUI extends JFrame {
 		
 		panel_consultas_1 = new JPanel();
 		panel_consultas.add(panel_consultas_1);
-		panel_consultas_1.setLayout(new GridLayout(4, 1, 5, 5));
+		panel_consultas_1.setLayout(new GridLayout(3, 1, 5, 5));
 		
 		jButtonVerVentas = new JButton("Ver Ventas");
 		jButtonVerVentas.setEnabled(false);
@@ -232,14 +232,6 @@ public class MainGUI extends JFrame {
 			}
 		});
 		panel_consultas_1.add(jButtonQueryPurchases);
-
-		jButtonVerValoraciones = new JButton("Ver Valoraciones");
-		jButtonVerValoraciones.setEnabled(false);
-		jButtonVerValoraciones.addActionListener(e -> {
-			JFrame a = new VerValoracionesGUI(email);
-			a.setVisible(true);
-		});
-		panel_consultas_1.add(jButtonVerValoraciones);
 		
 		jButtonTransactionHistory = new JButton("Historial Transacciones");
 		jButtonTransactionHistory.addActionListener(new ActionListener() {
@@ -289,15 +281,17 @@ public class MainGUI extends JFrame {
 		this.jButtonWithdrawMoney.setEnabled(true);
 		this.jButtonTransactionHistory.setEnabled(true);
 		this.jButtonQueryPurchases.setEnabled(true);
-		this.jButtonVerVentas.setEnabled(true);
-		this.jButtonVerValoraciones.setEnabled(true);
+		
+		this.jButtonConversaciones.setEnabled(true);
 
 		if (esComprador) {
 			this.jButtonCreateQuery.setEnabled(false);
 			this.jButtonViewAcceptedSales.setEnabled(false);
+			this.jButtonVerVentas.setEnabled(false);
 		} else {
 			this.jButtonCreateQuery.setEnabled(true);
 			this.jButtonViewAcceptedSales.setEnabled(true);
+			this.jButtonVerVentas.setEnabled(true);
 		}
 		actualizarSaldo();
 		paintAgain();

@@ -120,6 +120,11 @@ public class DataAccess {
 			//user4.getProposedSales().get(0).setFechaCompra(today);
 			//s1.doPurchase();
 			
+			user4.addProposedSale(s2, 4.2f);   
+			ProposedSale ps1 = user4.getProposedSales().get(1);
+			ps1.setFechaCompra(today);
+			s2.doPurchase();
+			
 
 			user2.addSale("imac 27", "7 urte, dena ondo dabil", 1, 200,today, null);
 			user2.addSale("iphone 17", "oso gutxi erabilita", 2, 400, today, null);
@@ -137,12 +142,14 @@ public class DataAccess {
 			
 			db.getTransaction().commit();
 			
+			
+			
 //Conversaciones
 			
 			Conversacion c1 = this.crearConversacion("Esferidad", s1, "buyer1@gmail.com");
 			this.crearMensaje("ï¿½Es redondo?", c1, "buyer1@gmail.com");
-			
-			
+			//int pID, String email, int rate, String text
+			this.hacerValoracion(ps1.getID(), user4.getEmail(),8, "Está bien.");
 			
 			
 			
@@ -687,11 +694,11 @@ public class DataAccess {
 	
 	public List<ProposedSale> getVentasUsuario(String text, String email) {
 	    TypedQuery<ProposedSale> query = db.createQuery(
-	        "SELECT ps FROM ProposedSale ps WHERE ps.sale.seller.email = :email AND ps.sale.title LIKE :text", 
+	        "SELECT ps FROM ProposedSale ps WHERE ps.sale.seller.email = ?1 AND ps.sale.title LIKE ?2 AND ps.fechaCompra IS NOT NULL", 
 	        ProposedSale.class
 	    );
-	    query.setParameter("email", email);
-	    query.setParameter("text", "%" + text + "%");
+	    query.setParameter(1, email);
+	    query.setParameter(2, "%" + text + "%");
 	    return query.getResultList();
 	}
 }

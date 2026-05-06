@@ -72,7 +72,24 @@ public class VerVentasGUI extends JFrame {
 			}
 		});
 		getContentPane().add(jButtonSearch);
-
+		
+		
+		tableProducts.addMouseListener(new MouseAdapter() {
+	        @Override
+	        public void mousePressed(MouseEvent mouseEvent) {
+	            
+	            if(mouseEvent.getClickCount() == 2)
+	            {
+			        JTable table =(JTable) mouseEvent.getSource();
+	            	Point point = mouseEvent.getPoint();
+			        int row = table.rowAtPoint(point);
+	            	domain.ProposedSale ps=(domain.ProposedSale) tableModelProducts.getValueAt(row, 4);
+	            	if(!ps.hasReview());
+	            		new VerValoracionGUI(ps.getReview());
+		              
+	            }
+	        }
+	 });
 		actualizarLista();
 	}
 

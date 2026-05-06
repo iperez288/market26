@@ -56,6 +56,30 @@ public class Valoracion implements Serializable {
 		return this.comentario;
 	}
 
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public ProposedSale getSale() {
+		return sale;
+	}
+
+	public void setSale(ProposedSale sale) {
+		this.sale = sale;
+	}
+
+	public Buyer getValorador() {
+		return valorador;
+	}
+
+	public void setValorador(Buyer valorador) {
+		this.valorador = valorador;
+	}
+
 
 
 }

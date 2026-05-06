@@ -74,7 +74,7 @@ public class CrearConversacionGUI extends JFrame {
 		contentPane.add(lblNewLabel);
 		
 		JLabel lblNewLabel_1 = new JLabel("Mensaje:");
-		lblNewLabel_1.setBounds(57, 37, 44, 12);
+		lblNewLabel_1.setBounds(57, 37, 121, 12);
 		contentPane.add(lblNewLabel_1);
 		
 		btnCrear = new JButton("Crear");
@@ -100,7 +100,7 @@ public class CrearConversacionGUI extends JFrame {
 				
 			}
 		});
-		btnCrear.setBounds(93, 228, 84, 20);
+		btnCrear.setBounds(85, 228, 93, 20);
 		contentPane.add(btnCrear);
 		
 		btnCancelar = new JButton("Cancelar");
@@ -109,7 +109,7 @@ public class CrearConversacionGUI extends JFrame {
 				thisFrame.dispose();
 			}
 		});
-		btnCancelar.setBounds(208, 228, 84, 20);
+		btnCancelar.setBounds(208, 228, 101, 20);
 		contentPane.add(btnCancelar);
 
 	}
