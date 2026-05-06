@@ -66,9 +66,6 @@ public class Conversacion   {
 		this.producto = producto;
 		this.iniciador=iniciador;
 		this.estado= EstadoConversacion.PREGUNTADA;
-		
-		this.iniciador.addConversacion(this);
-		this.producto.addConversacion(this);
 	}
 
 	public long getCodigo() {

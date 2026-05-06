@@ -109,9 +109,11 @@ public class DataAccess {
 			Sale s1 = user1.addSale("futbol baloia", "oso polita, gutxi erabilita", 2, 10,  today, null);
 			Sale s2 =user1.addSale("salomon mendiko botak", "44 zenbakia, 3 ateraldi",2, 20,  today, null);
 			
+			
 			user1.addSale("samsung 42\" telebista", "berria, erabili gabe", 2, 175,  today, null);
 			
 			user4.setSaldo(100.0f);
+			
 			
 			
 			user4.addProposedSale(s1, 1.2f);   
@@ -132,9 +134,18 @@ public class DataAccess {
 			db.persist(user3);
 			db.persist(user4);
 			db.persist(user5);
-
-	
+			
 			db.getTransaction().commit();
+			
+//Conversaciones
+			
+			Conversacion c1 = this.crearConversacion("Esferidad", s1, "buyer1@gmail.com");
+			this.crearMensaje("¿Es redondo?", c1, "buyer1@gmail.com");
+			
+			
+			
+			
+			
 			System.out.println("Db initialized");
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -542,9 +553,7 @@ public class DataAccess {
 		
 		
 		
-		
-		
-		
+	
 			db.getTransaction().begin();
 			
 			Conversacion c = new Conversacion();
@@ -560,6 +569,9 @@ public class DataAccess {
 			Sale sale = db.find(Sale.class, s.getSaleNumber());
 			
 			c = new Conversacion(tema,sale,b);
+			b.addConversacion(c);
+			sale.addConversacion(c);
+			
 			db.persist(c);
 			}
 			
