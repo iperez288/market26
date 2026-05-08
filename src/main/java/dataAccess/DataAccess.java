@@ -112,13 +112,15 @@ public class DataAccess {
 			
 			user1.addSale("samsung 42\" telebista", "berria, erabili gabe", 2, 175,  today, null);
 			
-			user4.setSaldo(100.0f);
+			Transaction t = new Transaction( 100.0f, today, TransactionType.income,  user4);
+			
+			user4.addTransaction(t);
 			
 			
 			
 			user4.addProposedSale(s1, 1.2f);   
-			//user4.getProposedSales().get(0).setFechaCompra(today);
-			//s1.doPurchase();
+			user4.getProposedSales().get(0).setFechaCompra(today);
+			s1.doPurchase();
 			
 			user4.addProposedSale(s2, 4.2f);   
 			ProposedSale ps1 = user4.getProposedSales().get(1);
@@ -378,11 +380,11 @@ public class DataAccess {
 	}
 
 	public void annadirSaldo(String email, float importe) {
-		User u = db.find(User.class, email);
+		
 
 		db.getTransaction().begin();
 
-		Buyer b = (Buyer) u;
+		Buyer b = db.find(Buyer.class, email);
 
 		Transaction t = new Transaction(importe, new Date(), Transaction.TransactionType.income, b);
 
@@ -436,24 +438,30 @@ public class DataAccess {
 			snum = ps.getSale().getSaleNumber();
 			
 			Seller s;
-			TypedQuery<Seller> q1= db.createQuery("SELECT sl FROM Sale s JOIN s.seller sl WHERE  s.saleNumber = ?1", Seller.class);
+			
+			s = db.find(Seller.class, ps.getSeller());
+			
+			/*TypedQuery<Seller> q1= db.createQuery("SELECT sl FROM Sale s JOIN s.seller sl WHERE  s.saleNumber = ?1", Seller.class);
 			q1.setParameter(1, snum);
 			
 			List<Seller> sl = q1.getResultList();
 			if(sl.size()>1) {
-				System.out.println("Mï¿½s de un vendedor encontrado");
+				System.out.println("Más de un vendedor encontrado");
 			}
-			s = sl.get(0);
+			s = sl.get(0);*/
 			
-			TypedQuery<Long> q2= db.createQuery("SELECT count(ps) FROM Seller sl JOIN sl.sales s JOIN s.proposedSales ps WHERE s.purchased = TRUE AND ps.valoracion IS NOT NULL" , Long.class);
+			TypedQuery<Long> q2= db.createQuery("SELECT count(ps) FROM Seller sl JOIN sl.sales s JOIN s.proposedSales ps WHERE s.purchased = TRUE AND ps.valoracion IS NOT NULL AND sl.email = ?1" , Long.class);
+			q2.setParameter(1, s.getEmail());
 			
 			numV = q2.getResultList().get(0);
+			
+			System.out.println("Num valoraciones de seller "+ s.getEmail() + ": " + numV);
 			
 			sum = s.getRate()*numV;
 			sum = sum + rate;
 			numV++;
 			
-			s.setRate((float) (sum/numV));
+			s.setRate(((float)sum)/numV);
 			
 			db.getTransaction().commit();
 			
@@ -700,6 +708,13 @@ public class DataAccess {
 	    query.setParameter(1, email);
 	    query.setParameter(2, "%" + text + "%");
 	    return query.getResultList();
+	}
+
+	public float getPuntuacion(String email) {
+
+		Seller s = db.find(Seller.class, email);
+		
+		return s.getRate();
 	}
 }
 

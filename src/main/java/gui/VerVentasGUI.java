@@ -29,7 +29,7 @@ public class VerVentasGUI extends JFrame {
 
 	private String[] columnNamesProducts = new String[] {
 			ResourceBundle.getBundle("Etiquetas").getString("CreateSaleGUI.Title"),
-			ResourceBundle.getBundle("Etiquetas").getString("CreateSaleGUI.Price"), "Estado", "Comprador", "Objeto" };
+			ResourceBundle.getBundle("Etiquetas").getString("CreateSaleGUI.Price"), "Comprador", "Reseña", "Objeto" };
 
 	private JTextField jTextFieldSearch;
 
@@ -73,6 +73,14 @@ public class VerVentasGUI extends JFrame {
 		});
 		getContentPane().add(jButtonSearch);
 		
+		BLFacade facade = MainGUI.getBusinessLogic();
+		
+		float puntos = facade.getPuntuacion(email);
+		
+		JLabel jLabelPuntos = new JLabel(String.format("Puntuaci\u00F3n: %.2f", puntos));
+		jLabelPuntos.setBounds(52, 10, 117, 12);
+		getContentPane().add(jLabelPuntos);
+		
 		
 		tableProducts.addMouseListener(new MouseAdapter() {
 	        @Override
@@ -84,7 +92,7 @@ public class VerVentasGUI extends JFrame {
 	            	Point point = mouseEvent.getPoint();
 			        int row = table.rowAtPoint(point);
 	            	domain.ProposedSale ps=(domain.ProposedSale) tableModelProducts.getValueAt(row, 4);
-	            	if(!ps.hasReview());
+	            	if(ps.hasReview())
 	            		new VerValoracionGUI((VerVentasGUI) thisFrame,ps.getReview());
 		              
 	            }
@@ -111,12 +119,12 @@ public class VerVentasGUI extends JFrame {
 					Vector<Object> row = new Vector<Object>();
 					row.add(sale.getTitle());
 					row.add(sale.getPrice());
+					row.add(sale.getBuyer().getEmail());
 
-					if (sale.getBuyer() != null) {
-						row.add("Vendido");
-						row.add(sale.getBuyer().getEmail());
+					if (sale.hasReview()) {
+						row.add(sale.getReview().getPuntuacion());
+						
 					} else {
-						row.add("En venta");
 						row.add("-");
 					}
 

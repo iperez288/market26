@@ -53,7 +53,7 @@ public class AddSaldoGUI extends JFrame {
 					
 					facade.annadirSaldo(email, importe); 
 					
-					JOptionPane.showMessageDialog(null, "Has a√±adido " + importe + "‚Ç¨ a tu saldo");
+					JOptionPane.showMessageDialog(null, "Has aÒadido " + importe + "Ä a tu saldo");
 
 					
 					mainFrame.actualizarSaldo();
@@ -61,7 +61,7 @@ public class AddSaldoGUI extends JFrame {
 					
 				} catch (NumberFormatException ex) {
 					
-					JOptionPane.showMessageDialog(null, "Importe no v√°lido");
+					JOptionPane.showMessageDialog(null, "Importe no valido");
 
 				}
 			}

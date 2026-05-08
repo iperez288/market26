@@ -103,6 +103,10 @@ public class ProposedSale implements Serializable {
 	public Valoracion getReview() {
 		return this.valoracion;
 	}
+
+	public Seller getSeller() {
+		return this.sale.getSeller();
+	}
 	
 	
 

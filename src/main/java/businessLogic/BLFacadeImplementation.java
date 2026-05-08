@@ -353,6 +353,15 @@ public class BLFacadeImplementation  implements BLFacade {
 	    return sales;
 	}
 	
+	public float getPuntuacion(String email) {
+		
+		dbManager.open();
+		float res = dbManager.getPuntuacion(email);
+		dbManager.close();
+		
+		return res;
+	}
+	
 
 	
 }

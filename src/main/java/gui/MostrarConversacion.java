@@ -80,7 +80,7 @@ public class MostrarConversacion extends JFrame {
 				thisFrame.dispose();
 			}
 		});
-		btnCancelar.setBounds(82, 352, 84, 20);
+		btnCancelar.setBounds(45, 352, 84, 20);
 		contentPane.add(btnCancelar);
 		
 		JButton btnEnviar = new JButton("Enviar mensaje");
@@ -103,7 +103,7 @@ public class MostrarConversacion extends JFrame {
 				}
 			}
 		});
-		btnEnviar.setBounds(298, 352, 118, 20);
+		btnEnviar.setBounds(267, 352, 149, 20);
 		contentPane.add(btnEnviar);
 		
 		panelMensajes = new JPanel();
