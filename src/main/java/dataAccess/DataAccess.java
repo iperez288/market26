@@ -645,6 +645,8 @@ public class DataAccess {
 	}
 	
 	/**
+	 * Consigue la conversaciones que tienen los productos del vendedor. 
+	 * Si el email no corresponde a un vendedor, devuelve una lista vacía.
 	 * 
 	 * @param email
 	 * @return Conversaciones que tienen los productos del vendedor

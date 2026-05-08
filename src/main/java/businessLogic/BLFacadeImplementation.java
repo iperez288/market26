@@ -151,7 +151,7 @@ public class BLFacadeImplementation  implements BLFacade {
     	User u = dbManager.browseUser(email);
     	dbManager.close();
     	if(u!=null) {
-    		boolean exito = true;//u.checkLogin(password);
+    		boolean exito = u.checkLogin(password);
     		if(exito) {
     			if (u instanceof Seller) {
     				tipo = 2;
@@ -321,8 +321,10 @@ public class BLFacadeImplementation  implements BLFacade {
 		
 		dbManager.open();
 		
+		//Consigue la conversaciones Iniciadas por el comprador
 		conversaciones.addAll(dbManager.getConversacionesIniciadas(email));
 		
+		//Consigue las conversaciones de los productos de un vendedor, si es comprador, devuelve una lista vacía
 		conversaciones.addAll(dbManager.getConversacionesDeProductos(email));
 		
 		dbManager.close();
@@ -346,6 +348,7 @@ public class BLFacadeImplementation  implements BLFacade {
 		return mensajes;
 	}
 
+
 	public List<ProposedSale> getVentasUsuario(String text, String email) {
 	    dbManager.open();
 	    List<ProposedSale> sales = dbManager.getVentasUsuario(text, email);
@@ -353,6 +356,9 @@ public class BLFacadeImplementation  implements BLFacade {
 	    return sales;
 	}
 	
+	/**
+	 * 
+	 */
 	public float getPuntuacion(String email) {
 		
 		dbManager.open();

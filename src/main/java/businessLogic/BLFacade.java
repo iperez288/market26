@@ -87,25 +87,69 @@ public interface BLFacade  {
 
 	 void hacerValoracion(String email, int saleID, int rate, String text);
 	 
+	 /**
+	  * Realiza la compra de un producto
+	  * @param email
+	  * @param ps
+	  * @return
+	  */
 	 public boolean doPurchase(String email, ProposedSale ps);
 
 	 public List<ProposedSale> getPurchasedSales(String text, String email);
 	 
+	 /**
+	  * Consigue el saldo de un Buyer
+	  * @param email del Buyer
+	  * @return float que representa el saldo del Buyer.
+	  */
 	 public float getSaldo(String email);
 
 	 public List<Transaction> getTransactions(String email);
 	 
+	 /**
+	  * 
+	  * Envía un mensaje a la conversación c, siendo el emisor el Buyer al que corresponda el email
+	  * 
+	  * @param mensaje contenido del mensaje
+	  * @param c Conversacion a la que pertenece el mensaje
+	  * @param email del emisor
+	  * @return Mensaje que ha sido enviado
+	  */
 	 public Mensaje enviarMensaje(String mensaje, Conversacion c, String email);
 	 
 	 public boolean iniciarConversacion(String tema, Sale s, String email, String mensaje);
 	 
+	 /**
+	  * Consigue todas las conversaciones activas de un buyer 
+	  * 
+	  * @param email del buyer
+	  * @return Una lista de Conversacion
+	  */
 	 public List<Conversacion> getConversaciones(String email);
 	 
+	 /**
+	  * Consigue todos los mensajes de una conversación del usuario al que corresponda el email
+	  * 
+	  * @param c conversación
+	  * @param email del buyer al que pertenecen los mensajes
+	  * @return Una lista de Mensaje que son contenidos en la Conversacion c.
+	  */
 	 public List<Mensaje> getMensajes(Conversacion c, String email);
 	 
+	 /**
+	  * Consigue los todas las ventas que tenagan text en su título del ususario del email.
+	  * 
+	  * @param text parte del título de la compra
+	  * @param email Email del ususario
+	  * @return Una lista de Proposed con las ventas del ususario al que corresponda el email y que contengan text en su título 
+	  */
 	 public List<ProposedSale> getVentasUsuario(String text, String email);
 
-
+/**
+ * Devuelve la puntuación media de un vendedor.
+ * @param email del Vendedor
+ * @return 
+ */
 	 public float getPuntuacion(String email);
 	
 }
