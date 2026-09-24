@@ -98,7 +98,7 @@ public class ConsultarConversacionesGUI extends JFrame {
 		            	Point point = mouseEvent.getPoint();
 				        int row = table.rowAtPoint(point);
 		            	domain.Conversacion c=(domain.Conversacion) tableModelProducts.getValueAt(row, 4);
-		            	JFrame a = new MostrarConversacion(c, email);
+		            	JFrame a = new MostrarConversacion(null,c , email);
 		            	a.setVisible(true);
 		            	
 		            	
