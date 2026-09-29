@@ -3,6 +3,7 @@ package domain;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
@@ -106,6 +107,11 @@ public class Buyer extends User implements Serializable {
 		if (getEmail() != other.getEmail())
 			return false;
 		return true;
+	}
+	
+	@Override
+	public int hashCode() {
+	    return Objects.hash(getEmail());
 	}
 
 	public float getSaldo() {

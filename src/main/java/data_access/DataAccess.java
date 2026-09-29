@@ -1,9 +1,11 @@
-package dataAccess;
+package data_access;
 
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Date;
@@ -54,19 +56,20 @@ public class DataAccess {
 
 	public DataAccess() {
 		if (c.isDatabaseInitialized()) {
-			String fileName = c.getDbFilename();
+		    String fileName = c.getDbFilename();
 
-			if (!c.isDatabaseLocal())
-				fileName = dbServerDir + fileName;
+		    if (!c.isDatabaseLocal())
+		        fileName = dbServerDir + fileName;
 
-			File fileToDelete = new File(fileName);
-			if (fileToDelete.delete()) {
-				File fileToDeleteTemp = new File(fileName + "$");
-				fileToDeleteTemp.delete();
-				System.out.println("File deleted");
-			} else {
-				System.out.println("Operation failed");
-			}
+		    try {
+		        Files.delete(Paths.get(fileName));
+
+		        Files.deleteIfExists(Paths.get(fileName + "$"));
+
+		        System.out.println("File deleted");
+		    } catch (IOException e) {
+		        System.out.println("Operation failed: " + e.getMessage());
+		    }
 		}
 		open();
 		if (c.isDatabaseInitialized())
@@ -151,7 +154,7 @@ public class DataAccess {
 			Conversacion c1 = this.crearConversacion("Esferidad", s1, "buyer1@gmail.com");
 			this.crearMensaje("ï¿½Es redondo?", c1, "buyer1@gmail.com");
 			//int pID, String email, int rate, String text
-			this.hacerValoracion(ps1.getID(), user4.getEmail(),8, "Está bien.");
+			this.hacerValoracion(ps1.getID(), user4.getEmail(),8, "Estï¿½ bien.");
 			
 			
 			
@@ -446,7 +449,7 @@ public class DataAccess {
 			
 			List<Seller> sl = q1.getResultList();
 			if(sl.size()>1) {
-				System.out.println("Más de un vendedor encontrado");
+				System.out.println("Mï¿½s de un vendedor encontrado");
 			}
 			s = sl.get(0);*/
 			
@@ -646,7 +649,7 @@ public class DataAccess {
 	
 	/**
 	 * Consigue la conversaciones que tienen los productos del vendedor. 
-	 * Si el email no corresponde a un vendedor, devuelve una lista vacía.
+	 * Si el email no corresponde a un vendedor, devuelve una lista vacï¿½a.
 	 * 
 	 * @param email
 	 * @return Conversaciones que tienen los productos del vendedor

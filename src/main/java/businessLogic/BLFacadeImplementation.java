@@ -7,7 +7,7 @@ import java.util.List;
 import javax.jws.WebMethod;
 import javax.jws.WebService;
 
-import dataAccess.DataAccess;
+import data_access.DataAccess;
 import domain.*;
 import domain.Conversacion.EstadoConversacion;
 import exceptions.FileNotUploadedException;
@@ -26,9 +26,8 @@ import java.io.IOException;
  */
 @WebService(endpointInterface = "businessLogic.BLFacade")
 public class BLFacadeImplementation  implements BLFacade {
-	 private static final int baseSize = 160;
 
-		private static final String basePath="src/main/resources/images/";
+		private static final String BASE_PATH="src/main/resources/images/";
 	DataAccess dbManager;
 
 	//User usuario; //Al iniciar el programa es null, porque no se ha asignado un rol al usuario. Posteriormente, tomarÃ¡ valor de Buyer o Seller.
@@ -109,7 +108,7 @@ public class BLFacadeImplementation  implements BLFacade {
 	 * {@inheritDoc}
 	 */
     @WebMethod public Image downloadImage(String imageName) {
-        File image = new File(basePath+imageName);
+        File image = new File(BASE_PATH+imageName);
         try {
             return ImageIO.read(image);
         } catch (IOException e) {
@@ -324,7 +323,7 @@ public class BLFacadeImplementation  implements BLFacade {
 		//Consigue la conversaciones Iniciadas por el comprador
 		conversaciones.addAll(dbManager.getConversacionesIniciadas(email));
 		
-		//Consigue las conversaciones de los productos de un vendedor, si es comprador, devuelve una lista vacía
+		//Consigue las conversaciones de los productos de un vendedor, si es comprador, devuelve una lista vacï¿½a
 		conversaciones.addAll(dbManager.getConversacionesDeProductos(email));
 		
 		dbManager.close();

@@ -1,4 +1,4 @@
-package dataAccess;
+package data_access;
 
 import java.awt.BorderLayout;
 import java.awt.FlowLayout;
