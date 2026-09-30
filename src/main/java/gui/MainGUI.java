@@ -58,7 +58,7 @@ public class MainGUI extends JFrame {
 	private JButton btnRegister;
 	private JPanel user_panel;
 
-	private JPanel panel_ventas;
+	private JPanel panelVentas;
 	private JPanel panel_consultas;
 	private JPanel panel_dinero;
 
@@ -139,9 +139,9 @@ public class MainGUI extends JFrame {
 		jLabelSelectOption.setHorizontalAlignment(SwingConstants.CENTER);
 		jLabelSelectOption.setBorder(new EmptyBorder(15, 0, 15, 0));
 
-		panel_ventas = new JPanel();
-		panel_ventas.setLayout(new GridLayout(1, 2, 10, 10));
-		panel_ventas.setBorder(new TitledBorder(null, "Operaciones de Venta", TitledBorder.LEADING, TitledBorder.TOP, null, null));
+		panelVentas = new JPanel();
+		panelVentas.setLayout(new GridLayout(1, 2, 10, 10));
+		panelVentas.setBorder(new TitledBorder(null, "Operaciones de Venta", TitledBorder.LEADING, TitledBorder.TOP, null, null));
 		
 		jButtonCreateQuery = new JButton(ResourceBundle.getBundle("Etiquetas").getString("MainGUI.CreateSale"));
 		jButtonCreateQuery.setEnabled(false);
@@ -149,7 +149,7 @@ public class MainGUI extends JFrame {
 			JFrame a = new CreateSaleGUI(email);
 			a.setVisible(true);
 		});
-		panel_ventas.add(jButtonCreateQuery);
+		panelVentas.add(jButtonCreateQuery);
 		
 		jButtonViewAcceptedSales = new JButton("Ver ofertas aceptadas");
 		jButtonViewAcceptedSales.setEnabled(false);
@@ -157,7 +157,7 @@ public class MainGUI extends JFrame {
 			JFrame a = new QueryProposedSalesGUI(email,this);
 			a.setVisible(true);
 		});
-		panel_ventas.add(jButtonViewAcceptedSales);
+		panelVentas.add(jButtonViewAcceptedSales);
 
 		panel_consultas = new JPanel();
 		panel_consultas.setLayout(new GridLayout(1, 2, 10, 10));
@@ -197,7 +197,7 @@ public class MainGUI extends JFrame {
 		
 		jContentPane.add(user_panel);
 		jContentPane.add(jLabelSelectOption);
-		jContentPane.add(panel_ventas);
+		jContentPane.add(panelVentas);
 		jContentPane.add(Box.createVerticalStrut(10));
 		jContentPane.add(panel_consultas);
 		

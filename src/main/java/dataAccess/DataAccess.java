@@ -4,6 +4,7 @@ import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.nio.file.Files;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Date;
@@ -15,7 +16,6 @@ import java.util.ResourceBundle;
 import javax.imageio.ImageIO;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
-import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 import javax.persistence.TypedQuery;
 
@@ -47,8 +47,10 @@ public class DataAccess {
 	//private static final String basePath = "src/main/resources/images/";
 	//private static final String dbServerDir = "src/main/resources/db/";
 	
-	private static final String basePath = "resources/images/";
+	private static final String BASEPATH = "resources/images/";
 	private static final String dbServerDir = "resources/db/";
+	
+	private static final String BUYER1EMAIL="buyer1@gmail.com";
 
 	ConfigXML c = ConfigXML.getInstance();
 
@@ -62,7 +64,11 @@ public class DataAccess {
 			File fileToDelete = new File(fileName);
 			if (fileToDelete.delete()) {
 				File fileToDeleteTemp = new File(fileName + "$");
-				fileToDeleteTemp.delete();
+				try {
+					Files.delete(fileToDeleteTemp.toPath());
+				} catch (IOException e) {
+					e.printStackTrace();
+				}			
 				System.out.println("File deleted");
 			} else {
 				System.out.println("Operation failed");
@@ -99,7 +105,7 @@ public class DataAccess {
 			Seller user2=new Seller("seller2@gmail.com","Ane GaztaÃ±aga","1234");
 			Seller user3=new Seller("seller3@gmail.com","Test Seller","0212");
 			
-			Buyer user4= new Buyer("buyer1@gmail.com","Test Seller","1234");
+			Buyer user4= new Buyer(BUYER1EMAIL,"Test Seller","1234");
 			User user5 =new Buyer("buyer2@gmail.com","Test Seller","1234");
 			
 			//Create products
@@ -148,10 +154,10 @@ public class DataAccess {
 			
 //Conversaciones
 			
-			Conversacion c1 = this.crearConversacion("Esferidad", s1, "buyer1@gmail.com");
-			this.crearMensaje("ï¿½Es redondo?", c1, "buyer1@gmail.com");
+			Conversacion c1 = this.crearConversacion("Esferidad", s1, BUYER1EMAIL);
+			this.crearMensaje("ï¿½Es redondo?", c1, BUYER1EMAIL);
 			//int pID, String email, int rate, String text
-			this.hacerValoracion(ps1.getID(), user4.getEmail(),8, "Está bien.");
+			this.hacerValoracion(ps1.getID(), user4.getEmail(),8, "Estï¿½ bien.");
 			
 			
 			
@@ -284,7 +290,7 @@ public class DataAccess {
 	}
 
 	public BufferedImage getFile(String fileName) {
-		File file = new File(basePath + fileName);
+		File file = new File(BASEPATH + fileName);
 		BufferedImage targetImg = null;
 		try {
 			targetImg = rescale(ImageIO.read(file));
@@ -446,7 +452,7 @@ public class DataAccess {
 			
 			List<Seller> sl = q1.getResultList();
 			if(sl.size()>1) {
-				System.out.println("Más de un vendedor encontrado");
+				System.out.println("Mï¿½s de un vendedor encontrado");
 			}
 			s = sl.get(0);*/
 			
@@ -571,7 +577,7 @@ public class DataAccess {
 	
 			db.getTransaction().begin();
 			
-			Conversacion c = new Conversacion();
+			Conversacion c = null;
 			
 			Buyer b = db.find(Buyer.class, email);;
 			
@@ -646,7 +652,7 @@ public class DataAccess {
 	
 	/**
 	 * Consigue la conversaciones que tienen los productos del vendedor. 
-	 * Si el email no corresponde a un vendedor, devuelve una lista vacía.
+	 * Si el email no corresponde a un vendedor, devuelve una lista vacï¿½a.
 	 * 
 	 * @param email
 	 * @return Conversaciones que tienen los productos del vendedor

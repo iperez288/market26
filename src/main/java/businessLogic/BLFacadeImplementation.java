@@ -1,24 +1,30 @@
 package businessLogic;
+import java.awt.Image;
+import java.awt.image.BufferedImage;
 import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.logging.Logger;
 
+import javax.imageio.ImageIO;
 import javax.jws.WebMethod;
 import javax.jws.WebService;
 
 import dataAccess.DataAccess;
-import domain.*;
+import domain.Buyer;
+import domain.Conversacion;
 import domain.Conversacion.EstadoConversacion;
+import domain.Mensaje;
+import domain.ProposedSale;
+import domain.Sale;
+import domain.Seller;
+import domain.Transaction;
+import domain.User;
 import exceptions.FileNotUploadedException;
 import exceptions.MustBeLaterThanTodayException;
 import exceptions.SaleAlreadyExistException;
-import gui.MainGUI;
-
-import java.awt.image.BufferedImage;
-import java.awt.Image;
-import javax.imageio.ImageIO;
-import java.io.IOException;
 
 
 /**
@@ -27,6 +33,7 @@ import java.io.IOException;
 @WebService(endpointInterface = "businessLogic.BLFacade")
 public class BLFacadeImplementation  implements BLFacade {
 	 private static final int baseSize = 160;
+	 private static final Logger logger = Logger.getLogger(BLFacadeImplementation.class.getName());
 
 		private static final String basePath="src/main/resources/images/";
 	DataAccess dbManager;
@@ -35,7 +42,7 @@ public class BLFacadeImplementation  implements BLFacade {
 	//String tipoUsuario;
 	
 	public BLFacadeImplementation()  {		
-		System.out.println("Creating BLFacadeImplementation instance");
+		logger.info("Creating BLFacadeImplementation instance");
 		dbManager=new DataAccess();	
 		
 	}
@@ -324,7 +331,7 @@ public class BLFacadeImplementation  implements BLFacade {
 		//Consigue la conversaciones Iniciadas por el comprador
 		conversaciones.addAll(dbManager.getConversacionesIniciadas(email));
 		
-		//Consigue las conversaciones de los productos de un vendedor, si es comprador, devuelve una lista vacía
+		//Consigue las conversaciones de los productos de un vendedor, si es comprador, devuelve una lista vacï¿½a
 		conversaciones.addAll(dbManager.getConversacionesDeProductos(email));
 		
 		dbManager.close();
