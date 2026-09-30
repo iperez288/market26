@@ -12,9 +12,10 @@ import javax.imageio.ImageIO;
 import javax.jws.WebMethod;
 import javax.jws.WebService;
 
-import dataAccess.DataAccess;
-import domain.Buyer;
-import domain.Conversacion;
+import com.sun.istack.logging.Logger;
+
+import data_access.DataAccess;
+import domain.*;
 import domain.Conversacion.EstadoConversacion;
 import domain.Mensaje;
 import domain.ProposedSale;
@@ -32,10 +33,9 @@ import exceptions.SaleAlreadyExistException;
  */
 @WebService(endpointInterface = "businessLogic.BLFacade")
 public class BLFacadeImplementation  implements BLFacade {
-	 private static final int baseSize = 160;
-	 private static final Logger logger = Logger.getLogger(BLFacadeImplementation.class.getName());
 
-		private static final String basePath="src/main/resources/images/";
+	private static final String BASE_PATH="src/main/resources/images/";
+	private static final Logger logger = Logger.getLogger(BLFacadeImplementation.class.getName(), null);
 	DataAccess dbManager;
 
 	//User usuario; //Al iniciar el programa es null, porque no se ha asignado un rol al usuario. Posteriormente, tomará valor de Buyer o Seller.
@@ -48,7 +48,7 @@ public class BLFacadeImplementation  implements BLFacade {
 	}
 	
     public BLFacadeImplementation(DataAccess da)  {
-		System.out.println("Creating BLFacadeImplementation instance with DataAccess parameter");
+		logger.info("Creating BLFacadeImplementation instance with DataAccess parameter");
 		dbManager=da;
 		
 	}
@@ -116,7 +116,7 @@ public class BLFacadeImplementation  implements BLFacade {
 	 * {@inheritDoc}
 	 */
     @WebMethod public Image downloadImage(String imageName) {
-        File image = new File(basePath+imageName);
+        File image = new File(BASE_PATH+imageName);
         try {
             return ImageIO.read(image);
         } catch (IOException e) {

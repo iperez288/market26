@@ -2,6 +2,7 @@ package configuration;
 
 import java.io.File;
 
+import javax.xml.XMLConstants;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 
@@ -76,6 +77,19 @@ public class ConfigXML {
 		
 		  try {
 			  DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
+			  
+			  dbFactory.setFeature("http://apache.org/xml/features/disallow-doctype-decl", true);
+
+			  dbFactory.setFeature("http://xml.org/sax/features/external-general-entities", false);
+			  dbFactory.setFeature("http://xml.org/sax/features/external-parameter-entities", false);
+			  dbFactory.setFeature("http://apache.org/xml/features/nonvalidating/load-external-dtd", false);
+
+			  dbFactory.setXIncludeAware(false);
+			  dbFactory.setExpandEntityReferences(false);
+			  dbFactory.setFeature(XMLConstants.FEATURE_SECURE_PROCESSING, true);
+			  
+			  
+			  
 			  DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
 			  Document doc = dBuilder.parse(new File(configFile));
 			  doc.getDocumentElement().normalize();

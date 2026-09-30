@@ -1,10 +1,11 @@
-package dataAccess;
+package data_access;
 
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Date;
@@ -42,37 +43,36 @@ import exceptions.SaleAlreadyExistException;
 public class DataAccess {
 	private EntityManager db;
 	private EntityManagerFactory emf;
-	private static final int baseSize = 160;
+	private static final int BASE_SIZE = 160;
 
 	//private static final String basePath = "src/main/resources/images/";
 	//private static final String dbServerDir = "src/main/resources/db/";
 	
 	private static final String BASEPATH = "resources/images/";
-	private static final String dbServerDir = "resources/db/";
+	private static final String DBSERVERDIB = "resources/db/";
 	
-	private static final String BUYER1EMAIL="buyer1@gmail.com";
+	private static final String TEST_SELLER = "Test Seller";
+	private static final String BUYER1_STRING = "buyer1@gmail.com";
+
 
 	ConfigXML c = ConfigXML.getInstance();
 
 	public DataAccess() {
 		if (c.isDatabaseInitialized()) {
-			String fileName = c.getDbFilename();
+		    String fileName = c.getDbFilename();
 
-			if (!c.isDatabaseLocal())
-				fileName = dbServerDir + fileName;
+		    if (!c.isDatabaseLocal())
+		        fileName = DBSERVERDIB + fileName;
 
-			File fileToDelete = new File(fileName);
-			if (fileToDelete.delete()) {
-				File fileToDeleteTemp = new File(fileName + "$");
-				try {
-					Files.delete(fileToDeleteTemp.toPath());
-				} catch (IOException e) {
-					e.printStackTrace();
-				}			
-				System.out.println("File deleted");
-			} else {
-				System.out.println("Operation failed");
-			}
+		    try {
+		        Files.delete(Paths.get(fileName));
+
+		        Files.deleteIfExists(Paths.get(fileName + "$"));
+
+		        System.out.println("File deleted");
+		    } catch (IOException e) {
+		        System.out.println("Operation failed: " + e.getMessage());
+		    }
 		}
 		open();
 		if (c.isDatabaseInitialized())
@@ -99,14 +99,15 @@ public class DataAccess {
 		db.getTransaction().begin();
 
 		try {
+			
 
 			 //Create sellers 
 			Seller user1=new Seller("seller1@gmail.com","Aitor Fernandez","1234");
 			Seller user2=new Seller("seller2@gmail.com","Ane Gaztañaga","1234");
-			Seller user3=new Seller("seller3@gmail.com","Test Seller","0212");
+			Seller user3=new Seller("seller3@gmail.com",TEST_SELLER,"0212");
 			
-			Buyer user4= new Buyer(BUYER1EMAIL,"Test Seller","1234");
-			User user5 =new Buyer("buyer2@gmail.com","Test Seller","1234");
+			Buyer user4= new Buyer(BUYER1_STRING,TEST_SELLER,"1234");
+			User user5 =new Buyer("buyer2@gmail.com",TEST_SELLER,"1234");
 			
 			//Create products
 			Date today = UtilDate.trim(new Date());
@@ -154,8 +155,8 @@ public class DataAccess {
 			
 //Conversaciones
 			
-			Conversacion c1 = this.crearConversacion("Esferidad", s1, BUYER1EMAIL);
-			this.crearMensaje("�Es redondo?", c1, BUYER1EMAIL);
+			Conversacion c1 = this.crearConversacion("Esferidad", s1, BUYER1_STRING);
+			this.crearMensaje("�Es redondo?", c1, BUYER1_STRING);
 			//int pID, String email, int rate, String text
 			this.hacerValoracion(ps1.getID(), user4.getEmail(),8, "Est� bien.");
 			
@@ -303,9 +304,9 @@ public class DataAccess {
 
 	public BufferedImage rescale(BufferedImage originalImage) {
 		System.out.println("rescale " + originalImage);
-		BufferedImage resizedImage = new BufferedImage(baseSize, baseSize, BufferedImage.TYPE_INT_RGB);
+		BufferedImage resizedImage = new BufferedImage(BASE_SIZE, BASE_SIZE, BufferedImage.TYPE_INT_RGB);
 		Graphics2D g = resizedImage.createGraphics();
-		g.drawImage(originalImage, 0, 0, baseSize, baseSize, null);
+		g.drawImage(originalImage, 0, 0, BASE_SIZE, BASE_SIZE, null);
 		g.dispose();
 		return resizedImage;
 	}
@@ -425,7 +426,6 @@ public class DataAccess {
 			Valoracion val;
 			Buyer u;
 			ProposedSale ps;
-			int snum; //N�mero de la venta a la que hace referencia el ProposedSale.
 			long numV; //N�mero de valoraciones que tiene el vendedor.
 			float sum; //Suma de valoraciones del vendedor
 			
@@ -440,8 +440,6 @@ public class DataAccess {
 			ps.setValoracion(val);
 			u.addValoracion(val);
 			db.persist(val);
-			
-			snum = ps.getSale().getSaleNumber();
 			
 			Seller s;
 			
