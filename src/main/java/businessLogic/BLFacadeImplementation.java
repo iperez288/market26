@@ -12,8 +12,6 @@ import javax.imageio.ImageIO;
 import javax.jws.WebMethod;
 import javax.jws.WebService;
 
-import com.sun.istack.logging.Logger;
-
 import data_access.DataAccess;
 import domain.*;
 import domain.Conversacion.EstadoConversacion;

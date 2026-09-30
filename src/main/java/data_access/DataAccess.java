@@ -52,7 +52,7 @@ public class DataAccess {
 	private static final String DBSERVERDIB = "resources/db/";
 	
 	private static final String TEST_SELLER = "Test Seller";
-	private static final String BUYER1_STRING = "buyer1@gmail.com";
+	private static final String BUYER1EMAIL = "buyer1@gmail.com";
 
 
 	ConfigXML c = ConfigXML.getInstance();
@@ -106,7 +106,7 @@ public class DataAccess {
 			Seller user2=new Seller("seller2@gmail.com","Ane Gaztañaga","1234");
 			Seller user3=new Seller("seller3@gmail.com",TEST_SELLER,"0212");
 			
-			Buyer user4= new Buyer(BUYER1_STRING,TEST_SELLER,"1234");
+			Buyer user4= new Buyer(BUYER1EMAIL,TEST_SELLER,"1234");
 			User user5 =new Buyer("buyer2@gmail.com",TEST_SELLER,"1234");
 			
 			//Create products
@@ -155,8 +155,8 @@ public class DataAccess {
 			
 //Conversaciones
 			
-			Conversacion c1 = this.crearConversacion("Esferidad", s1, BUYER1_STRING);
-			this.crearMensaje("�Es redondo?", c1, BUYER1_STRING);
+			Conversacion c1 = this.crearConversacion("Esferidad", s1, BUYER1EMAIL);
+			this.crearMensaje("�Es redondo?", c1, BUYER1EMAIL);
 			//int pID, String email, int rate, String text
 			this.hacerValoracion(ps1.getID(), user4.getEmail(),8, "Est� bien.");
 			
@@ -575,7 +575,7 @@ public class DataAccess {
 	
 			db.getTransaction().begin();
 			
-			Conversacion c = null;
+			Conversacion c ;
 			
 			Buyer b = db.find(Buyer.class, email);;
 			
