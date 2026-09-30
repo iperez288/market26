@@ -7,6 +7,8 @@ import java.util.List;
 import javax.jws.WebMethod;
 import javax.jws.WebService;
 
+import com.sun.istack.logging.Logger;
+
 import data_access.DataAccess;
 import domain.*;
 import domain.Conversacion.EstadoConversacion;
@@ -27,20 +29,21 @@ import java.io.IOException;
 @WebService(endpointInterface = "businessLogic.BLFacade")
 public class BLFacadeImplementation  implements BLFacade {
 
-		private static final String BASE_PATH="src/main/resources/images/";
+	private static final String BASE_PATH="src/main/resources/images/";
+	private static final Logger logger = Logger.getLogger(BLFacadeImplementation.class.getName(), null);
 	DataAccess dbManager;
 
 	//User usuario; //Al iniciar el programa es null, porque no se ha asignado un rol al usuario. Posteriormente, tomará valor de Buyer o Seller.
 	//String tipoUsuario;
 	
 	public BLFacadeImplementation()  {		
-		System.out.println("Creating BLFacadeImplementation instance");
+		logger.info("Creating BLFacadeImplementation instance");
 		dbManager=new DataAccess();	
 		
 	}
 	
     public BLFacadeImplementation(DataAccess da)  {
-		System.out.println("Creating BLFacadeImplementation instance with DataAccess parameter");
+		logger.info("Creating BLFacadeImplementation instance with DataAccess parameter");
 		dbManager=da;
 		
 	}
