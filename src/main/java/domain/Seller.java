@@ -122,6 +122,7 @@ public class Seller extends Buyer implements Serializable {
 		return this.rating;
 	}
 
-	
-	
+	public Sale removeSale(String name, String description) {
+		return null;
+	}
 }

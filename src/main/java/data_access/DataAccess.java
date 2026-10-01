@@ -337,8 +337,6 @@ public class DataAccess {
 
 	public ProposedSale createProposedSale(int sID, String email, float p) {
 
-		// System.out.println(">> DataAccess: createProduct=> title= "+Sale+"
-		// seller="+sellerEmail);
 		try {
 
 			db.getTransaction().begin();
