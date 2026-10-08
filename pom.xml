@@ -50,6 +50,7 @@
 		<sonar.organization>is-2-26-27</sonar.organization>
 		<sonar.host.url>https://sonarcloud.io</sonar.host.url>
 		<sonar.projectKey>is-2-26-27_proyecto-market</sonar.projectKey>
+		<sonar.token>8d403ab37567e6618a47c8b4295e1b98a54fa90e</sonar.token>
 	</properties>
 
 	<!-- https://mvnrepository.com/artifact/junit/junit -->
