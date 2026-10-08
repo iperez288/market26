@@ -1,6 +1,5 @@
 package gui;
 
-import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -53,7 +52,7 @@ public class AddSaldoGUI extends JFrame {
 					
 					facade.annadirSaldo(email, importe); 
 					
-					JOptionPane.showMessageDialog(null, "Has añadido " + importe + "€ a tu saldo");
+					JOptionPane.showMessageDialog(null, "Has aï¿½adido " + importe + "ï¿½ a tu saldo");
 
 					
 					mainFrame.actualizarSaldo();

@@ -2,13 +2,11 @@
 package gui;
 
 import businessLogic.BLFacade;
-import configuration.UtilDate;
 import domain.Sale;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
-import java.text.SimpleDateFormat;
 import java.util.*;
 import java.util.List;
 

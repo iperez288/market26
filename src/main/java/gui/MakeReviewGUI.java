@@ -10,7 +10,6 @@ import businessLogic.BLFacade;
 import domain.ProposedSale;
 
 import javax.swing.JButton;
-import javax.swing.JTextField;
 import javax.swing.JTextPane;
 import javax.swing.JSpinner;
 import javax.swing.JLabel;
@@ -45,7 +44,7 @@ public class MakeReviewGUI extends JFrame {
 		btnPublicar = new JButton("Publicar");
 		btnPublicar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				//Hacer que la valoración ya no se pueda cambiar
+				//Hacer que la valoraciï¿½n ya no se pueda cambiar
 				spinnerRate.setEnabled(false);
 				textReview.setEnabled(false);
 				
@@ -54,7 +53,7 @@ public class MakeReviewGUI extends JFrame {
 				String text = textReview.getText();
 				
 				facade.hacerValoracion(email,sale.getID(),rate,text);
-				infoPane.setText("Valoración realizada correctamente.\n Puede cerrar esta ventana.");
+				infoPane.setText("Valoraciï¿½n realizada correctamente.\n Puede cerrar esta ventana.");
 				btnPublicar.setEnabled(false);
 				parent.actualizarLista();
 
@@ -81,7 +80,7 @@ public class MakeReviewGUI extends JFrame {
 		spinnerRate.setBounds(177, 2, 29, 20);
 		contentPane.add(spinnerRate);
 		
-		JLabel lblRate = new JLabel("Puntuación");
+		JLabel lblRate = new JLabel("Puntuaciï¿½n");
 		lblRate.setBounds(26, 10, 69, 12);
 		contentPane.add(lblRate);
 		

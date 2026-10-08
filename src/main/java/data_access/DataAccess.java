@@ -6,7 +6,6 @@ import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
@@ -573,9 +572,9 @@ public class DataAccess {
 	
 			db.getTransaction().begin();
 			
-			Conversacion c ;
+			Conversacion cNueva ;
 			
-			Buyer b = db.find(Buyer.class, email);;
+			Buyer b = db.find(Buyer.class, email);
 			
 			if(b==null)
 			{
@@ -585,18 +584,18 @@ public class DataAccess {
 			}else {			
 			Sale sale = db.find(Sale.class, s.getSaleNumber());
 			
-			c = new Conversacion(tema,sale,b);
-			b.addConversacion(c);
-			sale.addConversacion(c);
+			cNueva = new Conversacion(tema,sale,b);
+			b.addConversacion(cNueva);
+			sale.addConversacion(cNueva);
 			
-			db.persist(c);
+			db.persist(cNueva);
 			}
 			
 			db.getTransaction().commit();
 		
 		
 		
-		return c;
+		return cNueva;
 		
 	}
 	
