@@ -33,6 +33,13 @@ public class Seller extends Buyer implements Serializable {
 	public Seller() {
 		super();
 	}
+	
+	public Seller(String email, String name) {
+		this.setEmail(email);
+		this.setName(name);
+		this.sales=new ArrayList<Sale>();
+		this.rating=0.0f;
+	}
 
 	public Seller(String email, String name, String password) {
 		this.setEmail(email);
