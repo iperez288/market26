@@ -3,6 +3,7 @@ import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 
+import java.io.File;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -13,6 +14,7 @@ import org.junit.Test;
 import data_access.DataAccess;
 import domain.Sale;
 import domain.Seller;
+import exceptions.FileNotUploadedException;
 import exceptions.MustBeLaterThanTodayException;
 import exceptions.ParamNullException;
 import exceptions.SaleAlreadyExistException;
@@ -47,7 +49,7 @@ public class CreateSaleBDWhiteTest {
 		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
 		pubDate=null;
 		try {
-			pubDate = sdf.parse("05/10/2026");
+			pubDate = sdf.parse("09/10/2026");
 		} catch (ParseException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -96,7 +98,7 @@ public class CreateSaleBDWhiteTest {
 			assertTrue(!exist);
 			testDA.close();
 			
-			} catch (ParamNullException | SaleAlreadyExistException  | MustBeLaterThanTodayException e ) { 
+			} catch (ParamNullException | SaleAlreadyExistException  | MustBeLaterThanTodayException e) { 
 		// if the program goes to this point fail  
 			e.printStackTrace();
 		    System.out.println("Error: " + e.getMessage());
@@ -128,7 +130,7 @@ public class CreateSaleBDWhiteTest {
 		    // if the program goes to this point true  
 			assertTrue(true);
 
-		} catch (ParamNullException | SaleAlreadyExistException   e ) { 
+		} catch (ParamNullException | SaleAlreadyExistException  e ) { 
 		// if the program goes to this point fail  
 			e.printStackTrace();
 		    System.out.println("Error: " + e.getMessage());
@@ -160,7 +162,7 @@ public class CreateSaleBDWhiteTest {
 				assertTrue(true);
 
 
-			} catch (ParamNullException  | MustBeLaterThanTodayException e ) { 
+			} catch (ParamNullException  | MustBeLaterThanTodayException e) { 
 			// if the program goes to this point fail  
 				e.printStackTrace();
 			    System.out.println("Error: " + e.getMessage());
@@ -202,7 +204,7 @@ public class CreateSaleBDWhiteTest {
 			assertTrue(exist);
 			testDA.close();
 			
-			} catch (ParamNullException | SaleAlreadyExistException  | MustBeLaterThanTodayException e ) { 
+			} catch (ParamNullException | SaleAlreadyExistException  | MustBeLaterThanTodayException e) { 
 			// if the program goes to this point fail  
 				e.printStackTrace();
 			    System.out.println("Error: " + e.getMessage());
@@ -210,6 +212,8 @@ public class CreateSaleBDWhiteTest {
 
 
 			} catch (Exception e) {
+				System.out.print("----------------------------------------------------------------------");
+				System.out.print(e.getMessage());
 				fail();
 			} finally {   
 				testDA.open();

@@ -70,7 +70,7 @@ public class CreateSaleMockWhiteTest {
 		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
 		pubDate=null;
 		try {
-			pubDate = sdf.parse("05/10/2026");
+			pubDate = sdf.parse("09/10/2026");
 		} catch (ParseException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

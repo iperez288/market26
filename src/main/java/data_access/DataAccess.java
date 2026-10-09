@@ -190,10 +190,10 @@ public class DataAccess {
 				throw new MustBeLaterThanTodayException(
 						ResourceBundle.getBundle("Etiquetas").getString("DataAccess.ErrorSaleMustBeLaterThanToday"));
 			}
-			if (file == null)
+	/*		if (file == null)
 				throw new FileNotUploadedException(
 						ResourceBundle.getBundle("Etiquetas").getString("DataAccess.ErrorFileNotUploadedException"));
-
+	*/
 			db.getTransaction().begin();
 
 			Seller seller = db.find(Seller.class, sellerEmail);
