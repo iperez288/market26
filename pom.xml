@@ -138,7 +138,7 @@
 		<!-- https://mvnrepository.com/artifact/org.mockito/mockito-all -->
 		<dependency>
 			<groupId>org.mockito</groupId>
-			<artifactId>mockito-inline</artifactId>
+			<artifactId>mockito-core</artifactId>
 			<version>3.4.0</version>
 			<scope>test</scope>
 		</dependency>
