@@ -68,6 +68,18 @@ public class Buyer extends User implements Serializable {
 		this.conversaciones = new ArrayList<Conversacion>();
 		this.valoraciones=new ArrayList<Valoracion>();
 	}
+	
+	public Buyer(String email, String name, String password, float saldo) {
+		this.setEmail(email);
+		this.setName(name);
+		this.setPassword(password);
+		this.saldo=saldo;
+		this.proposedSales = new ArrayList<ProposedSale>();
+		this.monedero = new ArrayList<Transaction>();
+		this.mensajes = new ArrayList<Mensaje>();
+		this.conversaciones = new ArrayList<Conversacion>();
+		this.valoraciones=new ArrayList<Valoracion>();
+	}
 
 	/**
 	 * This method adds a propose sale to a seller

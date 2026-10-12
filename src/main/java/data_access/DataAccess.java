@@ -343,6 +343,7 @@ public class DataAccess {
 			Sale sale = db.find(Sale.class, sID);
 			Buyer buyer = db.find(Buyer.class, email);
 			
+			
 			if (buyer.getSaldo() < p){
 				return null;
 			}
