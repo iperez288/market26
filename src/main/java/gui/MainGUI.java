@@ -21,6 +21,7 @@ public class MainGUI extends JFrame {
 	private String tipoUsuario;
 	private String email;
 	private float saldo;
+	private static final String e = "Etiquetas";
 	
 	private static final long serialVersionUID = 1L;
 
@@ -134,7 +135,7 @@ public class MainGUI extends JFrame {
 		jLabelSaldo.setForeground(new Color(0, 102, 0));
 		user_panel.add(jLabelSaldo);
 
-		jLabelSelectOption = new JLabel(ResourceBundle.getBundle("Etiquetas").getString("MainGUI.SelectOption"));
+		jLabelSelectOption = new JLabel(ResourceBundle.getBundle(e).getString("MainGUI.SelectOption"));
 		jLabelSelectOption.setFont(new Font("Tahoma", Font.BOLD, 15));
 		jLabelSelectOption.setHorizontalAlignment(SwingConstants.CENTER);
 		jLabelSelectOption.setBorder(new EmptyBorder(15, 0, 15, 0));
@@ -143,7 +144,7 @@ public class MainGUI extends JFrame {
 		panelVentas.setLayout(new GridLayout(1, 2, 10, 10));
 		panelVentas.setBorder(new TitledBorder(null, "Operaciones de Venta", TitledBorder.LEADING, TitledBorder.TOP, null, null));
 		
-		jButtonCreateQuery = new JButton(ResourceBundle.getBundle("Etiquetas").getString("MainGUI.CreateSale"));
+		jButtonCreateQuery = new JButton(ResourceBundle.getBundle(e).getString("MainGUI.CreateSale"));
 		jButtonCreateQuery.setEnabled(false);
 		jButtonCreateQuery.addActionListener(e -> {
 			JFrame a = new CreateSaleGUI(email);
@@ -163,7 +164,7 @@ public class MainGUI extends JFrame {
 		panel_consultas.setLayout(new GridLayout(1, 2, 10, 10));
 		panel_consultas.setBorder(new TitledBorder(null, "Consultas", TitledBorder.LEADING, TitledBorder.TOP, null, null));
 		
-		jButtonQueryQueries = new JButton(ResourceBundle.getBundle("Etiquetas").getString("MainGUI.QuerySales"));
+		jButtonQueryQueries = new JButton(ResourceBundle.getBundle(e).getString("MainGUI.QuerySales"));
 		jButtonQueryQueries.setEnabled(false);
 		jButtonQueryQueries.addActionListener(e -> {
 			JFrame a = new QuerySalesGUI(email);
@@ -249,7 +250,7 @@ public class MainGUI extends JFrame {
 		jContentPane.add(panel_idiomas);
 
 		setContentPane(jContentPane);
-		setTitle(ResourceBundle.getBundle("Etiquetas").getString("MainGUI.MainTitle") + ": " + tipoUsuario);
+		setTitle(ResourceBundle.getBundle(e).getString("MainGUI.MainTitle") + ": " + tipoUsuario);
 
 		addWindowListener(new WindowAdapter() {
 			@Override
@@ -260,10 +261,10 @@ public class MainGUI extends JFrame {
 	}
 
 	private void paintAgain() {
-		jLabelSelectOption.setText(ResourceBundle.getBundle("Etiquetas").getString("MainGUI.SelectOption"));
-		jButtonQueryQueries.setText(ResourceBundle.getBundle("Etiquetas").getString("MainGUI.QuerySales"));
-		jButtonCreateQuery.setText(ResourceBundle.getBundle("Etiquetas").getString("MainGUI.CreateSale"));
-		this.setTitle(ResourceBundle.getBundle("Etiquetas").getString("MainGUI.MainTitle") + ": "
+		jLabelSelectOption.setText(ResourceBundle.getBundle(e).getString("MainGUI.SelectOption"));
+		jButtonQueryQueries.setText(ResourceBundle.getBundle(e).getString("MainGUI.QuerySales"));
+		jButtonCreateQuery.setText(ResourceBundle.getBundle(e).getString("MainGUI.CreateSale"));
+		this.setTitle(ResourceBundle.getBundle(e).getString("MainGUI.MainTitle") + ": "
 				+ this.email + " (" + tipoUsuario + ")");
 		jLabelSaldo.setText("Saldo: " + String.format("%.2f", saldo) + "€");
 		
