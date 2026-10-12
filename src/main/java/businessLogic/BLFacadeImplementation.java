@@ -299,25 +299,22 @@ public class BLFacadeImplementation  implements BLFacade {
 	}
 		
 	public boolean iniciarConversacion(String tema, Sale s, String email, String mensaje) {
-				
-		boolean res = false;
-		
-		dbManager.open();
-		Conversacion c = dbManager.crearConversacion(tema, s, email);	
-		
-		
-		if(c!=null) {
-			
-			
-			if(dbManager.crearMensaje(mensaje, c, email)!=null)
-			res = true;
-			else
-				System.out.printf("Mensaje vacï¿½o\n");
-		}
-		
-		dbManager.close();
-			
-		return res;	
+	    boolean res = false;
+	    
+	    dbManager.open();
+	    Conversacion c = dbManager.crearConversacion(tema, s, email);	
+	    
+	    if (c != null) {
+	        if (dbManager.crearMensaje(mensaje, c, email) != null) {
+	            res = true;
+	        } else {
+	            System.out.printf("Mensaje vacío");
+	        }
+	    }
+	    
+	    dbManager.close();
+	        
+	    return res;	
 	}
 	
 	public List<Conversacion> getConversaciones(String email){

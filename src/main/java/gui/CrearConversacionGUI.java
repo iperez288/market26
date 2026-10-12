@@ -73,9 +73,9 @@ public class CrearConversacionGUI extends JFrame {
 		lblNewLabel.setBounds(66, 13, 44, 13);
 		contentPane.add(lblNewLabel);
 		
-		JLabel lblNewLabel_1 = new JLabel("Mensaje:");
-		lblNewLabel_1.setBounds(57, 37, 121, 12);
-		contentPane.add(lblNewLabel_1);
+		JLabel lblNewLabel1 = new JLabel("Mensaje:");
+		lblNewLabel1.setBounds(57, 37, 121, 12);
+		contentPane.add(lblNewLabel1);
 		
 		btnCrear = new JButton("Crear");
 		btnCrear.addActionListener(new ActionListener() {

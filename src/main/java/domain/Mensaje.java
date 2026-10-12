@@ -24,7 +24,7 @@ public class Mensaje {
 	
 	private Date fechaEnvio;
 	
-	private String mensaje;
+	private String msg;
 	
 	private Buyer emisor;
 	
@@ -37,7 +37,7 @@ public class Mensaje {
 		this.conversacion = c;
 		this.emisor = emisor;
 		this.fechaEnvio = fecha;
-		this.mensaje = texto;
+		this.msg= texto;
 		
 		
 	}
@@ -67,11 +67,11 @@ public class Mensaje {
 	}
 
 	public String getMensaje() {
-		return mensaje;
+		return msg;
 	}
 
 	public void setMensaje(String mensaje) {
-		this.mensaje = mensaje;
+		this.msg = mensaje;
 	}
 
 	public Buyer getEmisor() {

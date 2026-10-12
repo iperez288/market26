@@ -5,6 +5,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Objects;
 
 import javax.persistence.*;
 import javax.xml.bind.annotation.XmlAccessType;
@@ -41,6 +42,7 @@ public class Seller extends Buyer implements Serializable {
 		this.sales=new ArrayList<Sale>();
 		this.rating=0.0f;
 	}
+	
 	
 	
 	/*public String getEmail() {
@@ -111,6 +113,11 @@ public class Seller extends Buyer implements Serializable {
 		if (getEmail() != other.getEmail())
 			return false;
 		return true;
+	}
+	
+	@Override
+	public int hashCode() {
+	    return Objects.hash(getEmail());
 	}
 
 	public void setRate(float f) {
