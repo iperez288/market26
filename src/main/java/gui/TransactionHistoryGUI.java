@@ -15,13 +15,17 @@ import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 import javax.swing.table.DefaultTableModel;
 
+import java.util.logging.Logger;
+
 import businessLogic.BLFacade;
 import domain.Buyer;
 import domain.Transaction; // Asumiendo que tu clase se llama Transaction
 import domain.User;
 
 public class TransactionHistoryGUI extends JFrame {
-
+	
+	private static final Logger logger = Logger.getLogger(TransactionHistoryGUI.class.getName());
+	
 	private String email;
 	
 	private static final long serialVersionUID = 1L;
@@ -81,7 +85,7 @@ public class TransactionHistoryGUI extends JFrame {
 			table.getColumnModel().getColumn(2).setPreferredWidth(80);
 
 		} catch (Exception e) {
-			System.out.println("Error al cargar transacciones: " + e.getMessage());
+			logger.warning("Error al cargar transacciones: " + e.getMessage());
 		}
 	}
 }
