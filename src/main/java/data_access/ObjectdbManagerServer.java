@@ -42,7 +42,7 @@ public class ObjectdbManagerServer extends JDialog {
 			
 			
 			ObjectdbManagerServer dialog = new ObjectdbManagerServer();
-			dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
+			dialog.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 			dialog.setVisible(true);
 		} catch (Exception e) {
 			e.printStackTrace();
