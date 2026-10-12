@@ -37,7 +37,6 @@ public class BLFacadeImplementation  implements BLFacade {
 	DataAccess dbManager;
 
 	//User usuario; //Al iniciar el programa es null, porque no se ha asignado un rol al usuario. Posteriormente, tomará valor de Buyer o Seller.
-	//String tipoUsuario;
 	
 	public BLFacadeImplementation()  {		
 		logger.info("Creating BLFacadeImplementation instance");
