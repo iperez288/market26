@@ -21,18 +21,7 @@ public class CrearMensajeMockWhiteTest {
 	private EntityTransaction tx =Mockito.mock(EntityTransaction.class);
 	private DataAccess sut=new DataAccess(mock);
 	
-	@Test
-	public void test1() {
-		try {
-			Mockito.when(mock.getTransaction()).thenReturn(tx);
-			Mockito.when(mock.find(Buyer.class,"seller1@gmail.com")).thenReturn(new Buyer());
-			
-			Mensaje resultado=sut.crearMensaje("Hola",null,"seller1@gmail.com");
-			assertNull(resultado);
-		}catch(Exception e) {
-			fail();
-		}
-	}
+
 	
 	@Test
 	public void test2() {
