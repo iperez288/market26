@@ -97,7 +97,7 @@ public class CreateProposedSaleBDBlackTest {
 		}
 	}
 
-/*	@Test
+	@Test
 	public void test4() {
 
 		try {
@@ -204,6 +204,6 @@ public class CreateProposedSaleBDBlackTest {
 			testDA.close();
 		}
 	}
-	*/
+	
 
 }

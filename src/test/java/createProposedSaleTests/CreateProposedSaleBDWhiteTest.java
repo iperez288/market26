@@ -14,7 +14,7 @@ public class CreateProposedSaleBDWhiteTest {
 
 	private TestDataAccessCreateProposedSale testDA = new TestDataAccessCreateProposedSale();
 	private DataAccess sut = new DataAccess();
-/*
+
 	@Test
 	public void test1() {
 
@@ -81,5 +81,5 @@ public class CreateProposedSaleBDWhiteTest {
 			testDA.removeSale(saleId);
 			testDA.close();
 	    }
-	} */
+	} 
 }

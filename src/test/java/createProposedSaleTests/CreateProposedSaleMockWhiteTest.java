@@ -27,7 +27,7 @@ public class CreateProposedSaleMockWhiteTest {
 	private static final Integer SALE_ID = 30;
 	private static final String BUYER_EMAIL = "buyerTest@gmail.com";
 
-/*	@Test
+	@Test
 	public void test1() {
 		when(mock.getTransaction()).thenReturn(tx);
 		when(mock.find(Sale.class, SALE_ID)).thenReturn(null);
@@ -79,5 +79,5 @@ public class CreateProposedSaleMockWhiteTest {
 			fail();
 		}
 	}
-*/
+
 }
