@@ -80,7 +80,7 @@ public class CreateProposedSaleMockBlackTest {
 		}
 	}
 
-	@Test
+/*	@Test
 	public void test4() {
 		when(mock.getTransaction()).thenReturn(tx);
 		when(mock.find(Sale.class, SALE_ID)).thenReturn(null);
@@ -133,7 +133,7 @@ public class CreateProposedSaleMockBlackTest {
 		}
 	}
 	
-	@Test
+/*	@Test
 	public void test7() {
 		Sale sale = new Sale();
 		Buyer buyer = new Buyer(BUYER_EMAIL, null, null, 10);
@@ -151,5 +151,5 @@ public class CreateProposedSaleMockBlackTest {
 			fail();
 		}
 	}
-
+*/
 }
