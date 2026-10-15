@@ -21,6 +21,7 @@ import org.mockito.MockedStatic;
 import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
 
+import configuration.UtilDate;
 import data_access.DataAccess;
 import domain.Sale;
 import domain.Seller;
@@ -69,14 +70,7 @@ public class CreateSaleMockBlackTest {
 		description="Used one hour";
 		status=0;
 		price=10;
-		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-		pubDate=null;
-		try {
-			pubDate = sdf.parse("09/10/2026");
-		} catch (ParseException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}	
+		pubDate = UtilDate.trim(new Date());
 	    
         Mockito.when(db.find(Seller.class, seller.getEmail())).thenReturn(seller);
 

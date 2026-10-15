@@ -13,6 +13,7 @@ import configuration.ConfigXML;
 import domain.Buyer;
 import domain.ProposedSale;
 import domain.Sale;
+import domain.SaleParameter;
 
 public class TestDataAccessCreateProposedSale {
 	
@@ -85,8 +86,7 @@ public class TestDataAccessCreateProposedSale {
 	    Sale sale = null;
 	    try {
 	        db.getTransaction().begin();
-	        sale = new Sale("titulo test", "descripcion test", 1, 20f,
-	                        new Date(), null, null);
+	        sale = new Sale(new SaleParameter("titulo test", "descripcion test", 1, 20f), new Date(), null, null);
 	        db.persist(sale);
 	        db.getTransaction().commit();
 	    } catch (Exception e) {

@@ -384,39 +384,23 @@ public class DataAccess {
 		return res;
 	}
 
-	public void annadirSaldo(String email, float importe) {
-		
-
-		db.getTransaction().begin();
-
-		Buyer b = db.find(Buyer.class, email);
-
-		Transaction t = new Transaction(importe, new Date(), Transaction.TransactionType.income, b);
-
-		b.addTransaction(t);
-
-		db.persist(t);
-
-		db.getTransaction().commit();
-
+	public void annadirSaldo(String email, float importe) {	
+		modificarSaldo(email,importe,Transaction.TransactionType.income);
 	}
 
 	public void retirarSaldo(String email, float importe) {
-		
-		User u = db.find(User.class, email);
-
+		modificarSaldo(email, importe, Transaction.TransactionType.extraction);
+	}
+	
+	private void modificarSaldo(String email, float importe, Transaction.TransactionType transaction) {
 		db.getTransaction().begin();
-
-		Buyer b = (Buyer) u;
-
-		Transaction t = new Transaction(importe, new Date(), Transaction.TransactionType.extraction, b);
-
+		
+		Buyer b = db.find(Buyer.class, email);
+		Transaction t = new Transaction(importe, new Date(), transaction, b);
 		b.addTransaction(t);
 
 		db.persist(t);
-
 		db.getTransaction().commit();
-
 	}
 	
 	public void hacerValoracion(int pID, String email, int rate, String text) {
@@ -485,58 +469,44 @@ public class DataAccess {
 	 	return res;
 	}
 
-	public boolean doPurchase(String email, ProposedSale ps) {
-		Buyer comprador;
-		Seller vendedor;
-		ProposedSale venta;
-		Sale s;
-		float precio;
-		
-		Transaction cobroComprador;
-		Transaction pagoVendedor;
-		
-		
-		Date today = UtilDate.trim(new Date());
-		
-		venta=ps;
-		precio=venta.getPrice();
-		
+	public boolean doPurchase(String email, ProposedSale ps) {		
 		db.getTransaction().begin();
-		
-		//Voy a modificar ProposedSale, Sale, Vendedor y Comprador.
-	
-		//1� Quitarle el dinero al comprador
-		String bmail = ps.getBuyer().getEmail();
-		comprador = (Buyer) getUser(bmail);
-		
-		//Creo la transacci�n
-		cobroComprador = new Transaction(precio,today,TransactionType.purchase,comprador);
-		
-		//al comprador, llamo un m�todo para que a�ade la transacci�n y modifique el saldo seg�n toque
-		comprador.addTransaction(cobroComprador);
-		
-		db.persist(cobroComprador);
-	
-	// 2 Marcar la compra como vendida
-		
-		venta = getProposedSale(ps.getID());
-		venta.setFechaCompra(today);
-		
-		int sID = venta.getSale().getSaleNumber();
-		s= db.find(Sale.class, sID);
-		s.doPurchase();
-		
-		
-	// 3 Darle el dinero al vendedor
-		vendedor = (Seller) getUser(email);
-		pagoVendedor = new Transaction(precio,today,TransactionType.sale,vendedor);
-		vendedor.addTransaction(pagoVendedor);
-		db.persist(pagoVendedor);
-		
+
+		cobrarAlComprador(ps);
+		marcarCompraVendida(ps);
+		darDineroVendedor(email,ps);
 		db.getTransaction().commit();
 		
 		return true;
+	}
+	
+	private void cobrarAlComprador(ProposedSale ps) {
+		Date today = UtilDate.trim(new Date());
 		
+		float precio=ps.getPrice();
+		String bmail=ps.getBuyer().getEmail();
+		Buyer comprador=(Buyer)getUser(bmail);
+		Transaction cobroComprador=new Transaction(precio,today,TransactionType.purchase,comprador);
+		comprador.addTransaction(cobroComprador);
+		db.persist(cobroComprador);
+	}
+	
+	private void marcarCompraVendida(ProposedSale ps) {
+		Date today = UtilDate.trim(new Date());
+
+		ProposedSale venta=getProposedSale(ps.getID());
+		venta.setFechaCompra(today);
+		int sID=venta.getSale().getSaleNumber();
+		Sale s1=db.find(Sale.class,sID);
+		s1.doPurchase();
+		}
+	
+	private void darDineroVendedor(String email,ProposedSale ps) {
+		Date today = UtilDate.trim(new Date());
+		Seller vendedor=(Seller) getUser(email);
+		Transaction pagoVendedor=new Transaction(ps.getPrice(),today,TransactionType.sale,vendedor);
+		vendedor.addTransaction(pagoVendedor);
+		db.persist(pagoVendedor);
 	}
 	
 	public float getSaldoUsuario(String email) {
@@ -568,9 +538,7 @@ public class DataAccess {
 	
 	public Conversacion crearConversacion(String tema, Sale s, String email) {
 		
-		
-		
-	
+			
 			db.getTransaction().begin();
 			
 			Conversacion cNueva ;
@@ -593,7 +561,6 @@ public class DataAccess {
 			}
 			
 			db.getTransaction().commit();
-		
 		
 		
 		return cNueva;
@@ -631,10 +598,8 @@ public class DataAccess {
 			db.getTransaction().commit();
 			
 			
-			
 			return msg;
 			
-
 			
 		} catch (NullPointerException e) {
 			e.printStackTrace();

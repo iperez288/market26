@@ -259,29 +259,32 @@ public class CreateSaleGUI extends JFrame {
         return resizedImage;
     }
 	private String check_fields_Errors() {
-		
-		try {
-			if ((fieldTitle.getText().length()==0) || (fieldDescription.getText().length()==0)  || (jTextFieldPrice.getText().length()==0))
+			if (comprobarTextos())
 				return ResourceBundle.getBundle("Etiquetas").getString("CreateSaleGUI.ErrorQuery");
-			else {
-
-				// trigger an exception if the introduced string is not a number
-					float price = Float.parseFloat(jTextFieldPrice.getText());
-					if (price <= 0) 
-						return ResourceBundle.getBundle("Etiquetas").getString("CreateSaleGUI.PriceMustBeGreaterThan0");
-					
-					else 
-						return null;
+		
+			return comprobarNumero();	
+	}
+	
+	private boolean comprobarTextos() {
+		return (fieldTitle.getText().length()==0) || (fieldDescription.getText().length()==0)  || (jTextFieldPrice.getText().length()==0 );
+	}
+	
+	private String comprobarNumero() {
+		try {
+			if(Float.parseFloat(jTextFieldPrice.getText())<=0) {
+				return ResourceBundle.getBundle("Etiquetas").getString("CreateSaleGUI.PriceMustBeGreaterThan0");
+			}else {
+				return null;
 			}
-		} catch (java.lang.NumberFormatException e1) {
-
+			
+		}catch(java.lang.NumberFormatException e1) {
 			return  ResourceBundle.getBundle("Etiquetas").getString("CreateSaleGUI.ErrorNumber");		
-		} catch (Exception e1) {
+		}catch (Exception e1) {
 			e1.printStackTrace();
 			return null;
-
 		}
 	}
+	
 	
 	
 public  String encodeFileToBase64Binary(File file){

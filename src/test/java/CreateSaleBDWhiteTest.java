@@ -11,6 +11,7 @@ import java.util.Date;
 import org.junit.Before;
 import org.junit.Test;
 
+import configuration.UtilDate;
 import data_access.DataAccess;
 import domain.Sale;
 import domain.Seller;
@@ -46,14 +47,8 @@ public class CreateSaleBDWhiteTest {
 		description="Used one hour";
 		status=0;
 		price=10;
-		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-		pubDate=null;
-		try {
-			pubDate = sdf.parse("09/10/2026");
-		} catch (ParseException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}	
+		pubDate = UtilDate.trim(new Date());
+
     }
 	@Test
 	//sut.createSale:  Some of the parameters are null

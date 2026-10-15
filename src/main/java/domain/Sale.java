@@ -50,14 +50,14 @@ public class Sale implements Serializable {
 		this.purchased=false;
 	}
 		
-	public Sale(String title, String description, int status, float price, Date pubDate, File file, Seller seller) {
+	public Sale(SaleParameter parameterObject, Date pubDate, File file, Seller seller) {
 		super();
 		
 		this.proposedSales=new ArrayList<ProposedSale>();
-		this.title = title;
-		this.description = description;
-		this.status = status;
-		this.price=price;
+		this.title = parameterObject.getTitle();
+		this.description = parameterObject.getDescription();
+		this.status = parameterObject.getStatus();
+		this.price=parameterObject.getPrice();
 		this.pubDate=pubDate;
 		if (file!=null) {
 		    this.fileName=file.getName();
