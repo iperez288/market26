@@ -57,22 +57,9 @@ public class DataAccess {
 	ConfigXML c = ConfigXML.getInstance();
 
 	public DataAccess() {
-		if (c.isDatabaseInitialized()) {
-		    String fileName = c.getDbFilename();
+		if (c.isDatabaseInitialized())
+			borrarFicheroBD();
 
-		    if (!c.isDatabaseLocal())
-		        fileName = DBSERVERDIB + fileName;
-
-		    try {
-		        Files.delete(Paths.get(fileName));
-
-		        Files.deleteIfExists(Paths.get(fileName + "$"));
-
-		        System.out.println("File deleted");
-		    } catch (IOException e) {
-		        System.out.println("Operation failed: " + e.getMessage());
-		    }
-		}
 		open();
 		if (c.isDatabaseInitialized())
 			initializeDB();
@@ -80,7 +67,23 @@ public class DataAccess {
 				+ c.isDatabaseInitialized());
 
 		close();
+	}
 
+	private void borrarFicheroBD() {
+		String fileName = rutaFicheroBD();
+		try {
+			Files.delete(Paths.get(fileName));
+			Files.deleteIfExists(Paths.get(fileName + "$"));
+			System.out.println("File deleted");
+		} catch (IOException e) {
+			System.out.println("Operation failed: " + e.getMessage());
+		}
+	}
+
+	private String rutaFicheroBD() {
+		if (c.isDatabaseLocal())
+			return c.getDbFilename();
+		return DBSERVERDIB + c.getDbFilename();
 	}
 
 	public DataAccess(EntityManager db) {
@@ -404,54 +407,35 @@ public class DataAccess {
 	}
 	
 	public void hacerValoracion(int pID, String email, int rate, String text) {
-			
-			Valoracion val;
-			Buyer u;
-			ProposedSale ps;
-			long numV; //N�mero de valoraciones que tiene el vendedor.
-			float sum; //Suma de valoraciones del vendedor
-			
-			//Traer de vuelta la Sale y el email
-			
-			db.getTransaction().begin();
-			
-			//Se da por sentado que ya se ha comprobado antes que es comprador.
-			u = (Buyer) getUser(email);
-			ps = getProposedSale(pID);
-			val = new Valoracion(ps,u,rate,text);
-			ps.setValoracion(val);
-			u.addValoracion(val);
-			db.persist(val);
-			
-			Seller s;
-			
-			s = db.find(Seller.class, ps.getSeller());
-			
-			/*TypedQuery<Seller> q1= db.createQuery("SELECT sl FROM Sale s JOIN s.seller sl WHERE  s.saleNumber = ?1", Seller.class);
-			q1.setParameter(1, snum);
-			
-			List<Seller> sl = q1.getResultList();
-			if(sl.size()>1) {
-				System.out.println("M�s de un vendedor encontrado");
-			}
-			s = sl.get(0);*/
-			
-			TypedQuery<Long> q2= db.createQuery("SELECT count(ps) FROM Seller sl JOIN sl.sales s JOIN s.proposedSales ps WHERE s.purchased = TRUE AND ps.valoracion IS NOT NULL AND sl.email = ?1" , Long.class);
-			q2.setParameter(1, s.getEmail());
-			
-			numV = q2.getResultList().get(0);
-			
-			System.out.println("Num valoraciones de seller "+ s.getEmail() + ": " + numV);
-			
-			sum = s.getRate()*numV;
-			sum = sum + rate;
-			numV++;
-			
-			s.setRate(((float)sum)/numV);
-			
-			db.getTransaction().commit();
-			
-		}
+		db.getTransaction().begin();
+
+		//Se da por sentado que ya se ha comprobado antes que es comprador.
+		Buyer u = (Buyer) getUser(email);
+		ProposedSale ps = getProposedSale(pID);
+		Valoracion val = new Valoracion(ps, u, rate, text);
+		ps.setValoracion(val);
+		u.addValoracion(val);
+		db.persist(val);
+
+		actualizarPuntuacionVendedor(ps, rate);
+
+		db.getTransaction().commit();
+	}
+
+	private void actualizarPuntuacionVendedor(ProposedSale ps, int rate) {
+		Seller s = db.find(Seller.class, ps.getSeller());
+		long numV = contarValoraciones(s.getEmail());
+
+		float sum = s.getRate() * numV + rate;
+		s.setRate(sum / (numV + 1));
+	}
+
+	private long contarValoraciones(String sellerEmail) {
+		TypedQuery<Long> q = db.createQuery("SELECT count(ps) FROM Seller sl JOIN sl.sales s JOIN s.proposedSales ps WHERE s.purchased = TRUE AND ps.valoracion IS NOT NULL AND sl.email = ?1", Long.class);
+		q.setParameter(1, sellerEmail);
+
+		return q.getResultList().get(0);
+	}
 	
 	
 	public List<ProposedSale> getPurchasedSales(String desc, String mail) {
@@ -626,28 +610,20 @@ public class DataAccess {
 			return new ArrayList<Conversacion>();
 		}
 		
+		return getConversacionesNoFinalizadas("c.producto.seller.email", email);
+	}
+
+	public List<Conversacion> getConversacionesIniciadas(String email){
+		return getConversacionesNoFinalizadas("c.iniciador.email", email);
+	}
+
+	private List<Conversacion> getConversacionesNoFinalizadas(String campoEmail, String email) {
 		TypedQuery<Conversacion> query = 
-				db.createQuery("SELECT c FROM Conversacion c WHERE c.producto.seller.email = ?1 AND c.estado <> ?2", Conversacion.class);
+				db.createQuery("SELECT c FROM Conversacion c WHERE " + campoEmail + " = ?1 AND c.estado <> ?2", Conversacion.class);
 		query.setParameter(1, email);
 		query.setParameter(2, EstadoConversacion.FINALIZADA);
 		
 		return query.getResultList();
-		
-	}
-	
-	/**
-	 * 
-	 * @param email
-	 * @return Conversaciones iniciadas por el usuario con correo electr�nico email.
-	 */
-	public List<Conversacion> getConversacionesIniciadas(String email){
-		
-		TypedQuery<Conversacion> query = 
-				db.createQuery("SELECT c FROM Conversacion c WHERE c.iniciador.email = ?1 AND c.estado<>?2", Conversacion.class);
-		query.setParameter(1, email);
-		query.setParameter(2, EstadoConversacion.FINALIZADA);
-		
-		return query.getResultList();	
 	}
 	
 	public List<Mensaje> getMensajes(long cid){
