@@ -77,7 +77,7 @@ public class CreateProposedSaleBDWhiteTest {
 	    } finally {
 	    	testDA.open();
 	    	testDA.removeProposedSale(saleId);
-			testDA.removeBuyer("buyerTest@gmail.com");
+			testDA.removeBuyer("buyer1@gmail.com");
 			testDA.removeSale(saleId);
 			testDA.close();
 	    }
