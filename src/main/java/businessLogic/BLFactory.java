@@ -1,7 +1,6 @@
 package businessLogic;
 
 import java.net.URL;
-
 import javax.xml.namespace.QName;
 import javax.xml.ws.Service;
 
@@ -9,42 +8,26 @@ import configuration.ConfigXML;
 import data_access.DataAccess;
 
 public class BLFactory {
-	
-	private BLFacade mockObj=null;
-	
-	public BLFactory(BLFacade mock) {
-        mockObj = mock;
+
+    public BLFacade getBusinessLogicFactory(boolean isLocal) {
+        try {
+            if (isLocal) {
+                DataAccess da = new DataAccess();
+                return new BLFacadeImplementation(da);
+            } else {
+                ConfigXML config = ConfigXML.getInstance();
+                String serviceName = "http://" + config.getBusinessLogicNode() + ":" 
+                        + config.getBusinessLogicPort() + "/ws/" 
+                        + config.getBusinessLogicName() + "?wsdl";     
+                URL url = new URL(serviceName);
+
+                QName qname = new QName("http://businessLogic/", "BLFacadeImplementationService");
+                Service service = Service.create(url, qname);
+
+                return service.getPort(BLFacade.class);
+            }
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
     }
-	
-	public BLFactory() {}
-
-	public BLFacade createBLFacade(ConfigXML buisnessLogical) {
-		
-		if (mockObj!=null) {
-			return mockObj;
-		}
-		
-		try {
-		BLFacade appFacadeInterface;
-
-		if(buisnessLogical.isBusinessLogicLocal()) {
-			DataAccess da= new DataAccess();
-			appFacadeInterface=new BLFacadeImplementation(da);
-			return appFacadeInterface;
-		}else {
-			 String serviceName= "http://"+buisnessLogical.getBusinessLogicNode() +":"+ buisnessLogical.getBusinessLogicPort()+"/ws/"+buisnessLogical.getBusinessLogicName()+"?wsdl";	 
-			 URL url = new URL(serviceName);
-
-
-	        QName qname = new QName("http://businessLogic/", "BLFacadeImplementationService");
-	 
-	        Service service = Service.create(url, qname);
-
-	        appFacadeInterface = service.getPort(BLFacade.class);
-	        return appFacadeInterface;
-	        }
-		}catch(Exception e) {
-			throw new RuntimeException();
-		}
-	}
 }

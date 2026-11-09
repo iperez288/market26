@@ -24,7 +24,7 @@ public class ApplicationLauncher {
 			
 			UIManager.setLookAndFeel("javax.swing.plaf.metal.MetalLookAndFeel");
 
-			BLFacade appFacadeInterface=blFactory.createBLFacade(c);
+			BLFacade appFacadeInterface=blFactory.getBusinessLogicFactory(c.isBusinessLogicLocal());
 			
 			MainGUI.setBussinessLogic(appFacadeInterface);
 			

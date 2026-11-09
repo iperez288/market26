@@ -13,7 +13,8 @@ import javax.jws.WebMethod;
 import javax.jws.WebService;
 
 import data_access.DataAccess;
-import domain.*;
+import domain.Buyer;
+import domain.Conversacion;
 import domain.Conversacion.EstadoConversacion;
 import domain.Mensaje;
 import domain.ProposedSale;
@@ -71,6 +72,10 @@ public class BLFacadeImplementation  implements BLFacade {
 		List<Sale>  rides=dbManager.getSales(desc);
 		dbManager.close();
 		return rides;
+	}
+	
+	public ExtendedIterator<Sale> getSalesIterator(String desc){
+		return new ExtendedIteratorSale(getSales(desc));
 	}
 	
 	/**
@@ -307,7 +312,7 @@ public class BLFacadeImplementation  implements BLFacade {
 	        if (dbManager.crearMensaje(mensaje, c, email) != null) {
 	            res = true;
 	        } else {
-	            System.out.printf("Mensaje vacío");
+	            System.out.printf("Mensaje vacï¿½o");
 	        }
 	    }
 	    

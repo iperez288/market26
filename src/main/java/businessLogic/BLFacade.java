@@ -28,6 +28,8 @@ import gui.*;
 public interface BLFacade  {
 
 
+	public	ExtendedIterator<Sale>	getSalesIterator(String	desc);
+	
 	/**
 	 * This method creates/adds a product to a seller
 	 * 
@@ -108,7 +110,7 @@ public interface BLFacade  {
 	 
 	 /**
 	  * 
-	  * Envía un mensaje a la conversación c, siendo el emisor el Buyer al que corresponda el email
+	  * Envï¿½a un mensaje a la conversaciï¿½n c, siendo el emisor el Buyer al que corresponda el email
 	  * 
 	  * @param mensaje contenido del mensaje
 	  * @param c Conversacion a la que pertenece el mensaje
@@ -128,25 +130,25 @@ public interface BLFacade  {
 	 public List<Conversacion> getConversaciones(String email);
 	 
 	 /**
-	  * Consigue todos los mensajes de una conversación del usuario al que corresponda el email
+	  * Consigue todos los mensajes de una conversaciï¿½n del usuario al que corresponda el email
 	  * 
-	  * @param c conversación
+	  * @param c conversaciï¿½n
 	  * @param email del buyer al que pertenecen los mensajes
 	  * @return Una lista de Mensaje que son contenidos en la Conversacion c.
 	  */
 	 public List<Mensaje> getMensajes(Conversacion c, String email);
 	 
 	 /**
-	  * Consigue los todas las ventas que tenagan text en su título del ususario del email.
+	  * Consigue los todas las ventas que tenagan text en su tï¿½tulo del ususario del email.
 	  * 
-	  * @param text parte del título de la compra
+	  * @param text parte del tï¿½tulo de la compra
 	  * @param email Email del ususario
-	  * @return Una lista de Proposed con las ventas del ususario al que corresponda el email y que contengan text en su título 
+	  * @return Una lista de Proposed con las ventas del ususario al que corresponda el email y que contengan text en su tï¿½tulo 
 	  */
 	 public List<ProposedSale> getVentasUsuario(String text, String email);
 
 /**
- * Devuelve la puntuación media de un vendedor.
+ * Devuelve la puntuaciï¿½n media de un vendedor.
  * @param email del Vendedor
  * @return 
  */
