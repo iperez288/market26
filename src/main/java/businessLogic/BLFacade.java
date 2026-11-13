@@ -9,6 +9,7 @@ import domain.Conversacion;
 import domain.Mensaje;
 import domain.ProposedSale;
 import domain.Sale;
+import domain.Seller;
 import domain.Transaction;
 import domain.User;
 import exceptions.FileNotUploadedException;
@@ -44,7 +45,8 @@ public interface BLFacade  {
    @WebMethod
 	public Sale createSale(String title, String description, int status, float price, Date pubDate, String sellerEmail, File file) throws  FileNotUploadedException, MustBeLaterThanTodayException, SaleAlreadyExistException;
 	
-	
+   @WebMethod
+   public Seller isLogged(String email, String password);
 	/**
 	 * This method retrieves the products that contain desc
 	 * 

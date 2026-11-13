@@ -127,6 +127,17 @@ public class BLFacadeImplementation  implements BLFacade {
         return null;
     }
     
+    @WebMethod
+    public Seller isLogged(String email, String password) {
+        dbManager.open();
+        User u = dbManager.browseUser(email);
+        dbManager.close();
+        if (u instanceof Seller && u.checkLogin(password)) {
+            return (Seller) u;
+        }
+        return null;
+    }
+    
     
     public int createAccount(String email, String name, String pass, boolean seller) {
     	

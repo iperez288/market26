@@ -93,6 +93,10 @@ public class Seller extends Buyer implements Serializable {
         return sale;
 	}
 	
+	public List<Sale> getSales() {
+	    return sales;
+	}
+	
 	/**
 	 * This method checks if the ride already exists for that driver
 	 * 
