@@ -4,7 +4,7 @@ import businessLogic.BLFacade;
 import businessLogic.BLFactory;
 import domain.Seller;
 
-public class SellerTableMain {
+public class SellerTableMainAdapter {
 
     public static void main(String[] args) {
         // la lógica de negocio es local

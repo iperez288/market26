@@ -2,7 +2,7 @@ package businessLogic;
 
 import domain.Sale;
 
-public class Main {
+public class MainIterator {
 	public static void main(String[]	args)	{
 //		the	BL	is	local
 	boolean isLocal =	true;
